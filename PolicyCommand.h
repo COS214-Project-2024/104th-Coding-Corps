@@ -1,14 +1,17 @@
 #ifndef POLICYCOMMAND_H
 #define POLICYCOMMAND_H
+#include "Command.h"
+#include <string>
+#include "BuildingComposite.h"
 
-class PolicyCommand : Command {
+class PolicyCommand : public Command {
 
 private:
 	BuildingComposite* building;
-	string policyType;
+	std::string policyType;
 
 public:
-	PolicyCommand(BuildingComponent* b, string policy);
+	PolicyCommand(BuildingComposite* b, std::string policy);
 
 	void execute();
 };

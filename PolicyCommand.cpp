@@ -1,6 +1,6 @@
 #include "PolicyCommand.h"
 
-PolicyCommand::PolicyCommand(BuildingComponent* b, string policy) {
+PolicyCommand::PolicyCommand(BuildingComposite* b, std::string policy) {
 	// TODO - implement PolicyCommand::PolicyCommand
 	throw "Not yet implemented";
 }

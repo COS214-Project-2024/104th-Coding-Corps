@@ -1,11 +1,12 @@
 #ifndef GOVERNMENTMEDIATOR_H
 #define GOVERNMENTMEDIATOR_H
+#include "AbstractCitizen.h"
 
 class GovernmentMediator {
 
 
 public:
-	void notify(Citizen2* citizen);
+	void notify(AbstractCitizen* citizen);
 };
 
 #endif

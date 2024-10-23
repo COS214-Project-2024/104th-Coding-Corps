@@ -1,6 +1,6 @@
 #include "Government.h"
 
-void Government::notify(Citizen2* citizen) {
+void Government::notify(AbstractCitizen* citizen) {
 	// TODO - implement Government::notify
 	throw "Not yet implemented";
 }
@@ -14,12 +14,12 @@ void Government::issueCommand() {
 	throw "Not yet implemented";
 }
 
-void Government::notifyResourceChange(string resourceType, int quantity) {
+void Government::notifyResourceChange(std::string resourceType, int quantity) {
 	// TODO - implement Government::notifyResourceChange
 	throw "Not yet implemented";
 }
 
-void Government::addResourceToCity(string resourceType, int quantity, const ResourceFactory factory) {
+void Government::addResourceToCity(std::string resourceType, int quantity, const ResourceFactory factory) {
 	// TODO - implement Government::addResourceToCity
 	throw "Not yet implemented";
 }

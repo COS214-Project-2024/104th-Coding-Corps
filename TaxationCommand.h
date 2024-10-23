@@ -1,14 +1,16 @@
 #ifndef TAXATIONCOMMAND_H
 #define TAXATIONCOMMAND_H
+#include "Command.h"
+#include "AbstractCitizen.h"
 
-class TaxationCommand : Command {
+class TaxationCommand : public Command {
 
 private:
-	Citizen2* citizen;
+	AbstractCitizen* citizen;
 	double taxRate;
 
 public:
-	TaxationCommand(Citizen2* c, double rate);
+	TaxationCommand(AbstractCitizen* c, double rate);
 
 	void execute();
 };

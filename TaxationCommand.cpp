@@ -1,6 +1,6 @@
 #include "TaxationCommand.h"
 
-TaxationCommand::TaxationCommand(Citizen2* c, double rate) {
+TaxationCommand::TaxationCommand(AbstractCitizen* c, double rate) {
 	// TODO - implement TaxationCommand::TaxationCommand
 	throw "Not yet implemented";
 }

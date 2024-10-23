@@ -1,24 +1,31 @@
 #ifndef GOVERNMENT_H
 #define GOVERNMENT_H
+#include "GovernmentMediator.h"
+#include "Command.h"
+#include "ResourceManager.h"
+#include "ResourceFactory.h"
+#include "AbstractCitizen.h"
+#include <string>
+
 
 class Government : GovernmentMediator {
 
 private:
-	Citizen2* citizenList;
+	AbstractCitizen* citizenList;
 	Command* command;
 	ResourceManager& resourceManager;
 	Government* uniqueInstance;
 
 public:
-	void notify(Citizen2* citizen);
+	void notify(AbstractCitizen* citizen);
 
 	void setCommand(Command* c);
 
 	void issueCommand();
 
-	void notifyResourceChange(string resourceType, int quantity);
+	void notifyResourceChange(std::string resourceType, int quantity);
 
-	void addResourceToCity(string resourceType, int quantity, const ResourceFactory factory);
+	void addResourceToCity(std::string resourceType, int quantity, const ResourceFactory factory);
 
 	void displayCityResources();
 
