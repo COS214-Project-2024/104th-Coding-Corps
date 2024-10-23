@@ -1,35 +1,82 @@
 #include "Family.h"
+#include <iostream>
 
-Citizen* Family::moveDistrict(Citizen* District) {
-	// TODO - implement Family::moveDistrict
-	throw "Not yet implemented";
+Family::Family() {
+    // Constructor implementation
 }
 
-int Family::getSatisfaction() {
-	return this->satisfaction;
+Family::~Family() {
+    // Destructor implementation
 }
 
-bool Family::getEmployment() {
-	// TODO - implement Family::getEmployment
-	throw "Not yet implemented";
+void Family::updateContext() {
+    for (auto* member : members) {
+        member->updateContext();
+    }
 }
 
-int Family::getESoL() {
-	// TODO - implement Family::getESoL
-	throw "Not yet implemented";
+int Family::getSatisfaction() const {
+    // Calculate average satisfaction
+    return 0;  // Placeholder
 }
 
-int Family::getASoL() {
-	// TODO - implement Family::getASoL
-	throw "Not yet implemented";
+int Family::getESoL() const {
+    return expectedStandardOfLiving;
 }
 
-void Family::add(Citizen* citizen) {
-	// TODO - implement Family::add
-	throw "Not yet implemented";
+int Family::getASoL() const {
+    return actualStandardOfLiving;
 }
 
-void Family::remove(Citizen* citizen) {
-	// TODO - implement Family::remove
-	throw "Not yet implemented";
+void Family::add(AbstractCitizen* citizen) {
+    members.push_back(citizen);
+}
+
+void Family::remove(AbstractCitizen* citizen) {
+    // Remove citizen from family
+}
+
+void Family::changed() {
+    // Implementation for Mediator pattern
+}
+
+void Family::applyTax(double taxRate) {
+    for (auto* member : members) {
+        member->applyTax(taxRate);
+    }
+}
+
+void Family::update() {
+    for (auto* member : members) {
+        member->update();
+    }
+}
+
+double Family::getCurrentIncome() const {
+    double totalIncome = 0;
+    for (const auto* member : members) {
+        totalIncome += member->getCurrentIncome();
+    }
+    return totalIncome;
+}
+
+void Family::goOnStrike() {
+    for (auto* member : members) {
+        member->goOnStrike();
+    }
+}
+
+void Family::resolveStrike() {
+    for (auto* member : members) {
+        member->resolveStrike();
+    }
+}
+
+void Family::moveDistrict(const std::string& district) {
+    this->district = district;
+}
+
+double Family::getMonthlyExpenditure() const {
+    // Calculate average expenditure
+    return 0;  // Placeholder
 }

@@ -1,16 +1,24 @@
 #include "CityContext.h"
+#include <iostream>
 
-void CityContext::attach(Citizen* family) {
-	// TODO - implement CityContext::attach
-	throw "Not yet implemented";
+CityContext::CityContext() : GDP(0.0), totalPop(0), averageStandardOfLiving(0.0), averageEducationLevel(0.0), averageIncome(0.0) {
+    // Constructor implementation
 }
 
-void CityContext::detach(Citizen* family) {
-	// TODO - implement CityContext::detach
-	throw "Not yet implemented";
+CityContext::~CityContext() {
+    // Destructor implementation
+}
+
+void CityContext::attach(AbstractCitizen* citizen) {
+    families.push_back(citizen);
+}
+
+void CityContext::detach(AbstractCitizen* citizen) {
+    // Remove citizen from observers
 }
 
 void CityContext::notify() {
-	// TODO - implement CityContext::notify
-	throw "Not yet implemented";
+    for (auto* citizen : families) {
+        citizen->updateContext();
+    }
 }

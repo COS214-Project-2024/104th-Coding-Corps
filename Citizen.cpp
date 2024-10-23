@@ -1,70 +1,114 @@
 #include "Citizen.h"
+#include <iostream>
 
-int Citizen::getSatisfaction() {
-	return this->satisfaction;
+Citizen::Citizen() : onStrike(false), employed(true), educationLevel(0), monthlyExpenditure(0.0) {
+    // Constructor implementation
 }
 
-void Citizen::updateSatisfaction(int amount) {
-	// TODO - implement Citizen::updateSatisfaction
-	throw "Not yet implemented";
+Citizen::~Citizen() {
+    // Destructor implementation
 }
 
-bool Citizen::getEmployment() {
-	// TODO - implement Citizen::getEmployment
-	throw "Not yet implemented";
+void Citizen::updateContext() {
+    // Implementation
 }
 
-void Citizen::updateEmployment() {
-	// TODO - implement Citizen::updateEmployment
-	throw "Not yet implemented";
+int Citizen::getSatisfaction() const {
+    return satisfaction;
 }
 
-int Citizen::getESoL() {
-	// TODO - implement Citizen::getESoL
-	throw "Not yet implemented";
+int Citizen::getESoL() const {
+    return expectedStandardOfLiving;
 }
 
-void Citizen::updateESoL(int update) {
-	// TODO - implement Citizen::updateESoL
-	throw "Not yet implemented";
+int Citizen::getASoL() const {
+    return actualStandardOfLiving;
 }
 
-int Citizen::getASoL() {
-	// TODO - implement Citizen::getASoL
-	throw "Not yet implemented";
+void Citizen::add(AbstractCitizen* citizen) {
+    // Not applicable for leaf node
 }
 
-void Citizen::updateASoL(int update) {
-	// TODO - implement Citizen::updateASoL
-	throw "Not yet implemented";
-}
-
-ENUM Citizen::getJobType() {
-	// TODO - implement Citizen::getJobType
-	throw "Not yet implemented";
-}
-
-void Citizen::setJobType(ENUM job) {
-	// TODO - implement Citizen::setJobType
-	throw "Not yet implemented";
-}
-
-void Citizen::add(Citizen* citizen) {
-	// TODO - implement Citizen::add
-	throw "Not yet implemented";
-}
-
-void Citizen::remove(Citizen* citizen) {
-	// TODO - implement Citizen::remove
-	throw "Not yet implemented";
+void Citizen::remove(AbstractCitizen* citizen) {
+    // Not applicable for leaf node
 }
 
 void Citizen::changed() {
-	// TODO - implement Citizen::changed
-	throw "Not yet implemented";
+    // Implementation for Mediator pattern
 }
 
 void Citizen::applyTax(double taxRate) {
-	// TODO - implement Citizen::applyTax
-	throw "Not yet implemented";
+    if (employed) {
+        currentIncome -= currentIncome * taxRate;
+    }
+}
+
+void Citizen::update() {
+    // Update logic
+}
+
+double Citizen::getCurrentIncome() const {
+    return currentIncome;
+}
+
+void Citizen::goOnStrike() {
+    onStrike = true;
+    std::cout << citizenFName << " " << citizenLName << " is on strike!" << std::endl;
+}
+
+void Citizen::resolveStrike() {
+    onStrike = false;
+    std::cout << citizenFName << " " << citizenLName << " is back to work!" << std::endl;
+}
+
+bool Citizen::getEmployment() const {
+    return employed;
+}
+
+void Citizen::updateEmployment() {
+    employed = !employed;
+}
+
+void Citizen::updateSatisfaction(int amount) {
+    satisfaction += amount;
+}
+
+void Citizen::updateESoL(int update) {
+    expectedStandardOfLiving += update;
+}
+
+void Citizen::updateASoL(int update) {
+    actualStandardOfLiving += update;
+}
+
+std::string Citizen::getJobType() const {
+    return jobType;
+}
+
+void Citizen::setJobType(const std::string& job) {
+    jobType = job;
+}
+
+void Citizen::increaseEducation() {
+    educationLevel++;
+}
+
+void Citizen::updateCurrentIncome(double amount) {
+    currentIncome += amount;
+}
+
+void Citizen::goToWork() {
+    // Travel to work logic
+}
+
+void Citizen::goToShops() {
+    // Shopping logic
+}
+
+void Citizen::promoteClass() {
+    // Promotion logic
+}
+
+void Citizen::demoteClass() {
+    // Demotion logic
 }

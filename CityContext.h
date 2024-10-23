@@ -1,21 +1,25 @@
 #ifndef CITYCONTEXT_H
 #define CITYCONTEXT_H
 
-class CityContext {
+#include "AbstractCitizen.h"
+#include <vector>
 
+class CityContext {
 private:
-	float GDP;
-	int totalPop;
-	int averageStandardOfLiving;
-	int averageEducationLevel;
-	Citizen* families;
+    double GDP;
+    int totalPop;
+    double averageStandardOfLiving;
+    double averageEducationLevel;
+    double averageIncome;
+    std::vector<AbstractCitizen*> families;
 
 public:
-	void attach(Citizen* family);
+    CityContext();
+    ~CityContext();
 
-	void detach(Citizen* family);
-
-	void notify();
+    void attach(AbstractCitizen* citizen);
+    void detach(AbstractCitizen* citizen);
+    void notify();
 };
 
-#endif
+#endif // CITYCONTEXT_H
