@@ -1,18 +1,14 @@
 #ifndef CONCRETE_H
 #define CONCRETE_H
 
-class Concrete : Resource {
+#include "Resource.h"
+#include <string>
 
+class Concrete : public Resource {
 public:
-	int quantity;
+    Concrete(int quantity) : Resource(quantity) {}
 
-	string getName();
-
-	int getQuantity();
-
-	void addQuantity();
-
-	void consume();
+    std::string getName() override;
 };
 
-#endif
+#endif // CONCRETE_H

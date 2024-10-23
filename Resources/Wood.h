@@ -1,18 +1,15 @@
+
 #ifndef WOOD_H
 #define WOOD_H
 
-class Wood : Resource {
+#include "Resource.h"
+#include <string>
 
+class Wood : public Resource {
 public:
-	int quantity;
+    Wood(int quantity) : Resource(quantity) {}
 
-	string getName();
-
-	int getQuantity();
-
-	void addQuantity();
-
-	void consume();
+    std::string getName() override;
 };
 
-#endif
+#endif // WOOD_H

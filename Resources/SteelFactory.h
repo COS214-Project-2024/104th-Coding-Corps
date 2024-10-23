@@ -1,11 +1,12 @@
 #ifndef STEELFACTORY_H
 #define STEELFACTORY_H
 
-class SteelFactory : ResourceFactory {
+#include "ResourceFactory.h"
+#include "Steel.h"
 
-
+class SteelFactory : public ResourceFactory {
 public:
-	Resource* createResource(int quantity);
+    std::unique_ptr<Resource> createResource(int quantity);
 };
 
-#endif
+#endif // STEELFACTORY_H

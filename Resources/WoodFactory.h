@@ -1,11 +1,12 @@
 #ifndef WOODFACTORY_H
 #define WOODFACTORY_H
 
-class WoodFactory : ResourceFactory {
+#include "ResourceFactory.h"
+#include "Wood.h"
 
-
+class WoodFactory : public ResourceFactory {
 public:
-	Resource* createResource(int quantity);
+    std::unique_ptr<Resource> createResource(int quantity);
 };
 
-#endif
+#endif // WOODFACTORY_H

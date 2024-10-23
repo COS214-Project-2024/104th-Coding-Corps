@@ -1,13 +1,13 @@
 #ifndef RESOURCEFACTORY_H
 #define RESOURCEFACTORY_H
 
+#include "Resource.h"
+#include <memory>
+
 class ResourceFactory {
-
-private:
-	Resource* resource;
-
 public:
-	Resource* createResource(int quantity);
+    virtual ~ResourceFactory() = default;
+    virtual std::unique_ptr<Resource> createResource(int quantity) = 0;
 };
 
-#endif
+#endif // RESOURCEFACTORY_H

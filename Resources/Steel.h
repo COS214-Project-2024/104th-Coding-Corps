@@ -1,18 +1,14 @@
 #ifndef STEEL_H
 #define STEEL_H
 
-class Steel : Resource {
+#include "Resource.h"
+#include <string>
 
+class Steel : public Resource {
 public:
-	int quantity;
+    Steel(int quantity) : Resource(quantity) {}
 
-	string getName();
-
-	int getQuantity();
-
-	void addQuantity();
-
-	void consume();
+    std::string getName() override;
 };
 
-#endif
+#endif // STEEL_H

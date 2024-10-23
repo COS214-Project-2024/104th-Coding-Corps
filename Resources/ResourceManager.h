@@ -1,24 +1,37 @@
 #ifndef RESOURCEMANAGER_H
 #define RESOURCEMANAGER_H
 
+#include <map>
+#include <memory>
+#include <string>
+#include "Resource.h"
+#include "ResourceFactory.h"
+
 class ResourceManager {
-
 private:
-	map<null, Resource*> resources;
-	ResourceManager* instance;
 
-	ResourceManager();
+    std::map<std::string, std::shared_ptr<Resource>> resources;
+
+    static std::shared_ptr<ResourceManager> instance;
+
+    ResourceManager() = default;
 
 public:
-	void ReaourceManager(int const_ResourceManager);
 
-	void operator=(int const_ResourceManager);
+    ResourceManager(const ResourceManager&) = delete;
+    void operator=(const ResourceManager&) = delete;
 
-	ResourceManager* getInstance();
+    static std::shared_ptr<ResourceManager> getInstance();
 
-	void addResource(string& type, int quantity, const ResourceFactory factory);
+    void addResource(const std::string& type, int quantity, ResourceFactory& factory);
 
-	Resource* getResource(string& type);
+    std::shared_ptr<Resource> getResource(const std::string& type);
+
+    bool consumeResource(const std::string& type, int quantity);
+
+    bool isResourceAvailable(const std::string& type, int quantity);
+
+    void displayResources() const;
 };
 
-#endif
+#endif // RESOURCEMANAGER_H

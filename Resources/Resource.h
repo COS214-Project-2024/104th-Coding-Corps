@@ -1,17 +1,26 @@
 #ifndef RESOURCE_H
 #define RESOURCE_H
 
-class Resource {
+#include <string>
+#include <memory>
 
+class Resource {
+protected:
+    int quantity;
 
 public:
-	virtual string getName() = 0;
+    Resource(int quantity) : quantity(quantity) {}
+    virtual ~Resource() = default;
 
-	virtual int getQuantity() = 0;
+    virtual std::string getName() = 0;
 
-	virtual void addQuantity() = 0;
+    virtual int getQuantity() const;
 
-	virtual void consume() = 0;
+    virtual void addQuantity(int amount);
+
+    virtual bool consume(int amount);
+
+    virtual bool checkAvailability(int amount) const;
 };
 
-#endif
+#endif // RESOURCE_H

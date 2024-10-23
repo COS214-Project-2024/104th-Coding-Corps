@@ -1,6 +1,4 @@
 #include "ConcreteFactory.h"
-
-Resource* ConcreteFactory::createResource(int quantity) {
-	// TODO - implement ConcreteFactory::createResource
-	throw "Not yet implemented";
+std::unique_ptr<Resource> ConcreteFactory::createResource(int quantity) {
+	return std::make_unique<Concrete>(quantity);
 }

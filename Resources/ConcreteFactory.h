@@ -1,11 +1,13 @@
 #ifndef CONCRETEFACTORY_H
 #define CONCRETEFACTORY_H
+#include "ResourceFactory.h"
+#include "Concrete.h"
 
-class ConcreteFactory : ResourceFactory {
-
+class ConcreteFactory : public ResourceFactory {
 
 public:
-	Resource* createResource(int quantity);
+    std::unique_ptr<Resource> createResource(int quantity);
 };
 
 #endif
+
