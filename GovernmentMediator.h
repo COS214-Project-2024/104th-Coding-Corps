@@ -6,7 +6,7 @@ class GovernmentMediator {
 
 
 public:
-	void notify(AbstractCitizen* citizen);
+	virtual void notify(AbstractCitizen* citizen) = 0;
 };
 
 #endif

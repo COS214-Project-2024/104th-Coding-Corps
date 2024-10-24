@@ -1,11 +1,7 @@
 #include "PolicyCommand.h"
 
-PolicyCommand::PolicyCommand(BuildingComposite* b, std::string policy) {
-	// TODO - implement PolicyCommand::PolicyCommand
-	throw "Not yet implemented";
-}
+PolicyCommand::PolicyCommand(BuildingComposite* b, std::string policy) : district(d), policyType(policy) {}
 
 void PolicyCommand::execute() {
-	// TODO - implement PolicyCommand::execute
-	throw "Not yet implemented";
+	district->enforcePolicy(policyType);
 }

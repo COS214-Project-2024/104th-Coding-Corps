@@ -7,12 +7,11 @@
 class PolicyCommand : public Command {
 
 private:
-	BuildingComposite* building;
+	BuildingComposite* district;
 	std::string policyType;
 
 public:
-	PolicyCommand(BuildingComposite* b, std::string policy);
-
+	PolicyCommand(BuildingComposite* d, std::string policy);
 	void execute();
 };
 

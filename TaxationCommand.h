@@ -11,7 +11,6 @@ private:
 
 public:
 	TaxationCommand(AbstractCitizen* c, double rate);
-
 	void execute();
 };
 

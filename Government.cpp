@@ -1,18 +1,63 @@
 #include "Government.h"
+#include <iostream>
 
+//---------------------------------------------SINGLETON STUFF---------------------------------------------
+std::shared_ptr<Government> Government::uniqueInstance = nullptr;
+Government::Government() {
+    // Initialize resourceManager and budget with the shared pointers returned by their respective Singleton classes
+    resourceManager = ResourceManager::getInstance();
+    budget = Budget::getInstance();
+    
+    citizenList = nullptr;
+    command = nullptr;
+    //std::cout << "Government instance created." << std::endl;
+}
+
+std::shared_ptr<Government> Government::getInstance() {
+    if (!uniqueInstance) {
+        uniqueInstance = std::shared_ptr<Government>(new Government());
+    }
+    return uniqueInstance;
+}
+//---------------------------------------------------------------------------------------------------------
+
+//---------------------------------------------MEDIATOR STUFF---------------------------------------------
 void Government::notify(AbstractCitizen* citizen) {
 	// TODO - implement Government::notify
 	throw "Not yet implemented";
 }
 
+void Government::setCitizenList(AbstractCitizen* c) {
+	this->citizenList = c;
+}
+//--------------------------------------------------------------------------------------------------------
+
+//---------------------------------------------COMMAND STUFF----------------------------------------------
 void Government::setCommand(Command* c) {
 	this->command = c;
 }
 
 void Government::issueCommand() {
-	// TODO - implement Government::issueCommand
-	throw "Not yet implemented";
+	if(command) {
+		command->execute();
+	}
 }
+//-------------------------------------------------------------------------------------------------------
+
+//----------------------------------------------BUDGET STUFF----------------------------------------------
+void Government::increaseBudget(double amount) {
+    // Use the budget instance to add revenue
+    budget->addRevenue(amount);
+}
+
+void Government::decreaseBudget(double amount) {
+    // Use the budget instance to deduct an expense
+    budget->deductExpense(amount);
+}
+//--------------------------------------------------------------------------------------------------------
+
+//----------------------------------------------RESOURCE STUFF----------------------------------------------
+//ask Capleton to explain
 
 void Government::notifyResourceChange(std::string resourceType, int quantity) {
 	// TODO - implement Government::notifyResourceChange
@@ -28,18 +73,4 @@ void Government::displayCityResources() {
 	// TODO - implement Government::displayCityResources
 	throw "Not yet implemented";
 }
-
-static Government* Government::instance() {
-	// TODO - implement Government::instance
-	throw "Not yet implemented";
-}
-
-void Government::increaseBudget(double amount) {
-	// TODO - implement Government::increaseBudget
-	throw "Not yet implemented";
-}
-
-void Government::decreaseBudget(double amount) {
-	// TODO - implement Government::decreaseBudget
-	throw "Not yet implemented";
-}
+//----------------------------------------------------------------------------------------------------------
