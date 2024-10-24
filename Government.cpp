@@ -8,7 +8,7 @@ Government::Government() {
     resourceManager = ResourceManager::getInstance();
     budget = Budget::getInstance();
     
-    citizenList = nullptr;
+    citizenList = {};
     command = nullptr;
     //std::cout << "Government instance created." << std::endl;
 }
@@ -20,17 +20,6 @@ std::shared_ptr<Government> Government::getInstance() {
     return uniqueInstance;
 }
 //---------------------------------------------------------------------------------------------------------
-
-//---------------------------------------------MEDIATOR STUFF---------------------------------------------
-void Government::notify(AbstractCitizen* citizen) {
-	// TODO - implement Government::notify
-	throw "Not yet implemented";
-}
-
-void Government::setCitizenList(AbstractCitizen* c) {
-	this->citizenList = c;
-}
-//--------------------------------------------------------------------------------------------------------
 
 //---------------------------------------------COMMAND STUFF----------------------------------------------
 void Government::setCommand(Command* c) {

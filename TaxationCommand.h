@@ -2,15 +2,17 @@
 #define TAXATIONCOMMAND_H
 #include "Command.h"
 #include "AbstractCitizen.h"
+#include "TaxCollector.h"
+#include <vector>
 
 class TaxationCommand : public Command {
 
 private:
-	AbstractCitizen* citizen;
+	std::vector<AbstractCitizen*> citizenList;
 	double taxRate;
 
 public:
-	TaxationCommand(AbstractCitizen* c, double rate);
+	TaxationCommand(std::vector<AbstractCitizen*> c, double rate);
 	void execute();
 };
 
