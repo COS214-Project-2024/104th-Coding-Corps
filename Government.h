@@ -17,6 +17,10 @@ private:
 	Government* uniqueInstance;
 
 public:
+	Government();
+
+	static Government* instance();
+	
 	void notify(AbstractCitizen* citizen);
 
 	void setCommand(Command* c);
@@ -28,11 +32,6 @@ public:
 	void addResourceToCity(std::string resourceType, int quantity, const ResourceFactory factory);
 
 	void displayCityResources();
-
-	static Government* instance();
-
-public:
-	Government();
 
 	void increaseBudget(double amount);
 
