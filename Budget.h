@@ -1,26 +1,30 @@
 #ifndef BUDGET_H
 #define BUDGET_H
+#include <memory>
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
 
 class Budget {
 
 private:
 	double balance;
-	Budget* instance;
+	static shared_ptr<Budget> instance;
+	vector<string> transactionHistory; 
 
-	Budget();
+	Budget(): balance(0.0){};
 
 public:
-	Budget(Budget& bug);
 
-	void operator=(Budget& bug);
-
-	Budget* getInstance();
-
+    Budget(const Budget&) = delete;
+    void operator=(const Budget&) = delete;
+	static shared_ptr<Budget> getInstance();
 	void addRevenue(double amount);
-
 	bool deductExpense(double amount);
-
-	double getBalance();
+	double getBalance() const;
+	void logTransaction(const std::string& transaction);
+	void printTransactionHistory() const;
 };
 
 #endif
