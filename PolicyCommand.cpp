@@ -4,4 +4,5 @@ PolicyCommand::PolicyCommand(BuildingComposite* b, std::string policy) : distric
 
 void PolicyCommand::execute() {
 	district->enforcePolicy(policyType);
+	//NB We still need to implement enforce policy
 }
