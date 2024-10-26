@@ -1,10 +1,14 @@
 #ifndef FLAT_H
 #define FLAT_H
 
-class Flat : ResidentialBuildings {
+#include "ResidentialBuildings.h"
 
-public:
+class Flat : public ResidentialBuildings {
+
+private:
 	int numUnits;
+public:
+	Flat(int units, int residents, int floors, bool hasGarden);
 
 	int getNumUnits();
 
@@ -29,6 +33,10 @@ public:
 	bool hasGarden();
 
 	double getArea();
+
+	int getOccupancy() override;
+
+	void upgrade(BuildingComponent* building) override;
 };
 
 #endif

@@ -1,11 +1,16 @@
 #ifndef RESIDENTIALBUILDINGFACTORY_H
 #define RESIDENTIALBUILDINGFACTORY_H
 
-class ResidentialBuildingFactory : BuildingFactory {
+#include "BuildingFactory.h"
+#include "ResidentialBuildings.h"
+
+class ResidentialBuildingFactory : public BuildingFactory {
 
 
 public:
-	BuildingComponent* createBuilding();
+	BuildingComponent* createFlat(int units, int residents, int floors, bool hasGarden) override;
+	BuildingComponent* createHouse(int garageSize, bool hasPool, int residents, int floors, bool hasGarden) override;
+	BuildingComponent* createEstate(int garageSize, bool hasPool, int residents, int floors, bool hasGarden) override;
 };
 
 #endif

@@ -1,13 +1,16 @@
 #ifndef HOUSE_H
 #define HOUSE_H
 
-class House : ResidentialBuildings {
+#include "ResidentialBuildings.h"
+class House : public ResidentialBuildings {
 
 private:
 	int garageSize;
 	bool hasSwimmingPool;
 
 public:
+	House(int garageSize, bool hasPool, int residents, int floors, bool hasGarden);
+	
 	int getGarageSize();
 
 	bool hasSwimmingPool();
@@ -33,6 +36,10 @@ public:
 	bool hasGarden();
 
 	double getArea();
+	
+	int getOccupancy() override;
+
+	void upgrade(BuildingComponent* building) override;
 };
 
 #endif

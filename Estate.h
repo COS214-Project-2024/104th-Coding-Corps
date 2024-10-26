@@ -1,13 +1,15 @@
 #ifndef ESTATE_H
 #define ESTATE_H
 
-class Estate : ResidentialBuildings {
+class Estate : public ResidentialBuildings {
 
 private:
 	int garageSize;
 	bool hasSwimmingPool;
 
 public:
+	Estate(int garageSize, bool hasPool, int residents, int floors, bool hasGarden);
+
 	int getGarageSize();
 
 	bool hasSwimmingPool();
@@ -33,6 +35,10 @@ public:
 	bool hasGarden();
 
 	double getArea();
+	
+	int getOccupancy() override;
+
+	void upgrade(BuildingComponent* building) override;
 };
 
 #endif

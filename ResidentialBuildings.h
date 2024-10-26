@@ -1,7 +1,11 @@
 #ifndef RESIDENTIALBUILDINGS_H
 #define RESIDENTIALBUILDINGS_H
 
-class ResidentialBuildings : BuildingComponent {
+#include "BuildingComponent.h"
+#include <string>
+using namespace std;
+
+class ResidentialBuildings : public BuildingComponent {
 
 private:
 	int numResidents;
