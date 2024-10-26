@@ -26,7 +26,8 @@ public:
 	void setCommand(Command* c);
 	void issueCommand();
 	void notifyResourceChange(std::string resourceType, int quantity);
-	void addResourceToCity(std::string resourceType, int quantity, const ResourceFactory factory);
+	void addResourceToCity(const std::string& resourceType, int quantity, ResourceFactory& factory);
+	bool useResource(const std::string& type, int quantity);
 	void displayCityResources();
 	void increaseBudget(double amount);
 	void decreaseBudget(double amount);

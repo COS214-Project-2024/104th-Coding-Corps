@@ -46,20 +46,28 @@ void Government::decreaseBudget(double amount) {
 //--------------------------------------------------------------------------------------------------------
 
 //----------------------------------------------RESOURCE STUFF----------------------------------------------
-//ask Capleton to explain
 
 void Government::notifyResourceChange(std::string resourceType, int quantity) {
-	// TODO - implement Government::notifyResourceChange
-	throw "Not yet implemented";
+    for (auto it = citizenList.begin(); it != citizenList.end(); ++it) {
+        if (*it) {
+            (*it)->update(resourceType, quantity);  // Notify each citizen of the resource change
+        }
+    }
 }
 
-void Government::addResourceToCity(std::string resourceType, int quantity, const ResourceFactory factory) {
-	// TODO - implement Government::addResourceToCity
-	throw "Not yet implemented";
+void Government::addResourceToCity(const std::string& resourceType, int quantity, ResourceFactory& factory) {
+    resourceManager->addResource(resourceType, quantity, factory);
+    notifyResourceChange(resourceType, quantity);
+}
+
+bool Government::useResource(const std::string& type, int quantity) {
+    resourceManager->consumeResource(type, quantity);
+    int negQuantity = quantity * -1;
+    //because we want to notify a negative value (symbolizing consuming)
+    notifyResourceChange(type, negQuantity);
 }
 
 void Government::displayCityResources() {
-	// TODO - implement Government::displayCityResources
-	throw "Not yet implemented";
+	resourceManager->displayResources();
 }
 //----------------------------------------------------------------------------------------------------------
