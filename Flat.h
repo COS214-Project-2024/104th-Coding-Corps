@@ -22,8 +22,6 @@ public:
 
 	double getWaterConsumption();
 
-	void construct();
-
 	void demolish();
 
 	int getNumResidents();

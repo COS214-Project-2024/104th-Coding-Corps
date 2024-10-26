@@ -1,14 +1,18 @@
 #ifndef ESTATE_H
 #define ESTATE_H
 
+#include <string>
+#include "ResidentialBuildings.h"
+using namespace std;
+
 class Estate : public ResidentialBuildings {
 
 private:
-	int garageSize;
-	bool hasSwimmingPool;
+	int garageSize, numUnits;
+	bool pool;
 
 public:
-	Estate(int garageSize, bool hasPool, int residents, int floors, bool hasGarden);
+	Estate(int garageSize, bool hasPool, int residents, int floors, bool hasGarden, int units);
 
 	int getGarageSize();
 

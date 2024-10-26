@@ -1,5 +1,11 @@
 #include "ResidentialBuildings.h"
 
+ResidentialBuildings::ResidentialBuildings(int residents, int floors, bool garden){
+	this->numResidents = residents;
+	this->numFloors = floors;
+	this->garden = hasGarden;
+}
+
 int ResidentialBuildings::getNumResidents() {
 	return this->numResidents;
 }
@@ -9,6 +15,5 @@ int ResidentialBuildings::getNumFloors() {
 }
 
 bool ResidentialBuildings::hasGarden() {
-	// TODO - implement ResidentialBuildings::hasGarden
-	throw "Not yet implemented";
+	return hasGarden;
 }

@@ -1,60 +1,57 @@
 #include "Flat.h"
+#include <stdexcept>
 
+Flat::Flat(int units, int residents, int floors, bool hasGarden) : ResidentialBuildings(residents, floors, hasGarden) {
+	this->numUnits = units;
+}
 int Flat::getNumUnits() {
 	return this->numUnits;
 }
 
-string Flat::getBuildingType() {
-	// TODO - implement Flat::getBuildingType
-	throw "Not yet implemented";
+std::string Flat::getBuildingType() {
+	return "Flat";
 }
 
 double Flat::getCost() {
-	// TODO - implement Flat::getCost
-	throw "Not yet implemented";
+	return 1595000.00;
 }
 
 double Flat::getMaintenanceCost() {
-	// TODO - implement Flat::getMaintenanceCost
-	throw "Not yet implemented";
+	return 10000.00;
 }
 
 double Flat::getEnergyConsumption() {
-	// TODO - implement Flat::getEnergyConsumption
-	throw "Not yet implemented";
+	// Assuming each unit consumes 300 kWh per month
+	const double energyPerUnit = 300.0;
+	return energyPerUnit * this->numUnits;
 }
 
 double Flat::getWaterConsumption() {
-	// TODO - implement Flat::getWaterConsumption
-	throw "Not yet implemented";
-}
-
-void Flat::construct() {
-	// TODO - implement Flat::construct
-	throw "Not yet implemented";
+	// Assuming each unit uses 2500 liters of water per month
+	const double waterPerUnit = 2500.0;
+	return waterPerUnit * this->numUnits;
 }
 
 void Flat::demolish() {
-	// TODO - implement Flat::demolish
-	throw "Not yet implemented";
+	// Code to handle demolition of the flat, such as resetting attributes
+	this->numResidents = 0;
+	this->numFloors = 0;
 }
 
 int Flat::getNumResidents() {
-	// TODO - implement Flat::getNumResidents
-	throw "Not yet implemented";
+	// Return total residents assuming each unit has 3 residents
+	return this->numUnits * 3;
 }
 
 int Flat::getNumFloors() {
-	// TODO - implement Flat::getNumFloors
-	throw "Not yet implemented";
+	const int unitsPerFloor = 4;
+	return (this->numUnits + unitsPerFloor - 1) / unitsPerFloor; // Round up
 }
 
 bool Flat::hasGarden() {
-	// TODO - implement Flat::hasGarden
-	throw "Not yet implemented";
+	return false;
 }
 
 double Flat::getArea() {
-	// TODO - implement Flat::getArea
-	throw "Not yet implemented";
+	return getX() * getY()* this->numUnits;
 }

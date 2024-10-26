@@ -6,11 +6,11 @@ class House : public ResidentialBuildings {
 
 private:
 	int garageSize;
-	bool hasSwimmingPool;
+	bool pool;
 
 public:
 	House(int garageSize, bool hasPool, int residents, int floors, bool hasGarden);
-	
+
 	int getGarageSize();
 
 	bool hasSwimmingPool();

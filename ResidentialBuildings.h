@@ -7,12 +7,14 @@ using namespace std;
 
 class ResidentialBuildings : public BuildingComponent {
 
-private:
+protected:
 	int numResidents;
 	int numFloors;
-	bool hasGarden;
+	bool garden;
 
 public:
+	ResidentialBuildings(int residents, int floors, bool hasGarden);
+
 	virtual string getBuildingType() = 0;
 
 	virtual int getOccupancy() = 0;
