@@ -1,6 +1,5 @@
 #ifndef GOVERNMENT_H
 #define GOVERNMENT_H
-#include "GovernmentMediator.h"
 #include "Command.h"
 #include "ResourceManager.h"
 #include "ResourceFactory.h"

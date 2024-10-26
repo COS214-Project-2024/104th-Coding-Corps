@@ -17,7 +17,7 @@ Saber, look here for Citizen.cpp and .h
 
     // Calculate tax based on income
     double calculateTax() const override {
-        return income * 0.15;  // Assume 15% tax rate
+        //However we do that based on income
     }
 
     // Simulate paying tax
