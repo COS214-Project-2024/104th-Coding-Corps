@@ -14,9 +14,9 @@ public:
 	virtual BuildingComponent* createFactory(int numWorkers, string factoryType, double production) {}
 	virtual BuildingComponent* createPlant(int workers, double production) {}
 	virtual BuildingComponent* createWarehouse(int storageCapacity, int numWorkers) {}
-	virtual BuildingComponent* createOffice() {}
-	virtual BuildingComponent* createMall() {}
-	virtual BuildingComponent* createShop() {}
+	virtual BuildingComponent* createOffice(int numEmployees, string businessType, int numBusinesses) {}
+	virtual BuildingComponent* createMall(int numShops, string businessType, int numBusinesses) {}
+	virtual BuildingComponent* createShop(int shopSize, string businessType, int numBusinesses) {}
 };
 
 #endif

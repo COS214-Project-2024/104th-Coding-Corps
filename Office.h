@@ -1,9 +1,13 @@
 #ifndef OFFICE_H
 #define OFFICE_H
 
-class Office : CommercialBuildings {
+#include "CommercialBuildings.h"
+
+class Office : public CommercialBuildings {
 
 public:
+	Office(int numEmployees, string businessType, int numBusinesses);
+
 	int numEmployees;
 
 	int getNumEmployees();
@@ -27,6 +31,10 @@ public:
 	int getNumBusinesses();
 
 	double getArea();
+
+	void upgrade(BuildingComponent* building);
+
+	int getOccupancy();
 };
 
 #endif

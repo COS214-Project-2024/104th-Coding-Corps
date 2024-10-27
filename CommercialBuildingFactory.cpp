@@ -1,11 +1,14 @@
 #include "CommercialBuildingFactory.h"
+#include "Office.h"
+#include "mall.h"
+#include "Shop.h"
 
-BuildingComponent* IndustrialBuildingFactory::createFactory(int numEmployees, string businessType, int numBusinesses){
-	return new Factory(numEmployees, businessType, numBusinesses);
+BuildingComponent* CommercialBuildingFactory::createOffice(int numEmployees, string businessType, int numBusinesses){
+	return new Office(numEmployees, businessType, numBusinesses);
 }
-BuildingComponent* IndustrialBuildingFactory::createPlant(int numShops, string businessType, int numBusinesses){
-	return new plant(numShops, businessType, numBusinesses);
+BuildingComponent* CommercialBuildingFactory::createMall(int numShops, string businessType, int numBusinesses){
+	return new Mall(numShops, businessType, numBusinesses);
 }
-BuildingComponent* IndustrialBuildingFactory::createWarehouse(int shopSize, string businessType, int numBusinesses) {
-	return new Warehouse(shopSize, businessType, numBusinesses);
+BuildingComponent* CommercialBuildingFactory::createShop(int shopSize, string businessType, int numBusinesses) {
+	return new Shop(shopSize, businessType, numBusinesses);
 }

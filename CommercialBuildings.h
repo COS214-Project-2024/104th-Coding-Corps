@@ -1,7 +1,9 @@
 #ifndef COMMERCIALBUILDINGS_H
 #define COMMERCIALBUILDINGS_H
 
-class CommercialBuildings : BuildingComponent {
+#include "BuildingComponent.h"
+
+class CommercialBuildings : public BuildingComponent {
 
 private:
 	string businessType;

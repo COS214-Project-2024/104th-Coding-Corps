@@ -1,10 +1,14 @@
 #ifndef MALL_H
 #define MALL_H
 
-class mall : CommercialBuildings {
+#include "CommercialBuildings.h"
 
-public:
+class Mall : public CommercialBuildings {
+
+private:
 	int numShops;
+public:
+	Mall(int numShops, string businessType, int numBusinesses);
 
 	int getNumShops();
 
@@ -27,6 +31,10 @@ public:
 	int getNumBusinesses();
 
 	double getArea();
+	
+	void upgrade(BuildingComponent* building);
+
+	int getOccupancy();
 };
 
 #endif
