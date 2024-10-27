@@ -2,11 +2,12 @@
 #define OFFICE_H
 
 #include "CommercialBuildings.h"
-
+#include "string"
+using namespace std;
 class Office : public CommercialBuildings {
 
 public:
-	Office(int numEmployees, string businessType, int numBusinesses);
+	Office(int numEmployees, string businessType);
 
 	int numEmployees;
 
@@ -25,10 +26,6 @@ public:
 	void construct();
 
 	void demolish();
-
-	string getBusinessType();
-
-	int getNumBusinesses();
 
 	double getArea();
 

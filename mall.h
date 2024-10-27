@@ -2,6 +2,8 @@
 #define MALL_H
 
 #include "CommercialBuildings.h"
+#include "string"
+using namespace std;
 
 class Mall : public CommercialBuildings {
 
@@ -25,10 +27,6 @@ public:
 	void construct();
 
 	void demolish();
-
-	string getBusinessType();
-
-	int getNumBusinesses();
 
 	double getArea();
 	

@@ -2,6 +2,7 @@
 #define COMMERCIALBUILDINGS_H
 
 #include "BuildingComponent.h"
+#include "string"
 
 class CommercialBuildings : public BuildingComponent {
 
@@ -10,6 +11,10 @@ private:
 	int numBusinesses;
 
 public:
+	CommercialBuildings(string business, int num) { 
+		this->businessType = business;
+		this->numBusinesses = num;
+	}
 	virtual string getBuildingType() = 0;
 
 	virtual int getOccupancy() = 0;
@@ -28,9 +33,9 @@ public:
 
 	virtual void upgrade(BuildingComponent* building) = 0;
 
-	virtual string getBusinessType() = 0;
+	string getBusinessType() { return businessType; };
 
-	virtual int getNumBusinesses() = 0;
+	int getNumBusinesses() { return numBusinesses;};
 };
 
 #endif

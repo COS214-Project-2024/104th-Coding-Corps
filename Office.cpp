@@ -1,55 +1,50 @@
 #include "Office.h"
+#include <iostream>
+
+Office::Office(int numEmployees, string businessType)
+    : CommercialBuildings(businessType, 1), numEmployees(numEmployees) {
+		this->construct();
+	}
 
 int Office::getNumEmployees() {
-	return this->numEmployees;
+    return this->numEmployees;
 }
 
-string Office::getBuildingType() {
-	// TODO - implement Office::getBuildingType
-	throw "Not yet implemented";
+std::string Office::getBuildingType() {
+    return "Office";
 }
 
 double Office::getCost() {
-	// TODO - implement Office::getCost
-	throw "Not yet implemented";
+    return 3000000;
 }
 
 double Office::getMaintenanceCost() {
-	// TODO - implement Office::getMaintenanceCost
-	throw "Not yet implemented";
+    const double maintenanceRate = 0.02; // 2% of the cost per month
+    return getCost() * maintenanceRate;
 }
 
 double Office::getEnergyConsumption() {
-	// TODO - implement Office::getEnergyConsumption
-	throw "Not yet implemented";
+    // Assuming each employee consumes 300 kWh per month
+    const double energyPerEmployee = 300.0;
+    return energyPerEmployee * getNumEmployees();
 }
 
 double Office::getWaterConsumption() {
-	// TODO - implement Office::getWaterConsumption
-	throw "Not yet implemented";
+    // Assuming each employee uses 1500 liters of water per month
+    const double waterPerEmployee = 1500.0;
+    return waterPerEmployee * getNumEmployees();
 }
 
 void Office::construct() {
-	// TODO - implement Office::construct
-	throw "Not yet implemented";
+    std::cout << "Constructing an office building for " << numEmployees 
+              << " employees " << std::endl;
 }
 
 void Office::demolish() {
-	// TODO - implement Office::demolish
-	throw "Not yet implemented";
-}
-
-string Office::getBusinessType() {
-	// TODO - implement Office::getBusinessType
-	throw "Not yet implemented";
-}
-
-int Office::getNumBusinesses() {
-	// TODO - implement Office::getNumBusinesses
-	throw "Not yet implemented";
+    std::cout << "The office building is being demolished." << std::endl;
+    numEmployees = 0;     // Reset number of employees to represent demolition
 }
 
 double Office::getArea() {
-	// TODO - implement Office::getArea
-	throw "Not yet implemented";
+	return getX() * getY();
 }

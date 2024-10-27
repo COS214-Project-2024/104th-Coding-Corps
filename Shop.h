@@ -2,13 +2,15 @@
 #define SHOP_H
 
 #include "CommercialBuildings.h"
+#include "string"
+using namespace std;
 
 class Shop : public CommercialBuildings {
 
 private:
 	int shopSize;
 public:
-	Shop(int shopSize, string businessType, int numBusinesses);
+	Shop(int shopSize, string businessType);
 
 	double getCost();
 
@@ -23,10 +25,6 @@ public:
 	void construct();
 
 	void demolish();
-
-	string getBusinessType();
-
-	int getNumBusinesses();
 
 	double getArea();
 

@@ -1,55 +1,51 @@
 #include "mall.h"
+#include <iostream>
 
-int mall::getNumShops() {
-	return this->numShops;
+Mall::Mall(int numShops, std::string businessType, int numBusinesses)
+    : CommercialBuildings(businessType, numBusinesses), numShops(numShops) {
+		this->construct();
+	}
+
+int Mall::getNumShops() {
+    return this->numShops;
 }
 
-string mall::getBuildingType() {
-	// TODO - implement mall::getBuildingType
-	throw "Not yet implemented";
+std::string Mall::getBuildingType() {
+    return "Mall";
 }
 
-double mall::getCost() {
-	// TODO - implement mall::getCost
-	throw "Not yet implemented";
+double Mall::getCost() {
+    const double costPerShop = 5000000.0; // 5 million per shop
+    return numShops * costPerShop;
 }
 
-double mall::getMaintenanceCost() {
-	// TODO - implement mall::getMaintenanceCost
-	throw "Not yet implemented";
+double Mall::getMaintenanceCost() {
+    const double maintenanceRate = 0.03; // 3% of the cost per month
+    return getCost() * maintenanceRate;
 }
 
-double mall::getEnergyConsumption() {
-	// TODO - implement mall::getEnergyConsumption
-	throw "Not yet implemented";
+double Mall::getEnergyConsumption() {
+    // Assuming each square meter of the mall uses 400 kWh of energy per month
+    const double energyPerSquareMeter = 400.0;
+    return energyPerSquareMeter * getArea();
 }
 
-double mall::getWaterConsumption() {
-	// TODO - implement mall::getWaterConsumption
-	throw "Not yet implemented";
+double Mall::getWaterConsumption() {
+    // Assuming each square meter of the mall uses 150 liters of water per month
+    const double waterPerSquareMeter = 150.0;
+    return waterPerSquareMeter * getArea();
 }
 
-void mall::construct() {
-	// TODO - implement mall::construct
-	throw "Not yet implemented";
+void Mall::construct() {
+    std::cout << "Constructing a new mall with " << numShops << " shops " << std::endl;
+    // Additional setup logic if needed
 }
 
-void mall::demolish() {
-	// TODO - implement mall::demolish
-	throw "Not yet implemented";
+void Mall::demolish() {
+    std::cout << "The mall is being demolished." << std::endl;
+    numShops = 0;       // Reset the number of shops to represent demolition
 }
 
-string mall::getBusinessType() {
-	// TODO - implement mall::getBusinessType
-	throw "Not yet implemented";
-}
-
-int mall::getNumBusinesses() {
-	// TODO - implement mall::getNumBusinesses
-	throw "Not yet implemented";
-}
-
-double mall::getArea() {
-	// TODO - implement mall::getArea
-	throw "Not yet implemented";
+double Mall::getArea() {
+	return getX() * getY();
 }
