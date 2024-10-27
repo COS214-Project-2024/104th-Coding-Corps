@@ -5,8 +5,11 @@
 
 class Warehouse : public IndustrialBuildings {
 
+private:
+	int storageCapacity;
+
 public:
-	Warehouse(int shopSize, string businessType, int numBusinesses);
+	Warehouse(int storageCapacity, int numWorkers);
 	
 	int storageCapacity;
 
@@ -27,10 +30,6 @@ public:
 	void demolish();
 
 	double getArea();
-			
-	double getProduction() override;
-
-	int getNumWorkers() override;
 
 	void upgrade(BuildingComponent* building);
 

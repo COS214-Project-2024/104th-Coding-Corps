@@ -1,46 +1,54 @@
 #include "plant.h"
+#include <iostream>
 
-void plant::generateElectricity(BuilldingComponent* building) {
-	// TODO - implement plant::generateElectricity
-	throw "Not yet implemented";
+plant::plant(int numWorkers, double productionCapacity)
+    : IndustrialBuildings(productionCapacity, numWorkers) {}
+
+void plant::generateElectricity(BuildingComponent* building) {
+    // Generate electricity based on the production capacity
+    const double electricityPerWorker = 200.0; // kWh per worker per cycle
+    double totalElectricityGenerated = electricityPerWorker * getNumWorkers();
+    std::cout << "Plant generated " << totalElectricityGenerated << " kWh of electricity this cycle." << std::endl;
 }
 
-string plant::getBuildingType() {
-	// TODO - implement plant::getBuildingType
-	throw "Not yet implemented";
+std::string plant::getBuildingType() {
+    return "Plant";
 }
 
 double plant::getCost() {
-	// TODO - implement plant::getCost
-	throw "Not yet implemented";
+    return 220000000; 
 }
 
 double plant::getMaintenanceCost() {
-	// TODO - implement plant::getMaintenanceCost
-	throw "Not yet implemented";
+    const double maintenanceRate = 0.04; // 4% of the cost
+    return getCost() * maintenanceRate;
 }
 
 double plant::getEnergyConsumption() {
-	// TODO - implement plant::getEnergyConsumption
-	throw "Not yet implemented";
+    // Plants usually consume energy for operations, calculated based on the number of workers
+    const double energyPerWorker = 300.0; // kWh per worker per month
+    return energyPerWorker * getNumWorkers();
 }
 
 double plant::getWaterConsumption() {
-	// TODO - implement plant::getWaterConsumption
-	throw "Not yet implemented";
-}
-
-void plant::construct() {
-	// TODO - implement plant::construct
-	throw "Not yet implemented";
+    // Assuming each worker requires 2500 liters of water per month for plant operations
+    const double waterPerWorker = 2500.0;
+    return waterPerWorker * getNumWorkers();
 }
 
 void plant::demolish() {
-	// TODO - implement plant::demolish
-	throw "Not yet implemented";
+    // Reset attributes to default, simulating demolition
+    std::cout << "Plant is being demolished." << std::endl;
+    this->productionCapacity = 0;
+    this->numWorkers = 0;
+}
+
+void plant::upgrade(BuildingComponent* building) {
+    // Upgrading the plant increases production capacity
+    std::cout << "Upgrading the plant's production capacity." << std::endl;
+    this->productionCapacity *= 1.2; // Increase capacity by 20%
 }
 
 double plant::getArea() {
-	// TODO - implement plant::getArea
-	throw "Not yet implemented";
+    return getX() * getY();
 }

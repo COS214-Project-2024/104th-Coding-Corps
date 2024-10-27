@@ -1,61 +1,67 @@
 #include "Factory.h"
+#include <iostream>
 
-string Factory::getFactoryTyoe() {
-	// TODO - implement Factory::getFactoryTyoe
-	throw "Not yet implemented";
+#include "Factory.h"
+#include <iostream>
+
+Factory::Factory(int numWorkers, string factoryType, double production)
+    : IndustrialBuildings(production, numWorkers), factoryType(factoryType) {}
+
+std::string Factory::getFactoryType() {
+	return factoryType;
 }
 
 void Factory::produceGoods() {
-	// TODO - implement Factory::produceGoods
-	throw "Not yet implemented";
+    const double goodsPerEmployee = 10.0; // Units per employee per cycle
+    double totalGoodsProduced = goodsPerEmployee * getOccupancy();
+    
+    std::string productType = getFactoryType();
+    std::cout << "Factory (" << productType << ") produced " << totalGoodsProduced << " units of goods this cycle." << std::endl;
 }
 
-string Factory::getBuildingType() {
-	// TODO - implement Factory::getBuildingType
-	throw "Not yet implemented";
+std::string Factory::getBuildingType() {
+    return "Factory";
 }
 
 int Factory::getOccupancy() {
-	// TODO - implement Factory::getOccupancy
-	throw "Not yet implemented";
+    return 150;
 }
 
 double Factory::getCost() {
-	// TODO - implement Factory::getCost
-	throw "Not yet implemented";
+    return 150000000;  // Cost in ZAR
 }
 
 double Factory::getMaintenanceCost() {
-	// TODO - implement Factory::getMaintenanceCost
-	throw "Not yet implemented";
+    const double maintenanceRate = 0.05; // 5% of the cost
+    return getCost() * maintenanceRate;
 }
 
 double Factory::getEnergyConsumption() {
-	// TODO - implement Factory::getEnergyConsumption
-	throw "Not yet implemented";
+    // Assuming each employee consumes 500 kWh of energy per month
+    const double energyPerEmployee = 500.0;
+    return energyPerEmployee * getOccupancy();
 }
 
 double Factory::getWaterConsumption() {
-	// TODO - implement Factory::getWaterConsumption
-	throw "Not yet implemented";
-}
-
-void Factory::construct() {
-	// TODO - implement Factory::construct
-	throw "Not yet implemented";
+    // Assuming each employee uses 2000 liters of water per month
+    const double waterPerEmployee = 2000.0;
+    return waterPerEmployee * getOccupancy();
 }
 
 void Factory::demolish() {
-	// TODO - implement Factory::demolish
-	throw "Not yet implemented";
+    // Demolishing the factory, reset attributes to defaults
+    std::cout << "Factory is being demolished." << std::endl;
+    this->factoryType = "";
+	this->numWorkers = 0;
+	this->productionCapacity = 0;
 }
 
 void Factory::upgrade(BuildingComponent* building) {
-	// TODO - implement Factory::upgrade
-	throw "Not yet implemented";
+    // Simulating the upgrade by increasing occupancy
+    std::cout << "Upgrading the factory capacity." << std::endl;
+    this->factoryType += " (Upgraded)";
 }
 
 double Factory::getArea() {
-	// TODO - implement Factory::getArea
-	throw "Not yet implemented";
+	return getX() * getY();
 }

@@ -2,14 +2,22 @@
 #define INDUSTRIALBUILDINGS_H
 
 #include "BuildingComponent.h"
+#include <string>
+
+using namespace std;
 
 class IndustrialBuildings : public BuildingComponent {
 
-private:
+protected:
 	double productionCapacity;
 	int numWorkers;
 
 public:
+	IndustrialBuildings(double production, int workers){
+		this->productionCapacity = production;
+		this->numWorkers = workers;
+	}
+	
 	virtual string getBuildingType() = 0;
 
 	virtual int getOccupancy() = 0;
@@ -22,17 +30,19 @@ public:
 
 	virtual double getWaterConsumption() = 0;
 
-	virtual void construct() = 0;
-
 	virtual void demolish() = 0;
 
 	virtual void upgrade(BuildingComponent* building) = 0;
 
 	virtual double getArea() = 0;
 
-	virtual double getProduction() = 0;
+	virtual double getProduction(){
+		return productionCapacity;
+	}
 
-	virtual int getNumWorkers() = 0;
+	int getNumWorkers() {
+		return numWorkers;
+	}
 };
 
 #endif

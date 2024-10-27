@@ -3,42 +3,39 @@
 
 #include "IndustrialBuildings.h"
 #include <string>
-using namespace std;
 
 class Factory : public IndustrialBuildings {
 
 public:
-	Factory(int numEmployees, string businessType, int numBusinesses);
 
-	string factoryType;
+    Factory(int numWorkers, string factoryType, double production);
 
-	string getFactoryTyoe();
+    void produceGoods();
 
-	void produceGoods();
+    std::string getBuildingType();
 
-	string getBuildingType();
+    std::string getFactoryType();
 
-	int getOccupancy();
+    int getOccupancy();
 
-	double getCost();
+    double getCost();
 
-	double getMaintenanceCost();
+    double getMaintenanceCost();
 
-	double getEnergyConsumption();
+    double getEnergyConsumption();
 
-	double getWaterConsumption();
+    double getWaterConsumption();
 
-	void construct();
+    void construct();
 
-	void demolish();
+    void demolish();
 
-	void upgrade(BuildingComponent* building) override;
+    void upgrade(BuildingComponent* building) override;
 
-	double getArea();
-	
-	double getProduction() override;
+    double getArea();
 
-	int getNumWorkers() override;
+private:
+    string factoryType;
 };
 
 #endif

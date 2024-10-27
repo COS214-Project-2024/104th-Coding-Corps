@@ -10,9 +10,9 @@ class IndustrialBuildingFactory : public BuildingFactory {
 
 
 public:
-	BuildingComponent* createFactory(int numEmployees, string businessType, int numBusinesses) override;
-	BuildingComponent* createPlant(int numShops, string businessType, int numBusinesses) override;
-	BuildingComponent* createWarehouse(int shopSize, string businessType, int numBusinesses) override;
+	BuildingComponent* createFactory(int numWorkers, string factoryType, double production) override;
+	BuildingComponent* createPlant(int workers, double production) override;
+	BuildingComponent* createWarehouse(int storageCapacity, int numWorkers) override;
 };
 
 #endif

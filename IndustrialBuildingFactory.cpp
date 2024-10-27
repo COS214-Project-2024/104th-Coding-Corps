@@ -3,12 +3,12 @@
 #include "plant.h"
 #include "warehouse.h"
 
-BuildingComponent* IndustrialBuildingFactory::createFactory(int numEmployees, string businessType, int numBusinesses){
-	return new Factory(numEmployees, businessType, numBusinesses);
+BuildingComponent* IndustrialBuildingFactory::createFactory(int numWorkers, string factoryType, double production){
+	return new Factory(numWorkers, factoryType, production);
 }
-BuildingComponent* IndustrialBuildingFactory::createPlant(int numShops, string businessType, int numBusinesses){
-	return new plant(numShops, businessType, numBusinesses);
+BuildingComponent* IndustrialBuildingFactory::createPlant(int workers, double production){
+	return new plant(workers, production);
 }
-BuildingComponent* IndustrialBuildingFactory::createWarehouse(int shopSize, string businessType, int numBusinesses) {
-	return new Warehouse(shopSize, businessType, numBusinesses);
+BuildingComponent* IndustrialBuildingFactory::createWarehouse(int storageCapacity, int numWorkers) {
+	return new Warehouse(storageCapacity, numWorkers);
 }

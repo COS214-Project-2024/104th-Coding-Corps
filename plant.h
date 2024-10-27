@@ -6,9 +6,7 @@
 class plant : public IndustrialBuildings {
 
 public:
-	plant(int numShops, string businessType, int numBusinesses);
-
-	int electricityUnits;
+	plant(int workers, double production);
 
 	void generateElectricity(BuildingComponent* building);
 
@@ -27,10 +25,6 @@ public:
 	void demolish();
 
 	double getArea();
-		
-	double getProduction() override;
-
-	int getNumWorkers() override;
 
 	void upgrade(BuildingComponent* building);
 
