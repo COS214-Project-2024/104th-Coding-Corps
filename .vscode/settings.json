@@ -1,3 +1,7 @@
 {
-    "workbench.colorTheme": "Winter is Coming (Dark Blue - No Italics)"
+    "workbench.colorTheme": "Winter is Coming (Dark Blue - No Italics)",
+    "files.associations": {
+        "string": "cpp",
+        "xstring": "cpp"
+    }
 }

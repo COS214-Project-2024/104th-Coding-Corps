@@ -28,7 +28,10 @@ void Family::add(std::shared_ptr<AbstractCitizen> citizen) {
  * @param citizen Shared pointer to the citizen to remove.
  */
 void Family::remove(std::shared_ptr<AbstractCitizen> citizen) {
-    // Remove citizen from family
+        auto it = std::find(members.begin(), members.end(), citizen);
+    if (it != members.end()) {
+        members.erase(it);
+    }
 }
 
 /** 
@@ -36,8 +39,13 @@ void Family::remove(std::shared_ptr<AbstractCitizen> citizen) {
  * @return int Satisfaction level of the family.
  */
 int Family::getSatisfaction() const {
-    // Calculate average satisfaction
-    return 0;  // Placeholder
+    int totalSatisfaction = 0;
+    for (const auto& member : members) {
+        totalSatisfaction += member->getSatisfaction();
+    }
+    satisfaction = members.empty() ? 0 : totalSatisfaction / members.size();
+    return satisfaction;
+
 }
 
 /** 
@@ -45,6 +53,11 @@ int Family::getSatisfaction() const {
  * @return int Expected standard of living.
  */
 int Family::getESoL() const {
+        int totalESoL = 0;
+    for (const auto& member : members) {
+        totalESoL += member->getESoL();
+    }
+    expectedStandardOfLiving = members.empty() ? 0 : totalESoL / members.size();
     return expectedStandardOfLiving;
 }
 
@@ -53,6 +66,11 @@ int Family::getESoL() const {
  * @return int Actual standard of living.
  */
 int Family::getASoL() const {
+        int totalASoL = 0;
+    for (const auto& member : members) {
+        totalASoL += member->getESoL();
+    }
+    actualStandardOfLiving = members.empty() ? 0 : totalASoL / members.size();
     return actualStandardOfLiving;
 }
 
@@ -65,7 +83,8 @@ double Family::getCurrentIncome() const {
     for (const auto& member : members) {
         totalIncome += member->getCurrentIncome();
     }
-    return totalIncome;
+    currentIncome =  totalIncome;
+    return currentIncome;
 }
 
 /** 
@@ -91,6 +110,7 @@ void Family::resolveStrike() {
  * @param district Name of the new district.
  */
 void Family::moveDistrict(const std::string& district) {
+
     this->district = district;
 }
 
@@ -99,8 +119,11 @@ void Family::moveDistrict(const std::string& district) {
  * @return double Average monthly expenditure.
  */
 double Family::getMonthlyExpenditure() const {
-    // Calculate average expenditure
-    return 0;  // Placeholder
+    double totalExpenditure = 0;
+    for (const auto& member : members) {
+        totalExpenditure += member->getCurrentIncome() * 0.7; // Assuming 70% of income as expenditure
+    }
+    return members.empty() ? 0 : totalExpenditure / members.size();
 }
 
 /** 
@@ -127,8 +150,11 @@ void Family::applyTax(double taxRate) {
  * @return double Total tax amount.
  */
 double Family::calculateTax() {
-    // Tax calculation logic
-    return 0;  // Placeholder
+    double totalTax = 0;
+    for (const auto& member : members) {
+        totalTax += member->calculateTax(); // Each member calculates their own tax
+    }
+    return totalTax;
 }
 
 /** 

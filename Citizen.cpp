@@ -376,8 +376,15 @@ void Citizen::applyTax(double taxRate) {
  * @return double The calculated tax amount.
  */
 double Citizen::calculateTax() {
-    // Tax calculation logic
-    return currentIncome * 0.1; // Example tax rate
+    if(classTpe == "lower"){
+        return currentIncome * 0.1;
+    }
+    else if(classType == "middle"){
+        return currentIncome * 0.22;
+    }
+    else if(classType == "upper"){
+        return currentIncome 0.35; //TAX THE RICH AMIRITE BOYS
+    }
 }
 
 /** 
@@ -410,9 +417,6 @@ void Citizen::update(const std::string& resourceType, int quantity) {
 void Citizen::accept(TaxCollector& collector) override {
     collector.visit(*this);
 }
-
-
-
 
 //-----Composite-----//
 

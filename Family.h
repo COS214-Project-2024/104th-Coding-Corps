@@ -37,6 +37,8 @@ public:
     double calculateTax() override;
     void payTax(double amount) override;
     void update(const std::string& resourceType, int quantity) override;
+    void accept(TaxCollector& collector) override;
+
 };
 
 #endif // FAMILY_H

@@ -2,7 +2,6 @@
 #define CITIZEN_H
 
 #include "AbstractCitizen.h"
-#include "TaxCollector.h"
 #include <string>
 #include <memory>
 #include <random>
