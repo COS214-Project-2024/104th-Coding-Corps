@@ -1,31 +1,32 @@
 #include "sewageManagement.h"
+#include <iostream>
 
-string sewageManagement::getUtilityType() {
-	// TODO - implement sewageManagement::getUtilityType
-	throw "Not yet implemented";
+SewageManagement::SewageManagement() : Utilities("Sewage Management", true) {}
+
+double SewageManagement::getConsumptionRate() {
+    const double baseConsumptionRate = 15.0; // Units consumed per cubic meter
+    return baseConsumptionRate;
 }
 
-double sewageManagement::getConsumptionRate() {
-	// TODO - implement sewageManagement::getConsumptionRate
-	throw "Not yet implemented";
+double SewageManagement::getCost() {
+    const double baseCost = 120000.0; // Monthly cost in ZAR
+    return baseCost;
 }
 
-double sewageManagement::getCost() {
-	// TODO - implement sewageManagement::getCost
-	throw "Not yet implemented";
+void SewageManagement::activateUtility() {
+    changeStatus(true);
+    std::cout << "Sewage Management Utility is now active." << std::endl;
 }
 
-void sewageManagement::activateUtility() {
-	// TODO - implement sewageManagement::activateUtility
-	throw "Not yet implemented";
+void SewageManagement::deactivateUtility() {
+    changeStatus(false);
+    std::cout << "Sewage Management Utility has been deactivated." << std::endl;
 }
 
-void sewageManagement::deactivateUtility() {
-	// TODO - implement sewageManagement::deactivateUtility
-	throw "Not yet implemented";
-}
+void SewageManagement::manageSewage(BuildingComponent* building) {
+    const double sewageGeneratedPerBuilding = 2.0; // Cubic meters per month
+    double totalSewageProcessed = sewageGeneratedPerBuilding * getConsumptionRate();
 
-void sewageManagement::manageSewage(BuildingComponent* building) {
-	// TODO - implement sewageManagement::manageSewage
-	throw "Not yet implemented";
+    std::cout << "Processing " << totalSewageProcessed << " cubic meters of sewage from " 
+              << building->getBuildingType() << "." << std::endl;
 }

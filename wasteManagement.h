@@ -6,12 +6,12 @@
 #include "string"
 using namespace std;
 
-class wasteManagement : public Utilities {
+class WasteManagement : public Utilities {
 
 
 public:
-	string getUtilityType();
-
+	WasteManagement();
+	
 	double getConsumptionRate();
 
 	double getCost();
@@ -20,7 +20,8 @@ public:
 
 	void deactivateUtility();
 
-	void processWaste(BuilidingComponent* building);
+	void processWaste(BuildingComponent* building);
+
 };
 
 #endif

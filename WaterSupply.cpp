@@ -1,31 +1,30 @@
 #include "WaterSupply.h"
+#include <iostream>
 
-string WaterSupply::getUtilityType() {
-	// TODO - implement WaterSupply::getUtilityType
-	throw "Not yet implemented";
-}
+WaterSupply::WaterSupply() : Utilities("Water Supply", true) {}
 
 double WaterSupply::getConsumptionRate() {
-	// TODO - implement WaterSupply::getConsumptionRate
-	throw "Not yet implemented";
+    const double baseConsumptionRate = 1000.0; // Liters per building per day
+    return baseConsumptionRate;
 }
 
 double WaterSupply::getCost() {
-	// TODO - implement WaterSupply::getCost
-	throw "Not yet implemented";
+    const double baseCost = 50000.0; // Monthly cost in ZAR
+    return baseCost;
 }
 
 void WaterSupply::activateUtility() {
-	// TODO - implement WaterSupply::activateUtility
-	throw "Not yet implemented";
+    changeStatus(true);
+    std::cout << "Water Supply Utility is now active." << std::endl;
 }
 
 void WaterSupply::deactivateUtility() {
-	// TODO - implement WaterSupply::deactivateUtility
-	throw "Not yet implemented";
+    changeStatus(false);
+    std::cout << "Water Supply Utility has been deactivated." << std::endl;
 }
 
 void WaterSupply::distributeWater(BuildingComponent* building) {
-	// TODO - implement WaterSupply::distributeWater
-	throw "Not yet implemented";
+    const double waterDemandPerBuilding = 1.2 * getConsumptionRate(); // Adjusted demand per building
+    std::cout << "Distributing " << waterDemandPerBuilding << " liters of water to " 
+              << building->getBuildingType() << "." << std::endl;
 }

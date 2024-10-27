@@ -1,13 +1,18 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
+#include "string"
+using namespace std;
 class Utilities {
 	
 private:
-	Utilities* utilityType;
+	string utilityType;
+	bool active;
 
 public:
-	virtual string getUtilityType() = 0;
+	Utilities(string type, bool active) : utilityType(type), active(active) {}
+
+	string getUtilityType() { return utilityType; }
 
 	virtual double getConsumptionRate() = 0;
 
@@ -16,6 +21,12 @@ public:
 	virtual void activateUtility() = 0;
 
 	virtual void deactivateUtility() = 0;
+
+	bool getStatus() { return active; }
+
+	void changeStatus(bool status) {
+		active = status;
+	} 
 };
 
 #endif

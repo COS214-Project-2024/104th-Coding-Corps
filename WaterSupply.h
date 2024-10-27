@@ -11,8 +11,8 @@ class WaterSupply : public Utilities {
 
 
 public:
-	string getUtilityType();
-
+	WaterSupply();
+	
 	double getConsumptionRate();
 
 	double getCost();

@@ -1,31 +1,32 @@
 #include "wasteManagement.h"
+#include <iostream>
 
-string wasteManagement::getUtilityType() {
-	// TODO - implement wasteManagement::getUtilityType
-	throw "Not yet implemented";
+WasteManagement::WasteManagement() : Utilities("Waste Management", true) {}
+
+double WasteManagement::getConsumptionRate() {
+    const double baseConsumptionRate = 20.0; // Consumption rate per ton in energy 
+    return baseConsumptionRate;
 }
 
-double wasteManagement::getConsumptionRate() {
-	// TODO - implement wasteManagement::getConsumptionRate
-	throw "Not yet implemented";
+double WasteManagement::getCost() {
+    const double baseCost = 100000.0; 
+    return baseCost;
 }
 
-double wasteManagement::getCost() {
-	// TODO - implement wasteManagement::getCost
-	throw "Not yet implemented";
+void WasteManagement::activateUtility() {
+    changeStatus(true);
+    std::cout << "Waste Management Utility is now active." << std::endl;
 }
 
-void wasteManagement::activateUtility() {
-	// TODO - implement wasteManagement::activateUtility
-	throw "Not yet implemented";
+void WasteManagement::deactivateUtility() {
+    changeStatus(false);
+    std::cout << "Waste Management Utility has been deactivated." << std::endl;
 }
 
-void wasteManagement::deactivateUtility() {
-	// TODO - implement wasteManagement::deactivateUtility
-	throw "Not yet implemented";
-}
+void WasteManagement::processWaste(BuildingComponent* building) {
+    const double wasteGeneratedPerBuilding = 1.5; 
+    double totalWasteProcessed = wasteGeneratedPerBuilding * getConsumptionRate();
 
-void wasteManagement::processWaste(BuilidingComponent* building) {
-	// TODO - implement wasteManagement::processWaste
-	throw "Not yet implemented";
+    std::cout << "Processing " << totalWasteProcessed << " tons of waste from " 
+              << building->getBuildingType() << "." << std::endl;
 }

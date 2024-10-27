@@ -8,6 +8,8 @@ using namespace std;
 class PowerPlant : public Utilities {
 
 public:
+	PowerPlant();
+	
 	string getUtilityType();
 
 	double getConsumptionRate();

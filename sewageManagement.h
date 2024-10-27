@@ -5,11 +5,11 @@
 #include "string"
 using namespace std;
 
-class sewageManagement : public Utilities {
+class SewageManagement : public Utilities {
 
 
 public:
-	string getUtilityType();
+	SewageManagement();
 
 	double getConsumptionRate();
 
