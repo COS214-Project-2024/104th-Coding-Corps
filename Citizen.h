@@ -2,8 +2,11 @@
 #define CITIZEN_H
 
 #include "AbstractCitizen.h"
+#include "TaxCollector.h"
 #include <string>
 #include <memory>
+#include <random>
+
 
 class Citizen : public AbstractCitizen {
 private:
@@ -63,6 +66,7 @@ public:
     double calculateTax() override;
     void payTax(double amount) override;
     void update(const std::string& resourceType, int quantity) override;
+    void accept(TaxCollector& collector) override;
 };
 
 #endif // CITIZEN_H

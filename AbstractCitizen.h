@@ -4,6 +4,7 @@
 #include <string>
 #include <memory>
 
+
 class AbstractCitizen {
 protected:
     int satisfaction;

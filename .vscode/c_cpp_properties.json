@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/include/c++/7",        // Adjust if your C++ standard library headers are in a different location
+                "/usr/include/x86_64-linux-gnu/c++/7" // Additional path if needed for 64-bit
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/g++",   // Ensure this points to your installed g++ version
+            "cStandard": "c11",               // Set to C11 if needed for C files
+            "cppStandard": "c++11",           // Set the C++ standard to C++11
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}
