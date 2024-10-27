@@ -1,6 +1,6 @@
 #include "SewageSystemFactory.h"
+#include "sewageManagement.h"
 
 Utilities* SewageSystemFactory::createUtilityService() {
-	// TODO - implement SewageSystemFactory::createUtilityService
-	throw "Not yet implemented";
+	return new sewageManagement();
 }

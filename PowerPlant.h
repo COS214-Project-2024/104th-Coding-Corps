@@ -1,8 +1,11 @@
 #ifndef POWERPLANT_H
 #define POWERPLANT_H
 
-class PowerPlant : Utilities {
+#include "BuildingComponent.h"
+#include "string"
+using namespace std;
 
+class PowerPlant : public Utilities {
 
 public:
 	string getUtilityType();

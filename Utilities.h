@@ -2,7 +2,9 @@
 #define UTILITIES_H
 
 class Utilities {
-
+	
+private:
+	Utilities* utilityType;
 
 public:
 	virtual string getUtilityType() = 0;

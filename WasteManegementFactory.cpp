@@ -1,6 +1,5 @@
 #include "WasteManegementFactory.h"
-
+#include "wasteManagement.h"
 Utilities* WasteManegementFactory::createUtilityService() {
-	// TODO - implement WasteManegementFactory::createUtilityService
-	throw "Not yet implemented";
+	return new wasteManagement();
 }

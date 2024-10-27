@@ -1,6 +1,6 @@
 #include "WaterSupplyFactory.h"
+#include "WaterSupply.h"
 
 Utilities* WaterSupplyFactory::createUtilityService() {
-	// TODO - implement WaterSupplyFactory::createUtilityService
-	throw "Not yet implemented";
+	return new WaterSupply();
 }

@@ -1,7 +1,12 @@
 #ifndef WASTEMANAGEMENT_H
 #define WASTEMANAGEMENT_H
 
-class wasteManagement : Utilities {
+#include "Utilities.h"
+#include "BuildingComponent.h"
+#include "string"
+using namespace std;
+
+class wasteManagement : public Utilities {
 
 
 public:

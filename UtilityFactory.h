@@ -1,10 +1,9 @@
 #ifndef UTILITYFACTORY_H
 #define UTILITYFACTORY_H
 
-class UtilityFactory {
+#include "Utilities.h"
 
-private:
-	Utilities* utilityType;
+class UtilityFactory {
 
 public:
 	virtual Utilities* createUtilityService() = 0;

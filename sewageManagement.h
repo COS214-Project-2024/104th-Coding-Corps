@@ -1,7 +1,11 @@
 #ifndef SEWAGEMANAGEMENT_H
 #define SEWAGEMANAGEMENT_H
 
-class sewageManagement : Utilities {
+#include "BuildingComponent.h"
+#include "string"
+using namespace std;
+
+class sewageManagement : public Utilities {
 
 
 public:

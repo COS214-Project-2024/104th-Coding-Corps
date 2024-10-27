@@ -1,8 +1,9 @@
 #ifndef SEWAGESYSTEMFACTORY_H
 #define SEWAGESYSTEMFACTORY_H
 
-class SewageSystemFactory : UtilityFactory {
+#include "UtilityFactory.h"
 
+class SewageSystemFactory : public UtilityFactory {
 
 public:
 	Utilities* createUtilityService();

@@ -1,6 +1,8 @@
 #ifndef BUILDINGCOMPONENT_H
 #define BUILDINGCOMPONENT_H
 
+#include "vector"
+#include "Utilities.h"
 class BuildingComponent {
 
 private:
@@ -14,6 +16,9 @@ private:
 	int x;
 	int y;
 
+protected:
+	vector<Utilities*> utilities;
+	
 public:
 	virtual string getBuildingType() = 0;
 

@@ -1,7 +1,13 @@
 #ifndef WATERSUPPLY_H
 #define WATERSUPPLY_H
 
-class WaterSupply : Utilities {
+#include "Utilities.h"
+#include "string"
+#include "BuildingComponent.h"
+
+using namespace std;
+
+class WaterSupply : public Utilities {
 
 
 public:

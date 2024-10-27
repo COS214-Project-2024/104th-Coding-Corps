@@ -1,6 +1,6 @@
 #include "PowerPlantFactory.h"
+#include "PowerPlant.h"
 
 Utilities* PowerPlantFactory::createUtilityService() {
-	// TODO - implement PowerPlantFactory::createUtilityService
-	throw "Not yet implemented";
+	return new PowerPlant();
 }

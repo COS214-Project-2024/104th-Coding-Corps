@@ -1,7 +1,9 @@
 #ifndef POWERPLANTFACTORY_H
 #define POWERPLANTFACTORY_H
 
-class PowerPlantFactory : UtilityFactory {
+#include "UtilityFactory.h"
+
+class PowerPlantFactory : public UtilityFactory {
 
 
 public:
