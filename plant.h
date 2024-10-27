@@ -1,12 +1,16 @@
 #ifndef PLANT_H
 #define PLANT_H
 
-class plant : IndustrialBuildings {
+#include "IndustrialBuildings.h"
+
+class plant : public IndustrialBuildings {
 
 public:
+	plant(int numShops, string businessType, int numBusinesses);
+
 	int electricityUnits;
 
-	void generateElectricity(BuilldingComponent* building);
+	void generateElectricity(BuildingComponent* building);
 
 	string getBuildingType();
 
@@ -23,6 +27,14 @@ public:
 	void demolish();
 
 	double getArea();
+		
+	double getProduction() override;
+
+	int getNumWorkers() override;
+
+	void upgrade(BuildingComponent* building);
+
+	int getOccupancy();
 };
 
 #endif

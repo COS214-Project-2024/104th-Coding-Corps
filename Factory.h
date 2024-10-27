@@ -1,9 +1,15 @@
 #ifndef FACTORY_H
 #define FACTORY_H
 
-class Factory : IndustrialBuildings {
+#include "IndustrialBuildings.h"
+#include <string>
+using namespace std;
+
+class Factory : public IndustrialBuildings {
 
 public:
+	Factory(int numEmployees, string businessType, int numBusinesses);
+
 	string factoryType;
 
 	string getFactoryTyoe();
@@ -26,9 +32,13 @@ public:
 
 	void demolish();
 
-	void upgrade(BuildingComponent* building);
+	void upgrade(BuildingComponent* building) override;
 
 	double getArea();
+	
+	double getProduction() override;
+
+	int getNumWorkers() override;
 };
 
 #endif

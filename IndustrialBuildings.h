@@ -1,7 +1,9 @@
 #ifndef INDUSTRIALBUILDINGS_H
 #define INDUSTRIALBUILDINGS_H
 
-class IndustrialBuildings : BuildingComponent {
+#include "BuildingComponent.h"
+
+class IndustrialBuildings : public BuildingComponent {
 
 private:
 	double productionCapacity;
