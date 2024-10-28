@@ -72,6 +72,10 @@ void Government::decreaseBudget(double amount) {
     // Use the budget instance to deduct an expense
     budget->deductExpense(amount);
 }
+
+double Government::getBalance() const {
+    return budget->getBalance();
+}
 //--------------------------------------------------------------------------------------------------------
 
 //----------------------------------------------RESOURCE STUFF----------------------------------------------

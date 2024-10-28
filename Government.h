@@ -31,6 +31,7 @@ public:
 	void displayCityResources();
 	void increaseBudget(double amount);
 	void decreaseBudget(double amount);
+	double getBalance() const;
 };
 
 #endif
