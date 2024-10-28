@@ -24,6 +24,8 @@ public:
 
 	void demolish();
 
+	void construct();
+
 	int getNumResidents();
 
 	int getNumFloors();

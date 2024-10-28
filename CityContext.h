@@ -2,6 +2,7 @@
 #define CITYCONTEXT_H
 
 #include "AbstractCitizen.h"
+#include "Citizen.h"
 #include <map>
 #include <memory>
 
@@ -18,8 +19,8 @@ public:
     CityContext();
     ~CityContext();
 
-    void attach(std::shared_ptr<AbstractCitizen> citizen);
-    void detach(std::shared_ptr<AbstractCitizen> citizen);
+    //void attach(std::shared_ptr<AbstractCitizen> citizen);
+    //void detach(std::shared_ptr<AbstractCitizen> citizen);
     void notify();
 };
 

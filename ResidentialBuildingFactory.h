@@ -10,7 +10,7 @@ class ResidentialBuildingFactory : public BuildingFactory {
 public:
 	BuildingComponent* createFlat(int units, int residents, int floors, bool hasGarden) override;
 	BuildingComponent* createHouse(int garageSize, bool hasPool, int residents, int floors, bool hasGarden) override;
-	BuildingComponent* createEstate(int garageSize, bool hasPool, int residents, int floors, bool hasGarden) override;
+	BuildingComponent* createEstate(int garageSize, bool hasPool, int residents, int floors, bool hasGarden, int units) override;
 };
 
 #endif

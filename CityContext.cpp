@@ -19,19 +19,19 @@ CityContext::~CityContext() {
  * @brief Attaches a citizen to the city's population.
  * @param citizen Shared pointer to the citizen to attach.
  */
-void CityContext::attach(std::shared_ptr<AbstractCitizen> citizen) {
-    int id = citizen->getCitizenID();
-    population[id] = citizen;
-}
+// void CityContext::attach(std::shared_ptr<AbstractCitizen> citizen) {
+//     int id = citizen->getCitizenID();
+//     population[id] = citizen;
+// }
 
-/** 
- * @brief Detaches a citizen from the city's population.
- * @param citizen Shared pointer to the citizen to detach.
- */
-void CityContext::detach(std::shared_ptr<AbstractCitizen> citizen) {
-    int id = citizen->getCitizenID();
-    population.erase(id);
-}
+// /** 
+//  * @brief Detaches a citizen from the city's population.
+//  * @param citizen Shared pointer to the citizen to detach.
+//  */
+// void CityContext::detach(std::shared_ptr<AbstractCitizen> citizen) {
+//     int id = citizen->getCitizenID();
+//     population.erase(id);
+// }
 
 /** 
  * @brief Notifies all citizens of a change in context.

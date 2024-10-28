@@ -2,5 +2,5 @@
 #include "sewageManagement.h"
 
 Utilities* SewageSystemFactory::createUtilityService() {
-	return new sewageManagement();
+	return new SewageManagement();
 }

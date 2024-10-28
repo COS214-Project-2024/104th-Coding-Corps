@@ -1,5 +1,7 @@
 #include "Family.h"
 #include <iostream>
+#include <bits/algorithmfwd.h>
+using namespace std;
 
 /** 
  * @brief Constructs a Family.
@@ -27,12 +29,13 @@ void Family::add(std::shared_ptr<AbstractCitizen> citizen) {
  * @brief Removes a citizen from the family.
  * @param citizen Shared pointer to the citizen to remove.
  */
-void Family::remove(std::shared_ptr<AbstractCitizen> citizen) {
-        auto it = std::find(members.begin(), members.end(), citizen);
-    if (it != members.end()) {
-        members.erase(it);
-    }
-}
+// void Family::remove(std::shared_ptr<AbstractCitizen> citizen) {
+//     members.erase(std::remove_if(members.begin(), members.end(),
+//                   [&citizen](const std::shared_ptr<AbstractCitizen>& member) {
+//                       return member == citizen;
+//                   }),
+//                   members.end());
+// }
 
 /** 
  * @brief Returns the average satisfaction of the family.
@@ -43,9 +46,7 @@ int Family::getSatisfaction() const {
     for (const auto& member : members) {
         totalSatisfaction += member->getSatisfaction();
     }
-    satisfaction = members.empty() ? 0 : totalSatisfaction / members.size();
-    return satisfaction;
-
+    return members.empty() ? 0 : totalSatisfaction / members.size();
 }
 
 /** 
@@ -57,8 +58,7 @@ int Family::getESoL() const {
     for (const auto& member : members) {
         totalESoL += member->getESoL();
     }
-    expectedStandardOfLiving = members.empty() ? 0 : totalESoL / members.size();
-    return expectedStandardOfLiving;
+    return members.empty() ? 0 : totalESoL / members.size();
 }
 
 /** 
@@ -70,8 +70,7 @@ int Family::getASoL() const {
     for (const auto& member : members) {
         totalASoL += member->getESoL();
     }
-    actualStandardOfLiving = members.empty() ? 0 : totalASoL / members.size();
-    return actualStandardOfLiving;
+    return members.empty() ? 0 : totalASoL / members.size();
 }
 
 /** 
@@ -83,8 +82,7 @@ double Family::getCurrentIncome() const {
     for (const auto& member : members) {
         totalIncome += member->getCurrentIncome();
     }
-    currentIncome =  totalIncome;
-    return currentIncome;
+    return totalIncome;
 }
 
 /** 

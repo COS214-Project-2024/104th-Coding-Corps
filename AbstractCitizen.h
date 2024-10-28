@@ -4,6 +4,7 @@
 #include <string>
 #include <memory>
 #include "TaxCollector.h"
+class TaxCollector;
 
 
 class AbstractCitizen {

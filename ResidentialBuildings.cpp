@@ -3,7 +3,7 @@
 ResidentialBuildings::ResidentialBuildings(int residents, int floors, bool garden){
 	this->numResidents = residents;
 	this->numFloors = floors;
-	this->garden = hasGarden;
+	this->garden = garden;
 }
 
 int ResidentialBuildings::getNumResidents() {
@@ -15,5 +15,9 @@ int ResidentialBuildings::getNumFloors() {
 }
 
 bool ResidentialBuildings::hasGarden() {
-	return hasGarden;
+	if(garden) {
+		return true;
+	} else {
+		return false;
+	}
 }

@@ -17,7 +17,7 @@ public:
     Family();
     ~Family() override;
     void add(std::shared_ptr<AbstractCitizen> citizen) override;
-    void remove(std::shared_ptr<AbstractCitizen> citizen) override;
+    //void remove(std::shared_ptr<AbstractCitizen> citizen) override;
     
     int getSatisfaction() const override;
     int getESoL() const override;

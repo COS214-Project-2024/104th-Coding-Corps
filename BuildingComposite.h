@@ -1,12 +1,17 @@
 #ifndef BUILDINGCOMPOSITE_H
 #define BUILDINGCOMPOSITE_H
+#include "BuildingComponent.h"
+#include <vector>
+#include <map>
+#include <string>
+
 
 class BuildingComposite : BuildingComponent {
 
 private:
 	vector<BuildingComponent*> buildings;
 	vector<Utilities*> utilities;
-	map<string> policies;
+	map<string, string> policies;
 
 public:
 	virtual void addBuilding(BuildingComponent* building) = 0;
@@ -20,6 +25,8 @@ public:
 	virtual double calculateTotalEnergyConsumption() = 0;
 
 	virtual double calculateTotalWaterConsumption() = 0;
+
+	void enforcePolicy(std::string policyType);
 };
 
 #endif

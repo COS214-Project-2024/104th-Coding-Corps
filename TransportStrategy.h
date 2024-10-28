@@ -14,6 +14,8 @@ public:
 	virtual double calculateCommuteTime(double distance);
 
 	std::string getMode();
+
+	double getSpeed();
 	
 };
 

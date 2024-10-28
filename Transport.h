@@ -1,3 +1,5 @@
+#ifndef TRANSPORT_H
+#define TRANSPORT_H
 #include "TransportStrategy.h"
 #include "RoadBased.h"
 #include "RailBased.h"
@@ -5,9 +7,6 @@
 #include "TrafficManager.h"
 #include "BuildingComponent.h"
 #include <memory>
-#ifndef TRANSPORT_H
-#define TRANSPORT_H
-
 
 class Transport {
 
@@ -28,7 +27,7 @@ public:
 	void chooseStrategy(double distance, bool isCongested);
 
 	 void travel(BuildingComponent* from, BuildingComponent* to);
-     void completeTravel(BuildingComponent* from, BuildingComponent* to,double commuteTime, const std::string& mode)
+     void completeTravel(BuildingComponent* from, BuildingComponent* to,double commuteTime, const std::string& mode);
 };
 
 #endif

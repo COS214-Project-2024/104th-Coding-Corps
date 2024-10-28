@@ -2,6 +2,7 @@
 #define CONCRETEFACTORY_H
 #include "ResourceFactory.h"
 #include "Concrete.h"
+#include <memory>
 
 class ConcreteFactory : public ResourceFactory {
 
