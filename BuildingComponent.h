@@ -32,6 +32,8 @@ public:
 
 	virtual double getWaterConsumption() = 0;
 
+	virtual std::string getName() = 0;  // Pure virtual function if BuildingComponent is abstract
+
 	virtual void construct() = 0;
 
 	virtual void demolish() = 0;

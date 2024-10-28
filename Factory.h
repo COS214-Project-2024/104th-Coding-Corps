@@ -16,6 +16,10 @@ public:
 
     std::string getFactoryType();
 
+    std::string getName() override {
+        return "Factory";
+    }
+
     int getOccupancy();
 
     double getCost();

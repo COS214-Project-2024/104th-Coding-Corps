@@ -175,3 +175,7 @@ void Family::update(const std::string& resourceType, int quantity) {
         member->update(resourceType, quantity);
     }
 }
+
+void Family::accept(TaxCollector& collector) {
+    std::cout << "not yet implemented";
+}

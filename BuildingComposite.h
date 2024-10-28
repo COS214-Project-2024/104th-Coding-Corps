@@ -4,6 +4,7 @@
 #include <vector>
 #include <map>
 #include <string>
+#include <iostream>
 
 
 class BuildingComposite : BuildingComponent {
@@ -26,7 +27,9 @@ public:
 
 	virtual double calculateTotalWaterConsumption() = 0;
 
-	void enforcePolicy(std::string policyType);
+	void enforcePolicy(std::string policyType) {
+		std::cout << "somethin";
+	};
 };
 
 #endif

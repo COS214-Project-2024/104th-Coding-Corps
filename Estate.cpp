@@ -79,3 +79,11 @@ double Estate::getArea() {
 	const double garageAreaFactor = 40.0; // Garage area for each car space
 	return (unitArea * this->numUnits) + (garageAreaFactor * this->garageSize);
 }
+
+int Estate::getOccupancy() {
+	return 0;
+}
+
+void Estate::upgrade(BuildingComponent* building) {
+	std::cout << "not yet implemented";
+}

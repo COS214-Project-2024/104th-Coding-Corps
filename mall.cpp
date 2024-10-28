@@ -14,6 +14,10 @@ std::string Mall::getBuildingType() {
     return "Mall";
 }
 
+std::string Mall::getName() {
+    return "Mall";
+}
+
 double Mall::getCost() {
     const double costPerShop = 5000000.0; // 5 million per shop
     return numShops * costPerShop;
@@ -48,4 +52,12 @@ void Mall::demolish() {
 
 double Mall::getArea() {
 	return getX() * getY();
+}
+
+void Mall::upgrade(BuildingComponent* building) {
+    std::cout << "not yet implemented";
+}
+
+int Mall::getOccupancy() {
+    return 0;
 }

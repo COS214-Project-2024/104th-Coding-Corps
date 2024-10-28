@@ -65,3 +65,7 @@ void Factory::upgrade(BuildingComponent* building) {
 double Factory::getArea() {
 	return getX() * getY();
 }
+
+void Factory::construct() {
+    std::cout << "not yet implemented";
+}

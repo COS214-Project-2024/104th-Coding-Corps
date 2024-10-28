@@ -52,3 +52,11 @@ void plant::upgrade(BuildingComponent* building) {
 double plant::getArea() {
     return getX() * getY();
 }
+
+int plant::getOccupancy() {
+    return 0;
+}
+
+void plant::construct() {
+    std::cout << "not yet implemented";
+}

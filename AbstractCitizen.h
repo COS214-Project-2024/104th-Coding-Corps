@@ -16,7 +16,7 @@ protected:
     std::string district;
 
 public:
-    AbstractCitizen();
+    AbstractCitizen() {};
     virtual ~AbstractCitizen() = default;
 
     //all will be overridden by subclasses

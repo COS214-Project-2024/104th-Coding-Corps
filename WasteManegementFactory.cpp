@@ -1,5 +1,5 @@
 #include "WasteManegementFactory.h"
 #include "wasteManagement.h"
 Utilities* WasteManegementFactory::createUtilityService() {
-	return new wasteManagement();
+	return new WasteManagement();
 }

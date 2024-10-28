@@ -71,3 +71,15 @@ double House::getArea() {
 	const double garageAreaFactor = 30.0; // Garage area for each car space
 	return houseBaseArea + (garageAreaFactor * this->garageSize);
 }
+
+void House::construct() {
+	std::cout << "not yet implemented";
+}
+
+int House::getOccupancy() {
+	return 0;
+}
+
+void House::upgrade(BuildingComponent* building) {
+	std::cout << "not yet implemented";
+}
