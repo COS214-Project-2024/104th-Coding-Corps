@@ -5,6 +5,7 @@
 #include <string>
 #include <memory>
 #include <random>
+#include <ctime>
 
 
 class Citizen : public AbstractCitizen {

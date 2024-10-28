@@ -2,6 +2,7 @@
 #define VISITOR_H
 
 #include "AbstractCitizen.h"
+class AbstractCitizen;
 
 class Visitor {
 public:

@@ -21,7 +21,8 @@ Citizen::Citizen() : citizenID(nextID++), onStrike(false) {
     std::uniform_int_distribution<> incomeDist(2000, 5000000);
     std::bernoulli_distribution employmentDist(0.8);  // 80% chance of being employed
     const int numJobs = sizeof(jobs) / sizeof(jobs[0]);
-    std::uniform_int_distribution<> jobDist(0, numJobs - 1);
+    //Redeclaration of jobDist?
+    //std::uniform_int_distribution<> jobDist(0, numJobs - 1);
 
     // Assign classType randomly with 1/3 probability each
     int randomClass = classDist(gen);
@@ -376,14 +377,14 @@ void Citizen::applyTax(double taxRate) {
  * @return double The calculated tax amount.
  */
 double Citizen::calculateTax() {
-    if(classTpe == "lower"){
+    if(classType == "lower"){
         return currentIncome * 0.1;
     }
     else if(classType == "middle"){
         return currentIncome * 0.22;
     }
     else if(classType == "upper"){
-        return currentIncome 0.35; //TAX THE RICH AMIRITE BOYS
+        return currentIncome * 0.35; //TAX THE RICH AMIRITE BOYS
     }
 }
 
@@ -414,7 +415,7 @@ void Citizen::update(const std::string& resourceType, int quantity) {
  *
  * @param collector A reference to the `TaxCollector` visitor.
  */
-void Citizen::accept(TaxCollector& collector) override {
+void Citizen::accept(TaxCollector& collector) {
     collector.visit(*this);
 }
 
