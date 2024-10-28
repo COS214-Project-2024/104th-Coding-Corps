@@ -2,12 +2,14 @@
 #define CITIZEN_H
 
 #include "AbstractCitizen.h"
+#include "CityContext.h"
 #include <string>
 #include <memory>
 #include <random>
+#include <ctime>
 
 
-class Citizen : public AbstractCitizen {
+class Citizen : public AbstractCitizen, public std::enable_shared_from_this<Citizen> {
 private:
     int citizenID;
     std::string classType;  // upper, middle, lower
@@ -17,6 +19,8 @@ private:
     double monthlyExpenditure;
     bool onStrike;
     static int nextID;
+    int x;
+    int y;
 
     // References to other contexts using smart pointers
     std::shared_ptr<void> transportationContext;  // Placeholder for Transport
@@ -25,7 +29,7 @@ private:
 
 public:
     //-----Citizen stuff-----//
-    Citizen();
+    Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Transport> transportContext);
     ~Citizen() override;
 
     // Getters and setters
@@ -34,8 +38,13 @@ public:
     int getASoL() const override;
     double getCurrentIncome() const override;
     bool getEmployment() const;
+    int getEducationLevel() const;
     std::string getJobType() const;
+    int getCitizenID() const;
     void setJobType(const std::string& job);
+    int getX();
+    int getY();
+    char getDistrict() const;
 
     // Updates
     void updateEmployment();
@@ -43,6 +52,7 @@ public:
     void updateESoL(int update);
     void updateASoL(int update);
     void updateCurrentIncome(double amount);
+    void updateMonthlyExpenditure(int amount);
 
     // Additional functionality
     void increaseEducation();
@@ -52,6 +62,9 @@ public:
     void resolveStrike() override;
     void goToWork();
     void goToShops();
+    void getSchooled();
+    void getEducated();
+    void getHealed();
 
     //-----Context Observer-----//
     void updateContext() override;

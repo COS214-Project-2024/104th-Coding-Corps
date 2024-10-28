@@ -4,6 +4,12 @@
 #include <string>
 #include <memory>
 #include "TaxCollector.h"
+// #include "BuildongComponent.h"
+// #include "Transport.h"
+//#include "CityContex.h"
+
+
+class TaxCollector;
 
 
 class AbstractCitizen {
@@ -34,7 +40,7 @@ public:
     virtual double calculateTax() = 0;
     virtual void payTax(double amount) = 0;
     virtual void update(const std::string& resourceType, int quantity) = 0;
-    void accept(TaxCollector& collector) = 0;
+    virtual void accept(TaxCollector& collector) = 0;
 
 };
 
