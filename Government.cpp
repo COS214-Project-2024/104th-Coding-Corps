@@ -111,11 +111,23 @@ void Government::addResourceToCity(const std::string& resourceType, int quantity
  * @return bool True if the resource was successfully consumed, false otherwise.
  */
 bool Government::useResource(const std::string& type, int quantity) {
-    resourceManager->consumeResource(type, quantity);
-    int negQuantity = quantity * -1;
-    // Notify citizens of resource consumption with a negative quantity
-    notifyResourceChange(type, negQuantity);
+    try {
+        // Attempt to consume the resource
+        bool consumed = resourceManager->consumeResource(type, quantity);
+        // If consumption fails, return false
+        if (!consumed) {
+            return false;
+        }
+        int negQuantity = quantity * -1;
+        // Notify citizens of resource consumption with a negative quantity
+        notifyResourceChange(type, negQuantity);
+        return true;  // Return true if all operations succeeded
+    } catch (const std::exception& e) {
+        // Log error or handle exception as needed
+        return false;  // Return false if an exception occurred
+    }
 }
+
 
 /**
  * @brief Displays the current resources available in the city.

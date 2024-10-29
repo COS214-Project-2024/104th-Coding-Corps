@@ -13,19 +13,20 @@ std::shared_ptr<Budget> Budget::getInstance() {
 void Budget::addRevenue(double amount) {
     balance += amount;
     logTransaction("Added revenue: R" + std::to_string(amount));
-    std::cout << "Added R" << amount << " to the budget. Current balance: R" << balance <<std::setprecision(2)<< std::endl;
+    std::cout << std::fixed << std::setprecision(2);
+    std::cout << "Added R" << amount << " to the budget. Current balance: R" << balance << std::endl;
 }
 
-// Deduct expense from the budget
 bool Budget::deductExpense(double amount) {
     if (balance >= amount) {
         balance -= amount;
         logTransaction("Deducted expense: R" + std::to_string(amount));
+        std::cout << std::fixed << std::setprecision(2);
         std::cout << "Deducted R" << amount << " from the budget. Current balance: R" << balance << std::endl;
         return true;
     } else {
         std::cout << "Insufficient funds! Cannot deduct R" << amount << ". Current balance: R" << balance << std::endl;
-        logTransaction("Failed to deduct expense due to insufficient funds: $" + std::to_string(amount));
+        logTransaction("Failed to deduct expense due to insufficient funds: R" + std::to_string(amount));
         return false;
     }
 }

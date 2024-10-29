@@ -11,6 +11,7 @@
 #include "../Utilities.h"           // New stub
 #include "../Government.h"
 #include "../Command.h"
+#include "../WoodFactory.h"
 
 // Mock classes for dependencies if needed
 class MockResourceManager : public ResourceManager {
@@ -54,17 +55,17 @@ TEST_CASE("Testing budget increase and decrease") {
 }
 
 // Test resource addition and notification to citizens
-// TEST_CASE("Testing addResourceToCity and notifyResourceChange") {
-//     auto gov = Government::getInstance();
-//     ResourceFactory* factory;  // Assuming this is in dependencies
-//     gov->addResourceToCity("Wood", 100, *factory);  // Add resources
-//     // Assume notifyResourceChange triggers correct updates in citizenList
-// }
+TEST_CASE("Testing addResourceToCity and notifyResourceChange") {
+    auto gov = Government::getInstance();
+    ResourceFactory* factory = new WoodFactory();  // Assuming this is in dependencies
+    gov->addResourceToCity("Wood", 1000, *factory);  // Add resources
+    gov->displayCityResources();
+}
 
 // Test resource consumption
 TEST_CASE("Testing useResource") {
     auto gov = Government::getInstance();
-    CHECK(gov->useResource("Food", 50) == true);  // Mock resource consumption
+    CHECK(gov->useResource("Wood", 50) == true);  // Mock resource consumption
 }
 
 // Test command execution
