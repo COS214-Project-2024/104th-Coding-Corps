@@ -1,10 +1,16 @@
 #ifndef SHOP_H
 #define SHOP_H
 
-class Shop : CommercialBuildings {
+#include "CommercialBuildings.h"
+#include "string"
+using namespace std;
 
-public:
+class Shop : public CommercialBuildings {
+
+private:
 	int shopSize;
+public:
+	Shop(int shopSize, string businessType);
 
 	double getCost();
 
@@ -20,11 +26,11 @@ public:
 
 	void demolish();
 
-	string getBusinessType();
-
-	int getNumBusinesses();
-
 	double getArea();
+
+	void upgrade(BuildingComponent* building);
+
+	int getOccupancy();
 };
 
 #endif

@@ -1,51 +1,45 @@
 #include "Shop.h"
+#include <iostream>
+
+Shop::Shop(int shopSize, std::string businessType)
+    : CommercialBuildings(businessType, 1), shopSize(shopSize) {
+		this->construct();
+	}
 
 double Shop::getCost() {
-	// TODO - implement Shop::getCost
-	throw "Not yet implemented";
+    return 2000000; // Base cost in ZAR
 }
 
-string Shop::getBuildingType() {
-	// TODO - implement Shop::getBuildingType
-	throw "Not yet implemented";
+std::string Shop::getBuildingType() {
+    return "Shop";
 }
 
 double Shop::getMaintenanceCost() {
-	// TODO - implement Shop::getMaintenanceCost
-	throw "Not yet implemented";
+    const double maintenanceRate = 0.02; // 2% of the shop’s cost per month
+    return getCost() * maintenanceRate;
 }
 
 double Shop::getEnergyConsumption() {
-	// TODO - implement Shop::getEnergyConsumption
-	throw "Not yet implemented";
+    // Assuming the shop uses 300 kWh per square meter per month
+    const double energyPerSquareMeter = 300.0;
+    return energyPerSquareMeter * getArea();
 }
 
 double Shop::getWaterConsumption() {
-	// TODO - implement Shop::getWaterConsumption
-	throw "Not yet implemented";
+    // Assuming the shop uses 100 liters of water per square meter per month
+    const double waterPerSquareMeter = 100.0;
+    return waterPerSquareMeter * getArea();
 }
 
 void Shop::construct() {
-	// TODO - implement Shop::construct
-	throw "Not yet implemented";
+    std::cout << "Constructing a new shop with a size of " << shopSize << " square meters." << std::endl;
 }
 
 void Shop::demolish() {
-	// TODO - implement Shop::demolish
-	throw "Not yet implemented";
-}
-
-string Shop::getBusinessType() {
-	// TODO - implement Shop::getBusinessType
-	throw "Not yet implemented";
-}
-
-int Shop::getNumBusinesses() {
-	// TODO - implement Shop::getNumBusinesses
-	throw "Not yet implemented";
+    std::cout << "The shop is being demolished." << std::endl;
+    shopSize = 0; // Resetting shop size to represent demolition
 }
 
 double Shop::getArea() {
-	// TODO - implement Shop::getArea
-	throw "Not yet implemented";
+    return static_cast<double>(shopSize); // Returns the area based on `shopSize`
 }

@@ -1,46 +1,59 @@
 #include "warehouse.h"
+#include <iostream>
 
-double WareHouse::getStorageCapacity() {
-	// TODO - implement WareHouse::getStorageCapacity
-	throw "Not yet implemented";
+Warehouse::Warehouse(int storageCapacity, int numEmployees)
+    : IndustrialBuildings(storageCapacity, numEmployees), storageCapacity(storageCapacity) {
+		this->construct();
+	}
+
+double Warehouse::getStorageCapacity() {
+    return storageCapacity; // Return the maximum storage capacity of the warehouse
 }
 
-string WareHouse::getBuildingType() {
-	// TODO - implement WareHouse::getBuildingType
-	throw "Not yet implemented";
+std::string Warehouse::getBuildingType() {
+    return "Warehouse";
 }
 
-double WareHouse::getCost() {
-	// TODO - implement WareHouse::getCost
-	throw "Not yet implemented";
+double Warehouse::getCost() {
+    return 90000000; // Warehouse-specific cost in ZAR
 }
 
-double WareHouse::getMaintenanceCost() {
-	// TODO - implement WareHouse::getMaintenanceCost
-	throw "Not yet implemented";
+double Warehouse::getMaintenanceCost() {
+    const double maintenanceRate = 0.03; // 3% of the total cost
+    return getCost() * maintenanceRate;
 }
 
-double WareHouse::getEnergyConsumption() {
-	// TODO - implement WareHouse::getEnergyConsumption
-	throw "Not yet implemented";
+double Warehouse::getEnergyConsumption() {
+    // Assuming each employee requires 400 kWh for warehouse operations per month
+    const double energyPerEmployee = 400.0;
+    return energyPerEmployee * getNumWorkers();
 }
 
-double WareHouse::getWaterConsumption() {
-	// TODO - implement WareHouse::getWaterConsumption
-	throw "Not yet implemented";
+double Warehouse::getWaterConsumption() {
+    // Assuming each employee uses 1500 liters of water per month
+    const double waterPerEmployee = 1500.0;
+    return waterPerEmployee * getNumWorkers();
 }
 
-void WareHouse::construct() {
-	// TODO - implement WareHouse::construct
-	throw "Not yet implemented";
+void Warehouse::construct() {
+    std::cout << "Warehouse is under construction." << std::endl;
+    // Custom logic for initializing or setting up a new warehouse, if necessary
 }
 
-void WareHouse::demolish() {
-	// TODO - implement WareHouse::demolish
-	throw "Not yet implemented";
+void Warehouse::demolish() {
+    // Reset attributes to represent the demolition of the warehouse
+    std::cout << "Warehouse is being demolished." << std::endl;
+    this->storageCapacity = 0;
+    this->numWorkers = 0;
 }
 
-double WareHouse::getArea() {
-	// TODO - implement WareHouse::getArea
-	throw "Not yet implemented";
+void Warehouse::upgrade(BuildingComponent* building) {
+    // Simulating an upgrade by increasing storage capacity by 25%
+    std::cout << "Upgrading warehouse storage capacity." << std::endl;
+    this->storageCapacity *= 1.25;
+}
+
+double Warehouse::getArea() {
+    // Calculate area, assuming a fixed square meter size per employee
+    return getX() * getY();
 }
