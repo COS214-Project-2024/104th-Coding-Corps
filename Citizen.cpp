@@ -364,6 +364,7 @@ void Citizen::goOnStrike(){
  */
 void Citizen::resolveStrike() {
     updateSatisfaction(20); //ensure they're out of the strike zone
+    updateMonthlyExpenditure(1000);//make up for lost monthly expenditure
     onStrike = false;
 }
 
@@ -375,7 +376,23 @@ void Citizen::goToWork() {
         return;
     }
 
-    auto nearestWorkplace = cityContext->findNearestBuilding(this, "Workplace");
+    if(classType == "lower"){
+        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Flat");
+    }
+    else if(classType == "middle"){
+        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "House");
+    }
+    else if(classType == "upper"){
+        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Estate");
+    }
+
+    if (!nearestResidential) {
+    std::cout << "No residential available in district for Citizen ID " << citizenID << "." << std::endl;
+    updateSatisfaction(-3);
+    return;
+    }
+
+    auto nearestWorkplace = cityContext->findNearestBuilding(shared_from_this(), "Office");
 
     if (!nearestWorkplace) {
         std::cout << "No workplace available in district for Citizen ID " << citizenID << "." << std::endl;
@@ -384,7 +401,7 @@ void Citizen::goToWork() {
     }
     else{
         updateCurrentIncome(90);
-        transportContext->travel(shared_from_this(), nearestWorkplace);
+        transportContext->travel(nearestResidential, nearestWorkplace);
 
     }
 }
@@ -397,14 +414,10 @@ void Citizen::goToShops() {
     monthlyExpenditure -= 1000;
     return;
    }
-   if (onStrike) {
-        monthlyExpenditure -= 1000;  // Deduct a penalty for missing shopping
-        std::cout << "Citizen ID " << citizenID << " is on strike and won't go shopping. Monthly expenditure adjusted." << std::endl;
-        return;
-    }
 
     // Find the nearest shop within the same district
     auto nearestShop = cityContext->findNearestBuilding(shared_from_this(), "Shop");
+    if(!nearestShop){ nearestShop = cityContext->findNearestBuilding(shared_from_this(), "Mall");}
 
     if (!nearestShop) {
         std::cout << "No shop available in district for Citizen ID " << citizenID << "." << std::endl;
@@ -440,11 +453,15 @@ void Citizen::getSchooled() {
 
         // Randomly choose a new job type for the increased education level
         static const char* newJobs[] = {"Farmer", "Artisan", "Educator"};
-         std::random_device rd;
+        std::random_device rd;
         std::mt19937 gen(rd());
         std::uniform_int_distribution<> jobDist(0, 2);
 
         jobType = newJobs[jobDist(gen)];
+
+        if(!employed){
+            updateEmployment();
+            };
 
         std::cout << "Citizen ID " << citizenID << " attended school, new education level: " 
                   << educationLevel << ", possible new job type: " << jobType << std::endl;
@@ -458,15 +475,13 @@ void Citizen::getSchooled() {
  * @brief Makes the citizen go to an educational institution, updating their education level and job opportunities.
  */
 void Citizen::getEducated() {
-    if (onStrike) {
-        std::cout << "Citizen ID " << citizenID << " is on strike and cannot attend school or university." << std::endl;
-        return;
+
     }
 
-    // Determine whether citizen goes to school or university based on current education level
     std::shared_ptr<BuildingComponent> institution = nullptr;
-    if (educationLevel == 0) {
-        institution = cityContext->findNearestBuilding(shared_from_this(), "School");
+
+    if(educationLevel == 0){
+        return; //cannot attend university before attending school
     } else if (educationLevel == 1 || educationLevel == 2) {
         institution = cityContext->findNearestBuilding(shared_from_this(), "University");
     }
@@ -549,16 +564,6 @@ void Citizen::updateContext() {
 
 
 //-----Government: Visitor, Observer-----//
-
-// /** 
-//  * @brief Applies a tax rate to the citizen's income if they are employed.
-//  * @param taxRate The tax rate to apply.
-//  */
-// void Citizen::applyTax(double taxRate) {
-//     if (employed) {
-//         currentIncome -= currentIncome * taxRate;
-//     }
-// }
 
 /** 
  * @brief Calculates the tax owed by the citizen based on their income.

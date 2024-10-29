@@ -42,8 +42,10 @@ public:
     std::string getJobType() const;
     int getCitizenID() const;
     void setJobType(const std::string& job);
-    int getX();
-    int getY();
+    int getX() const;
+    int getY() const;
+    void setX(int x);
+    void setY(int y);
     char getDistrict() const;
 
     // Updates

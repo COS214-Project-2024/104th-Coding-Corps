@@ -143,5 +143,9 @@ std::shared_ptr<BuildingComponent> findNearestBuilding(const std::shared_ptr<Cit
                 }
             }
         }
+
+        citizen->setX(nearestBuilding->getX());
+        citizen->setY(nearestBuilding->getY());
+
         return nearestBuilding;  // Returns nullptr if no building of the specified type is found
 }
