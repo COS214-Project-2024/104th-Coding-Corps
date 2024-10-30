@@ -2,47 +2,32 @@
 #define ESTATE_H
 
 #include <string>
+#include <memory>
 #include "ResidentialBuildings.h"
-using namespace std;
+#include "Government.h"
 
 class Estate : public ResidentialBuildings {
-
 private:
-	int garageSize, numUnits;
-	bool pool;
+    int garageSize;
+    int numUnits;
+    bool pool;
 
 public:
-	Estate(int garageSize, bool hasPool, int residents, int floors, bool hasGarden, int units);
+    Estate(int x, int y, const std::string& district, int quality, int garageSize, bool hasPool, int residents, int floors, bool hasGarden, int units);
 
-	int getGarageSize();
-
-	bool hasSwimmingPool();
-
-	string getBuildingType();
-
-	double getCost();
-
-	double getMaintenanceCost();
-
-	double getEnergyConsumption();
-
-	double getWaterConsumption();
-
-	void construct();
-
-	void demolish();
-
+    int getGarageSize() const;
+    bool hasSwimmingPool() const;
+    std::string getBuildingType() override;
+    double getCost() override;
+    double getMaintenanceCost() override;
+    double getEnergyConsumption() override;
+    double getWaterConsumption() override;
+    void construct();
+    void demolish() override;
+    double getArea() override;
+    int getOccupancy() override;
 	int getNumResidents();
-
-	int getNumFloors();
-
-	bool hasGarden();
-
-	double getArea();
-	
-	int getOccupancy() override;
-
-	void upgrade(BuildingComponent* building) override;
+    void upgrade(std::shared_ptr<BuildingComponent> building) override;
 };
 
-#endif
+#endif // ESTATE_H

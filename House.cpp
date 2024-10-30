@@ -1,16 +1,15 @@
 #include "House.h"
 #include <stdexcept>
 
-House::House(int garageSize, bool hasPool, int residents, int floors, bool hasGarden) : ResidentialBuildings(residents, floors, hasGarden) {
-	this->garageSize = garageSize;
-	this->pool = hasPool;
-}
-int House::getGarageSize() {
-	return this->garageSize;
+House::House(int x, int y, const std::string& district, int quality, int garageSize, bool hasPool, int residents, int floors, bool hasGarden)
+    : ResidentialBuildings(x, y, district, quality, residents, floors, hasGarden), garageSize(garageSize), pool(hasPool) {}
+
+int House::getGarageSize() const {
+    return garageSize;
 }
 
-bool House::hasSwimmingPool() {
-	return pool;
+bool House::hasSwimmingPool() const {
+    return pool;
 }
 
 std::string House::getBuildingType() {
@@ -56,14 +55,7 @@ int House::getNumResidents() {
 	return 4;
 }
 
-int House::getNumFloors() {
-	return 2;
-}
 
-bool House::hasGarden() {
-	// Assuming all houses have a garden
-	return true;
-}
 
 double House::getArea() {
 	// Calculate area assuming X by Y dimensions and a constant multiplier for garage size
@@ -76,6 +68,22 @@ int House::getOccupancy(){
 	return 10;
 }
 
-void House::upgrade(BuildingComponent* building){
-	//implement
+void House::upgrade(std::shared_ptr<BuildingComponent> building) {
+    auto government = Government::getInstance();
+    
+    // Example resource requirements for upgrading
+    const int requiredConcrete = 50;
+    const int requiredSteel = 30;
+
+    // Request resources from Government
+    bool hasConcrete = government->useResource("Concrete", requiredConcrete);
+    bool hasSteel = government->useResource("Steel", requiredSteel);
+
+    if (hasConcrete && hasSteel) {
+        // Perform upgrade logic if resources are available
+        quality += 10;  // Example improvement in quality
+        std::cout << "Estate upgraded successfully!" << std::endl;
+    } else {
+        std::cout << "Upgrade failed due to insufficient resources." << std::endl;
+    }
 }
