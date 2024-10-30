@@ -1,15 +1,15 @@
-#ifndef HOSPITAL_H
-#define HOSPITAL_H
+#ifndef UNIVERSITY_H
+#define UNIVERSITY_H
 
 #include "ServiceBuildings.h"
 #include <string>
 
-class Hospital : public ServiceBuildings {
+class University : public ServiceBuildings {
 private:
-    int qualityOfCare;
+    int highestQualification;
 
 public:
-    Hospital(int quality, int numWorkers);
+    University(int quality, int numWorkers, int highestQualification);
 
     std::string getBuildingType() override;
     int getOccupancy() override;
@@ -17,11 +17,10 @@ public:
     double getMaintenanceCost() override;
     double getEnergyConsumption() override;
     double getWaterConsumption() override;
-    void construct() override;
     void demolish() override;
     void upgrade(BuildingComponent* building) override;
     double getArea() override;
-    int getQualityOfCare();
+    int getHighestQualification();
 };
 
 #endif

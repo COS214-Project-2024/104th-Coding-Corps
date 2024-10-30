@@ -17,7 +17,6 @@ public:
     double getMaintenanceCost() override;
     double getEnergyConsumption() override;
     double getWaterConsumption() override;
-    void construct() override;
     void demolish() override;
     void upgrade(BuildingComponent* building) override;
     double getArea() override;

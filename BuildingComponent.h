@@ -17,8 +17,6 @@ private:
 	int y;
 	string district;
 	int quality;
-	string district;
-	int quality;
 
 protected:
 	vector<Utilities*> utilities;

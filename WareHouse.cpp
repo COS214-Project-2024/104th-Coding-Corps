@@ -57,3 +57,7 @@ double Warehouse::getArea() {
     // Calculate area, assuming a fixed square meter size per employee
     return getX() * getY();
 }
+
+int Warehouse::getOccupancy(){
+	return 1500;
+}
