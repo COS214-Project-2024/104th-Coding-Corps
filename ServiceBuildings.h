@@ -11,7 +11,10 @@ protected:
     int numWorkers;
 
 public:
-    ServiceBuildings(int quality, int numWorkers);
+    ServiceBuildings(int quality, int numWorkers){
+        this->quality = quality;
+        this->numWorkers = numWorkers;
+    }
 
     virtual std::string getBuildingType() override;
     virtual int getOccupancy() override;
@@ -19,10 +22,11 @@ public:
     virtual double getMaintenanceCost() override;
     virtual double getEnergyConsumption() override;
     virtual double getWaterConsumption() override;
-    virtual void demolish() override;
     virtual void upgrade(BuildingComponent* building) override;
     virtual double getArea() override;
-    virtual void accept(Citizen* c);
+    virtual void accept(Citizen* c){
+        //implement
+    }
 };
 
 #endif
