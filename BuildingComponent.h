@@ -8,7 +8,6 @@ class BuildingComponent {
 private:
 	string type;
 	double cost;
-	int occupancy;
 	double maintainanceCost;
 	double energyConsumption;
 	double waterConsumption;

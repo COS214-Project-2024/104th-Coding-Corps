@@ -16,7 +16,7 @@ TESTS = $(wildcard $(TEST_DIR)/test_*.cpp)
 TEST_OBJS = $(TESTS:$(TEST_DIR)/%.cpp=$(BUILD_DIR)/%.o)
 
 # Test executables
-TEST_EXECUTABLES = test_Government test_Citizen test_BuildingFactory
+TEST_EXECUTABLES = test_Government test_Citizen test_BuildingFactory test_BuildingComponents
 
 # Default target
 .PHONY: all clean
@@ -42,6 +42,10 @@ test_Citizen: $(BUILD_DIR)/test_Citizen.o $(OBJS)
 
 test_BuildingFactory: $(BUILD_DIR)/test_BuildingFactory.o $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
+
+test_BuildingComponents: $(BUILD_DIR)/test_BuildingComponents.o $(OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@
+
 
 # Clean up
 clean:

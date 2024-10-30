@@ -24,9 +24,6 @@ public:
     virtual double getWaterConsumption() override = 0;
     virtual void upgrade(BuildingComponent* building) override = 0;
     virtual double getArea() override = 0;
-    virtual void accept(Citizen* c) {
-        //implement
-    }
 };
 
 #endif
