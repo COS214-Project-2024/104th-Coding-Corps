@@ -9,9 +9,8 @@ Transport::Transport() {
     currentStrategy = nullptr;
 }
 
-
-double Transport::calculateDistance(BuildingComponent* from, BuildingComponent* to) {
-	return sqrt(pow(to->getX() - from->getX(), 2) + pow(to->getY() - from->getY(), 2));
+double Transport::calculateDistance(std::shared_ptr<BuildingComponent> from, std::shared_ptr<BuildingComponent> to) {
+    return sqrt(pow(to->getX() - from->getX(), 2) + pow(to->getY() - from->getY(), 2));
 }
 
 void Transport::chooseStrategy(double distance, bool isCongested) {
@@ -31,9 +30,7 @@ void Transport::chooseStrategy(double distance, bool isCongested) {
 }
 
 
-void Transport::completeTravel(BuildingComponent* from, BuildingComponent* to, 
-                               double commuteTime, const std::string& mode) {
-  
+void Transport::completeTravel(std::shared_ptr<BuildingComponent> from, std::shared_ptr<BuildingComponent> to, double commuteTime, const std::string& mode) {
     trafficManager->decreaseTraffic(from, to);
 
    
@@ -43,17 +40,16 @@ void Transport::completeTravel(BuildingComponent* from, BuildingComponent* to,
 }
 
 
-void Transport::travel(BuildingComponent* from, BuildingComponent* to) {
+void Transport::travel(std::shared_ptr<BuildingComponent> from, std::shared_ptr<BuildingComponent> to) {
     double distance = calculateDistance(from, to);
     bool isCongested = trafficManager->isCongested(from, to);
 
     chooseStrategy(distance, isCongested);
-
     double commuteTime = currentStrategy->calculateCommuteTime(distance);
 
     std::cout << "Citizen travels using " << currentStrategy->getMode()
               << ". Commute time: " << commuteTime << " hours." << std::endl;
 
     trafficManager->incrementTraffic(from, to);
-    completeTravel(from, to, commuteTime, currentStrategy->getMode());  // Use currentStrategy->getMode()
+    completeTravel(from, to, commuteTime, currentStrategy->getMode());
 }

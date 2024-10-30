@@ -1,12 +1,11 @@
 #include "Family.h"
 #include <iostream>
 #include <bits/algorithmfwd.h>
-using namespace std;
 
 /** 
  * @brief Constructs a Family.
  */
-Family::Family() {
+Family::Family() : cityContext(nullptr), government(nullptr) {
     // Constructor implementation
 }
 
@@ -29,13 +28,11 @@ void Family::add(std::shared_ptr<AbstractCitizen> citizen) {
  * @brief Removes a citizen from the family.
  * @param citizen Shared pointer to the citizen to remove.
  */
-// void Family::remove(std::shared_ptr<AbstractCitizen> citizen) {
-//     members.erase(std::remove_if(members.begin(), members.end(),
-//                   [&citizen](const std::shared_ptr<AbstractCitizen>& member) {
-//                       return member == citizen;
-//                   }),
-//                   members.end());
-// }
+void Family::remove(std::shared_ptr<AbstractCitizen> citizen) {
+    auto it = std::remove(members.begin(), members.end(), citizen);
+    members.erase(it, members.end());
+}
+
 
 /** 
  * @brief Returns the average satisfaction of the family.
@@ -47,6 +44,7 @@ int Family::getSatisfaction() const {
         totalSatisfaction += member->getSatisfaction();
     }
     return members.empty() ? 0 : totalSatisfaction / members.size();
+
 }
 
 /** 
@@ -137,11 +135,11 @@ void Family::updateContext() {
  * @brief Applies a tax rate to all employed family members.
  * @param taxRate Tax rate to apply.
  */
-void Family::applyTax(double taxRate) {
-    for (auto& member : members) {
-        member->applyTax(taxRate);
-    }
-}
+// void Family::applyTax(double taxRate) {
+//     for (auto& member : members) {
+//         member->applyTax(taxRate);
+//     }
+// }
 
 /** 
  * @brief Calculates the total tax for the family.
@@ -177,5 +175,5 @@ void Family::update(const std::string& resourceType, int quantity) {
 }
 
 void Family::accept(TaxCollector& collector) {
-    std::cout << "not yet implemented";
+    collector.visit(*this);
 }
