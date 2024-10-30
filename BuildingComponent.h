@@ -34,8 +34,6 @@ public:
 
 	virtual double getWaterConsumption() = 0;
 
-	virtual void construct() = 0;
-
 	virtual void demolish() = 0;
 
 	virtual void upgrade(BuildingComponent* building) = 0;
@@ -46,11 +44,11 @@ public:
 
 	int getY();
 
-	virtual string getDistrict();
+	string getDistrict();
 
-	virtual int getQuality();	//measured on a 0 to 100 scale
+	virtual void enforcePolicy(string policy){}
 
-	virtual string getName() = 0;
+	int getQuality();	//measured on a 0 to 100 scale
 };
 
 #endif

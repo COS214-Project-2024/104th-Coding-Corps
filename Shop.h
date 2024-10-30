@@ -16,8 +16,6 @@ public:
 
 	string getBuildingType();
 
-	std::string getName();
-
 	double getMaintenanceCost();
 
 	double getEnergyConsumption();

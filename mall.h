@@ -24,8 +24,6 @@ public:
 
 	double getWaterConsumption();
 
-	std::string getName();
-
 	void construct();
 
 	void demolish();

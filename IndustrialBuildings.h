@@ -13,8 +13,7 @@ protected:
 	int numWorkers;
 
 public:
- 
-	IndustrialBuildings(int workers, double production = 0){
+	IndustrialBuildings(double production, int workers){
 		this->productionCapacity = production;
 		this->numWorkers = workers;
 	}

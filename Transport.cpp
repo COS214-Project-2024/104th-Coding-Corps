@@ -32,8 +32,10 @@ void Transport::chooseStrategy(double distance, bool isCongested) {
 
 void Transport::completeTravel(std::shared_ptr<BuildingComponent> from, std::shared_ptr<BuildingComponent> to, double commuteTime, const std::string& mode) {
     trafficManager->decreaseTraffic(from, to);
-    std::cout << "Citizen completed their journey from " << from->getName()
-              << " to " << to->getName() << " in " << commuteTime << " hours using " 
+
+   
+    std::cout << "Citizen completed their journey from " << from->getBuildingType()
+              << " to " << to->getBuildingType() << " in " << commuteTime << " hours using " 
               << mode << "." << std::endl;
 }
 

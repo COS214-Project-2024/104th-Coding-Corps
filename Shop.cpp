@@ -14,10 +14,6 @@ std::string Shop::getBuildingType() {
     return "Shop";
 }
 
-std::string Shop::getName() {
-    return "Shop";
-}
-
 double Shop::getMaintenanceCost() {
     const double maintenanceRate = 0.02; // 2% of the shop’s cost per month
     return getCost() * maintenanceRate;
@@ -48,10 +44,10 @@ double Shop::getArea() {
     return static_cast<double>(shopSize); // Returns the area based on `shopSize`
 }
 
-void Shop::upgrade(BuildingComponent* building) {
-    std::cout << "not yet implemented";
+int Shop::getOccupancy(){
+	return 1;
 }
 
-int Shop::getOccupancy() {
-    return 0;
+void Shop::upgrade(BuildingComponent* building){
+	//implement
 }
