@@ -3,10 +3,10 @@
 
 #include "UtilityFactory.h"
 
-class WasteManegementFactory : public UtilityFactory {
+class WasteManagementFactory : public UtilityFactory {
 
 public:
-	Utilities* createUtilityService();
+    std::shared_ptr<Utilities> createUtilityService() override;
 };
 
 #endif

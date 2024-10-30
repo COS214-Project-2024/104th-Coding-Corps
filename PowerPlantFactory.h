@@ -5,9 +5,8 @@
 
 class PowerPlantFactory : public UtilityFactory {
 
-
 public:
-	Utilities* createUtilityService();
+    std::shared_ptr<Utilities> createUtilityService() override;
 };
 
 #endif

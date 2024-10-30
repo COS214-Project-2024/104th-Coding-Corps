@@ -10,7 +10,7 @@ class Mall : public CommercialBuildings {
 private:
 	int numShops;
 public:
-	Mall(int numShops, string businessType, int numBusinesses);
+	Mall(int numShops, string businessType, int numBusinesses, int x, int y, const std::string& district, int quality);
 
 	int getNumShops();
 
