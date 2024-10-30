@@ -8,16 +8,6 @@
 class BuildingComponent {
 
 private:
-<<<<<<< HEAD
-	string type;
-	double cost;
-	double maintainanceCost;
-	double energyConsumption;
-	double waterConsumption;
-	double area;
-=======
-
->>>>>>> c46b81e5e146c2a6ceb9fb9e634eef84f8891805
 	int x;
 	int y;
 	string district;
@@ -28,6 +18,13 @@ protected:
 	
 public:
     BuildingComponent(int x, int y, const std::string& district, int quality);
+
+	virtual void addBuilding(BuildingComponent* building) {};
+
+	virtual void removeBuilding(BuildingComponent* building) {};
+
+	virtual BuildingComponent* getBuilding(int index) {};
+
 	virtual string getBuildingType() = 0;
 
 	virtual int getOccupancy() = 0;

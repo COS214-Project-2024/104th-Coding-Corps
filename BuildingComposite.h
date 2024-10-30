@@ -18,17 +18,19 @@ private:
 public:
 	BuildingComposite();
 	
-	virtual void addBuilding(BuildingComponent* building);
+	void addBuilding(BuildingComponent* building) override;
 
-	virtual void removeBuilding(BuildingComponent* building);
+	void removeBuilding(BuildingComponent* building) override;
 
-	virtual BuildingComponent* getBuilding(int index);
+	BuildingComponent* getBuilding(int index) override;
 
-	virtual double calculateTotalCost();
+	double getCost() override;
 
-	virtual double calculateTotalEnergyConsumption();
+	double getMaintenanceCost() override;
 
-	virtual double calculateTotalWaterConsumption();
+	double getEnergyConsumption() override;
+
+	double getWaterConsumption() override;
 
 	void enforcePolicy(string policy) override;
 };
