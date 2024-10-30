@@ -4,16 +4,17 @@
 #include "AbstractCitizen.h"
 #include "TaxCollector.h"
 #include <vector>
+#include <memory>
 
 class TaxationCommand : public Command {
 
 private:
-	std::vector<AbstractCitizen*> citizenList;
-	double taxRate;
+    std::vector<std::shared_ptr<AbstractCitizen>> citizenList; // Use smart pointers for citizens
+    double taxRate;
 
 public:
-	TaxationCommand(std::vector<AbstractCitizen*> c, double rate);
-	void execute();
+    TaxationCommand(std::vector<std::shared_ptr<AbstractCitizen>> c, double rate);
+    void execute() override;
 };
 
 #endif
