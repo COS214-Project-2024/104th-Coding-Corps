@@ -19,10 +19,10 @@ protected:
 public:
     BuildingComponent(int x, int y, const std::string& district, int quality);
 
-	virtual void addBuilding(BuildingComponent* building) {};
-
-	virtual void removeBuilding(BuildingComponent* building) {};
-
+   virtual void addBuilding(std::shared_ptr<BuildingComponent> building) {}
+    virtual void addUtilities(std::shared_ptr<Utilities> utility) {}
+    virtual void removeBuilding(std::shared_ptr<BuildingComponent> building) {}
+	
 	virtual BuildingComponent* getBuilding(int index) {};
 
 	virtual string getBuildingType() = 0;
