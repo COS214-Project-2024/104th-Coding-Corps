@@ -1,16 +1,17 @@
 #include "Estate.h"
 #include <stdexcept>
 
-Estate::Estate(int garageSize, bool hasPool, int residents, int floors, bool hasGarden, int units) 
-	: ResidentialBuildings(residents, floors, hasGarden), garageSize(garageSize), pool(hasPool), numUnits(units) {}
+Estate::Estate(int x, int y, const std::string& district, int quality, int garageSize, bool hasPool, int residents, int floors, bool hasGarden, int units)
+    : ResidentialBuildings(x, y, district, quality, residents, floors, hasGarden), garageSize(garageSize), numUnits(units), pool(hasPool) {}
 
-int Estate::getGarageSize() {
-	return this->garageSize;
+int Estate::getGarageSize() const {
+    return garageSize;
 }
 
-bool Estate::hasSwimmingPool() {
-	return this->pool;
+bool Estate::hasSwimmingPool() const {
+    return pool;
 }
+
 
 std::string Estate::getBuildingType() {
 	return "Estate";
@@ -63,15 +64,8 @@ int Estate::getNumResidents() {
 	return 4 * this->numUnits;
 }
 
-int Estate::getNumFloors() {
-	// Assuming each estate has 3 floors by default
-	return 3;
-}
 
-bool Estate::hasGarden() {
-	// Estates generally have gardens
-	return true;
-}
+
 
 double Estate::getArea() {
 	// Calculate the area of the estate, accounting for all units and garage size
@@ -80,10 +74,27 @@ double Estate::getArea() {
 	return (unitArea * this->numUnits) + (garageAreaFactor * this->garageSize);
 }
 
-int Estate::getOccupancy(){
-	return 150;
+int Estate::getOccupancy() {
+    return numUnits;
 }
 
-void Estate::upgrade(BuildingComponent* building){
-	//implement
+
+void Estate::upgrade(std::shared_ptr<BuildingComponent> building) {
+    auto government = Government::getInstance();
+    
+    // Example resource requirements for upgrading
+    const int requiredConcrete = 100;
+    const int requiredSteel = 50;
+
+    // Request resources from Government
+    bool hasConcrete = government->useResource("Concrete", requiredConcrete);
+    bool hasSteel = government->useResource("Steel", requiredSteel);
+
+    if (hasConcrete && hasSteel) {
+        // Perform upgrade logic if resources are available
+        quality += 10;  // Example improvement in quality
+        std::cout << "Estate upgraded successfully!" << std::endl;
+    } else {
+        std::cout << "Upgrade failed due to insufficient resources." << std::endl;
+    }
 }
