@@ -37,8 +37,8 @@ void Transport::completeTravel(BuildingComponent* from, BuildingComponent* to,
     trafficManager->decreaseTraffic(from, to);
 
    
-    std::cout << "Citizen completed their journey from " << from->getName()
-              << " to " << to->getName() << " in " << commuteTime << " hours using " 
+    std::cout << "Citizen completed their journey from " << from->getBuildingType()
+              << " to " << to->getBuildingType() << " in " << commuteTime << " hours using " 
               << mode << "." << std::endl;
 }
 

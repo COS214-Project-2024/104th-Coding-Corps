@@ -7,3 +7,11 @@ int BuildingComponent::getX() {
 int BuildingComponent::getY() {
 	return this->y;
 }
+
+int BuildingComponent::getQuality() {
+	return this->quality;
+}
+
+std::string BuildingComponent::getDistrict() {
+	return this->district;
+}

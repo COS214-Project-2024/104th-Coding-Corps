@@ -1,7 +1,6 @@
 #ifndef ESTATE_H
 #define ESTATE_H
 
-#include <iostream>
 #include <string>
 #include "ResidentialBuildings.h"
 using namespace std;
@@ -18,10 +17,6 @@ public:
 	int getGarageSize();
 
 	bool hasSwimmingPool();
-
-    std::string getName() override {
-        return "Estate";
-    }
 
 	string getBuildingType();
 

@@ -15,6 +15,8 @@ private:
 	double area;
 	int x;
 	int y;
+	string district;
+	int quality;
 
 protected:
 	vector<Utilities*> utilities;
@@ -32,10 +34,6 @@ public:
 
 	virtual double getWaterConsumption() = 0;
 
-	virtual std::string getName() = 0;  // Pure virtual function if BuildingComponent is abstract
-
-	virtual void construct() = 0;
-
 	virtual void demolish() = 0;
 
 	virtual void upgrade(BuildingComponent* building) = 0;
@@ -45,6 +43,12 @@ public:
 	int getX();
 
 	int getY();
+
+	string getDistrict();
+
+	virtual void enforcePolicy(string policy){}
+
+	int getQuality();	//measured on a 0 to 100 scale
 };
 
 #endif

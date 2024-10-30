@@ -17,8 +17,6 @@ public:
 
 	double getCost();
 
-	std::string getName();
-
 	double getMaintenanceCost();
 
 	double getEnergyConsumption();

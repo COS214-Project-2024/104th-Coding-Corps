@@ -27,8 +27,6 @@ public:
 
 	virtual double getWaterConsumption() = 0;
 
-	virtual void construct() = 0;
-
 	virtual void demolish() = 0;
 
 	virtual void upgrade(BuildingComponent* building) = 0;

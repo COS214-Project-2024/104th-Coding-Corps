@@ -15,9 +15,5 @@ int ResidentialBuildings::getNumFloors() {
 }
 
 bool ResidentialBuildings::hasGarden() {
-	if(garden) {
-		return true;
-	} else {
-		return false;
-	}
+	return garden;
 }
