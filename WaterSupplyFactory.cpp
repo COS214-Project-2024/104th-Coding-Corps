@@ -1,6 +1,6 @@
 #include "WaterSupplyFactory.h"
-#include "WaterSupply.h"
+#include "WaterSupply.h" // Assuming WaterSupply is a derived class of Utilities
 
-Utilities* WaterSupplyFactory::createUtilityService() {
-	return new WaterSupply();
+std::shared_ptr<Utilities> WaterSupplyFactory::createUtilityService() {
+    return std::make_shared<WaterSupply>();
 }

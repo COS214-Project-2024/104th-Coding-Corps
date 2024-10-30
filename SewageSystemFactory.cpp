@@ -1,6 +1,6 @@
 #include "SewageSystemFactory.h"
-#include "sewageManagement.h"
+#include "sewageManagement.h" // Assuming SewageSystem is a derived class of Utilities
 
-Utilities* SewageSystemFactory::createUtilityService() {
-	return new SewageManagement();
+std::shared_ptr<Utilities> SewageSystemFactory::createUtilityService() {
+    return std::make_shared<SewageManagement>();
 }

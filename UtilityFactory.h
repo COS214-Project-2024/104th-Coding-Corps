@@ -2,11 +2,12 @@
 #define UTILITYFACTORY_H
 
 #include "Utilities.h"
+#include <memory>
 
 class UtilityFactory {
 
 public:
-	virtual Utilities* createUtilityService() = 0;
+    virtual std::shared_ptr<Utilities> createUtilityService() = 0;
 };
 
 #endif
