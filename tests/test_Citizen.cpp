@@ -10,14 +10,14 @@ TEST_SUITE("Citizen Class Tests") {
     std::shared_ptr<Transport> transportContext = std::make_shared<Transport>();
 
     TEST_CASE("Constructor Test") {
-        Citizen citizen(cityContext, transportContext);
+        auto citizen = std::make_shared<Citizen>(cityContext, transportContext);
 
-        CHECK(citizen.getSatisfaction() == 50);
-        CHECK(citizen.getESoL() == 50);
-        CHECK(citizen.getASoL() == 50);
-        CHECK(citizen.getX() == 0);
-        CHECK(citizen.getY() == 0);
-        CHECK(citizen.getEducationLevel() == 0);
+        CHECK(citizen->getSatisfaction() == 50);
+        CHECK(citizen->getESoL() == 50);
+        CHECK(citizen->getASoL() == 50);
+        CHECK(citizen->getX() == 0);
+        CHECK(citizen->getY() == 0);
+        CHECK(citizen->getEducationLevel() == 0);
     }
 
     TEST_CASE("Employment Status") {
