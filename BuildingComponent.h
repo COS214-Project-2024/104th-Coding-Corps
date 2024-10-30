@@ -11,19 +11,26 @@ private:
 	int x;
 	int y;
 	string district;
-	int quality;
+	
 
 protected:
+    int quality;
 	std::vector<std::shared_ptr<Utilities>> utilities;
 	
 public:
     BuildingComponent(int x, int y, const std::string& district, int quality);
 
+<<<<<<< HEAD
 	virtual void addBuilding(shared_ptr<BuildingComponent> building);
 
 	virtual void removeBuilding(shared_ptr<BuildingComponent> building);
 
 	virtual shared_ptr<BuildingComponent> getBuilding(int index);
+=======
+   virtual void addBuilding(std::shared_ptr<BuildingComponent> building) {}
+    virtual void addUtilities(std::shared_ptr<Utilities> utility) {}
+    virtual void removeBuilding(std::shared_ptr<BuildingComponent> building) {}
+>>>>>>> d1fdaa0ea05d02e5cf76b938fb6bdac7ce3d5f58
 
 
 	virtual string getBuildingType() = 0;

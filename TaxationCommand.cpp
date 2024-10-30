@@ -2,11 +2,11 @@
 
 /**
  * @brief Constructs a TaxationCommand with a specified list of citizens and a tax rate.
- * @param c Vector of pointers to AbstractCitizen objects that will be taxed.
+ * @param c Vector of shared pointers to AbstractCitizen objects that will be taxed.
  * @param rate The tax rate to apply to each citizen.
  */
-TaxationCommand::TaxationCommand(std::vector<AbstractCitizen*> c, double rate)
-	: citizenList(c), taxRate(rate) {}
+TaxationCommand::TaxationCommand(std::vector<std::shared_ptr<AbstractCitizen>> c, double rate)
+    : citizenList(std::move(c)), taxRate(rate) {}
 
 /**
  * @brief Executes the taxation command, using the visitor pattern to apply the tax to each citizen.
@@ -19,7 +19,7 @@ void TaxationCommand::execute() {
     TaxCollector taxCollector;
 
     // Visit each citizen and collect tax using the visitor pattern
-    for (AbstractCitizen* citizen : citizenList) {
+    for (const auto& citizen : citizenList) {
         if (citizen) {
             citizen->accept(taxCollector);  // Visitor pattern in action
         }
