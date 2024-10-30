@@ -1,58 +1,126 @@
 #include "plant.h"
 #include <iostream>
 
-plant::plant(int numWorkers, double productionCapacity)
-    : IndustrialBuildings(productionCapacity, numWorkers) {}
+/**
+ * @brief Constructs a plant with the given parameters and initializes the base class.
+ * 
+ * @param x The x-coordinate of the building.
+ * @param y The y-coordinate of the building.
+ * @param district The district where the building is located.
+ * @param quality The quality rating of the building.
+ * @param production The production capacity of the plant.
+ * @param workers The number of workers in the plant.
+ */
+plant::plant(int x, int y, const std::string& district, int quality, double production, int workers)
+    : IndustrialBuildings(x, y, district, quality, production, workers) {}
 
-void plant::generateElectricity(BuildingComponent* building) {
-    // Generate electricity based on the production capacity
+/**
+ * @brief Generates electricity based on the number of workers.
+ * 
+ * @param building A shared pointer to the associated building component.
+ */
+void plant::generateElectricity(std::shared_ptr<BuildingComponent> building) {
     const double electricityPerWorker = 200.0; // kWh per worker per cycle
     double totalElectricityGenerated = electricityPerWorker * getNumWorkers();
     std::cout << "Plant generated " << totalElectricityGenerated << " kWh of electricity this cycle." << std::endl;
 }
 
+/**
+ * @brief Gets the type of the building.
+ * 
+ * @return A string representing the type of building ("Plant").
+ */
 std::string plant::getBuildingType() {
     return "Plant";
 }
 
+/**
+ * @brief Gets the cost of constructing the plant.
+ * 
+ * @return The cost of the plant.
+ */
 double plant::getCost() {
     return 220000000; 
 }
 
+/**
+ * @brief Calculates the maintenance cost of the plant.
+ * 
+ * @return The maintenance cost of the plant.
+ */
 double plant::getMaintenanceCost() {
     const double maintenanceRate = 0.04; // 4% of the cost
     return getCost() * maintenanceRate;
 }
 
+/**
+ * @brief Calculates the energy consumption of the plant.
+ * 
+ * @return The energy consumption based on the number of workers.
+ */
 double plant::getEnergyConsumption() {
-    // Plants usually consume energy for operations, calculated based on the number of workers
     const double energyPerWorker = 300.0; // kWh per worker per month
     return energyPerWorker * getNumWorkers();
 }
 
+/**
+ * @brief Calculates the water consumption of the plant.
+ * 
+ * @return The water consumption based on the number of workers.
+ */
 double plant::getWaterConsumption() {
-    // Assuming each worker requires 2500 liters of water per month for plant operations
-    const double waterPerWorker = 2500.0;
+    const double waterPerWorker = 2500.0; // liters per worker per month
     return waterPerWorker * getNumWorkers();
 }
 
+/**
+ * @brief Demolishes the plant by resetting its attributes.
+ */
 void plant::demolish() {
-    // Reset attributes to default, simulating demolition
     std::cout << "Plant is being demolished." << std::endl;
     this->productionCapacity = 0;
     this->numWorkers = 0;
 }
 
-void plant::upgrade(BuildingComponent* building) {
-    // Upgrading the plant increases production capacity
-    std::cout << "Upgrading the plant's production capacity." << std::endl;
-    this->productionCapacity *= 1.2; // Increase capacity by 20%
+/**
+ * @brief Upgrades the plant's production capacity if sufficient resources are available.
+ * 
+ * @param building A shared pointer to the building component to upgrade.
+ */
+void plant::upgrade(std::shared_ptr<BuildingComponent> building) {
+    auto government = Government::getInstance();
+    
+    // Example resource requirements for upgrading
+    const int requiredConcrete = 50;
+    const int requiredSteel = 30;
+
+    // Request resources from Government
+    bool hasConcrete = government->useResource("Concrete", requiredConcrete);
+    bool hasSteel = government->useResource("Steel", requiredSteel);
+
+    if (hasConcrete && hasSteel) {
+        // Perform upgrade logic if resources are available
+        this->productionCapacity *= 1.2; // Example improvement in production capacity
+        std::cout << "Plant upgraded successfully!" << std::endl;
+    } else {
+        std::cout << "Upgrade failed due to insufficient resources." << std::endl;
+    }
 }
 
+/**
+ * @brief Gets the area of the plant based on its dimensions.
+ * 
+ * @return The area of the plant.
+ */
 double plant::getArea() {
     return getX() * getY();
 }
 
-int plant::getOccupancy(){
-	return 150;
+/**
+ * @brief Gets the occupancy of the plant.
+ * 
+ * @return The occupancy level of the plant.
+ */
+int plant::getOccupancy() {
+    return 150;
 }

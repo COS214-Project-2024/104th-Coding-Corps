@@ -1,79 +1,77 @@
-#include "House.h"
-#include <stdexcept>
+#include "Hospital.h"
+#include <iostream>
 
-House::House(int x, int y, const std::string& district, int quality, int garageSize, bool hasPool, int residents, int floors, bool hasGarden)
-    : ResidentialBuildings(x, y, district, quality, residents, floors, hasGarden), garageSize(garageSize), pool(hasPool) {}
+Hospital::Hospital(int x, int y, const std::string& district, int quality, int numWorkers)
+    : ServiceBuildings(x, y, district, quality, numWorkers), qualityOfCare(0) {}
 
-int House::getGarageSize() const {
-    return garageSize;
+/**
+ * @brief Gets the type of building.
+ * @return The string "Hospital".
+ */
+std::string Hospital::getBuildingType() {
+    return "Hospital";
 }
 
-bool House::hasSwimmingPool() const {
-    return pool;
+/**
+ * @brief Gets the occupancy of the hospital.
+ * @return The number of patients the hospital can accommodate.
+ */
+int Hospital::getOccupancy() {
+    return 5000;
 }
 
-std::string House::getBuildingType() {
-	return "House";
+/**
+ * @brief Gets the cost of constructing the hospital.
+ * @return The construction cost in ZAR.
+ */
+double Hospital::getCost() {
+    return 7000000.0; // Example cost in ZAR
 }
 
-double House::getCost() {
-	// Assuming a base cost for a standard house
-	return 2750000.00;
+/**
+ * @brief Gets the maintenance cost of the hospital.
+ * @return The maintenance cost as a percentage of the total cost.
+ */
+double Hospital::getMaintenanceCost() {
+    return 0.05 * getCost(); // 5% of cost as maintenance
 }
 
-double House::getMaintenanceCost() {
-	// Maintenance cost, adjusted based on factors like pool maintenance
-	double baseMaintenance = 5000.0;
-	if (pool) {
-		baseMaintenance += 2000.0; // Additional cost for pool maintenance
-	}
-	return baseMaintenance;
+/**
+ * @brief Gets the energy consumption of the hospital.
+ * @return The monthly energy consumption in kWh.
+ */
+double Hospital::getEnergyConsumption() {
+    return numWorkers * 400.0; // 400 kWh per worker per month
 }
 
-double House::getEnergyConsumption() {
-	// Assuming each house consumes 400 kWh per month
-	const double energyPerHouse = 400.0;
-	return energyPerHouse;
+/**
+ * @brief Gets the water consumption of the hospital.
+ * @return The monthly water consumption in liters.
+ */
+double Hospital::getWaterConsumption() {
+    return numWorkers * 150.0; // 150 liters per worker per month
 }
 
-double House::getWaterConsumption() {
-	// Assuming each house uses 5000 liters of water per month
-	const double waterPerHouse = 5000.0;
-	return waterPerHouse;
+/**
+ * @brief Demolishes the hospital building and resets its attributes.
+ */
+void Hospital::demolish() {
+    std::cout << "Demolishing the hospital building." << std::endl;
+    qualityOfCare = 0;
+    quality = 0;
+    numWorkers = 0;
 }
 
-void House::demolish() {
-	// Reset attributes to default, simulating demolition
-	this->numResidents = 0;
-	this->numFloors = 0;
-	pool = false;
-	this->garageSize = 0;
-}
-
-int House::getNumResidents() {
-	// Assuming each house accommodates an average of 4 residents
-	return 4;
-}
-
-
-
-double House::getArea() {
-	// Calculate area assuming X by Y dimensions and a constant multiplier for garage size
-	const double houseBaseArea = getX() * getY();
-	const double garageAreaFactor = 30.0; // Garage area for each car space
-	return houseBaseArea + (garageAreaFactor * this->garageSize);
-}
-
-int House::getOccupancy(){
-	return 10;
-}
-
-void House::upgrade(std::shared_ptr<BuildingComponent> building) {
+/**
+ * @brief Upgrades the hospital building.
+ * @param building A shared pointer to a BuildingComponent (for resource management).
+ */
+void Hospital::upgrade(std::shared_ptr<BuildingComponent> building) {
     auto government = Government::getInstance();
     
     // Example resource requirements for upgrading
-    const int requiredConcrete = 50;
-    const int requiredSteel = 30;
+    const int requiredConcrete = 100; // Adjust as needed
+    const int requiredSteel = 60; // Adjust as needed
 
     // Request resources from Government
     bool hasConcrete = government->useResource("Concrete", requiredConcrete);
@@ -81,9 +79,26 @@ void House::upgrade(std::shared_ptr<BuildingComponent> building) {
 
     if (hasConcrete && hasSteel) {
         // Perform upgrade logic if resources are available
-        quality += 10;  // Example improvement in quality
-        std::cout << "Estate upgraded successfully!" << std::endl;
+        quality += 10; // Example improvement in quality
+        qualityOfCare += 5; // Example improvement in quality of care
+        std::cout << "Hospital upgraded successfully!" << std::endl;
     } else {
         std::cout << "Upgrade failed due to insufficient resources." << std::endl;
     }
+}
+
+/**
+ * @brief Calculates the area of the hospital building.
+ * @return The area of the building.
+ */
+double Hospital::getArea() {
+    return getX() * getY();
+}
+
+/**
+ * @brief Gets the quality of care provided by the hospital.
+ * @return The quality of care.
+ */
+int Hospital::getQualityOfCare() {
+    return qualityOfCare;
 }

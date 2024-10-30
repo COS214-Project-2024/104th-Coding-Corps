@@ -2,36 +2,28 @@
 #define WAREHOUSE_H
 
 #include "IndustrialBuildings.h"
-
-class Warehouse : public IndustrialBuildings {
+#include <memory> // Include for smart pointers
+#include "Government.h"
+class Warehouse : public IndustrialBuildings { // Class name is retained as "Warehouse"
 
 private:
-	int storageCapacity;
+    int storageCapacity; // Storage capacity of the warehouse
 
 public:
-	Warehouse(int storageCapacity, int numWorkers);
+    // Constructor that initializes the base class with additional parameters
+    Warehouse(int x, int y, const std::string& district, int quality, int storageCapacity, int numWorkers);
 
-	double getStorageCapacity();
-
-	string getBuildingType();
-
-	double getCost();
-
-	double getMaintenanceCost();
-
-	double getEnergyConsumption();
-
-	double getWaterConsumption();
-
-	void construct();
-
-	void demolish();
-
-	double getArea();
-
-	void upgrade(BuildingComponent* building);
-
-	int getOccupancy();
+    double getStorageCapacity();
+    std::string getBuildingType();
+    double getCost();
+    double getMaintenanceCost();
+    double getEnergyConsumption();
+    double getWaterConsumption();
+    void construct();
+    void demolish();
+    double getArea();
+    void upgrade(std::shared_ptr<BuildingComponent> building); // Changed to smart pointer
+    int getOccupancy();
 };
 
 #endif

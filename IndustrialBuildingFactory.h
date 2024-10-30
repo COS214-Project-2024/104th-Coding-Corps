@@ -4,15 +4,13 @@
 #include "BuildingComponent.h"
 #include "BuildingFactory.h"
 #include <string>
-using namespace std;
+#include <memory> // Include the memory header for smart pointers
 
 class IndustrialBuildingFactory : public BuildingFactory {
-
-
 public:
-	BuildingComponent* createFactory(int numWorkers, string factoryType, double production) override;
-	BuildingComponent* createPlant(int workers, double production) override;
-	BuildingComponent* createWarehouse(int storageCapacity, int numWorkers) override;
+    std::unique_ptr<BuildingComponent> createFactory(int numWorkers, const std::string& factoryType, double production) override;
+    std::unique_ptr<BuildingComponent> createPlant(int workers, double production) override;
+    std::unique_ptr<BuildingComponent> createWarehouse(int storageCapacity, int numWorkers) override;
 };
 
 #endif

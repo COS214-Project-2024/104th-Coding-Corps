@@ -3,12 +3,13 @@
 
 #include "BuildingFactory.h"
 #include "ServiceBuildings.h"
+#include <memory> // Include for smart pointers
 
 class ServiceBuildingFactory : public BuildingFactory {
 public:
-    BuildingComponent* createSchool(int highestQualification, int quality, int numWorkers) override;
-	BuildingComponent* createUniversity(int highestQualification, int quality, int numWorkers) override;
-	BuildingComponent* createHospital(int quality, int numWorkers) override;
+    std::unique_ptr<BuildingComponent> createSchool(int highestQualification, int quality, int numWorkers) override;
+    std::unique_ptr<BuildingComponent> createUniversity(int highestQualification, int quality, int numWorkers) override;
+    std::unique_ptr<BuildingComponent> createHospital(int quality, int numWorkers) override;
 };
 
 #endif
