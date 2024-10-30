@@ -1,12 +1,11 @@
 #include "Family.h"
 #include <iostream>
 #include <bits/algorithmfwd.h>
-using namespace std;
 
 /** 
  * @brief Constructs a Family.
  */
-Family::Family() {
+Family::Family() : cityContext(nullptr), government(nullptr) {
     // Constructor implementation
 }
 
@@ -29,13 +28,13 @@ void Family::add(std::shared_ptr<AbstractCitizen> citizen) {
  * @brief Removes a citizen from the family.
  * @param citizen Shared pointer to the citizen to remove.
  */
-// void Family::remove(std::shared_ptr<AbstractCitizen> citizen) {
-//     members.erase(std::remove_if(members.begin(), members.end(),
-//                   [&citizen](const std::shared_ptr<AbstractCitizen>& member) {
-//                       return member == citizen;
-//                   }),
-//                   members.end());
-// }
+void Family::remove(std::shared_ptr<AbstractCitizen> citizen) {
+ members.erase(std::remove_if(members.begin(), members.end(),
+                  [&citizen](const std::shared_ptr<AbstractCitizen>& member) {
+                      return member == citizen;
+                  }),
+                  members.end());
+}
 
 /** 
  * @brief Returns the average satisfaction of the family.
@@ -47,6 +46,7 @@ int Family::getSatisfaction() const {
         totalSatisfaction += member->getSatisfaction();
     }
     return members.empty() ? 0 : totalSatisfaction / members.size();
+
 }
 
 /** 
@@ -174,8 +174,4 @@ void Family::update(const std::string& resourceType, int quantity) {
     for (auto& member : members) {
         member->update(resourceType, quantity);
     }
-}
-
-void Family::accept(TaxCollector& collector) {
-    std::cout << "not yet implemented";
 }
