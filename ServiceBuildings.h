@@ -16,17 +16,15 @@ public:
         this->numWorkers = numWorkers;
     }
 
-    virtual std::string getBuildingType() override;
-    virtual int getOccupancy() override;
-    virtual double getCost() override;
-    virtual double getMaintenanceCost() override;
-    virtual double getEnergyConsumption() override;
-    virtual double getWaterConsumption() override;
-    virtual void upgrade(BuildingComponent* building) override;
-    virtual double getArea() override;
-    virtual void accept(Citizen* c){
-        //implement
-    }
+    virtual std::string getBuildingType() override = 0;
+    virtual int getOccupancy() override = 0;
+    virtual double getCost() override = 0;
+    virtual double getMaintenanceCost() override = 0;
+    virtual double getEnergyConsumption() override = 0;
+    virtual double getWaterConsumption() override = 0;
+    virtual void upgrade(BuildingComponent* building) override = 0;
+    virtual double getArea() override = 0;
+    virtual void accept(Citizen* c) = 0;
 };
 
 #endif
