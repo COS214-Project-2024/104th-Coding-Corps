@@ -12,13 +12,11 @@ std::shared_ptr<Government> Government::uniqueInstance = nullptr;
  * @brief Private constructor for the Government Singleton. Initializes the resource manager and budget.
  */
 Government::Government() {
-    // Initialize resourceManager and budget with the shared pointers returned by their respective Singleton classes
     resourceManager = ResourceManager::getInstance();
     budget = Budget::getInstance();
-    
+    // Initialize with empty lists and a null command
     citizenList = {};
     command = nullptr;
-    //std::cout << "Government instance created." << std::endl;
 }
 
 /**
@@ -27,7 +25,7 @@ Government::Government() {
  */
 std::shared_ptr<Government> Government::getInstance() {
     if (!uniqueInstance) {
-        uniqueInstance = std::shared_ptr<Government>(new Government());
+        uniqueInstance = std::make_shared<Government>();
     }
     return uniqueInstance;
 }
@@ -37,19 +35,27 @@ std::shared_ptr<Government> Government::getInstance() {
 
 /**
  * @brief Sets the command to be executed by the government.
- * @param c Pointer to the Command object to be executed.
+ * @param c Shared pointer to the Command object to be executed.
  */
-void Government::setCommand(Command* c) {
-	this->command = c;
+void Government::setCommand(const std::shared_ptr<Command>& c) {
+    this->command = c;
 }
 
 /**
  * @brief Issues the command set in the government, if a command is present.
  */
 void Government::issueCommand() {
-	if(command) {
-		command->execute();
-	}
+    if (command) {
+        command->execute();
+    }
+}
+
+void Government::setTaxRatePolicy(const std::string& taxRatePolicy) {
+    currentTaxRatePolicy = taxRatePolicy;
+}
+
+std::string Government::getTaxRatePolicy() const {
+    return currentTaxRatePolicy;
 }
 //-------------------------------------------------------------------------------------------------------
 
@@ -60,7 +66,6 @@ void Government::issueCommand() {
  * @param amount The amount to add to the budget.
  */
 void Government::increaseBudget(double amount) {
-    // Use the budget instance to add revenue
     budget->addRevenue(amount);
 }
 
@@ -69,7 +74,6 @@ void Government::increaseBudget(double amount) {
  * @param amount The amount to deduct from the budget.
  */
 void Government::decreaseBudget(double amount) {
-    // Use the budget instance to deduct an expense
     budget->deductExpense(amount);
 }
 
@@ -85,10 +89,10 @@ double Government::getBalance() const {
  * @param resourceType The type of resource that has changed.
  * @param quantity The amount by which the resource has changed.
  */
-void Government::notifyResourceChange(std::string resourceType, int quantity) {
-    for (auto it = citizenList.begin(); it != citizenList.end(); ++it) {
-        if (*it) {
-            (*it)->update(resourceType, quantity);  // Notify each citizen of the resource change
+void Government::notifyResourceChange(const std::string& resourceType, int quantity) {
+    for (const auto& citizen : citizenList) {
+        if (citizen) {
+            citizen->update(resourceType, quantity);  // Notify each citizen of the resource change
         }
     }
 }
@@ -112,27 +116,21 @@ void Government::addResourceToCity(const std::string& resourceType, int quantity
  */
 bool Government::useResource(const std::string& type, int quantity) {
     try {
-        // Attempt to consume the resource
         bool consumed = resourceManager->consumeResource(type, quantity);
-        // If consumption fails, return false
         if (!consumed) {
             return false;
         }
-        int negQuantity = quantity * -1;
-        // Notify citizens of resource consumption with a negative quantity
-        notifyResourceChange(type, negQuantity);
-        return true;  // Return true if all operations succeeded
+        notifyResourceChange(type, -quantity);
+        return true;
     } catch (const std::exception& e) {
-        // Log error or handle exception as needed
-        return false;  // Return false if an exception occurred
+        return false;
     }
 }
-
 
 /**
  * @brief Displays the current resources available in the city.
  */
 void Government::displayCityResources() {
-	resourceManager->displayResources();
+    resourceManager->displayResources();
 }
 //----------------------------------------------------------------------------------------------------------
