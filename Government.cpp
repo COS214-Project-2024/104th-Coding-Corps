@@ -51,6 +51,14 @@ void Government::issueCommand() {
 		command->execute();
 	}
 }
+
+void Government::setTaxRatePolicy(const std::string& taxRatePolicy) {
+    currentTaxRatePolicy = taxRatePolicy;
+}
+
+std::string Government::getTaxRatePolicy() const {
+    return currentTaxRatePolicy;
+}
 //-------------------------------------------------------------------------------------------------------
 
 //----------------------------------------------BUDGET STUFF----------------------------------------------

@@ -18,6 +18,7 @@ private:
 	static std::shared_ptr<Government> uniqueInstance;
 	std::shared_ptr<Budget> budget;
 	Government();
+	std::string currentTaxRatePolicy = "standard";
 
 public:
     Government(const Government&) = delete;
@@ -32,6 +33,8 @@ public:
 	void increaseBudget(double amount);
 	void decreaseBudget(double amount);
 	double getBalance() const;
+	void setTaxRatePolicy(const std::string& taxRatePolicy);
+	std::string getTaxRatePolicy() const;
 };
 
 #endif
