@@ -1,8 +1,8 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include <doctest/doctest.h>
-#include "Citizen.h"
-#include "CityContext.h"
-#include "Transport.h"
+#include "../Citizen.h"
+#include "../CityContext.h"
+#include "../Transport.h"
 #include <memory>
 
 TEST_SUITE("Citizen Class Tests") {
