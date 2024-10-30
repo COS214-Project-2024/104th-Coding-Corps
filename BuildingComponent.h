@@ -15,6 +15,8 @@ private:
 	double area;
 	int x;
 	int y;
+	string district;
+	int quality;
 
 protected:
 	vector<Utilities*> utilities;
@@ -43,6 +45,12 @@ public:
 	int getX();
 
 	int getY();
+
+	string getDistrict();
+
+	virtual void enforcePolicy(string policy){}
+
+	int getQuality();	//measured on a 0 to 100 scale
 };
 
 #endif

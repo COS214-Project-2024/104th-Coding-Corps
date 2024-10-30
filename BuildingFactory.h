@@ -17,6 +17,9 @@ public:
 	virtual BuildingComponent* createOffice(int numEmployees, string businessType) {}
 	virtual BuildingComponent* createMall(int numShops, string businessType, int numBusinesses) {}
 	virtual BuildingComponent* createShop(int shopSize, string businessType) {}
+	virtual BuildingComponent* createSchool(int highestQualification, int quality, int numWorkers) {}
+	virtual BuildingComponent* createUniversity(int highestQualification, int quality, int numWorkers) {}
+	virtual BuildingComponent* createHospital(int quality, int numWorkers) {}
 };
 
 #endif

@@ -1,25 +1,34 @@
 #ifndef BUILDINGCOMPOSITE_H
 #define BUILDINGCOMPOSITE_H
 
-class BuildingComposite : BuildingComponent {
+#include "BuildingComponent.h"
+#include <vector>
+#include <map>
+#include <string>
+
+using namespace std;
+
+class BuildingComposite : public BuildingComponent {
 
 private:
 	vector<BuildingComponent*> buildings;
 	vector<Utilities*> utilities;
-	map<string> policies;
+	map<string,string> policies;
 
 public:
-	virtual void addBuilding(BuildingComponent* building) = 0;
+	virtual void addBuilding(BuildingComponent* building);
 
-	virtual void removeBuilding(BuildingComponent* building) = 0;
+	virtual void removeBuilding(BuildingComponent* building);
 
-	virtual BuildingComponent* getBuilding(int index) = 0;
+	virtual BuildingComponent* getBuilding(int index);
 
-	virtual double calculateTotalCost() = 0;
+	virtual double calculateTotalCost();
 
-	virtual double calculateTotalEnergyConsumption() = 0;
+	virtual double calculateTotalEnergyConsumption();
 
-	virtual double calculateTotalWaterConsumption() = 0;
+	virtual double calculateTotalWaterConsumption();
+
+	void enforcePolicy(string policy) override;
 };
 
 #endif
