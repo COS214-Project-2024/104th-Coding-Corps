@@ -29,12 +29,10 @@ void Family::add(std::shared_ptr<AbstractCitizen> citizen) {
  * @param citizen Shared pointer to the citizen to remove.
  */
 void Family::remove(std::shared_ptr<AbstractCitizen> citizen) {
- members.erase(std::remove_if(members.begin(), members.end(),
-                  [&citizen](const std::shared_ptr<AbstractCitizen>& member) {
-                      return member == citizen;
-                  }),
-                  members.end());
+    auto it = std::remove(members.begin(), members.end(), citizen);
+    members.erase(it, members.end());
 }
+
 
 /** 
  * @brief Returns the average satisfaction of the family.
@@ -137,11 +135,11 @@ void Family::updateContext() {
  * @brief Applies a tax rate to all employed family members.
  * @param taxRate Tax rate to apply.
  */
-void Family::applyTax(double taxRate) {
-    for (auto& member : members) {
-        member->applyTax(taxRate);
-    }
-}
+// void Family::applyTax(double taxRate) {
+//     for (auto& member : members) {
+//         member->applyTax(taxRate);
+//     }
+// }
 
 /** 
  * @brief Calculates the total tax for the family.
@@ -174,4 +172,8 @@ void Family::update(const std::string& resourceType, int quantity) {
     for (auto& member : members) {
         member->update(resourceType, quantity);
     }
+}
+
+void Family::accept(TaxCollector& collector) {
+    collector.visit(*this);
 }

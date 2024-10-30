@@ -15,8 +15,8 @@ OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
 TESTS = $(wildcard $(TEST_DIR)/test_*.cpp)
 TEST_OBJS = $(TESTS:$(TEST_DIR)/%.cpp=$(BUILD_DIR)/%.o)
 
-# Executable for specific test
-TEST_EXECUTABLES = test_Government
+# Test executables
+TEST_EXECUTABLES = test_Government test_Citizen
 
 # Default target
 .PHONY: all clean
@@ -37,6 +37,9 @@ $(BUILD_DIR)/test_%.o: $(TEST_DIR)/test_%.cpp
 test_Government: $(BUILD_DIR)/test_Government.o $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
+test_Citizen: $(BUILD_DIR)/test_Citizen.o $(OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@
+
 # Clean up
 clean:
-	rm -rf $(BUILD_DIR) test_Government
+	rm -rf $(BUILD_DIR) $(TEST_EXECUTABLES)

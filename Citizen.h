@@ -10,6 +10,8 @@
 #include <random>
 #include <ctime>
 
+class CityContext;
+
 
 class Citizen : public AbstractCitizen, public std::enable_shared_from_this<Citizen> {
 private:

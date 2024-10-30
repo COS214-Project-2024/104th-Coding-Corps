@@ -696,3 +696,11 @@ void Citizen::add(std::shared_ptr<AbstractCitizen> citizen) {
 void Citizen::remove(std::shared_ptr<AbstractCitizen> citizen) {
     // Not applicable for leaf node
 }
+
+void Citizen::setX(int x) {
+    this->x = x;
+}
+
+void Citizen::setY(int y) {
+    this->y = y;
+}

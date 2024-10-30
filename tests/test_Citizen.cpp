@@ -22,7 +22,7 @@ TEST_SUITE("Citizen Class Tests") {
 
     TEST_CASE("Employment Status") {
         Citizen citizen(cityContext, transportContext);
-        CHECK(citizen.getEmployment() == true || citizen.getEmployment() == false);
+        //CHECK(citizen.getEmployment() == true || citizen.getEmployment() == false); //Compiler does not like this
 
         bool initialEmployment = citizen.getEmployment();
         citizen.updateEmployment();
