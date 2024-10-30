@@ -11,7 +11,7 @@ private:
 	int numBusinesses;
 
 public:
-	CommercialBuildings(string business, int num) { 
+	CommercialBuildings(string business, int num, int x, int y, const std::string& district, int quality) : BuildingComponent(x, y, district, quality){ 
 		this->businessType = business;
 		this->numBusinesses = num;
 	}

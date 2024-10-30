@@ -10,7 +10,7 @@ class Shop : public CommercialBuildings {
 private:
 	int shopSize;
 public:
-	Shop(int shopSize, string businessType);
+	Shop(int shopSize, string businessType, int x, int y, const std::string& district, int quality);
 
 	double getCost();
 

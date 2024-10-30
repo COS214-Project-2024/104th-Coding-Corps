@@ -1,8 +1,8 @@
 #include "Shop.h"
 #include <iostream>
 
-Shop::Shop(int shopSize, std::string businessType)
-    : CommercialBuildings(businessType, 1), shopSize(shopSize) {
+Shop::Shop(int shopSize, std::string businessType, int x, int y, const std::string& district, int quality)
+    : CommercialBuildings(businessType, 1, x, y, district, quality), shopSize(shopSize) {
 		this->construct();
 	}
 

@@ -1,8 +1,8 @@
 #include "mall.h"
 #include <iostream>
 
-Mall::Mall(int numShops, std::string businessType, int numBusinesses)
-    : CommercialBuildings(businessType, numBusinesses), numShops(numShops) {
+Mall::Mall(int numShops, std::string businessType, int numBusinesses, int x, int y, const std::string& district, int quality)
+    : CommercialBuildings(businessType, numBusinesses, x, y, district, quality), numShops(numShops) {
 		this->construct();
 	}
 

@@ -1,8 +1,8 @@
 #include "Office.h"
 #include <iostream>
 
-Office::Office(int numEmployees, string businessType)
-    : CommercialBuildings(businessType, 1), numEmployees(numEmployees) {
+Office::Office(int numEmployees, string businessType, int x, int y, const std::string& district, int quality)
+    : CommercialBuildings(businessType, 1, x, y, district, quality), numEmployees(numEmployees) {
 		this->construct();
 	}
 
