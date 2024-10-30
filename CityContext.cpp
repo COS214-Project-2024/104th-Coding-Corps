@@ -6,7 +6,7 @@
 /** 
  * @brief Constructs a CityContext.
  */
-CityContext::CityContext() : GDP(0.0), totalPop(0), averageStandardOfLiving(0.0), averageEducationLevel(0.0), averageIncome(0.0) {
+CityContext::CityContext() : totalPop(0), averageStandardOfLiving(0.0), averageEducationLevel(0.0), averageIncome(0.0) {
     // Constructor implementation
 }
 

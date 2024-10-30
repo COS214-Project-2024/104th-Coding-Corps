@@ -10,11 +10,13 @@ class Citizen;
 
 class CityContext {
 private:
-    double GDP;
     int totalPop;
     double averageStandardOfLiving;
     double averageEducationLevel;
     double averageIncome;
+    double monthlyExpenditure;
+    int totalBuildings;
+    int averageBuildingQuality;
     std::map<int, std::shared_ptr<Citizen>> population;
     std::vector<std::shared_ptr<BuildingComponent>> buildings;
 
