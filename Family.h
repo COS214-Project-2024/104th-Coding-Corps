@@ -5,6 +5,7 @@
 #include <vector>
 #include <memory>
 #include <iostream>
+#include <algorithm>
 
 class Family : public AbstractCitizen {
 private:
@@ -33,7 +34,7 @@ public:
     void updateContext() override;
  
 //-----Government: Observer, Visitor-----//
-    void applyTax(double taxRate) override;
+    //void applyTax(double taxRate) override;
     double calculateTax() override;
     void payTax(double amount) override;
     void update(const std::string& resourceType, int quantity) override;

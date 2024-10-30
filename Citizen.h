@@ -3,10 +3,14 @@
 
 #include "AbstractCitizen.h"
 #include "CityContext.h"
+#include "Transport.h"
+#include "Government.h"
 #include <string>
 #include <memory>
 #include <random>
 #include <ctime>
+
+class CityContext;
 
 
 class Citizen : public AbstractCitizen, public std::enable_shared_from_this<Citizen> {
@@ -23,13 +27,13 @@ private:
     int y;
 
     // References to other contexts using smart pointers
-    std::shared_ptr<void> transportationContext;  // Placeholder for Transport
-    std::shared_ptr<void> cityContext;            // Placeholder for CityContext - Observer
-    std::shared_ptr<void> government;             // Placeholder for Government - Observer
+    std::shared_ptr<Transport> transportationContext;  // Placeholder for Transport
+    std::shared_ptr<CityContext> cityContext;            // Placeholder for CityContext - Observer
+    std::shared_ptr<Government> government;             // Placeholder for Government - Observer
 
 public:
     //-----Citizen stuff-----//
-    Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Transport> transportContext);
+    Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Transport> transportContext, std::shared_ptr<Government> government);
     ~Citizen() override;
 
     // Getters and setters
@@ -46,7 +50,7 @@ public:
     int getY() const;
     void setX(int x);
     void setY(int y);
-    char getDistrict() const;
+    std::string getDistrict() const;
 
     // Updates
     void updateEmployment();
@@ -76,11 +80,13 @@ public:
     void remove(std::shared_ptr<AbstractCitizen> citizen) override;
 
     //-----Government: Visitor, Observer-----//
-    void applyTax(double taxRate) override;
+    //void applyTax(double taxRate) override;
     double calculateTax() override;
     void payTax(double amount) override;
     void update(const std::string& resourceType, int quantity) override;
     void accept(TaxCollector& collector) override;
+
+    friend CityContext;
 };
 
 #endif // CITIZEN_H

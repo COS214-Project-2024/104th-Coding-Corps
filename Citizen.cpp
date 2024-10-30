@@ -4,15 +4,33 @@
 int Citizen::nextID = 10000000; // static ID counter for citizenID
 
 /**
- * @brief Constructs a Citizen with an initial education level and assigns a job based on that level.
- * @param cityContext Shared pointer to the CityContext for access to city-wide resources.
- * @param transportContext Shared pointer to the Transport system for citizen travel.
+* @brief Constructs a Citizen with a unique ID, initial education level, and assigned job and residence.
+ * 
+ * Initializes a citizen with attributes such as class type, job type, employment status, and financial metrics.
+ * The citizen is assigned a job based on their education level and a residence based on their class type, 
+ * with satisfaction and standard of living adjusted accordingly.
+ * 
+ * @param cityContext Shared pointer to the CityContext for access to city-wide resources and citizen registration.
+ * @param transportContext Shared pointer to the Transport system for managing citizen travel between locations.
+ * @param government Shared pointer to the Government for administrative access and regulatory updates.
+ * 
+ * Initializes:
+ * - `citizenID`: Unique identifier for the citizen.
+ * - `satisfaction`, `expectedStandardOfLiving`: Initial satisfaction and expected living standards.
+ * - `classType`: Randomly assigned social class (upper, middle, lower) influencing job and residence type.
+ * - `jobType`: Job role selected from a set available to the citizen's education level.
+ * - `employed`: Employment status, determined randomly, with financial implications.
+ * - `residence`: Assigns nearest building based on class; adjusts satisfaction if no suitable residence is found.
+ * 
+ * Attaches the citizen to the `cityContext` upon creation.
  */
-Citizen::Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Transport> transportContext)
-    : citizenID(nextID++), onStrike(false), educationLevel(0), cityContext(cityContext), transportContext(transportContext) {
+Citizen::Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Transport> transportContext, std::shared_ptr<Government> government)
+    : citizenID(nextID++), onStrike(false), educationLevel(0), cityContext(cityContext), transportationContext(transportContext), government(government) {
 
     satisfaction = 50;
     expectedStandardOfLiving = 50;
+    x = 0;
+    y = 0;
 
     // Jobs available at each education level
     static const char* jobsByEducationLevel[][3] = {
@@ -47,10 +65,28 @@ Citizen::Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Trans
     }
 
     expectedStandardOfLiving = (classType == "upper") ? 80 : (classType == "middle") ? 50 : 30;
-    actualStandardOfLiving = expectedStandardOfLiving;
 
-    //add bro to map of citizens in city context
-    cityContext->attach(*this);
+    // Register citizen with the city context
+    cityContext->attach(shared_from_this());
+
+    // Assign nearest residence based on class type
+    auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Estate");
+
+    if(classType == "middle" || nearestResidential == nullptr) {
+        nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "House");
+    }
+
+    if(classType == "lower" || nearestResidential == nullptr) {
+        nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Flat");
+    }
+
+    // Update satisfaction and standard of living based on residence availability
+    if(!nearestResidential) {
+        updateSatisfaction(-10);
+        std::cout << "No available space for Citizen to live!" << std::endl;
+    } else {
+        updateASoL(nearestResidential->getQuality());
+    }
 
     // Debug print
     std::cout << "Citizen created with ID: " << citizenID << ", Class: " << classType
@@ -60,11 +96,12 @@ Citizen::Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Trans
               << ", Actual SoL: " << actualStandardOfLiving << std::endl;
 }
 
+
 /** 
  * @brief Destroys the Citizen object.
  */
 Citizen::~Citizen() {
-    cityContext->detach(this);  // Detaches citizen upon "death"
+    //cityContext->detach(shared_from_this());  // Detaches citizen upon "death"
 }
 
 //-----Citizen stuff-----//
@@ -161,7 +198,7 @@ int Citizen::getY() const {
  * @brief Gets the district where the citizen resides.
  * @return char The district identifier for the citizen.
  */
-char Citizen::getDistrict() const {
+std::string Citizen::getDistrict() const {
     return district;
 }
 
@@ -376,10 +413,9 @@ void Citizen::goToWork() {
         return;
     }
 
-    if(classType == "lower"){
-        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Flat");
-    }
-    else if(classType == "middle"){
+    auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Flat");
+
+    if(classType == "middle"){
         auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "House");
     }
     else if(classType == "upper"){
@@ -401,8 +437,8 @@ void Citizen::goToWork() {
     }
     else{
         updateCurrentIncome(90);
-        transportContext->travel(nearestResidential, nearestWorkplace);
 
+        transportationContext->travel(nearestResidential, nearestWorkplace);
     }
 }
 
@@ -415,9 +451,24 @@ void Citizen::goToShops() {
     return;
    }
 
+     auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Flat");
+
+    if(classType == "middle"){
+        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "House");
+    }
+    else if(classType == "upper"){
+        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Estate");
+    }
+
+    if (!nearestResidential) {
+    std::cout << "No residential available in district for Citizen ID " << citizenID << "." << std::endl;
+    updateSatisfaction(-3);
+    return;
+    }
+
     // Find the nearest shop within the same district
-    auto nearestShop = cityContext->findNearestBuilding(shared_from_this(), "Shop");
-    if(!nearestShop){ nearestShop = cityContext->findNearestBuilding(shared_from_this(), "Mall");}
+    auto nearestShop = cityContext->findNearestBuilding(shared_from_this(), "Mall");
+    if(!nearestShop){ nearestShop = cityContext->findNearestBuilding(shared_from_this(), "Shop");}
 
     if (!nearestShop) {
         std::cout << "No shop available in district for Citizen ID " << citizenID << "." << std::endl;
@@ -425,7 +476,17 @@ void Citizen::goToShops() {
         return;
     }
 
-    transportContext->travel(shared_from_this(), nearestShop);
+    transportationContext->travel(nearestResidential, nearestShop);
+    government->increaseBudget(monthlyExpenditure*0.15);
+
+    int shopQuality = nearestShop->getQuality(); // Assume `getQuality()` returns an integer (1-100)
+    int qualityImpact = (shopQuality / 7);
+    if(shopQuality >= 50){
+        updateASoL(qualityImpact);
+    }
+    else{
+        updateASoL(-qualityImpact);
+    }
    
 }
 
@@ -437,14 +498,28 @@ void Citizen::goToShops() {
  */
 void Citizen::getSchooled() {
     // Locate nearest school within the citizen's district using Transport class
-    auto nearestSchool = cityContext->findNearestSchool(district);
+    auto nearestSchool = cityContext->findNearestBuilding(shared_from_this(), "School");
     if (!nearestSchool) {
         std::cout << "No school available in district!" << std::endl;
         return;
     }
 
+    auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Flat");
+
+    if(classType == "middle"){
+        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "House");
+    }
+    else if(classType == "upper"){
+        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Estate");
+    }
+    if (!nearestResidential) {
+    std::cout << "No residential available in district for Citizen ID " << citizenID << "." << std::endl;
+    updateSatisfaction(-3);
+    return;
+    }
+
     // Use transport to travel to the school
-    transportContext->travel(nearestSchool);
+    transportationContext->travel(nearestResidential, nearestSchool);
 
     // Increase education level if not already 1
     if (educationLevel < 1) {
@@ -476,8 +551,6 @@ void Citizen::getSchooled() {
  */
 void Citizen::getEducated() {
 
-    }
-
     std::shared_ptr<BuildingComponent> institution = nullptr;
 
     if(educationLevel == 0){
@@ -492,9 +565,22 @@ void Citizen::getEducated() {
         return;
     }
 
+     auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Flat");
+
+    if(classType == "middle"){
+        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "House");
+    }
+    else if(classType == "upper"){
+        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Estate");
+    }
+    if (!nearestResidential) {
+    std::cout << "No residential available in district for Citizen ID " << citizenID << "." << std::endl;
+    updateSatisfaction(-3);
+    return;
+    }
+
     // Travel to the institution
-    double commuteDistance = cityContext->calculateDistance(x, y, institution->getX(), institution->getY());
-    transportContext->travel(shared_from_this(), institution);
+    transportationContext->travel(nearestResidential, institution);
 
     // Increase education level according to the type of institution and rules
     if (educationLevel == 1) {
@@ -528,6 +614,21 @@ void Citizen::getEducated() {
  */
 void Citizen::getHealed() {
 
+    auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Flat");
+
+    if(classType == "middle"){
+        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "House");
+    }
+    else if(classType == "upper"){
+        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Estate");
+    }
+    if (!nearestResidential) {
+    std::cout << "No residential available in district for Citizen ID " << citizenID << "." << std::endl;
+    updateSatisfaction(-3);
+    return;
+    }
+
+
     // Find the nearest hospital within the citizen's district
     auto nearestHospital = cityContext->findNearestBuilding(shared_from_this(), "Hospital");
 
@@ -538,17 +639,16 @@ void Citizen::getHealed() {
     }
 
     // Travel to the hospital
-    double commuteDistance = cityContext->calculateDistance(x, y, nearestHospital->getX(), nearestHospital->getY());
-    transportContext->travel(shared_from_this(), nearestHospital);
+    transportationContext->travel(nearestResidential, nearestHospital);
 
     // Adjust satisfaction based on hospital quality and commute distance
     int hospitalQuality = nearestHospital->getQuality(); // Assume `getQuality()` returns an integer (1-100)
     int qualityImpact = (hospitalQuality / 7);
     if(hospitalQuality >= 50){
-        updateSatisfaction(qualityImpact);
+        updateASoL(qualityImpact);
     }
     else{
-        updateSatisfaction(-qualityImpact);
+        updateASoL(-qualityImpact);
     }
 }
 
@@ -558,8 +658,30 @@ void Citizen::getHealed() {
  * @brief Updates the context of the citizen.
  */
 void Citizen::updateContext() {
-    // Implementation for context update
-    //guess i got nothing rn
+    cityContext->calculateAverages();
+    int BuildingQuality = cityContext->calculateAverageBuildingQuality();
+    if(BuildingQuality < 50){
+        updateSatisfaction(-8);
+    }
+    else{
+        updateSatisfaction(8);
+    }
+
+    int literacyLevel = cityContext->calculateAverageEducationLevel();
+    if(literacyLevel = 0){
+        updateSatisfaction(-8);
+    }
+    if(literacyLevel >= 2){
+        updateSatisfaction(8);
+    }
+
+    if((expectedStandardOfLiving - actualStandardOfLiving) > 20){
+        updateSatisfaction(-12);
+    }
+    if(actualStandardOfLiving > expectedStandardOfLiving){
+        updateSatisfaction(12);
+    }
+
 }
 
 
@@ -570,23 +692,44 @@ void Citizen::updateContext() {
  * @return double The calculated tax amount.
  */
 double Citizen::calculateTax() {
-    if(classType == "lower"){
-        return currentIncome * 0.1;
+    if (!employed) {
+        return 0;
     }
-    else if(classType == "middle"){
-        return currentIncome * 0.22;
+    
+    std::string taxRatePolicy = government->getTaxRatePolicy(); // Access tax rate from Government
+
+    double taxMultiplier = 1.0;
+    if (taxRatePolicy == "low") {
+        taxMultiplier = 0.85;  // Citizens pay 15% less tax
+        updateSatisfaction(10);
+    } else if (taxRatePolicy == "high") {
+        taxMultiplier = 1.15;  // Citizens pay 15% more tax
+        updateSatisfaction(-10);
     }
-    else if(classType == "upper"){
-        return currentIncome * 0.35; //TAX THE RICH AMIRITE BOYS
+
+    if (classType == "lower") {
+        return currentIncome * 0.1 * taxMultiplier;
+    } else if (classType == "middle") {
+        return currentIncome * 0.22 * taxMultiplier;
+    } else if (classType == "upper") {
+        return currentIncome * 0.35 * taxMultiplier;
     }
+
+    return 0;  // Default case if classType doesn't match
 }
 
 /** 
- * @brief Deducts a specified tax amount from the citizen's income.
- * @param amount The tax amount to be deducted.
+ * @brief Transfers the specified tax amount to the government budget.
+ * 
+ * This function the specified amount to the government's budget.
+ * It assumes that the calculated tax amount is passed as a parameter,
+ * ensuring the budget reflects the correct tax revenue.
+ * Unemployed citizens are exempt from tax.
+ * 
+ * @param amount The tax amount to be deducted from the citizen's income and transferred to the government budget.
  */
 void Citizen::payTax(double amount) {
-    std::cout << "Paying " << amount << " tax" << std::endl;
+    government->increaseBudget(amount);
 }
 
 /** 
@@ -615,28 +758,6 @@ void Citizen::accept(TaxCollector& collector) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //-----Composite-----//
 
 /** 
@@ -653,4 +774,12 @@ void Citizen::add(std::shared_ptr<AbstractCitizen> citizen) {
  */
 void Citizen::remove(std::shared_ptr<AbstractCitizen> citizen) {
     // Not applicable for leaf node
+}
+
+void Citizen::setX(int x) {
+    this->x = x;
+}
+
+void Citizen::setY(int y) {
+    this->y = y;
 }
