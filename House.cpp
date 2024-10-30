@@ -72,14 +72,10 @@ double House::getArea() {
 	return houseBaseArea + (garageAreaFactor * this->garageSize);
 }
 
-void House::construct() {
-	std::cout << "not yet implemented";
+int House::getOccupancy(){
+	return 10;
 }
 
-int House::getOccupancy() {
-	return 0;
-}
-
-void House::upgrade(BuildingComponent* building) {
-	std::cout << "not yet implemented";
+void House::upgrade(BuildingComponent* building){
+	//implement
 }

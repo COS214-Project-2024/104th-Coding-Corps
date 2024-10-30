@@ -9,39 +9,29 @@ private:
 	int storageCapacity;
 
 public:
-	Warehouse (int storageCapacity, int numWorkers)
-		: IndustrialBuildings(numWorkers, 0.0)  // Calls the base class constructor with workers and default production
-	{
-		this->storageCapacity = storageCapacity;
-	}
-	
-	//int storageCapacity;
+	Warehouse(int storageCapacity, int numWorkers);
 
-    std::string getName() override {
-        return "Warehouse";
-    }
+	double getStorageCapacity();
 
-	double getStorageCapacity() {return 0;};
+	string getBuildingType();
 
-	string getBuildingType() {return "";};
+	double getCost();
 
-	double getCost() {return 0;};
+	double getMaintenanceCost();
 
-	double getMaintenanceCost() {return 0;};
+	double getEnergyConsumption();
 
-	double getEnergyConsumption() {return 0;};
+	double getWaterConsumption();
 
-	double getWaterConsumption() {return 0;};
+	void construct();
 
-	void construct() {};
+	void demolish();
 
-	void demolish() {};
+	double getArea();
 
-	double getArea() {return 0;};
+	void upgrade(BuildingComponent* building);
 
-	void upgrade(BuildingComponent* building) {};
-
-	int getOccupancy() {return 0;};
+	int getOccupancy();
 };
 
 #endif

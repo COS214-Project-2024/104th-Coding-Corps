@@ -1,6 +1,5 @@
 #ifndef FLAT_H
 #define FLAT_H
-#include <iostream>
 
 #include "ResidentialBuildings.h"
 
@@ -15,10 +14,6 @@ public:
 
 	string getBuildingType();
 
-    std::string getName() override {
-        return "Flat";
-    }
-
 	double getCost();
 
 	double getMaintenanceCost();
@@ -28,8 +23,6 @@ public:
 	double getWaterConsumption();
 
 	void demolish();
-
-	void construct();
 
 	int getNumResidents();
 

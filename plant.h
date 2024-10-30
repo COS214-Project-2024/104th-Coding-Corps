@@ -12,10 +12,6 @@ public:
 
 	string getBuildingType();
 
-    std::string getName() override {
-        return "Plant";
-    }
-
 	double getCost();
 
 	double getMaintenanceCost();

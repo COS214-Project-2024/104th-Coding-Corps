@@ -80,10 +80,10 @@ double Estate::getArea() {
 	return (unitArea * this->numUnits) + (garageAreaFactor * this->garageSize);
 }
 
-int Estate::getOccupancy() {
-	return 0;
+int Estate::getOccupancy(){
+	return 150;
 }
 
-void Estate::upgrade(BuildingComponent* building) {
-	std::cout << "not yet implemented";
+void Estate::upgrade(BuildingComponent* building){
+	//implement
 }

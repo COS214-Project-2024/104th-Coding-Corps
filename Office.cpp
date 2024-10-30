@@ -14,10 +14,6 @@ std::string Office::getBuildingType() {
     return "Office";
 }
 
-std::string Office::getName() {
-    return "Office";
-}
-
 double Office::getCost() {
     return 3000000;
 }
@@ -53,10 +49,10 @@ double Office::getArea() {
 	return getX() * getY();
 }
 
-void Office::upgrade(BuildingComponent* building) {
-    std::cout << "not yet implemented";
+int Office::getOccupancy(){
+	return 150;
 }
 
-int Office::getOccupancy() {
-    return 0;
+void Office::upgrade(BuildingComponent* building){
+	//implement
 }

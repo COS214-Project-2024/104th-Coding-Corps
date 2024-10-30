@@ -1,6 +1,5 @@
 #ifndef HOUSE_H
 #define HOUSE_H
-#include <iostream>
 
 #include "ResidentialBuildings.h"
 class House : public ResidentialBuildings {
@@ -17,10 +16,6 @@ public:
 	bool hasSwimmingPool();
 
 	string getBuildingType();
-
-    std::string getName() override {
-        return "House";
-    }
 
 	double getCost();
 

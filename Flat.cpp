@@ -56,14 +56,10 @@ double Flat::getArea() {
 	return getX() * getY()* this->numUnits;
 }
 
-void Flat::construct() {
-	std::cout << "not yet implemented";
+int Flat::getOccupancy(){
+	return 200;
 }
 
-int Flat::getOccupancy() {
-	return 0;
-}
-
-void Flat::upgrade(BuildingComponent* building) {
-	std::cout << "not yet implemented";
+void Flat::upgrade(BuildingComponent* building){
+	//implement
 }
