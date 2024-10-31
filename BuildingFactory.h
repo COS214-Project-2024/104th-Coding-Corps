@@ -13,7 +13,7 @@ public:
     virtual std::unique_ptr<BuildingComponent> createFactory(int numWorkers, const std::string& factoryType, double production) { return nullptr; }
     virtual std::unique_ptr<BuildingComponent> createPlant(int workers, double production) { return nullptr; }
     virtual std::unique_ptr<BuildingComponent> createWarehouse(int storageCapacity, int numWorkers) { return nullptr; }
-    virtual std::unique_ptr<BuildingComponent> createOffice(int numEmployees, const std::string& businessType, int x, int y, const std::string& district, int quality) { return nullptr; }
+    virtual std::unique_ptr<BuildingComponent> createOffice(int numEmployees, const std::string& businessType, const std::string& district, int quality, int x, int y) { return nullptr; }
     virtual std::unique_ptr<BuildingComponent> createMall(int numShops, const std::string& businessType, int numBusinesses, int x, int y, const std::string& district, int quality) { return nullptr; }
     virtual std::unique_ptr<BuildingComponent> createShop(int shopSize, const std::string& businessType, int x, int y, const std::string& district, int quality) { return nullptr; }
     virtual std::unique_ptr<BuildingComponent> createSchool(int highestQualification, int quality, int numWorkers) { return nullptr; }
