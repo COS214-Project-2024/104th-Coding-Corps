@@ -5,6 +5,8 @@
 #include <string>
 #include <memory>
 #include "Utilities.h"
+#include "Government.h"
+
 class BuildingComponent {
 
 private:
@@ -40,7 +42,7 @@ public:
 
 	virtual void demolish() = 0;
 
-	virtual void upgrade(std::shared_ptr<BuildingComponent> building) = 0;
+	virtual void upgrade(std::shared_ptr<BuildingComponent> building);
 
 	virtual double getArea() = 0;
 

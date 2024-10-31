@@ -1,4 +1,4 @@
-#include "factory.h"
+#include "Factory.h"
 #include <iostream>
 #include "Government.h" // Assuming there is a Government class to manage resources
 

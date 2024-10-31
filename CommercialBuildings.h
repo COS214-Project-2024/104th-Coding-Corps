@@ -25,7 +25,6 @@ public:
     virtual double getWaterConsumption() = 0;
     virtual void construct() = 0;
     virtual void demolish() = 0;
-    virtual void upgrade(std::shared_ptr<BuildingComponent> building) = 0;
 
     // Additional methods specific to CommercialBuildings
     std::string getBusinessType() const { return businessType; }

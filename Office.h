@@ -29,8 +29,6 @@ public:
 
 	double getArea();
 
-	void upgrade(BuildingComponent* building);
-
 	int getOccupancy();
 };
 

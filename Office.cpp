@@ -2,10 +2,10 @@
 #include <iostream>
 
 Office::Office(int numEmployees, string businessType, int x, int y, const std::string& district, int quality)
-    : CommercialBuildings(businessType, 1, x, y, district, quality), numEmployees(numEmployees) {
+    : CommercialBuildings(x, y, district, quality, businessType, 1), numEmployees(numEmployees) {
 		this->construct();
 	}
-
+//int x, int y, const std::string& district, int quality, const std::string& business, int num
 int Office::getNumEmployees() {
     return this->numEmployees;
 }
@@ -51,8 +51,4 @@ double Office::getArea() {
 
 int Office::getOccupancy(){
 	return 150;
-}
-
-void Office::upgrade(BuildingComponent* building){
-	//implement
 }

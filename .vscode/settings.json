@@ -60,6 +60,8 @@
         "streambuf": "cpp",
         "thread": "cpp",
         "typeinfo": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "unordered_set": "cpp",
+        "optional": "cpp"
     }
 }

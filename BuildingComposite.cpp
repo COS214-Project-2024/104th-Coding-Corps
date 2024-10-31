@@ -78,3 +78,4 @@ void BuildingComposite::enforcePolicy(const std::string& policyKey, const std::s
         std::cerr << "Policy '" << policyKey << "' not found. Update failed." << std::endl;
     }
 }
+
