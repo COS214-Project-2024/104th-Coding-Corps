@@ -13,7 +13,7 @@
 class CityContext;
 
 
-class Citizen : public AbstractCitizen {
+class Citizen : public AbstractCitizen, std::enable_shared_from_this<Citizen>{
 private:
     int citizenID;
     std::string classType;  // upper, middle, lower

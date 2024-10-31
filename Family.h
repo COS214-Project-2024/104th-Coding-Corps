@@ -7,7 +7,7 @@
 #include <iostream>
 #include <algorithm>
 
-class Family : public AbstractCitizen {
+class Family : public AbstractCitizen, std::enable_shared_from_this<Family> {
 private:
     std::string district;
     std::vector<std::shared_ptr<AbstractCitizen>> members;
