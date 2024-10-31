@@ -30,7 +30,7 @@ public:
 
 	double getArea();
 	
-	void upgrade(BuildingComponent* building);
+	void upgrade(std::shared_ptr<BuildingComponent> building);
 
 	int getOccupancy();
 };
