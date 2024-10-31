@@ -14,7 +14,7 @@
  */
 Warehouse::Warehouse(int x, int y, const std::string& district, int quality, int storageCapacity, int numWorkers)
     : IndustrialBuildings(x, y, district, quality, 0.0, numWorkers), storageCapacity(storageCapacity) {
-    this->construct();
+    //this->construct();
 }
 
 /**

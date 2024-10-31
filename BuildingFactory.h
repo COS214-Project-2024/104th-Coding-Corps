@@ -7,9 +7,9 @@
 
 class BuildingFactory {
 public:
-    virtual std::unique_ptr<BuildingComponent> createFlat(int units, int residents, int floors, bool hasGarden) { return nullptr; }
-    virtual std::unique_ptr<BuildingComponent> createHouse(int garageSize, bool hasPool, int residents, int floors, bool hasGarden) { return nullptr; }
-    virtual std::unique_ptr<BuildingComponent> createEstate(int garageSize, bool hasPool, int residents, int floors, bool hasGarden, int units) { return nullptr; }
+    virtual std::unique_ptr<BuildingComponent> createFlat(int units, int residents, int floors, bool hasGarden, const std::string& district, int quality) { return nullptr; }
+    virtual std::unique_ptr<BuildingComponent> createHouse(int garageSize, bool hasPool, int residents, int floors, bool hasGarden, const std::string& district, int quality) { return nullptr; }
+    virtual std::unique_ptr<BuildingComponent> createEstate(int garageSize, bool hasPool, int residents, int floors, bool hasGarden, int units, const std::string& district, int quality) { return nullptr; }
     virtual std::unique_ptr<BuildingComponent> createFactory(int x, int y, const std::string& district, int quality, int numWorkers, const std::string& factoryType, double production) { return nullptr; }
     virtual std::unique_ptr<BuildingComponent> createPlant(int x, int y, const std::string& district, int quality, double production, int workers) { return nullptr; }
     virtual std::unique_ptr<BuildingComponent> createWarehouse(int x, int y, const std::string& district, int quality, int storageCapacity, int numWorkers) { return nullptr; }
