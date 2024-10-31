@@ -3,6 +3,7 @@
 #include "Flat.h"
 #include "House.h"
 #include "Estate.h"
+#include <random>
 
 /**
  * @brief Creates a flat building.
@@ -14,6 +15,10 @@
  * @return A unique pointer to the created flat building.
  */
 std::unique_ptr<BuildingComponent> ResidentialBuildingFactory::createFlat(int units, int residents, int floors, bool hasGarden) {
+    std::mt19937 gen(static_cast<unsigned>(std::time(0))); 
+    std::uniform_int_distribution<> positionDist(0, 159);
+    x = positionDist(gen);
+    y = positionDist(gen);
     return std::make_unique<Flat>(units, residents, floors, hasGarden);
 }
 
@@ -28,6 +33,10 @@ std::unique_ptr<BuildingComponent> ResidentialBuildingFactory::createFlat(int un
  * @return A unique pointer to the created house building.
  */
 std::unique_ptr<BuildingComponent> ResidentialBuildingFactory::createHouse(int garageSize, bool hasPool, int residents, int floors, bool hasGarden) {
+    std::mt19937 gen(static_cast<unsigned>(std::time(0))); 
+    std::uniform_int_distribution<> positionDist(0, 159);
+    x = positionDist(gen);
+    y = positionDist(gen);
     return std::make_unique<House>(garageSize, hasPool, residents, floors, hasGarden);
 }
 

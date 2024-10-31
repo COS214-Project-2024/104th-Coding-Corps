@@ -19,7 +19,6 @@ public:
     double getMaintenanceCost();
     double getEnergyConsumption();
     double getWaterConsumption();
-    void construct();
     void demolish();
     void upgrade(std::shared_ptr<BuildingComponent> building) override; // Changed to smart pointer
     double getArea();
