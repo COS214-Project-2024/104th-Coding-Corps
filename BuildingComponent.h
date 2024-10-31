@@ -42,7 +42,7 @@ public:
 
 	virtual void demolish() = 0;
 
-	virtual void upgrade(std::shared_ptr<BuildingComponent> building);
+	virtual void upgrade(std::shared_ptr<BuildingComponent> building) = 0;
 
 	virtual double getArea() = 0;
 

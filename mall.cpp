@@ -2,7 +2,7 @@
 #include <iostream>
 
 Mall::Mall(int numShops, std::string businessType, int numBusinesses, int x, int y, const std::string& district, int quality)
-    : CommercialBuildings(businessType, numBusinesses, x, y, district, quality), numShops(numShops) {
+    : CommercialBuildings(x, y, district, quality, businessType, numBusinesses), numShops(numShops) {
 		this->construct();
 	}
 
@@ -54,6 +54,22 @@ int Mall::getOccupancy(){
 	return 100;
 }
 
-void Mall::upgrade(BuildingComponent* building){
-	//implement
+void Mall::upgrade(std::shared_ptr<BuildingComponent> building) {
+    auto government = Government::getInstance();
+    
+    // Example resource requirements for upgrading
+    const int requiredConcrete = 100;
+    const int requiredSteel = 50;
+
+    // Request resources from Government
+    bool hasConcrete = government->useResource("Concrete", requiredConcrete);
+    bool hasSteel = government->useResource("Steel", requiredSteel);
+
+    if (hasConcrete && hasSteel) {
+        // Perform upgrade logic if resources are available
+        quality += 10;  // Example improvement in quality
+        std::cout << "Estate upgraded successfully!" << std::endl;
+    } else {
+        std::cout << "Upgrade failed due to insufficient resources." << std::endl;
+    }
 }
