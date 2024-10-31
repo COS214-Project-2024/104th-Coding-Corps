@@ -20,7 +20,7 @@ public:
 
 	void deactivateUtility();
 
-	void generateEnergy(BuildingComponent* building);
+	void generateEnergy(std::shared_ptr<BuildingComponent> building);
 };
 
 #endif

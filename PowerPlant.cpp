@@ -23,7 +23,7 @@ void PowerPlant::deactivateUtility() {
     std::cout << "Power Plant Utility has been deactivated." << std::endl;
 }
 
-void PowerPlant::generateEnergy(BuildingComponent* building) {
+void PowerPlant::generateEnergy(std::shared_ptr<BuildingComponent> building) {
     const double energyProduced = 1.1 * getConsumptionRate(); // Adjusted production rate per building
     std::cout << "Generating " << energyProduced << " kWh of energy for " 
               << building->getBuildingType() << "." << std::endl;
