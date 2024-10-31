@@ -1,17 +1,17 @@
 #include "IndustrialBuildingFactory.h"
 #include "Factory.h"
-#include "plant.h"  // Ensure correct casing for the class name
-#include "warehouse.h"  // Ensure correct casing for the class name
-#include <memory> // Include the memory header for smart pointers
+#include "plant.h"
+#include "warehouse.h"
+#include <memory>
 
-std::unique_ptr<BuildingComponent> IndustrialBuildingFactory::createFactory(int numWorkers, const std::string& factoryType, double production) {
-    return std::make_unique<factory>(numWorkers, factoryType, production);
+std::unique_ptr<BuildingComponent> IndustrialBuildingFactory::createFactory(int x, int y, const std::string& district, int quality, int numWorkers, const std::string& factoryType, double production) {
+    return std::make_unique<factory>(x, y, district, quality, numWorkers, factoryType, production);
 }
 
-std::unique_ptr<BuildingComponent> IndustrialBuildingFactory::createPlant(int workers, double production) {
-    return std::make_unique<plant>(workers, production); // Corrected to Plant with uppercase 'P'
+std::unique_ptr<BuildingComponent> IndustrialBuildingFactory::createPlant(int x, int y, const std::string& district, int quality, double production, int workers) {
+    return std::make_unique<plant>(x, y, district, quality, production, workers);
 }
 
-std::unique_ptr<BuildingComponent> IndustrialBuildingFactory::createWarehouse(int storageCapacity, int numWorkers) {
-    return std::make_unique<Warehouse>(storageCapacity, numWorkers);
+std::unique_ptr<BuildingComponent> IndustrialBuildingFactory::createWarehouse(int x, int y, const std::string& district, int quality, int storageCapacity, int numWorkers) {
+    return std::make_unique<Warehouse>(x, y, district, quality, storageCapacity, numWorkers);
 }
