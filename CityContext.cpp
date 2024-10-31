@@ -344,13 +344,13 @@ void CityContext::getCitySummary() {
 
 //----------------------------------------------------------------MEMENTO TINGS YERRR----------------------------------------------------------------
 
-std::shared_ptr<SavePoint> CityContext::saveGame(){
-   std::shared_ptr<SavePoint> savePoint = std::make_shared<SavePoint>(totalPop, averageStandardOfLiving, averageEducationLevel, 
-        averageIncome, monthlyExpenditure, totalBuildings, averageBuildingQuality, totalUtilities,
-        totalEnergyConsumption, totalWaterConsumption, totalEnergyProduction, totalWaterProduction,
-        government,population, buildings, utilities);
-
-        return savePoint;
+std::shared_ptr<SavePoint> CityContext::saveGame() {
+    return std::shared_ptr<SavePoint>(new SavePoint(
+        totalPop, averageStandardOfLiving, averageEducationLevel,
+        averageIncome, monthlyExpenditure, totalBuildings, 
+        averageBuildingQuality, totalUtilities, totalEnergyConsumption,
+        totalWaterConsumption, totalEnergyProduction, totalWaterProduction,
+        government, population, buildings, utilities));
 }
 
 void CityContext::setSavePoint(std::shared_ptr<SavePoint> savePoint) {
