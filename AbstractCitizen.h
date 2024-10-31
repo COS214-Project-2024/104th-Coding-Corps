@@ -34,6 +34,13 @@ public:
     virtual void update(const std::string& resourceType, int quantity) = 0;
     virtual void accept(TaxCollector& collector) = 0;
 
+    
+    virtual void goToWork() = 0;
+    virtual void goToShops() = 0;
+    virtual void getSchooled() = 0;
+    virtual void getEducated() = 0;
+    virtual void getHealed() = 0;
+
 };
 
 #endif // ABSTRACTCITIZEN_H
