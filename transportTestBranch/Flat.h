@@ -1,40 +1,28 @@
 #ifndef FLAT_H
 #define FLAT_H
 
+#include <memory>
 #include "ResidentialBuildings.h"
+#include "Government.h"
 
 class Flat : public ResidentialBuildings {
-
 private:
-	int numUnits;
+    int numUnits;
+
 public:
-	Flat(int units, int residents, int floors, bool hasGarden);
+    Flat(int x, int y, const std::string& district, int quality, int units, int residents, int floors, bool hasGarden);
 
-	int getNumUnits();
-
-	string getBuildingType();
-
-	double getCost();
-
-	double getMaintenanceCost();
-
-	double getEnergyConsumption();
-
-	double getWaterConsumption();
-
-	void demolish();
-
+    int getNumUnits() const;
+    std::string getBuildingType() override;
+    double getCost() override;
+    double getMaintenanceCost() override;
+    double getEnergyConsumption() override;
+    double getWaterConsumption() override;
+    void demolish() override;
+    double getArea() override;
+    int getOccupancy() override;
 	int getNumResidents();
-
-	int getNumFloors();
-
-	bool hasGarden();
-
-	double getArea();
-
-	int getOccupancy() override;
-
-	void upgrade(BuildingComponent* building) override;
+    void upgrade(std::shared_ptr<BuildingComponent> building) override;
 };
 
-#endif
+#endif // FLAT_H

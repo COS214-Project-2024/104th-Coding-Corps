@@ -1,67 +1,140 @@
-#include "Factory.h"
+#include "factory.h"
 #include <iostream>
+#include "Government.h" // Assuming there is a Government class to manage resources
 
-#include "Factory.h"
-#include <iostream>
-
-Factory::Factory(int numWorkers, string factoryType, double production)
-    : IndustrialBuildings(production, numWorkers), factoryType(factoryType) {}
-
-std::string Factory::getFactoryType() {
-	return factoryType;
+/**
+ * @brief Constructs a factory with the given parameters and initializes the base class.
+ * 
+ * @param x The x-coordinate of the factory.
+ * @param y The y-coordinate of the factory.
+ * @param district The district where the factory is located.
+ * @param quality The quality rating of the factory.
+ * @param numWorkers The number of workers in the factory.
+ * @param factoryType The type of the factory.
+ * @param production The production capacity of the factory.
+ */
+factory::factory(int x, int y, const std::string& district, int quality, int numWorkers, const std::string& factoryType, double production)
+    : IndustrialBuildings(x, y, district, quality, production, numWorkers), factoryType(factoryType) {
+    this->construct();
 }
 
-void Factory::produceGoods() {
-    const double goodsPerEmployee = 10.0; // Units per employee per cycle
-    double totalGoodsProduced = goodsPerEmployee * getOccupancy();
+/**
+ * @brief Gets the type of the factory.
+ * 
+ * @return The factory type.
+ */
+std::string factory::getFactoryType() {
+    return factoryType;
+}
+
+/**
+ * @brief Produces goods based on the occupancy of the factory.
+ */
+void factory::produceGoods() {
+    const double goodsPerWorker = 10.0; // Units per worker per cycle
+    double totalGoodsProduced = goodsPerWorker * getOccupancy();
     
     std::string productType = getFactoryType();
     std::cout << "Factory (" << productType << ") produced " << totalGoodsProduced << " units of goods this cycle." << std::endl;
 }
 
-std::string Factory::getBuildingType() {
+/**
+ * @brief Gets the type of building.
+ * 
+ * @return A string representing the type of building ("Factory").
+ */
+std::string factory::getBuildingType() {
     return "Factory";
 }
 
-int Factory::getOccupancy() {
-    return 150;
+/**
+ * @brief Gets the occupancy of the factory.
+ * 
+ * @return The occupancy level of the factory.
+ */
+int factory::getOccupancy() {
+    return 150; // Example occupancy value
 }
 
-double Factory::getCost() {
+/**
+ * @brief Gets the cost of constructing the factory.
+ * 
+ * @return The cost of the factory.
+ */
+double factory::getCost() {
     return 150000000;  // Cost in ZAR
 }
 
-double Factory::getMaintenanceCost() {
+/**
+ * @brief Calculates the maintenance cost of the factory.
+ * 
+ * @return The maintenance cost of the factory.
+ */
+double factory::getMaintenanceCost() {
     const double maintenanceRate = 0.05; // 5% of the cost
     return getCost() * maintenanceRate;
 }
 
-double Factory::getEnergyConsumption() {
-    // Assuming each employee consumes 500 kWh of energy per month
-    const double energyPerEmployee = 500.0;
-    return energyPerEmployee * getOccupancy();
+/**
+ * @brief Calculates the energy consumption of the factory.
+ * 
+ * @return The energy consumption based on the number of workers.
+ */
+double factory::getEnergyConsumption() {
+    const double energyPerWorker = 500.0; // kWh per worker per month
+    return energyPerWorker * getOccupancy();
 }
 
-double Factory::getWaterConsumption() {
-    // Assuming each employee uses 2000 liters of water per month
-    const double waterPerEmployee = 2000.0;
-    return waterPerEmployee * getOccupancy();
+/**
+ * @brief Calculates the water consumption of the factory.
+ * 
+ * @return The water consumption based on the number of workers.
+ */
+double factory::getWaterConsumption() {
+    const double waterPerWorker = 2000.0; // liters per worker per month
+    return waterPerWorker * getOccupancy();
 }
 
-void Factory::demolish() {
-    // Demolishing the factory, reset attributes to defaults
+/**
+ * @brief Demolishes the factory by resetting its attributes.
+ */
+void factory::demolish() {
     std::cout << "Factory is being demolished." << std::endl;
     this->factoryType = "";
-	this->numWorkers = 0;
-	this->productionCapacity = 0;
+    this->numWorkers = 0;
+    this->productionCapacity = 0; // Ensure to reset production capacity
 }
 
-void Factory::upgrade(BuildingComponent* building) {
-    // Simulating the upgrade by increasing occupancy
-    std::cout << "Upgrading the factory capacity." << std::endl;
-    this->factoryType += " (Upgraded)";
+/**
+ * @brief Upgrades the factory by checking for available resources and updating attributes.
+ * 
+ * @param building A shared pointer to the building component to upgrade.
+ */
+void factory::upgrade(std::shared_ptr<BuildingComponent> building) {
+    auto government = Government::getInstance();
+    
+    // Example resource requirements for upgrading
+    const int requiredSteel = 300; // Example requirement
+    const int requiredMachines = 100; // Example requirement
+
+    // Request resources from Government
+    bool hasSteel = government->useResource("Steel", requiredSteel);
+    bool hasMachines = government->useResource("Machines", requiredMachines);
+
+    if (hasSteel && hasMachines) {
+        // Perform upgrade logic if resources are available
+        factoryType += " (Upgraded)"; // Mark the factory as upgraded
+        std::cout << "Factory upgraded successfully!" << std::endl;
+    } else {
+        std::cout << "Upgrade failed due to insufficient resources." << std::endl;
+    }
 }
 
-double Factory::getArea() {
-	return getX() * getY();
+/**
+ * @brief Gets the area of the factory based on its dimensions.
+ * 
+ * @return The area of the factory.
+ */
+double factory::getArea() {
+    return getX() * getY();
 }

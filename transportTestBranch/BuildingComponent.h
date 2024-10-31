@@ -1,27 +1,31 @@
 #ifndef BUILDINGCOMPONENT_H
 #define BUILDINGCOMPONENT_H
 
-#include "vector"
+#include <vector>
+#include <string>
+#include <memory>
 #include "Utilities.h"
 class BuildingComponent {
 
 private:
-	string type;
-	double cost;
-	int occupancy;
-	double maintainanceCost;
-	double energyConsumption;
-	double waterConsumption;
-	double area;
 	int x;
 	int y;
 	string district;
-	int quality;
+	
 
 protected:
-	vector<Utilities*> utilities;
+    int quality;
+	std::vector<std::shared_ptr<Utilities>> utilities;
 	
 public:
+    BuildingComponent(int x, int y, const std::string& district, int quality);
+
+	virtual void addBuilding(shared_ptr<BuildingComponent> building);
+
+	virtual void removeBuilding(shared_ptr<BuildingComponent> building);
+
+	virtual shared_ptr<BuildingComponent> getBuilding(int index);
+
 	virtual string getBuildingType() = 0;
 
 	virtual int getOccupancy() = 0;
@@ -36,7 +40,7 @@ public:
 
 	virtual void demolish() = 0;
 
-	virtual void upgrade(BuildingComponent* building) = 0;
+	virtual void upgrade(std::shared_ptr<BuildingComponent> building) = 0;
 
 	virtual double getArea() = 0;
 
@@ -46,9 +50,10 @@ public:
 
 	string getDistrict();
 
-	virtual void enforcePolicy(string policy){}
+	virtual void enforcePolicy(const std::string& policyKey, const std::string& newValue);
 
 	int getQuality();	//measured on a 0 to 100 scale
+	virtual ~BuildingComponent() = default;
 };
 
 #endif

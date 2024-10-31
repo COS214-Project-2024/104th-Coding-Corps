@@ -3,39 +3,29 @@
 
 #include "IndustrialBuildings.h"
 #include <string>
-
-class Factory : public IndustrialBuildings {
+#include <memory> // Include for smart pointers
+#include "Government.h"
+class factory : public IndustrialBuildings { // Class name updated to lowercase
 
 public:
-
-    Factory(int numWorkers, string factoryType, double production);
+    // Constructor that initializes base class and factory-specific attributes
+    factory(int x, int y, const std::string& district, int quality, int numWorkers, const std::string& factoryType, double production);
 
     void produceGoods();
-
     std::string getBuildingType();
-
     std::string getFactoryType();
-
     int getOccupancy();
-
     double getCost();
-
     double getMaintenanceCost();
-
     double getEnergyConsumption();
-
     double getWaterConsumption();
-
     void construct();
-
     void demolish();
-
-    void upgrade(BuildingComponent* building) override;
-
+    void upgrade(std::shared_ptr<BuildingComponent> building) override; // Changed to smart pointer
     double getArea();
 
 private:
-    string factoryType;
+    std::string factoryType; // Type of the factory
 };
 
 #endif

@@ -1,11 +1,12 @@
 #include "Flat.h"
 #include <stdexcept>
 
-Flat::Flat(int units, int residents, int floors, bool hasGarden) : ResidentialBuildings(residents, floors, hasGarden) {
-	this->numUnits = units;
-}
-int Flat::getNumUnits() {
-	return this->numUnits;
+// Constructor calls base constructor
+Flat::Flat(int x, int y, const std::string& district, int quality, int units, int residents, int floors, bool hasGarden)
+    : ResidentialBuildings(x, y, district, quality, residents, floors, hasGarden), numUnits(units) {}
+
+int Flat::getNumUnits() const {
+    return numUnits;
 }
 
 std::string Flat::getBuildingType() {
@@ -43,23 +44,32 @@ int Flat::getNumResidents() {
 	return this->numUnits * 3;
 }
 
-int Flat::getNumFloors() {
-	const int unitsPerFloor = 4;
-	return (this->numUnits + unitsPerFloor - 1) / unitsPerFloor; // Round up
-}
 
-bool Flat::hasGarden() {
-	return false;
-}
 
 double Flat::getArea() {
 	return getX() * getY()* this->numUnits;
 }
 
-int Flat::getOccupancy(){
-	return 200;
+int Flat::getOccupancy() {
+    return numUnits;
 }
 
-void Flat::upgrade(BuildingComponent* building){
-	//implement
+void Flat::upgrade(std::shared_ptr<BuildingComponent> building) {
+    auto government = Government::getInstance();
+    
+    // Example resource requirements for upgrading
+    const int requiredConcrete = 200;
+    const int requiredSteel = 100;
+
+    // Request resources from Government
+    bool hasConcrete = government->useResource("Concrete", requiredConcrete);
+    bool hasSteel = government->useResource("Steel", requiredSteel);
+
+    if (hasConcrete && hasSteel) {
+        // Perform upgrade logic if resources are available
+        quality += 10;  // Example improvement in quality
+        std::cout << "Estate upgraded successfully!" << std::endl;
+    } else {
+        std::cout << "Upgrade failed due to insufficient resources." << std::endl;
+    }
 }
