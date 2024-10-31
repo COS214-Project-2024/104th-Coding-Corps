@@ -5,8 +5,9 @@
 /** 
  * @brief Constructs a Family.
  */
-Family::Family() : cityContext(nullptr), government(nullptr) {
-    // Constructor implementation
+Family::Family(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Government> government, std:: string district)
+ : cityContext(cityContext), government(government), district(district){
+    
 }
 
 /** 
@@ -108,6 +109,7 @@ void Family::resolveStrike() {
 void Family::moveDistrict(const std::string& district) {
 
     this->district = district;
+    //change x and y points
 }
 
 /** 

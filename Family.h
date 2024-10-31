@@ -1,7 +1,7 @@
 #ifndef FAMILY_H
 #define FAMILY_H
 
-#include "AbstractCitizen.h"
+#include "Citizen.h"
 #include <vector>
 #include <memory>
 #include <iostream>
@@ -9,13 +9,14 @@
 
 class Family : public AbstractCitizen {
 private:
+    std::string district;
     std::vector<std::shared_ptr<AbstractCitizen>> members;
     std::shared_ptr<void> cityContext;
     std::shared_ptr<void> government;
 
 public:
 //-----Family Composite stuff-----//
-    Family();
+    Family(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Government> government, std::string district);
     ~Family() override;
     void add(std::shared_ptr<AbstractCitizen> citizen) override;
     void remove(std::shared_ptr<AbstractCitizen> citizen) override;

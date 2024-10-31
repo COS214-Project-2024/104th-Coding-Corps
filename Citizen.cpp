@@ -4,12 +4,28 @@
 int Citizen::nextID = 10000000; // static ID counter for citizenID
 
 /**
- * @brief Constructs a Citizen with an initial education level and assigns a job based on that level.
- * @param cityContext Shared pointer to the CityContext for access to city-wide resources.
- * @param transportContext Shared pointer to the Transport system for citizen travel.
+* @brief Constructs a Citizen with a unique ID, initial education level, and assigned job and residence.
+ * 
+ * Initializes a citizen with attributes such as class type, job type, employment status, and financial metrics.
+ * The citizen is assigned a job based on their education level and a residence based on their class type, 
+ * with satisfaction and standard of living adjusted accordingly.
+ * 
+ * @param cityContext Shared pointer to the CityContext for access to city-wide resources and citizen registration.
+ * @param transportContext Shared pointer to the Transport system for managing citizen travel between locations.
+ * @param government Shared pointer to the Government for administrative access and regulatory updates.
+ * 
+ * Initializes:
+ * - `citizenID`: Unique identifier for the citizen.
+ * - `satisfaction`, `expectedStandardOfLiving`: Initial satisfaction and expected living standards.
+ * - `classType`: Randomly assigned social class (upper, middle, lower) influencing job and residence type.
+ * - `jobType`: Job role selected from a set available to the citizen's education level.
+ * - `employed`: Employment status, determined randomly, with financial implications.
+ * - `residence`: Assigns nearest building based on class; adjusts satisfaction if no suitable residence is found.
+ * 
+ * Attaches the citizen to the `cityContext` upon creation.
  */
-Citizen::Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Transport> transportContext)
-    : citizenID(nextID++), onStrike(false), educationLevel(0), cityContext(cityContext), transportationContext(transportContext) {
+Citizen::Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Transport> transportContext, std::shared_ptr<Government> government)
+    : citizenID(nextID++), onStrike(false), educationLevel(0), cityContext(cityContext), transportationContext(transportContext), government(government) {
 
     satisfaction = 50;
     expectedStandardOfLiving = 50;
@@ -49,10 +65,28 @@ Citizen::Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Trans
     }
 
     expectedStandardOfLiving = (classType == "upper") ? 80 : (classType == "middle") ? 50 : 30;
-    actualStandardOfLiving = expectedStandardOfLiving;
 
-    //add bro to map of citizens in city context
+    // Register citizen with the city context
     cityContext->attach(shared_from_this());
+
+    // Assign nearest residence based on class type
+    auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Estate");
+
+    if(classType == "middle" || nearestResidential == nullptr) {
+        nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "House");
+    }
+
+    if(classType == "lower" || nearestResidential == nullptr) {
+        nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Flat");
+    }
+
+    // Update satisfaction and standard of living based on residence availability
+    if(!nearestResidential) {
+        updateSatisfaction(-10);
+        std::cout << "No available space for Citizen to live!" << std::endl;
+    } else {
+        updateASoL(nearestResidential->getQuality());
+    }
 
     // Debug print
     std::cout << "Citizen created with ID: " << citizenID << ", Class: " << classType
@@ -61,6 +95,7 @@ Citizen::Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Trans
               << ", Employed: " << employed << ", Expected SoL: " << expectedStandardOfLiving
               << ", Actual SoL: " << actualStandardOfLiving << std::endl;
 }
+
 
 /** 
  * @brief Destroys the Citizen object.
@@ -312,7 +347,7 @@ void Citizen::updateCurrentIncome(double amount) {
  * @brief Updates the monthlyExpenditure of a citizen
  * @param amount The amount to add to the monthy expenditure (can be negative).
  */
-void Citizen::updateMonthlyExpenditure(int amount) {
+void Citizen::updateMonthlyExpenditure(double amount) {
     monthlyExpenditure += amount;
 }
 
@@ -402,8 +437,8 @@ void Citizen::goToWork() {
     }
     else{
         updateCurrentIncome(90);
-        transportationContext->travel(nearestResidential, nearestWorkplace);
 
+        transportationContext->travel(nearestResidential, nearestWorkplace);
     }
 }
 
@@ -442,14 +477,15 @@ void Citizen::goToShops() {
     }
 
     transportationContext->travel(nearestResidential, nearestShop);
+    government->increaseBudget(monthlyExpenditure*0.15);
 
     int shopQuality = nearestShop->getQuality(); // Assume `getQuality()` returns an integer (1-100)
     int qualityImpact = (shopQuality / 7);
     if(shopQuality >= 50){
-        updateSatisfaction(qualityImpact);
+        updateASoL(qualityImpact);
     }
     else{
-        updateSatisfaction(-qualityImpact);
+        updateASoL(-qualityImpact);
     }
    
 }
@@ -609,10 +645,10 @@ void Citizen::getHealed() {
     int hospitalQuality = nearestHospital->getQuality(); // Assume `getQuality()` returns an integer (1-100)
     int qualityImpact = (hospitalQuality / 7);
     if(hospitalQuality >= 50){
-        updateSatisfaction(qualityImpact);
+        updateASoL(qualityImpact);
     }
     else{
-        updateSatisfaction(-qualityImpact);
+        updateASoL(-qualityImpact);
     }
 }
 
@@ -622,8 +658,31 @@ void Citizen::getHealed() {
  * @brief Updates the context of the citizen.
  */
 void Citizen::updateContext() {
-    // Implementation for context update
-    //guess i got nothing rn
+    cityContext->calculateAverages();
+    int BuildingQuality = cityContext->calculateAverageBuildingQuality();
+    int qualityImpact = (BuildingQuality/7);
+    if(BuildingQuality < 50){
+        updateSatisfaction(-qualityImpact);
+    }
+    else{
+        updateSatisfaction(qualityImpact);
+    }
+
+    int literacyLevel = cityContext->calculateAverageEducationLevel();
+    if(literacyLevel = 0){
+        updateSatisfaction(-8);
+    }
+    if(literacyLevel >= 2){
+        updateSatisfaction(8);
+    }
+
+    if((expectedStandardOfLiving - actualStandardOfLiving) > 20){
+        updateSatisfaction(-12);
+    }
+    if(actualStandardOfLiving > expectedStandardOfLiving){
+        updateSatisfaction(12);
+    }
+
 }
 
 
@@ -634,23 +693,44 @@ void Citizen::updateContext() {
  * @return double The calculated tax amount.
  */
 double Citizen::calculateTax() {
-    if(classType == "lower"){
-        return currentIncome * 0.1;
+    if (!employed) {
+        return 0;
     }
-    else if(classType == "middle"){
-        return currentIncome * 0.22;
+    
+    std::string taxRatePolicy = government->getTaxRatePolicy(); // Access tax rate from Government
+
+    double taxMultiplier = 1.0;
+    if (taxRatePolicy == "low") {
+        taxMultiplier = 0.85;  // Citizens pay 15% less tax
+        updateSatisfaction(10);
+    } else if (taxRatePolicy == "high") {
+        taxMultiplier = 1.15;  // Citizens pay 15% more tax
+        updateSatisfaction(-10);
     }
-    else if(classType == "upper"){
-        return currentIncome * 0.35; //TAX THE RICH AMIRITE BOYS
+
+    if (classType == "lower") {
+        return currentIncome * 0.1 * taxMultiplier;
+    } else if (classType == "middle") {
+        return currentIncome * 0.22 * taxMultiplier;
+    } else if (classType == "upper") {
+        return currentIncome * 0.35 * taxMultiplier;
     }
+
+    return 0;  // Default case if classType doesn't match
 }
 
 /** 
- * @brief Deducts a specified tax amount from the citizen's income.
- * @param amount The tax amount to be deducted.
+ * @brief Transfers the specified tax amount to the government budget.
+ * 
+ * This function the specified amount to the government's budget.
+ * It assumes that the calculated tax amount is passed as a parameter,
+ * ensuring the budget reflects the correct tax revenue.
+ * Unemployed citizens are exempt from tax.
+ * 
+ * @param amount The tax amount to be deducted from the citizen's income and transferred to the government budget.
  */
 void Citizen::payTax(double amount) {
-    std::cout << "Paying " << amount << " tax" << std::endl;
+    government->increaseBudget(amount);
 }
 
 /** 

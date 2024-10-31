@@ -33,7 +33,7 @@ private:
 
 public:
     //-----Citizen stuff-----//
-    Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Transport> transportContext);
+    Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Transport> transportContext, std::shared_ptr<Government> government);
     ~Citizen() override;
 
     // Getters and setters
@@ -58,7 +58,7 @@ public:
     void updateESoL(int update);
     void updateASoL(int update);
     void updateCurrentIncome(double amount);
-    void updateMonthlyExpenditure(int amount);
+    void updateMonthlyExpenditure(double amount);
 
     // Additional functionality
     void increaseEducation();
