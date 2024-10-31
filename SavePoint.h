@@ -16,7 +16,7 @@ class Government;
  */
 class SavePoint : public std::enable_shared_from_this<SavePoint> {
 private:
-    // Private constructor to restrict access only to CityContext
+    // Private constructor, accessible only within this class
     SavePoint(int totalPop, double avgStdOfLiving, double avgEduLevel, 
               double avgIncome, double monthlyExp, int totalBuildings, 
               int avgBuildingQuality, int totalUtilities,
@@ -26,11 +26,8 @@ private:
               const std::map<int, std::shared_ptr<Citizen>>& populationState,
               const std::vector<std::shared_ptr<BuildingComponent>>& buildingsState,
               const std::vector<std::shared_ptr<Utilities>>& utilitiesState);
-    
-    std::shared_ptr<SavePoint> getState();
-    void setState(std::shared_ptr<SavePoint> savePoint);
 
-    // State variables that need to be saved
+    // State variables to be saved
     int totalPopulation;
     double averageStandardOfLiving;
     double averageEducationLevel;
@@ -39,23 +36,33 @@ private:
     int totalBuildings;
     int averageBuildingQuality;
     int totalUtilities;
-    double totalMaintenanceCost;
-
-    // Additional state for energy and water
     double totalEnergyConsumption;
     double totalWaterConsumption;
     double totalEnergyProduction;
     double totalWaterProduction;
 
-    // Other member objects to capture full state
     std::shared_ptr<Government> government;
     std::map<int, std::shared_ptr<Citizen>> population;
     std::vector<std::shared_ptr<BuildingComponent>> buildings;
     std::vector<std::shared_ptr<Utilities>> utilities;
 
-    friend class CityContext; // Only CityContext can create and use SavePoint
+    // Private methods for state management, accessible only by CityContext
+    std::shared_ptr<SavePoint> getState();
+    void setState(const std::shared_ptr<SavePoint>& savePoint);
+
+    friend class CityContext; // CityContext can access all members
 
 public:
+    static std::shared_ptr<SavePoint> create(int totalPop, double avgStdOfLiving, double avgEduLevel, 
+                                             double avgIncome, double monthlyExp, int totalBuildings, 
+                                             int avgBuildingQuality, int totalUtilities,
+                                             double totalEnergyConsumption, double totalWaterConsumption,
+                                             double totalEnergyProduction, double totalWaterProduction,
+                                             std::shared_ptr<Government> governmentState,
+                                             const std::map<int, std::shared_ptr<Citizen>>& populationState,
+                                             const std::vector<std::shared_ptr<BuildingComponent>>& buildingsState,
+                                             const std::vector<std::shared_ptr<Utilities>>& utilitiesState);
+
     ~SavePoint() = default;
 };
 
