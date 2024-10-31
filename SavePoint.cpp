@@ -72,3 +72,32 @@ std::shared_ptr<SavePoint> SavePoint::getState() {
         utilities           // Vector of utilities
     );
 }
+
+
+/**
+ * @brief Updates the current SavePoint with the state from another SavePoint.
+ * 
+ * @param savePoint The SavePoint containing the desired state to copy.
+ */
+void SavePoint::setState(std::shared_ptr<SavePoint> savePoint) {
+    if (savePoint) {
+        totalPopulation = savePoint->totalPopulation;
+        averageStandardOfLiving = savePoint->averageStandardOfLiving;
+        averageEducationLevel = savePoint->averageEducationLevel;
+        averageIncome = savePoint->averageIncome;
+        monthlyExpenditure = savePoint->monthlyExpenditure;
+        totalBuildings = savePoint->totalBuildings;
+        averageBuildingQuality = savePoint->averageBuildingQuality;
+        totalUtilities = savePoint->totalUtilities;
+
+        totalEnergyConsumption = savePoint->totalEnergyConsumption;
+        totalWaterConsumption = savePoint->totalWaterConsumption;
+        totalEnergyProduction = savePoint->totalEnergyProduction;
+        totalWaterProduction = savePoint->totalWaterProduction;
+
+        government = savePoint->government;
+        population = savePoint->population;
+        buildings = savePoint->buildings;
+        utilities = savePoint->utilities;
+    }
+}
