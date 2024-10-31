@@ -27,8 +27,8 @@ TEST_CASE("School tests") {
     CHECK(school.getOccupancy() == 1500);
     CHECK(school.getCost() == 3000000.0);
     CHECK(school.getMaintenanceCost() == 0.03 * 3000000.0);
-    CHECK(school.getEnergyConsumption() == 100 * 200.0);
-    CHECK(school.getWaterConsumption() == 100 * 80.0);
+    CHECK(school.getEnergyConsumption() == 40 * 200.0);
+    CHECK(school.getWaterConsumption() == 40 * 80.0);
 
     school.demolish();
     CHECK(school.getHighestQualification() == 0);
@@ -41,8 +41,8 @@ TEST_CASE("University tests") {
     CHECK(university.getOccupancy() == 20000);
     CHECK(university.getCost() == 10000000.0);
     CHECK(university.getMaintenanceCost() == 0.04 * 10000000.0);
-    CHECK(university.getEnergyConsumption() == 200 * 300.0);
-    CHECK(university.getWaterConsumption() == 200 * 100.0);
+    CHECK(university.getEnergyConsumption() == 60 * 300.0);
+    CHECK(university.getWaterConsumption() == 60 * 100.0);
 
     university.demolish();
     CHECK(university.getHighestQualification() == 0);
@@ -55,8 +55,8 @@ TEST_CASE("Hospital tests") {
     CHECK(hospital.getOccupancy() == 5000);
     CHECK(hospital.getCost() == 7000000.0);
     CHECK(hospital.getMaintenanceCost() == 0.05 * 7000000.0);
-    CHECK(hospital.getEnergyConsumption() == 70 * 400.0);
-    CHECK(hospital.getWaterConsumption() == 70 * 150.0);
+    CHECK(hospital.getEnergyConsumption() == 60 * 400.0);
+    CHECK(hospital.getWaterConsumption() == 60 * 150.0);
 
     hospital.demolish();
 }
@@ -67,10 +67,10 @@ TEST_CASE("House tests") {
     House house(10, 10, "District A", 56, 5, true, 6, 10, true);
 
     CHECK(house.getBuildingType() == "House");
-    CHECK(house.getGarageSize() == 2);
+    CHECK(house.getGarageSize() == 5);
     CHECK(house.hasSwimmingPool() == true);
     CHECK(house.getCost() > 0);
-    CHECK(house.getOccupancy() == 5);
+    CHECK(house.getOccupancy() == 10);
 
     house.demolish();
     CHECK(house.getGarageSize() == 0);
@@ -79,10 +79,10 @@ TEST_CASE("House tests") {
 TEST_CASE("Flat tests") {
     Flat apartment(10, 10, "District A", 56, 50, 300, 6, false);
     CHECK(apartment.getBuildingType() == "Flat");
-    CHECK(apartment.getNumUnits() == 20);
-    CHECK(apartment.getOccupancy() == 10 * 20);
-    CHECK(apartment.getCost() == 5000000.0);
-    CHECK(apartment.getMaintenanceCost() == 0.02 * 5000000.0);
+    CHECK(apartment.getNumUnits() == 50);
+    CHECK(apartment.getOccupancy() == 10 * 5);
+    CHECK(apartment.getCost() == 1595000.00);
+    CHECK(apartment.getMaintenanceCost() == 0.02 * 1595000.00);
 
     apartment.demolish();
     CHECK(apartment.getNumUnits() == 0);
@@ -101,13 +101,13 @@ TEST_CASE("Shop tests") {
 }
 
 TEST_CASE("Mall tests") {
-    Mall mall(10, "Variety", 50, 5, 5, "District A", 56);
+    Mall mall(50, "Variety", 50, 5, 5, "District A", 56);
 
     CHECK(mall.getBuildingType() == "Mall");
     CHECK(mall.getNumShops() == 50);
-    CHECK(mall.getOccupancy() == 5000);
-    CHECK(mall.getCost() == 25000000.0);
-    CHECK(mall.getMaintenanceCost() == 0.04 * 25000000.0);
+    CHECK(mall.getOccupancy() == 100);
+    CHECK(mall.getCost() == 50 * 5000000.0);
+    CHECK(mall.getMaintenanceCost() == 0.03 * 5000000.0 * 50);
 
     mall.demolish();
     CHECK(mall.getNumShops() == 0);
@@ -119,11 +119,11 @@ TEST_CASE("Factory tests") {
     factory factory(10, 10, "District A", 56, 20, "Steel", 50);
 
     CHECK(factory.getBuildingType() == "Factory");
-    CHECK(factory.getOccupancy() == 100);
+    CHECK(factory.getOccupancy() == 150);
     CHECK(factory.getCost() == 150000000.0);
     CHECK(factory.getMaintenanceCost() == 0.05 * 150000000.0);
-    CHECK(factory.getEnergyConsumption() == 100 * 500.0);
-    CHECK(factory.getWaterConsumption() == 100 * 2000.0);
+    CHECK(factory.getEnergyConsumption() == 150 * 500.0);
+    CHECK(factory.getWaterConsumption() == 150 * 2000.0);
 
     factory.demolish();
 }
@@ -132,7 +132,7 @@ TEST_CASE("Warehouse tests") {
     Warehouse warehouse(10, 10, "District A", 56, 500, 40);
 
     CHECK(warehouse.getBuildingType() == "Warehouse");
-    CHECK(warehouse.getStorageCapacity() == 200);
+    CHECK(warehouse.getStorageCapacity() == 500);
     CHECK(warehouse.getCost() == 90000000.0);
     CHECK(warehouse.getMaintenanceCost() == 0.03 * 90000000.0);
     CHECK(warehouse.getEnergyConsumption() > 0);

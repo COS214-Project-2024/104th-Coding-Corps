@@ -18,7 +18,7 @@ double Flat::getCost() {
 }
 
 double Flat::getMaintenanceCost() {
-	return 10000.00;
+	return 0.02 * getCost();
 }
 
 double Flat::getEnergyConsumption() {
@@ -37,6 +37,7 @@ void Flat::demolish() {
 	// Code to handle demolition of the flat, such as resetting attributes
 	this->numResidents = 0;
 	this->numFloors = 0;
+    this->numUnits = 0;
 }
 
 int Flat::getNumResidents() {
