@@ -7,7 +7,7 @@
 class TaxCollector;
 
 
-class AbstractCitizen {
+class AbstractCitizen : public std::enable_shared_from_this<AbstractCitizen>{
 protected:
     int satisfaction;
     int expectedStandardOfLiving;

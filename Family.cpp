@@ -108,7 +108,7 @@ void Family::resolveStrike() {
  */
 void Family::moveDistrict(const std::string& district) {
 
-    this->district = district;
+    district = district;
     //change x and y points
 }
 
@@ -121,7 +121,7 @@ double Family::getMonthlyExpenditure() const {
     for (const auto& member : members) {
         totalExpenditure += member->getCurrentIncome() * 0.7; // Assuming 70% of income as expenditure
     }
-    return members.empty() ? 0 : totalExpenditure / members.size();
+    return members.empty() ? 0 : totalExpenditure;
 }
 
 /** 
@@ -134,14 +134,13 @@ void Family::updateContext() {
 }
 
 /** 
- * @brief Applies a tax rate to all employed family members.
- * @param taxRate Tax rate to apply.
+ * @brief Accepts a TaxCollector visitor to apply tax to all family members.
+ * @param collector The TaxCollector visitor.
  */
-// void Family::applyTax(double taxRate) {
-//     for (auto& member : members) {
-//         member->applyTax(taxRate);
-//     }
-// }
+void Family::accept(TaxCollector& collector) {
+    collector.visit(shared_from_this());
+}
+
 
 /** 
  * @brief Calculates the total tax for the family.
@@ -156,12 +155,21 @@ double Family::calculateTax() {
 }
 
 /** 
- * @brief Pays tax for each family member.
+ * @brief Pays an entire family's tax to government
  * @param amount Tax amount to be paid.
  */
 void Family::payTax(double amount) {
+    government->increaseBudget(amount);
+}
+
+/** 
+ * @brief Updates the family based on a specific resource change.
+ * @param resourceType Type of resource (e.g., water, food).
+ * @param quantity Quantity of the resource.
+ */
+void Family::update(const std::string& resourceType, int quantity) {
     for (auto& member : members) {
-        member->payTax(amount);
+        member->update(resourceType, quantity);
     }
 }
 
@@ -176,6 +184,47 @@ void Family::update(const std::string& resourceType, int quantity) {
     }
 }
 
-void Family::accept(TaxCollector& collector) {
-    collector.visit(*this);
+/** 
+ * @brief Directs all family members to go to work.
+ */
+void Family::goToWork() {
+    for (auto& member : members) {
+        member->goToWork();
+    }
+}
+
+/** 
+ * @brief Directs all family members to go shopping.
+ */
+void Family::goToShops() {
+    for (auto& member : members) {
+        member->goToShops();
+    }
+}
+
+/** 
+ * @brief Directs all family members to go to school.
+ */
+void Family::getSchooled() {
+    for (auto& member : members) {
+        member->getSchooled();
+    }
+}
+
+/** 
+ * @brief Directs all family members to attend an educational institution.
+ */
+void Family::getEducated() {
+    for (auto& member : members) {
+        member->getEducated();
+    }
+}
+
+/** 
+ * @brief Directs all family members to go to the nearest hospital for healing.
+ */
+void Family::getHealed() {
+    for (auto& member : members) {
+        member->getHealed();
+    }
 }

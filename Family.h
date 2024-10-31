@@ -16,7 +16,7 @@ private:
 
 public:
 //-----Family Composite stuff-----//
-    Family(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Government> government, std::string district);
+    Family(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Government> government, std::string district = "-");
     ~Family() override;
     void add(std::shared_ptr<AbstractCitizen> citizen) override;
     void remove(std::shared_ptr<AbstractCitizen> citizen) override;

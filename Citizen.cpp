@@ -29,8 +29,6 @@ Citizen::Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Trans
 
     satisfaction = 50;
     expectedStandardOfLiving = 50;
-    x = 0;
-    y = 0;
 
     // Jobs available at each education level
     static const char* jobsByEducationLevel[][3] = {
@@ -46,6 +44,13 @@ Citizen::Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Trans
     std::uniform_int_distribution<> jobDist(0, 1);
     std::uniform_int_distribution<> incomeDist(2000, 5000000);
     std::bernoulli_distribution employmentDist(0.8);  // 80% chance of being employed
+
+    // Randomly assign initial x, y coordinates within the 160x160 map space
+    std::uniform_int_distribution<> positionDist(0, 159);
+    x = positionDist(gen);
+    y = positionDist(gen);
+
+    district = "-";
 
     // Assign classType randomly
     int randomClass = classDist(gen);
