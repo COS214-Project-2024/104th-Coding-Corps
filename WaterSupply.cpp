@@ -23,7 +23,7 @@ void WaterSupply::deactivateUtility() {
     std::cout << "Water Supply Utility has been deactivated." << std::endl;
 }
 
-void WaterSupply::distributeWater(BuildingComponent* building) {
+void WaterSupply::distributeWater(std::shared_ptr<BuildingComponent> building) {
     const double waterDemandPerBuilding = 1.2 * getConsumptionRate(); // Adjusted demand per building
     std::cout << "Distributing " << waterDemandPerBuilding << " liters of water to " 
               << building->getBuildingType() << "." << std::endl;

@@ -14,7 +14,7 @@ class Government;
 /**
  * @brief Memento class to save and restore CityContext's state.
  */
-class SavePoint {
+class SavePoint : public std::enable_shared_from_this<SavePoint> {
 private:
     // Private constructor to restrict access only to CityContext
     SavePoint(int totalPop, double avgStdOfLiving, double avgEduLevel, 

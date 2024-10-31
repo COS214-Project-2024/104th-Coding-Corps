@@ -2,26 +2,27 @@
 #define WATERSUPPLY_H
 
 #include "Utilities.h"
-#include "string"
 #include "BuildingComponent.h"
-
-using namespace std;
+#include <string>
+#include <memory> // For std::shared_ptr
 
 class WaterSupply : public Utilities {
 
-
 public:
-	WaterSupply();
-	
-	double getConsumptionRate();
+    // Typedef for easier use of shared_ptr<WaterSupply>
+    using Ptr = std::shared_ptr<WaterSupply>;
 
-	double getCost();
+    WaterSupply();
 
-	void activateUtility();
+    double getConsumptionRate() override;
 
-	void deactivateUtility();
+    double getCost() override;
 
-	void distributeWater(BuildingComponent* building);
+    void activateUtility() override;
+
+    void deactivateUtility() override;
+
+    void distributeWater(std::shared_ptr<BuildingComponent> building); // Use shared_ptr here as well
 };
 
 #endif
