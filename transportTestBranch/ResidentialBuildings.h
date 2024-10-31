@@ -27,18 +27,8 @@ public:
     virtual void demolish() = 0;
     virtual void upgrade(std::shared_ptr<BuildingComponent> building) = 0;
 
-    // Additional methods specific to ResidentialBuildings
-    int getNumResidents() const {
-        return numResidents;
-    }
-
-    int getNumFloors() const {
-        return numFloors;
-    }
-
-    bool hasGarden() const {
-        return garden;
-    }
-};
+    int getNumResidents() const;  
+    int getNumFloors() const;      
+    bool hasGarden() const;      
 
 #endif // RESIDENTIALBUILDINGS_H

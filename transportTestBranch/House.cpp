@@ -1,10 +1,14 @@
 #include "House.h"
+#include "ResidentialBuildings.h"
 #include <stdexcept>
+#include <iostream>
 
-House::House(int garageSize, bool hasPool, int residents, int floors, bool hasGarden) : ResidentialBuildings(residents, floors, hasGarden) {
-	this->garageSize = garageSize;
-	this->pool = hasPool;
+House::House(int garageSize, bool hasPool, int x, int y, const std::string& district, int quality, int residents, int floors, bool hasGarden)
+    : ResidentialBuildings(x, y, district, quality, residents, floors, hasGarden) {
+    this->garageSize = garageSize;
+    this->pool = hasPool;
 }
+
 int House::getGarageSize() {
 	return this->garageSize;
 }
@@ -76,6 +80,7 @@ int House::getOccupancy(){
 	return 10;
 }
 
-void House::upgrade(BuildingComponent* building){
-	//implement
+void House::upgrade(std::shared_ptr<BuildingComponent> building) {
+    std::cout << "House has been upgraded" << std::endl;
+  
 }

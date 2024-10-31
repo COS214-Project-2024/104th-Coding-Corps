@@ -1,19 +1,20 @@
 #include "ResidentialBuildings.h"
 
-ResidentialBuildings::ResidentialBuildings(int residents, int floors, bool garden){
-	this->numResidents = residents;
-	this->numFloors = floors;
-	this->garden = garden;
+#include "ResidentialBuildings.h"
+
+ResidentialBuildings::ResidentialBuildings(int x, int y, const std::string& district, int quality, int residents, int floors, bool hasGarden)
+    : BuildingComponent(x, y, district, quality), numResidents(residents), numFloors(floors), garden(hasGarden) {
+    // Constructor implementation can remain empty if initialization is done in the initializer list
 }
 
-int ResidentialBuildings::getNumResidents() {
-	return this->numResidents;
+int ResidentialBuildings::getNumResidents() const {
+    return this->numResidents;
 }
 
-int ResidentialBuildings::getNumFloors() {
-	return this->numFloors;
+int ResidentialBuildings::getNumFloors() const {
+    return this->numFloors;
 }
 
-bool ResidentialBuildings::hasGarden() {
-	return garden;
+bool ResidentialBuildings::hasGarden() const {
+    return garden;
 }

@@ -9,7 +9,7 @@ private:
 	bool pool;
 
 public:
-	House(int garageSize, bool hasPool, int residents, int floors, bool hasGarden);
+	House(int garageSize, bool hasPool, int x, int y, const std::string& district, int quality, int residents, int floors, bool hasGarden);
 
 	int getGarageSize();
 
@@ -39,7 +39,7 @@ public:
 	
 	int getOccupancy() override;
 
-	void upgrade(BuildingComponent* building) override;
+	void upgrade(std::shared_ptr<BuildingComponent> building) override;
 };
 
 #endif

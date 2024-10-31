@@ -7,7 +7,7 @@ using namespace std;
 class Office : public CommercialBuildings {
 
 public:
-	Office(int numEmployees, string businessType, int x, int y, const std::string& district, int quality);
+	Office(int numEmployees, const std::string& businessType, int x, int y, const std::string& district, int quality);
 
 	int numEmployees;
 

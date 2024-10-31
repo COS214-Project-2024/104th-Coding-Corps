@@ -1,10 +1,10 @@
 #include "Office.h"
 #include <iostream>
 
-Office::Office(int numEmployees, string businessType, int x, int y, const std::string& district, int quality)
-    : CommercialBuildings(businessType, 1, x, y, district, quality), numEmployees(numEmployees) {
-		this->construct();
-	}
+Office::Office(int numEmployees, const std::string& businessType, int x, int y, const std::string& district, int quality)
+    : CommercialBuildings(x, y, district, quality, businessType, 1), numEmployees(numEmployees) {
+    this->construct();
+}
 
 int Office::getNumEmployees() {
     return this->numEmployees;
