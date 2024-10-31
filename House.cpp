@@ -2,7 +2,7 @@
 #include <iostream>
 
 House::House(int x, int y, const std::string& district, int quality, int garageSize, bool hasPool, int residents, int floors, bool hasGarden)
-    : ResidentialBuildings(x, y, district, quality, residents, floors, hasGarden), garageSize(garageSize), pool(hasPool) {}
+    : ResidentialBuildings(x, y, district, quality, residents, floors, hasGarden), garageSize(garageSize), pool(hasPool), residents(residents) {}
 
 /**
  * @brief Gets the type of building.
@@ -98,3 +98,17 @@ double House::getArea() {
  * @return The quality of care.
  */
 
+
+
+
+int House::getGarageSize() const {
+    return this->garageSize;
+}
+
+bool House::hasSwimmingPool() const {
+    return this->pool;
+}
+
+int House::getNumResidents() {
+    return this->residents;
+}

@@ -9,6 +9,7 @@ class House : public ResidentialBuildings {
 private:
     int garageSize;
     bool pool;
+    int residents;
 
 public:
     House(int x, int y, const std::string& district, int quality, int garageSize, bool hasPool, int residents, int floors, bool hasGarden);

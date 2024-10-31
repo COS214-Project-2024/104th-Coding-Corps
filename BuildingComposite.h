@@ -36,11 +36,11 @@ private:
 public:
 	BuildingComposite(int x, int y, const std::string& district, int quality);
 	
-	void addBuilding(shared_ptr<BuildingComponent> building) override;
+	void addBuilding(shared_ptr<BuildingComponent> building);
 
-	void removeBuilding(shared_ptr<BuildingComponent> building) override;
+	void removeBuilding(shared_ptr<BuildingComponent> building);
 
-	shared_ptr<BuildingComponent> getBuilding(int index) override;
+	shared_ptr<BuildingComponent> getBuilding(int index);
 
 	double getCost() override;
 
@@ -50,7 +50,7 @@ public:
 
 	double getWaterConsumption() override;
 
-	void enforcePolicy(const std::string& policyKey, const std::string& newValue) override;
+	void enforcePolicy(const std::string& policyKey, const std::string& newValue);
 };
 
 #endif

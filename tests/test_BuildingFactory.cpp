@@ -14,7 +14,7 @@
 
 TEST_CASE("ServiceBuildingFactory creates a School Building") {
     ServiceBuildingFactory factory;
-    std::unique_ptr<BuildingComponent> building = factory.createSchool(3, 56, 70);
+    std::unique_ptr<BuildingComponent> building = factory.createSchool(0, 0, "District A", 56, 70, 3);
 
     REQUIRE(building != nullptr);
     CHECK(building->getBuildingType() == "School");
@@ -23,7 +23,7 @@ TEST_CASE("ServiceBuildingFactory creates a School Building") {
 
 TEST_CASE("ServiceBuildingFactory creates a University Building") {
     ServiceBuildingFactory factory;
-    std::unique_ptr<BuildingComponent> building = factory.createUniversity(3, 56, 70);
+    std::unique_ptr<BuildingComponent> building = factory.createUniversity(0, 0, "District A", 56, 70, 3);
 
     REQUIRE(building != nullptr);
     CHECK(building->getBuildingType() == "University");
@@ -32,7 +32,7 @@ TEST_CASE("ServiceBuildingFactory creates a University Building") {
 
 TEST_CASE("ServiceBuildingFactory creates a Hospital Building") {
     ServiceBuildingFactory factory;
-    std::unique_ptr<BuildingComponent> building = factory.createHospital(56, 70);
+    std::unique_ptr<BuildingComponent> building = factory.createHospital(0, 0, "District A", 56, 70);
 
     REQUIRE(building != nullptr);
     CHECK(building->getBuildingType() == "Hospital");
@@ -41,7 +41,7 @@ TEST_CASE("ServiceBuildingFactory creates a Hospital Building") {
 
 TEST_CASE("ResidentialBuildingFactory creates a House Building") {
     ResidentialBuildingFactory factory;
-    std::unique_ptr<BuildingComponent> building = factory.createHouse(2, true, 3, 1, true);
+    std::unique_ptr<BuildingComponent> building = factory.createHouse(2, true, 3, 1, true, "District B", 60);
 
     REQUIRE(building != nullptr);
     CHECK(building->getBuildingType() == "House");
@@ -50,7 +50,7 @@ TEST_CASE("ResidentialBuildingFactory creates a House Building") {
 
 TEST_CASE("ResidentialBuildingFactory creates a Flat Building") {
     ResidentialBuildingFactory factory;
-    std::unique_ptr<BuildingComponent> building = factory.createFlat(10, 20, 5, false);
+    std::unique_ptr<BuildingComponent> building = factory.createFlat(10, 20, 5, false, "District B", 60);
 
     REQUIRE(building != nullptr);
     CHECK(building->getBuildingType() == "Flat");
@@ -59,7 +59,7 @@ TEST_CASE("ResidentialBuildingFactory creates a Flat Building") {
 
 TEST_CASE("ResidentialBuildingFactory creates an Estate Building") {
     ResidentialBuildingFactory factory;
-    std::unique_ptr<BuildingComponent> building = factory.createEstate(450, true, 150, 10, true, 20);
+    std::unique_ptr<BuildingComponent> building = factory.createEstate(450, true, 150, 10, true, 20, "District B", 60);
 
     REQUIRE(building != nullptr);
     CHECK(building->getBuildingType() == "Estate");
@@ -68,7 +68,7 @@ TEST_CASE("ResidentialBuildingFactory creates an Estate Building") {
 
 TEST_CASE("CommercialBuildingFactory creates a Shop Building") {
     CommercialBuildingFactory factory;
-    std::unique_ptr<BuildingComponent> building = factory.createShop(100, "Bakery",10, 20, "District A", 56);
+    std::unique_ptr<BuildingComponent> building = factory.createShop(100, "Bakery", 10, 20, "District C", 56);
 
     REQUIRE(building != nullptr);
     CHECK(building->getBuildingType() == "Shop");
@@ -77,7 +77,7 @@ TEST_CASE("CommercialBuildingFactory creates a Shop Building") {
 
 TEST_CASE("CommercialBuildingFactory creates a Mall Building") {
     CommercialBuildingFactory factory;
-    std::unique_ptr<BuildingComponent> building = factory.createMall(50, "Many", 15,10, 20, "District A", 56);
+    std::unique_ptr<BuildingComponent> building = factory.createMall(50, "Many", 21, 10, 20, "District C", 56);
 
     REQUIRE(building != nullptr);
     CHECK(building->getBuildingType() == "Mall");
@@ -86,7 +86,7 @@ TEST_CASE("CommercialBuildingFactory creates a Mall Building") {
 
 TEST_CASE("CommercialBuildingFactory creates an Office Building") {
     CommercialBuildingFactory factory;
-    std::unique_ptr<BuildingComponent> building = factory.createOffice(50, "Law",10, 20, "District A", 56);
+    std::unique_ptr<BuildingComponent> building = factory.createOffice(50, "Law", "District C", 56, 10, 20);
 
     REQUIRE(building != nullptr);
     CHECK(building->getBuildingType() == "Office");
@@ -95,7 +95,7 @@ TEST_CASE("CommercialBuildingFactory creates an Office Building") {
 
 TEST_CASE("IndustrialBuildingFactory creates a Factory Building") {
     IndustrialBuildingFactory factory;
-    std::unique_ptr<BuildingComponent> building = factory.createFactory(150, "Steel", 10000.00);
+    std::unique_ptr<BuildingComponent> building = factory.createFactory(0, 0, "District D", 75, 150, "Steel", 10000.00);
 
     REQUIRE(building != nullptr);
     CHECK(building->getBuildingType() == "Factory");
@@ -104,7 +104,7 @@ TEST_CASE("IndustrialBuildingFactory creates a Factory Building") {
 
 TEST_CASE("IndustrialBuildingFactory creates a Plant Building") {
     IndustrialBuildingFactory factory;
-    std::unique_ptr<BuildingComponent> building = factory.createPlant(1500, 20000.00);
+    std::unique_ptr<BuildingComponent> building = factory.createPlant(0, 0, "District D", 75, 20000.00, 1500);
 
     REQUIRE(building != nullptr);
     CHECK(building->getBuildingType() == "Plant");
@@ -113,7 +113,7 @@ TEST_CASE("IndustrialBuildingFactory creates a Plant Building") {
 
 TEST_CASE("IndustrialBuildingFactory creates a Warehouse Building") {
     IndustrialBuildingFactory factory;
-    std::unique_ptr<BuildingComponent> building = factory.createWarehouse(1500, 20000.00);
+    std::unique_ptr<BuildingComponent> building = factory.createWarehouse(0, 0, "District D", 75, 20000, 1500);
 
     REQUIRE(building != nullptr);
     CHECK(building->getBuildingType() == "Warehouse");

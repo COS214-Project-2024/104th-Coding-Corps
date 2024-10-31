@@ -7,9 +7,9 @@
 
 class ServiceBuildingFactory : public BuildingFactory {
 public:
-    std::unique_ptr<BuildingComponent> createSchool(int highestQualification, int quality, int numWorkers) override;
-    std::unique_ptr<BuildingComponent> createUniversity(int highestQualification, int quality, int numWorkers) override;
-    std::unique_ptr<BuildingComponent> createHospital(int quality, int numWorkers) override;
+    std::unique_ptr<BuildingComponent> createSchool(int x, int y, const std::string& district, int quality, int numWorkers, int highestQualification) override;
+    std::unique_ptr<BuildingComponent> createUniversity(int x, int y, const std::string& district, int quality, int numWorkers, int highestQualification) override;
+    std::unique_ptr<BuildingComponent> createHospital(int x, int y, const std::string& district, int quality, int numWorkers) override;
 };
 
 #endif

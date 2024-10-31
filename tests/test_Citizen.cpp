@@ -3,14 +3,17 @@
 #include "../Citizen.h"
 #include "../CityContext.h"
 #include "../Transport.h"
+#include "../Government.h"
 #include <memory>
 
 TEST_SUITE("Citizen Class Tests") {
-    std::shared_ptr<CityContext> cityContext = std::make_shared<CityContext>();
+    // Adjusted to use getInstance() if available
+    std::shared_ptr<CityContext> cityContext = CityContext::getInstance(); // Use getInstance()
     std::shared_ptr<Transport> transportContext = std::make_shared<Transport>();
+    std::shared_ptr<Government> governmentContext = Government::getInstance(); // Use getInstance()
 
     TEST_CASE("Constructor Test") {
-        auto citizen = std::make_shared<Citizen>(cityContext, transportContext);
+        auto citizen = std::make_shared<Citizen>(cityContext, transportContext, governmentContext);
 
         CHECK(citizen->getSatisfaction() == 50);
         CHECK(citizen->getESoL() == 50);
@@ -21,8 +24,7 @@ TEST_SUITE("Citizen Class Tests") {
     }
 
     TEST_CASE("Employment Status") {
-        Citizen citizen(cityContext, transportContext);
-        //CHECK(citizen.getEmployment() == true || citizen.getEmployment() == false); //Compiler does not like this
+        Citizen citizen(cityContext, transportContext, governmentContext);
 
         bool initialEmployment = citizen.getEmployment();
         citizen.updateEmployment();
@@ -30,7 +32,7 @@ TEST_SUITE("Citizen Class Tests") {
     }
 
     TEST_CASE("Income Update") {
-        Citizen citizen(cityContext, transportContext);
+        Citizen citizen(cityContext, transportContext, governmentContext);
 
         double initialIncome = citizen.getCurrentIncome();
         citizen.updateCurrentIncome(1000);
@@ -38,7 +40,7 @@ TEST_SUITE("Citizen Class Tests") {
     }
 
     TEST_CASE("Satisfaction Update") {
-        Citizen citizen(cityContext, transportContext);
+        Citizen citizen(cityContext, transportContext, governmentContext);
 
         int initialSatisfaction = citizen.getSatisfaction();
         citizen.updateSatisfaction(10);
@@ -49,8 +51,8 @@ TEST_SUITE("Citizen Class Tests") {
     }
 
     TEST_CASE("Class Promotion and Demotion") {
-        Citizen citizen(cityContext, transportContext);
-        
+        Citizen citizen(cityContext, transportContext, governmentContext);
+
         citizen.updateCurrentIncome(400000);
         CHECK(citizen.getCurrentIncome() >= 300000);
         CHECK(citizen.getSatisfaction() >= 50);
@@ -59,28 +61,16 @@ TEST_SUITE("Citizen Class Tests") {
         CHECK(citizen.getCurrentIncome() < 300000);
     }
 
-    // TEST_CASE("Tax Calculation") {
-    //     Citizen citizen(cityContext, transportContext);
-    //     citizen.updateCurrentIncome(100000);
-    //     CHECK(citizen.calculateTax() == Approx(100000 * 0.1).epsilon(0.01));
-
-    //     citizen.updateCurrentIncome(400000);
-    //     CHECK(citizen.calculateTax() == Approx(400000 * 0.22).epsilon(0.01));
-
-    //     citizen.updateCurrentIncome(1200000);
-    //     CHECK(citizen.calculateTax() == Approx(1200000 * 0.35).epsilon(0.01));
-    // }
-
     TEST_CASE("Go To Work Test") {
-        Citizen citizen(cityContext, transportContext);
+        Citizen citizen(cityContext, transportContext, governmentContext);
         int initialIncome = citizen.getCurrentIncome();
-        
+
         citizen.goToWork();
         CHECK(citizen.getCurrentIncome() > initialIncome);
     }
 
     TEST_CASE("Shopping Test") {
-        Citizen citizen(cityContext, transportContext);
+        Citizen citizen(cityContext, transportContext, governmentContext);
         int initialSatisfaction = citizen.getSatisfaction();
 
         citizen.goToShops();
@@ -88,7 +78,7 @@ TEST_SUITE("Citizen Class Tests") {
     }
 
     TEST_CASE("Education and Job Update") {
-        Citizen citizen(cityContext, transportContext);
+        Citizen citizen(cityContext, transportContext, governmentContext);
 
         int initialEducationLevel = citizen.getEducationLevel();
         citizen.getSchooled();
@@ -96,7 +86,7 @@ TEST_SUITE("Citizen Class Tests") {
     }
 
     TEST_CASE("Health Care Test") {
-        Citizen citizen(cityContext, transportContext);
+        Citizen citizen(cityContext, transportContext, governmentContext);
         int initialSatisfaction = citizen.getSatisfaction();
 
         citizen.getHealed();

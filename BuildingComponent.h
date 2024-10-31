@@ -22,11 +22,11 @@ protected:
 public:
     BuildingComponent(int x, int y, const std::string& district, int quality);
 
-	virtual void addBuilding(shared_ptr<BuildingComponent> building);
+	//virtual void addBuilding(shared_ptr<BuildingComponent> building);
 
-	virtual void removeBuilding(shared_ptr<BuildingComponent> building);
+	//virtual void removeBuilding(shared_ptr<BuildingComponent> building);
 
-	virtual shared_ptr<BuildingComponent> getBuilding(int index);
+	//virtual shared_ptr<BuildingComponent> getBuilding(int index);
 
 	virtual string getBuildingType() = 0;
 
@@ -52,7 +52,7 @@ public:
 
 	string getDistrict();
 
-	virtual void enforcePolicy(const std::string& policyKey, const std::string& newValue);
+	//virtual void enforcePolicy(const std::string& policyKey, const std::string& newValue);
 
 	int getQuality();	//measured on a 0 to 100 scale
 	virtual ~BuildingComponent() = default;

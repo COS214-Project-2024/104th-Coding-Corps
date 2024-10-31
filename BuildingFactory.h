@@ -16,9 +16,9 @@ public:
     virtual std::unique_ptr<BuildingComponent> createOffice(int numEmployees, const std::string& businessType, const std::string& district, int quality, int x, int y) { return nullptr; }
     virtual std::unique_ptr<BuildingComponent> createMall(int numShops, const std::string& businessType, int numBusinesses, int x, int y, const std::string& district, int quality) { return nullptr; }
     virtual std::unique_ptr<BuildingComponent> createShop(int shopSize, const std::string& businessType, int x, int y, const std::string& district, int quality) { return nullptr; }
-    virtual std::unique_ptr<BuildingComponent> createSchool(int highestQualification, int quality, int numWorkers) { return nullptr; }
-    virtual std::unique_ptr<BuildingComponent> createUniversity(int highestQualification, int quality, int numWorkers) { return nullptr; }
-    virtual std::unique_ptr<BuildingComponent> createHospital(int quality, int numWorkers) { return nullptr; }
+    virtual std::unique_ptr<BuildingComponent> createSchool(int x, int y, const std::string& district, int highestQualification, int quality, int numWorkers) { return nullptr; }
+    virtual std::unique_ptr<BuildingComponent> createUniversity(int x, int y, const std::string& district, int highestQualification, int quality, int numWorkers) { return nullptr; }
+    virtual std::unique_ptr<BuildingComponent> createHospital(int x, int y, const std::string& district, int quality, int numWorkers) { return nullptr; }
 };
 
 #endif

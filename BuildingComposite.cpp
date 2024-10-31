@@ -79,3 +79,13 @@ void BuildingComposite::enforcePolicy(const std::string& policyKey, const std::s
     }
 }
 
+// Calculate the total maintenance cost of all buildings in the composite
+double BuildingComposite::getMaintenanceCost() {
+    double totalMaintenanceCost = 0.0;
+    for (const auto& building : buildings) {
+        totalMaintenanceCost += building->getMaintenanceCost(); // Each building implements this
+    }
+    return totalMaintenanceCost;
+}
+
+
