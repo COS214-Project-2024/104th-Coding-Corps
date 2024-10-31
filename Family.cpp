@@ -108,7 +108,7 @@ void Family::resolveStrike() {
  */
 void Family::moveDistrict(const std::string& district) {
 
-    district = district;
+    this->district = district;
     //change x and y points
 }
 
@@ -138,7 +138,7 @@ void Family::updateContext() {
  * @param collector The TaxCollector visitor.
  */
 void Family::accept(TaxCollector& collector) {
-    collector.visit(shared_from_this());
+    collector.visit(*shared_from_this());
 }
 
 

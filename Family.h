@@ -12,7 +12,7 @@ private:
     std::string district;
     std::vector<std::shared_ptr<AbstractCitizen>> members;
     std::shared_ptr<void> cityContext;
-    std::shared_ptr<void> government;
+    std::shared_ptr<Government> government;
 
 public:
 //-----Family Composite stuff-----//
@@ -30,6 +30,13 @@ public:
     void resolveStrike() override;
     void moveDistrict(const std::string& district);
     double getMonthlyExpenditure() const;
+
+
+    void goToWork();
+    void goToShops();
+    void getSchooled();
+    void getEducated();
+    void getHealed();
 
 //-----Context Observer-----//
     void updateContext() override;
