@@ -174,17 +174,6 @@ void Family::update(const std::string& resourceType, int quantity) {
 }
 
 /** 
- * @brief Updates the family based on a specific resource change.
- * @param resourceType Type of resource (e.g., water, food).
- * @param quantity Quantity of the resource.
- */
-void Family::update(const std::string& resourceType, int quantity) {
-    for (auto& member : members) {
-        member->update(resourceType, quantity);
-    }
-}
-
-/** 
  * @brief Directs all family members to go to work.
  */
 void Family::goToWork() {

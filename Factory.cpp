@@ -15,7 +15,7 @@
  */
 factory::factory(int x, int y, const std::string& district, int quality, int numWorkers, const std::string& factoryType, double production)
     : IndustrialBuildings(x, y, district, quality, production, numWorkers), factoryType(factoryType) {
-    this->construct();
+    //this->construct();
 }
 
 /**
