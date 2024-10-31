@@ -25,10 +25,11 @@ Government::Government() {
  */
 std::shared_ptr<Government> Government::getInstance() {
     if (!uniqueInstance) {
-        uniqueInstance = std::make_shared<Government>();
+        uniqueInstance = std::shared_ptr<Government>(new Government());  // Use new with shared_ptr
     }
     return uniqueInstance;
 }
+
 //---------------------------------------------------------------------------------------------------------
 
 //---------------------------------------------COMMAND STUFF----------------------------------------------
