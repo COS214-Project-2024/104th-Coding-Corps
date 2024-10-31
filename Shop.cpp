@@ -2,7 +2,7 @@
 #include <iostream>
 
 Shop::Shop(int shopSize, std::string businessType, int x, int y, const std::string& district, int quality)
-    : CommercialBuildings(businessType, 1, x, y, district, quality), shopSize(shopSize) {
+    : CommercialBuildings(x, y, district, quality, businessType, 1), shopSize(shopSize) {
 		this->construct();
 	}
 
@@ -48,6 +48,22 @@ int Shop::getOccupancy(){
 	return 1;
 }
 
-void Shop::upgrade(BuildingComponent* building){
-	//implement
+void Shop::upgrade(std::shared_ptr<BuildingComponent> building) {
+    auto government = Government::getInstance();
+    
+    // Example resource requirements for upgrading
+    const int requiredConcrete = 100;
+    const int requiredSteel = 50;
+
+    // Request resources from Government
+    bool hasConcrete = government->useResource("Concrete", requiredConcrete);
+    bool hasSteel = government->useResource("Steel", requiredSteel);
+
+    if (hasConcrete && hasSteel) {
+        // Perform upgrade logic if resources are available
+        quality += 10;  // Example improvement in quality
+        std::cout << "Estate upgraded successfully!" << std::endl;
+    } else {
+        std::cout << "Upgrade failed due to insufficient resources." << std::endl;
+    }
 }

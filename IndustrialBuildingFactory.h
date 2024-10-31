@@ -4,7 +4,7 @@
 #include "BuildingComponent.h"
 #include "BuildingFactory.h"
 #include <string>
-#include <memory> // Include the memory header for smart pointers
+#include <memory> 
 
 class IndustrialBuildingFactory : public BuildingFactory {
 public:

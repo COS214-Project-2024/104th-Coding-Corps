@@ -21,7 +21,7 @@
 // --- Service Buildings ---
 
 TEST_CASE("School tests") {
-    School school(5, 100, 12);
+    School school(10, 10, "District A",  56, 40, 10);
 
     CHECK(school.getBuildingType() == "School");
     CHECK(school.getOccupancy() == 1500);
@@ -35,7 +35,7 @@ TEST_CASE("School tests") {
 }
 
 TEST_CASE("University tests") {
-    University university(5, 200, 15);
+    University university(10, 10, "District A", 56, 60, 10);
 
     CHECK(university.getBuildingType() == "University");
     CHECK(university.getOccupancy() == 20000);
@@ -49,7 +49,7 @@ TEST_CASE("University tests") {
 }
 
 TEST_CASE("Hospital tests") {
-    Hospital hospital(56, 70);
+    Hospital hospital(10, 10, "District A", 56, 60);
 
     CHECK(hospital.getBuildingType() == "Hospital");
     CHECK(hospital.getOccupancy() == 5000);
@@ -64,7 +64,7 @@ TEST_CASE("Hospital tests") {
 // --- Residential Buildings ---
 
 TEST_CASE("House tests") {
-    House house(2, true, 5, 2, true);
+    House house(10, 10, "District A", 56, 5, true, 6, 10, true);
 
     CHECK(house.getBuildingType() == "House");
     CHECK(house.getGarageSize() == 2);
@@ -77,7 +77,7 @@ TEST_CASE("House tests") {
 }
 
 TEST_CASE("Flat tests") {
-    Flat apartment(10, 20, 5, false);
+    Flat apartment(10, 10, "District A", 56, 50, 300, 6, false);
     CHECK(apartment.getBuildingType() == "Flat");
     CHECK(apartment.getNumUnits() == 20);
     CHECK(apartment.getOccupancy() == 10 * 20);
@@ -91,7 +91,7 @@ TEST_CASE("Flat tests") {
 // --- Commercial Buildings ---
 
 TEST_CASE("Shop tests") {
-    Shop shop(100, "Bakery");
+    Shop shop(10, "Fruit", 10, 10, "District A", 30);
 
     CHECK(shop.getBuildingType() == "Shop");
     CHECK(shop.getCost() == 2000000.0);
@@ -101,7 +101,7 @@ TEST_CASE("Shop tests") {
 }
 
 TEST_CASE("Mall tests") {
-    Mall mall(50, "Many", 15);
+    Mall mall(10, "Variety", 50, 5, 5, "District A", 56);
 
     CHECK(mall.getBuildingType() == "Mall");
     CHECK(mall.getNumShops() == 50);
@@ -116,7 +116,7 @@ TEST_CASE("Mall tests") {
 // --- Industrial Buildings ---
 
 TEST_CASE("Factory tests") {
-    Factory factory(100, "Manufacturing", 20);
+    factory factory(10, 10, "District A", 56, 20, "Steel", 50);
 
     CHECK(factory.getBuildingType() == "Factory");
     CHECK(factory.getOccupancy() == 100);
@@ -129,7 +129,7 @@ TEST_CASE("Factory tests") {
 }
 
 TEST_CASE("Warehouse tests") {
-    Warehouse warehouse(200, 10000);
+    Warehouse warehouse(10, 10, "District A", 56, 500, 40);
 
     CHECK(warehouse.getBuildingType() == "Warehouse");
     CHECK(warehouse.getStorageCapacity() == 200);
