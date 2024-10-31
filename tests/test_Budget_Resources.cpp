@@ -1,4 +1,4 @@
-// AllTests.cpp
+// test_Budget_Resources.cpp
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include <doctest/doctest.h>
 #include "../Budget.h"
