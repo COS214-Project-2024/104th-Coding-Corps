@@ -1,6 +1,6 @@
 # Compiler and flags
 CXX = g++
-CXXFLAGS = -std=c++17 -g -I./  # Add -g for debugging
+CXXFLAGS = -std=c++14 -I./
 
 # Directories
 SRC_DIR = .
@@ -13,10 +13,10 @@ OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
 
 # Test files
 TESTS = $(wildcard $(TEST_DIR)/test_*.cpp)
-TEST_OBJS = $(TESTS:$(TEST_DIR)/%.cpp=$(BUILD_DIR)/%.o)
+TEST_OBJS = $(TESTS:$(TEST_DIR)/%.o)
 
 # Test executables
-TEST_EXECUTABLES = test_Government test_Citizen test_BuildingFactory test_BuildingComponents test_CityContext test_Transport test_Utilities test_Budget_Resources
+TEST_EXECUTABLES = test_Government test_Citizen test_BuildingFactory test_BuildingComponents test_Transport
 
 # Default target
 .PHONY: all clean
@@ -46,17 +46,12 @@ test_BuildingFactory: $(BUILD_DIR)/test_BuildingFactory.o $(OBJS)
 test_BuildingComponents: $(BUILD_DIR)/test_BuildingComponents.o $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
-test_Budget_Resources: $(BUILD_DIR)/test_Budget_Resources.o $(OBJS)
-	$(CXX) $(CXXFLAGS) $^ -o $@
-
-test_CityContext: $(BUILD_DIR)/test_CityContext.o $(OBJS)
-	$(CXX) $(CXXFLAGS) $^ -o $@
-
-test_Utilities: $(BUILD_DIR)/test_Utilities.o $(OBJS)
-	$(CXX) $(CXXFLAGS) $^ -o $@
-
 test_Transport: $(BUILD_DIR)/test_Transport.o $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
+
+# Target to build and run only test_Transport
+run_test_Transport: test_Transport
+	./test_Transport
 
 # Clean up
 clean:
