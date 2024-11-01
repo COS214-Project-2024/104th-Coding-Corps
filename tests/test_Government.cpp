@@ -71,9 +71,9 @@ TEST_CASE("Testing useResource") {
 // Test command execution
 TEST_CASE("Testing setCommand and issueCommand") {
     auto gov = Government::getInstance();
-    MockCommand command;
+    auto command = std::make_shared<MockCommand>();  // Use a shared_ptr for compatibility
 
-    //gov->setCommand(&command);
-    //gov->issueCommand();
-    //CHECK(command.executed == true);  // Check if command was executed
+    gov->setCommand(command);
+    gov->issueCommand();
+    CHECK(command->executed == true);  // Check if command was executed
 }
