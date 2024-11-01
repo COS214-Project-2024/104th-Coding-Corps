@@ -1,0 +1,132 @@
+\hypertarget{classIndustrialBuildingFactory}{}\doxysection{Industrial\+Building\+Factory Class Reference}
+\label{classIndustrialBuildingFactory}\index{IndustrialBuildingFactory@{IndustrialBuildingFactory}}
+
+
+Inheritance diagram for Industrial\+Building\+Factory\+:
+% FIG 0
+
+
+Collaboration diagram for Industrial\+Building\+Factory\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ \mbox{\hyperlink{classIndustrialBuildingFactory_a0ec2385aac3a4f8d2f8ba4a45f0ef25d}{create\+Factory}} (int x, int y, const std\+::string \&district, int quality, int num\+Workers, const std\+::string \&factory\+Type, double production) override
+\begin{DoxyCompactList}\small\item\em Creates a factory building component. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ \mbox{\hyperlink{classIndustrialBuildingFactory_a3ae74115db7ca1af2bb71d54dde93a6b}{create\+Plant}} (int x, int y, const std\+::string \&district, int quality, double production, int workers) override
+\begin{DoxyCompactList}\small\item\em Creates a plant building component. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ \mbox{\hyperlink{classIndustrialBuildingFactory_a4b80f8f507119c4700351db9c5e01182}{create\+Warehouse}} (int x, int y, const std\+::string \&district, int quality, int storage\+Capacity, int num\+Workers) override
+\begin{DoxyCompactList}\small\item\em Creates a warehouse building component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIndustrialBuildingFactory_a0ec2385aac3a4f8d2f8ba4a45f0ef25d}\label{classIndustrialBuildingFactory_a0ec2385aac3a4f8d2f8ba4a45f0ef25d}} 
+\index{IndustrialBuildingFactory@{IndustrialBuildingFactory}!createFactory@{createFactory}}
+\index{createFactory@{createFactory}!IndustrialBuildingFactory@{IndustrialBuildingFactory}}
+\doxysubsubsection{\texorpdfstring{createFactory()}{createFactory()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ Industrial\+Building\+Factory\+::create\+Factory (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality,  }\item[{int}]{num\+Workers,  }\item[{const std\+::string \&}]{factory\+Type,  }\item[{double}]{production }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a factory building component. 
+
+This function constructs a unique pointer to a factory instance with the specified parameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the factory. \\
+\hline
+{\em y} & The y-\/coordinate of the factory. \\
+\hline
+{\em district} & The district where the factory is located. \\
+\hline
+{\em quality} & The quality rating of the factory. \\
+\hline
+{\em num\+Workers} & The number of workers in the factory. \\
+\hline
+{\em factory\+Type} & The type of factory being created. \\
+\hline
+{\em production} & The production capacity of the factory.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the created factory building component. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classBuildingFactory}{Building\+Factory}}.
+
+\mbox{\Hypertarget{classIndustrialBuildingFactory_a3ae74115db7ca1af2bb71d54dde93a6b}\label{classIndustrialBuildingFactory_a3ae74115db7ca1af2bb71d54dde93a6b}} 
+\index{IndustrialBuildingFactory@{IndustrialBuildingFactory}!createPlant@{createPlant}}
+\index{createPlant@{createPlant}!IndustrialBuildingFactory@{IndustrialBuildingFactory}}
+\doxysubsubsection{\texorpdfstring{createPlant()}{createPlant()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ Industrial\+Building\+Factory\+::create\+Plant (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality,  }\item[{double}]{production,  }\item[{int}]{workers }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a plant building component. 
+
+This function constructs a unique pointer to a plant instance with the specified parameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the plant. \\
+\hline
+{\em y} & The y-\/coordinate of the plant. \\
+\hline
+{\em district} & The district where the plant is located. \\
+\hline
+{\em quality} & The quality rating of the plant. \\
+\hline
+{\em production} & The production capacity of the plant. \\
+\hline
+{\em workers} & The number of workers in the plant.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the created plant building component. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classBuildingFactory}{Building\+Factory}}.
+
+\mbox{\Hypertarget{classIndustrialBuildingFactory_a4b80f8f507119c4700351db9c5e01182}\label{classIndustrialBuildingFactory_a4b80f8f507119c4700351db9c5e01182}} 
+\index{IndustrialBuildingFactory@{IndustrialBuildingFactory}!createWarehouse@{createWarehouse}}
+\index{createWarehouse@{createWarehouse}!IndustrialBuildingFactory@{IndustrialBuildingFactory}}
+\doxysubsubsection{\texorpdfstring{createWarehouse()}{createWarehouse()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ Industrial\+Building\+Factory\+::create\+Warehouse (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality,  }\item[{int}]{storage\+Capacity,  }\item[{int}]{num\+Workers }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a warehouse building component. 
+
+This function constructs a unique pointer to a warehouse instance with the specified parameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the warehouse. \\
+\hline
+{\em y} & The y-\/coordinate of the warehouse. \\
+\hline
+{\em district} & The district where the warehouse is located. \\
+\hline
+{\em quality} & The quality rating of the warehouse. \\
+\hline
+{\em storage\+Capacity} & The storage capacity of the warehouse. \\
+\hline
+{\em num\+Workers} & The number of workers in the warehouse.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the created warehouse building component. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classBuildingFactory}{Building\+Factory}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Industrial\+Building\+Factory.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Industrial\+Building\+Factory.\+cpp\end{DoxyCompactItemize}

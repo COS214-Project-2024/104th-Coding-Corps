@@ -1,8 +1,16 @@
 #include "Budget.h"
 #include <iomanip>
 
+/**
+ * @brief Static instance of the Budget class for the Singleton pattern.
+ */
 std::shared_ptr<Budget> Budget::instance = nullptr;
 
+/**
+ * @brief Gets the singleton instance of the Budget class.
+ * 
+ * @return A shared pointer to the Budget instance.
+ */
 std::shared_ptr<Budget> Budget::getInstance() {
     if (!instance) {
         instance = std::shared_ptr<Budget>(new Budget());
@@ -10,6 +18,11 @@ std::shared_ptr<Budget> Budget::getInstance() {
     return instance;
 }
 
+/**
+ * @brief Adds revenue to the budget and logs the transaction.
+ * 
+ * @param amount The amount of revenue to add.
+ */
 void Budget::addRevenue(double amount) {
     balance += amount;
     logTransaction("Added revenue: R" + std::to_string(amount));
@@ -17,6 +30,12 @@ void Budget::addRevenue(double amount) {
     std::cout << "Added R" << amount << " to the budget. Current balance: R" << balance << std::endl;
 }
 
+/**
+ * @brief Deducts an expense from the budget if sufficient funds are available.
+ * 
+ * @param amount The amount of expense to deduct.
+ * @return true if the expense was deducted successfully, false otherwise.
+ */
 bool Budget::deductExpense(double amount) {
     if (balance >= amount) {
         balance -= amount;
@@ -31,17 +50,27 @@ bool Budget::deductExpense(double amount) {
     }
 }
 
-
+/**
+ * @brief Gets the current balance of the budget.
+ * 
+ * @return The current balance.
+ */
 double Budget::getBalance() const {
     return balance;
 }
 
-// Log each transaction for auditing purposes
+/**
+ * @brief Logs each transaction for auditing purposes.
+ * 
+ * @param transaction The transaction details to log.
+ */
 void Budget::logTransaction(const std::string& transaction) {
     transactionHistory.push_back(transaction);
 }
 
-// Print the transaction history
+/**
+ * @brief Prints the transaction history to the console.
+ */
 void Budget::printTransactionHistory() const {
     std::cout << "\n--- Transaction History ---\n";
     for (const std::string& entry : transactionHistory) {
@@ -49,5 +78,3 @@ void Budget::printTransactionHistory() const {
     }
     std::cout << "--- End of History ---\n";
 }
-
-

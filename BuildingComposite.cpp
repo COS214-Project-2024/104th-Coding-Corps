@@ -2,15 +2,31 @@
 #include <algorithm>
 #include <iostream>
 
-// Constructor (if any initialization is needed)
-BuildingComposite::BuildingComposite(int x, int y, const std::string& district, int quality) : BuildingComponent( x, y, district,  quality) {}
+/**
+ * @brief Constructs a BuildingComposite with specified parameters.
+ * 
+ * @param x The x-coordinate of the composite building.
+ * @param y The y-coordinate of the composite building.
+ * @param district The district where the composite building is located.
+ * @param quality The quality rating of the composite building.
+ */
+BuildingComposite::BuildingComposite(int x, int y, const std::string& district, int quality) 
+    : BuildingComponent(x, y, district, quality) {}
 
-// Add a building to the composite
+/**
+ * @brief Adds a building to the composite.
+ * 
+ * @param building A shared pointer to the BuildingComponent to add.
+ */
 void BuildingComposite::addBuilding(shared_ptr<BuildingComponent> building) {
     buildings.push_back(building);
 }
 
-// Remove a building from the composite
+/**
+ * @brief Removes a building from the composite.
+ * 
+ * @param building A shared pointer to the BuildingComponent to remove.
+ */
 void BuildingComposite::removeBuilding(shared_ptr<BuildingComponent> building) {
     auto it = std::find(buildings.begin(), buildings.end(), building);
     if (it != buildings.end()) {
@@ -18,7 +34,12 @@ void BuildingComposite::removeBuilding(shared_ptr<BuildingComponent> building) {
     }
 }
 
-// Get a building from the composite by index
+/**
+ * @brief Gets a building from the composite by index.
+ * 
+ * @param index The index of the building to retrieve.
+ * @return A shared pointer to the BuildingComponent at the specified index, or nullptr if the index is invalid.
+ */
 shared_ptr<BuildingComponent> BuildingComposite::getBuilding(int index) {
     if (index >= 0 && index < buildings.size()) {
         return buildings[index];
@@ -26,7 +47,11 @@ shared_ptr<BuildingComponent> BuildingComposite::getBuilding(int index) {
     return nullptr; // or handle error as needed
 }
 
-// Calculate the total cost of all buildings in the composite
+/**
+ * @brief Calculates the total cost of all buildings in the composite.
+ * 
+ * @return The total cost of all buildings.
+ */
 double BuildingComposite::getCost() {
     double totalCost = 0.0;
     for (const auto& building : buildings) {
@@ -35,7 +60,11 @@ double BuildingComposite::getCost() {
     return totalCost;
 }
 
-// Calculate the total energy consumption of all buildings in the composite
+/**
+ * @brief Calculates the total energy consumption of all buildings in the composite.
+ * 
+ * @return The total energy consumption of all buildings.
+ */
 double BuildingComposite::getEnergyConsumption() {
     double totalEnergy = 0.0;
     for (const auto& building : buildings) {
@@ -44,7 +73,11 @@ double BuildingComposite::getEnergyConsumption() {
     return totalEnergy;
 }
 
-// Calculate the total water consumption of all buildings in the composite
+/**
+ * @brief Calculates the total water consumption of all buildings in the composite.
+ * 
+ * @return The total water consumption of all buildings.
+ */
 double BuildingComposite::getWaterConsumption() {
     double totalWater = 0.0;
     for (const auto& building : buildings) {
@@ -53,6 +86,12 @@ double BuildingComposite::getWaterConsumption() {
     return totalWater;
 }
 
+/**
+ * @brief Enforces a policy by updating its value if valid.
+ * 
+ * @param policyKey The key of the policy to update.
+ * @param newValue The new value for the policy.
+ */
 void BuildingComposite::enforcePolicy(const std::string& policyKey, const std::string& newValue) {
     // Check if the policyKey exists in the policies map
     auto it = policies.find(policyKey);
@@ -79,7 +118,11 @@ void BuildingComposite::enforcePolicy(const std::string& policyKey, const std::s
     }
 }
 
-// Calculate the total maintenance cost of all buildings in the composite
+/**
+ * @brief Calculates the total maintenance cost of all buildings in the composite.
+ * 
+ * @return The total maintenance cost of all buildings.
+ */
 double BuildingComposite::getMaintenanceCost() {
     double totalMaintenanceCost = 0.0;
     for (const auto& building : buildings) {
@@ -87,5 +130,3 @@ double BuildingComposite::getMaintenanceCost() {
     }
     return totalMaintenanceCost;
 }
-
-

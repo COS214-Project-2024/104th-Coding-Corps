@@ -1,0 +1,261 @@
+\hypertarget{classFlat}{}\doxysection{Flat Class Reference}
+\label{classFlat}\index{Flat@{Flat}}
+
+
+Inheritance diagram for Flat\+:
+% FIG 0
+
+
+Collaboration diagram for Flat\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFlat_a86bbd4ad034968c5eb825b5702189609}{Flat}} (int x, int y, const std\+::string \&district, int quality, int units, int residents, int floors, bool has\+Garden)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classFlat}{Flat}} object with specified parameters. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classFlat_a06e9e3abb0808080c1f105f66105f81e}{get\+Num\+Units}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of units in the flat. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classFlat_a52f2702d833a354d80d7f25ce563cd17}{get\+Building\+Type}} () override
+\begin{DoxyCompactList}\small\item\em Gets the type of the building. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classFlat_ace1d53fb93b39ded7e9b9cec6aeba3c8}{get\+Cost}} () override
+\begin{DoxyCompactList}\small\item\em Calculates the cost of the flat. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classFlat_a60605a276f8fe2e7a4a97242f5da781d}{get\+Maintenance\+Cost}} () override
+\begin{DoxyCompactList}\small\item\em Calculates the maintenance cost of the flat. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classFlat_a9b2d089ff4e6b4fcb69345c08c66ec1e}{get\+Energy\+Consumption}} () override
+\begin{DoxyCompactList}\small\item\em Calculates the total energy consumption of the flat. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classFlat_afbb756d2d8d66591c5035f9dd00d86e7}{get\+Water\+Consumption}} () override
+\begin{DoxyCompactList}\small\item\em Calculates the total water consumption of the flat. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFlat_a1dd7a96c13fefb46eb1bb906cf882f64}{demolish}} () override
+\begin{DoxyCompactList}\small\item\em Demolishes the flat by resetting its attributes. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classFlat_a6eb3295c5b065fb4934fe2bb1f1630e3}{get\+Area}} () override
+\begin{DoxyCompactList}\small\item\em Calculates the total area of the flat. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classFlat_af7c533659cc8437f97707a826126a30b}{get\+Occupancy}} () override
+\begin{DoxyCompactList}\small\item\em Gets the occupancy of the flat. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classFlat_a1b73338170be8ec6600bd4bfb114d094}{get\+Num\+Residents}} ()
+\begin{DoxyCompactList}\small\item\em Gets the total number of residents in the flat. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFlat_a2b2341eacdde3e59cc9122a7299e5ba9}{upgrade}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ building) override
+\begin{DoxyCompactList}\small\item\em Upgrades the flat if sufficient resources are available. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFlat_a86bbd4ad034968c5eb825b5702189609}\label{classFlat_a86bbd4ad034968c5eb825b5702189609}} 
+\index{Flat@{Flat}!Flat@{Flat}}
+\index{Flat@{Flat}!Flat@{Flat}}
+\doxysubsubsection{\texorpdfstring{Flat()}{Flat()}}
+{\footnotesize\ttfamily Flat\+::\+Flat (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality,  }\item[{int}]{units,  }\item[{int}]{residents,  }\item[{int}]{floors,  }\item[{bool}]{has\+Garden }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classFlat}{Flat}} object with specified parameters. 
+
+Initializes a \mbox{\hyperlink{classFlat}{Flat}} with the given coordinates, district, quality, number of units, number of residents, number of floors, and garden availability.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the flat. \\
+\hline
+{\em y} & The y-\/coordinate of the flat. \\
+\hline
+{\em district} & The district where the flat is located. \\
+\hline
+{\em quality} & The quality rating of the flat. \\
+\hline
+{\em units} & The number of units in the flat. \\
+\hline
+{\em residents} & The number of residents in the flat. \\
+\hline
+{\em floors} & The number of floors in the flat. \\
+\hline
+{\em has\+Garden} & Whether the flat has a garden. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFlat_a1dd7a96c13fefb46eb1bb906cf882f64}\label{classFlat_a1dd7a96c13fefb46eb1bb906cf882f64}} 
+\index{Flat@{Flat}!demolish@{demolish}}
+\index{demolish@{demolish}!Flat@{Flat}}
+\doxysubsubsection{\texorpdfstring{demolish()}{demolish()}}
+{\footnotesize\ttfamily void Flat\+::demolish (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Demolishes the flat by resetting its attributes. 
+
+This function resets the number of residents, floors, and units to simulate the demolition of the flat. 
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+\mbox{\Hypertarget{classFlat_a6eb3295c5b065fb4934fe2bb1f1630e3}\label{classFlat_a6eb3295c5b065fb4934fe2bb1f1630e3}} 
+\index{Flat@{Flat}!getArea@{getArea}}
+\index{getArea@{getArea}!Flat@{Flat}}
+\doxysubsubsection{\texorpdfstring{getArea()}{getArea()}}
+{\footnotesize\ttfamily double Flat\+::get\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the total area of the flat. 
+
+\begin{DoxyReturn}{Returns}
+The total area of the flat, calculated as the product of dimensions and number of units. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classBuildingComponent}{Building\+Component}}.
+
+\mbox{\Hypertarget{classFlat_a52f2702d833a354d80d7f25ce563cd17}\label{classFlat_a52f2702d833a354d80d7f25ce563cd17}} 
+\index{Flat@{Flat}!getBuildingType@{getBuildingType}}
+\index{getBuildingType@{getBuildingType}!Flat@{Flat}}
+\doxysubsubsection{\texorpdfstring{getBuildingType()}{getBuildingType()}}
+{\footnotesize\ttfamily std\+::string Flat\+::get\+Building\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the type of the building. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the building type \char`\"{}\+Flat\char`\"{}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+\mbox{\Hypertarget{classFlat_ace1d53fb93b39ded7e9b9cec6aeba3c8}\label{classFlat_ace1d53fb93b39ded7e9b9cec6aeba3c8}} 
+\index{Flat@{Flat}!getCost@{getCost}}
+\index{getCost@{getCost}!Flat@{Flat}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily double Flat\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the cost of the flat. 
+
+\begin{DoxyReturn}{Returns}
+The total cost of the flat, which is a constant value. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+\mbox{\Hypertarget{classFlat_a9b2d089ff4e6b4fcb69345c08c66ec1e}\label{classFlat_a9b2d089ff4e6b4fcb69345c08c66ec1e}} 
+\index{Flat@{Flat}!getEnergyConsumption@{getEnergyConsumption}}
+\index{getEnergyConsumption@{getEnergyConsumption}!Flat@{Flat}}
+\doxysubsubsection{\texorpdfstring{getEnergyConsumption()}{getEnergyConsumption()}}
+{\footnotesize\ttfamily double Flat\+::get\+Energy\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the total energy consumption of the flat. 
+
+\begin{DoxyReturn}{Returns}
+The total energy consumption based on the number of units. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+\mbox{\Hypertarget{classFlat_a60605a276f8fe2e7a4a97242f5da781d}\label{classFlat_a60605a276f8fe2e7a4a97242f5da781d}} 
+\index{Flat@{Flat}!getMaintenanceCost@{getMaintenanceCost}}
+\index{getMaintenanceCost@{getMaintenanceCost}!Flat@{Flat}}
+\doxysubsubsection{\texorpdfstring{getMaintenanceCost()}{getMaintenanceCost()}}
+{\footnotesize\ttfamily double Flat\+::get\+Maintenance\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the maintenance cost of the flat. 
+
+\begin{DoxyReturn}{Returns}
+The maintenance cost, calculated as a percentage of the total cost. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+\mbox{\Hypertarget{classFlat_a1b73338170be8ec6600bd4bfb114d094}\label{classFlat_a1b73338170be8ec6600bd4bfb114d094}} 
+\index{Flat@{Flat}!getNumResidents@{getNumResidents}}
+\index{getNumResidents@{getNumResidents}!Flat@{Flat}}
+\doxysubsubsection{\texorpdfstring{getNumResidents()}{getNumResidents()}}
+{\footnotesize\ttfamily int Flat\+::get\+Num\+Residents (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the total number of residents in the flat. 
+
+\begin{DoxyReturn}{Returns}
+The total number of residents, calculated as three times the number of units. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFlat_a06e9e3abb0808080c1f105f66105f81e}\label{classFlat_a06e9e3abb0808080c1f105f66105f81e}} 
+\index{Flat@{Flat}!getNumUnits@{getNumUnits}}
+\index{getNumUnits@{getNumUnits}!Flat@{Flat}}
+\doxysubsubsection{\texorpdfstring{getNumUnits()}{getNumUnits()}}
+{\footnotesize\ttfamily int Flat\+::get\+Num\+Units (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the number of units in the flat. 
+
+\begin{DoxyReturn}{Returns}
+The number of units in the flat. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFlat_af7c533659cc8437f97707a826126a30b}\label{classFlat_af7c533659cc8437f97707a826126a30b}} 
+\index{Flat@{Flat}!getOccupancy@{getOccupancy}}
+\index{getOccupancy@{getOccupancy}!Flat@{Flat}}
+\doxysubsubsection{\texorpdfstring{getOccupancy()}{getOccupancy()}}
+{\footnotesize\ttfamily int Flat\+::get\+Occupancy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the occupancy of the flat. 
+
+\begin{DoxyReturn}{Returns}
+The number of units in the flat. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+\mbox{\Hypertarget{classFlat_afbb756d2d8d66591c5035f9dd00d86e7}\label{classFlat_afbb756d2d8d66591c5035f9dd00d86e7}} 
+\index{Flat@{Flat}!getWaterConsumption@{getWaterConsumption}}
+\index{getWaterConsumption@{getWaterConsumption}!Flat@{Flat}}
+\doxysubsubsection{\texorpdfstring{getWaterConsumption()}{getWaterConsumption()}}
+{\footnotesize\ttfamily double Flat\+::get\+Water\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the total water consumption of the flat. 
+
+\begin{DoxyReturn}{Returns}
+The total water consumption based on the number of units. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+\mbox{\Hypertarget{classFlat_a2b2341eacdde3e59cc9122a7299e5ba9}\label{classFlat_a2b2341eacdde3e59cc9122a7299e5ba9}} 
+\index{Flat@{Flat}!upgrade@{upgrade}}
+\index{upgrade@{upgrade}!Flat@{Flat}}
+\doxysubsubsection{\texorpdfstring{upgrade()}{upgrade()}}
+{\footnotesize\ttfamily void Flat\+::upgrade (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{building }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Upgrades the flat if sufficient resources are available. 
+
+This function requests resources from the \mbox{\hyperlink{classGovernment}{Government}} and, if available, increases the quality of the flat. If resources are insufficient, it indicates the upgrade failed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em building} & A shared pointer to a \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} (not used in this implementation). \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Flat.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Flat.\+cpp\end{DoxyCompactItemize}

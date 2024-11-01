@@ -1,0 +1,140 @@
+\hypertarget{classBuildingComponent}{}\doxysection{Building\+Component Class Reference}
+\label{classBuildingComponent}\index{BuildingComponent@{BuildingComponent}}
+
+
+Inheritance diagram for Building\+Component\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBuildingComponent_a926a979a55b1d415df4cac38f94617fe}{Building\+Component}} (int x, int y, const std\+::string \&district, int quality)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} with the specified parameters. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBuildingComponent_aa3355fce31225a7417db2ff9ee8844b5}\label{classBuildingComponent_aa3355fce31225a7417db2ff9ee8844b5}} 
+virtual string {\bfseries get\+Building\+Type} ()=0
+\item 
+\mbox{\Hypertarget{classBuildingComponent_a8ed517cce1f5bc930faefa6ee5630e23}\label{classBuildingComponent_a8ed517cce1f5bc930faefa6ee5630e23}} 
+virtual int {\bfseries get\+Occupancy} ()=0
+\item 
+\mbox{\Hypertarget{classBuildingComponent_add14b58cdb0ec0dd6561b5e357b691da}\label{classBuildingComponent_add14b58cdb0ec0dd6561b5e357b691da}} 
+virtual double {\bfseries get\+Cost} ()=0
+\item 
+\mbox{\Hypertarget{classBuildingComponent_a564551e9483388729556c27e860ac30d}\label{classBuildingComponent_a564551e9483388729556c27e860ac30d}} 
+virtual double {\bfseries get\+Maintenance\+Cost} ()=0
+\item 
+\mbox{\Hypertarget{classBuildingComponent_a26bf43a993655b88eb66a0de3f430618}\label{classBuildingComponent_a26bf43a993655b88eb66a0de3f430618}} 
+virtual double {\bfseries get\+Energy\+Consumption} ()=0
+\item 
+\mbox{\Hypertarget{classBuildingComponent_a55f8a1d521bafaca026eb524c8eb908d}\label{classBuildingComponent_a55f8a1d521bafaca026eb524c8eb908d}} 
+virtual double {\bfseries get\+Water\+Consumption} ()=0
+\item 
+\mbox{\Hypertarget{classBuildingComponent_afec959b5abb28fd56df75ba00e396f7b}\label{classBuildingComponent_afec959b5abb28fd56df75ba00e396f7b}} 
+virtual void {\bfseries demolish} ()=0
+\item 
+\mbox{\Hypertarget{classBuildingComponent_ae3f28c3a2f0c177f353f62552424ca9c}\label{classBuildingComponent_ae3f28c3a2f0c177f353f62552424ca9c}} 
+virtual void {\bfseries upgrade} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ building)=0
+\item 
+\mbox{\Hypertarget{classBuildingComponent_a3dee9ac6af2017f154e75a866c215b3a}\label{classBuildingComponent_a3dee9ac6af2017f154e75a866c215b3a}} 
+virtual double {\bfseries get\+Area} ()=0
+\item 
+int \mbox{\hyperlink{classBuildingComponent_a2baac4b989072e662bc0cc94337f21d3}{getX}} ()
+\begin{DoxyCompactList}\small\item\em Gets the x-\/coordinate of the building component. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBuildingComponent_a6dd021fd037ee75c91aa9fd944e9e45a}{getY}} ()
+\begin{DoxyCompactList}\small\item\em Gets the y-\/coordinate of the building component. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classBuildingComponent_aaea9c81bb07e5a9a8279053fa4a3ed95}{get\+District}} ()
+\begin{DoxyCompactList}\small\item\em Gets the district where the building component is located. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBuildingComponent_a0f928f36a0ce1aad6a4f419cf8745c4d}{get\+Quality}} ()
+\begin{DoxyCompactList}\small\item\em Gets the quality rating of the building component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBuildingComponent_a49c1fc9acffc6b46c053d55b20c7dac3}\label{classBuildingComponent_a49c1fc9acffc6b46c053d55b20c7dac3}} 
+int {\bfseries quality}
+\item 
+\mbox{\Hypertarget{classBuildingComponent_a28b213e7c038237892b6193d185e13ee}\label{classBuildingComponent_a28b213e7c038237892b6193d185e13ee}} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classUtilities}{Utilities}} $>$ $>$ {\bfseries utilities}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBuildingComponent_a926a979a55b1d415df4cac38f94617fe}\label{classBuildingComponent_a926a979a55b1d415df4cac38f94617fe}} 
+\index{BuildingComponent@{BuildingComponent}!BuildingComponent@{BuildingComponent}}
+\index{BuildingComponent@{BuildingComponent}!BuildingComponent@{BuildingComponent}}
+\doxysubsubsection{\texorpdfstring{BuildingComponent()}{BuildingComponent()}}
+{\footnotesize\ttfamily Building\+Component\+::\+Building\+Component (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} with the specified parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the building component. \\
+\hline
+{\em y} & The y-\/coordinate of the building component. \\
+\hline
+{\em district} & The district where the building component is located. \\
+\hline
+{\em quality} & The quality rating of the building component. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBuildingComponent_aaea9c81bb07e5a9a8279053fa4a3ed95}\label{classBuildingComponent_aaea9c81bb07e5a9a8279053fa4a3ed95}} 
+\index{BuildingComponent@{BuildingComponent}!getDistrict@{getDistrict}}
+\index{getDistrict@{getDistrict}!BuildingComponent@{BuildingComponent}}
+\doxysubsubsection{\texorpdfstring{getDistrict()}{getDistrict()}}
+{\footnotesize\ttfamily std\+::string Building\+Component\+::get\+District (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the district where the building component is located. 
+
+\begin{DoxyReturn}{Returns}
+The district name. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBuildingComponent_a0f928f36a0ce1aad6a4f419cf8745c4d}\label{classBuildingComponent_a0f928f36a0ce1aad6a4f419cf8745c4d}} 
+\index{BuildingComponent@{BuildingComponent}!getQuality@{getQuality}}
+\index{getQuality@{getQuality}!BuildingComponent@{BuildingComponent}}
+\doxysubsubsection{\texorpdfstring{getQuality()}{getQuality()}}
+{\footnotesize\ttfamily int Building\+Component\+::get\+Quality (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the quality rating of the building component. 
+
+\begin{DoxyReturn}{Returns}
+The quality rating. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBuildingComponent_a2baac4b989072e662bc0cc94337f21d3}\label{classBuildingComponent_a2baac4b989072e662bc0cc94337f21d3}} 
+\index{BuildingComponent@{BuildingComponent}!getX@{getX}}
+\index{getX@{getX}!BuildingComponent@{BuildingComponent}}
+\doxysubsubsection{\texorpdfstring{getX()}{getX()}}
+{\footnotesize\ttfamily int Building\+Component\+::getX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the x-\/coordinate of the building component. 
+
+\begin{DoxyReturn}{Returns}
+The x-\/coordinate. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBuildingComponent_a6dd021fd037ee75c91aa9fd944e9e45a}\label{classBuildingComponent_a6dd021fd037ee75c91aa9fd944e9e45a}} 
+\index{BuildingComponent@{BuildingComponent}!getY@{getY}}
+\index{getY@{getY}!BuildingComponent@{BuildingComponent}}
+\doxysubsubsection{\texorpdfstring{getY()}{getY()}}
+{\footnotesize\ttfamily int Building\+Component\+::getY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the y-\/coordinate of the building component. 
+
+\begin{DoxyReturn}{Returns}
+The y-\/coordinate. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Building\+Component.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Building\+Component.\+cpp\end{DoxyCompactItemize}

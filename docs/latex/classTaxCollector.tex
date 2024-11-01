@@ -1,0 +1,45 @@
+\hypertarget{classTaxCollector}{}\doxysection{Tax\+Collector Class Reference}
+\label{classTaxCollector}\index{TaxCollector@{TaxCollector}}
+
+
+Inheritance diagram for Tax\+Collector\+:
+% FIG 0
+
+
+Collaboration diagram for Tax\+Collector\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classTaxCollector_a408d39bf95de03490c6b4692a8dd8aa1}{visit}} (\mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}} \&citizen) override
+\begin{DoxyCompactList}\small\item\em Visits a citizen to collect tax. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTaxCollector_a408d39bf95de03490c6b4692a8dd8aa1}\label{classTaxCollector_a408d39bf95de03490c6b4692a8dd8aa1}} 
+\index{TaxCollector@{TaxCollector}!visit@{visit}}
+\index{visit@{visit}!TaxCollector@{TaxCollector}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}}
+{\footnotesize\ttfamily void Tax\+Collector\+::visit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}} \&}]{citizen }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Visits a citizen to collect tax. 
+
+Calculates the tax amount for the citizen using {\ttfamily calculate\+Tax()} and then collects the tax by calling {\ttfamily pay\+Tax()} on the citizen.
+
+
+\begin{DoxyParams}{Parameters}
+{\em citizen} & Reference to the \mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}} object on which the tax is collected. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classVisitor}{Visitor}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Tax\+Collector.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Tax\+Collector.\+cpp\end{DoxyCompactItemize}

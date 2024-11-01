@@ -1,0 +1,130 @@
+\hypertarget{classResidentialBuildingFactory}{}\doxysection{Residential\+Building\+Factory Class Reference}
+\label{classResidentialBuildingFactory}\index{ResidentialBuildingFactory@{ResidentialBuildingFactory}}
+
+
+Inheritance diagram for Residential\+Building\+Factory\+:
+% FIG 0
+
+
+Collaboration diagram for Residential\+Building\+Factory\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ \mbox{\hyperlink{classResidentialBuildingFactory_ae74ad1fb662719529922f82299c975b4}{create\+Flat}} (int units, int residents, int floors, bool has\+Garden, const std\+::string \&district, int quality) override
+\begin{DoxyCompactList}\small\item\em Creates a flat building with randomly generated x and y coordinates. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ \mbox{\hyperlink{classResidentialBuildingFactory_afafc04d9a77630dc5de90876e62ecfd8}{create\+House}} (int garage\+Size, bool has\+Pool, int residents, int floors, bool has\+Garden, const std\+::string \&district, int quality) override
+\begin{DoxyCompactList}\small\item\em Creates a house building with randomly generated x and y coordinates. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ \mbox{\hyperlink{classResidentialBuildingFactory_ab8a07e7886566e7dc20cd6cd27648fcb}{create\+Estate}} (int garage\+Size, bool has\+Pool, int residents, int floors, bool has\+Garden, int units, const std\+::string \&district, int quality) override
+\begin{DoxyCompactList}\small\item\em Creates an estate building with randomly generated x and y coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classResidentialBuildingFactory_ab8a07e7886566e7dc20cd6cd27648fcb}\label{classResidentialBuildingFactory_ab8a07e7886566e7dc20cd6cd27648fcb}} 
+\index{ResidentialBuildingFactory@{ResidentialBuildingFactory}!createEstate@{createEstate}}
+\index{createEstate@{createEstate}!ResidentialBuildingFactory@{ResidentialBuildingFactory}}
+\doxysubsubsection{\texorpdfstring{createEstate()}{createEstate()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ Residential\+Building\+Factory\+::create\+Estate (\begin{DoxyParamCaption}\item[{int}]{garage\+Size,  }\item[{bool}]{has\+Pool,  }\item[{int}]{residents,  }\item[{int}]{floors,  }\item[{bool}]{has\+Garden,  }\item[{int}]{units,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates an estate building with randomly generated x and y coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em garage\+Size} & The size of the garage. \\
+\hline
+{\em has\+Pool} & Whether the estate has a pool. \\
+\hline
+{\em residents} & The number of residents. \\
+\hline
+{\em floors} & The number of floors. \\
+\hline
+{\em has\+Garden} & Whether the estate has a garden. \\
+\hline
+{\em units} & The number of units in the estate. \\
+\hline
+{\em district} & The district where the estate is located. \\
+\hline
+{\em quality} & The quality level of the estate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the created estate building. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classBuildingFactory}{Building\+Factory}}.
+
+\mbox{\Hypertarget{classResidentialBuildingFactory_ae74ad1fb662719529922f82299c975b4}\label{classResidentialBuildingFactory_ae74ad1fb662719529922f82299c975b4}} 
+\index{ResidentialBuildingFactory@{ResidentialBuildingFactory}!createFlat@{createFlat}}
+\index{createFlat@{createFlat}!ResidentialBuildingFactory@{ResidentialBuildingFactory}}
+\doxysubsubsection{\texorpdfstring{createFlat()}{createFlat()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ Residential\+Building\+Factory\+::create\+Flat (\begin{DoxyParamCaption}\item[{int}]{units,  }\item[{int}]{residents,  }\item[{int}]{floors,  }\item[{bool}]{has\+Garden,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a flat building with randomly generated x and y coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em units} & The number of units in the flat. \\
+\hline
+{\em residents} & The number of residents. \\
+\hline
+{\em floors} & The number of floors. \\
+\hline
+{\em has\+Garden} & Whether the flat has a garden. \\
+\hline
+{\em district} & The district where the flat is located. \\
+\hline
+{\em quality} & The quality level of the flat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the created flat building. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classBuildingFactory}{Building\+Factory}}.
+
+\mbox{\Hypertarget{classResidentialBuildingFactory_afafc04d9a77630dc5de90876e62ecfd8}\label{classResidentialBuildingFactory_afafc04d9a77630dc5de90876e62ecfd8}} 
+\index{ResidentialBuildingFactory@{ResidentialBuildingFactory}!createHouse@{createHouse}}
+\index{createHouse@{createHouse}!ResidentialBuildingFactory@{ResidentialBuildingFactory}}
+\doxysubsubsection{\texorpdfstring{createHouse()}{createHouse()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ Residential\+Building\+Factory\+::create\+House (\begin{DoxyParamCaption}\item[{int}]{garage\+Size,  }\item[{bool}]{has\+Pool,  }\item[{int}]{residents,  }\item[{int}]{floors,  }\item[{bool}]{has\+Garden,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a house building with randomly generated x and y coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em garage\+Size} & The size of the garage. \\
+\hline
+{\em has\+Pool} & Whether the house has a pool. \\
+\hline
+{\em residents} & The number of residents. \\
+\hline
+{\em floors} & The number of floors. \\
+\hline
+{\em has\+Garden} & Whether the house has a garden. \\
+\hline
+{\em district} & The district where the house is located. \\
+\hline
+{\em quality} & The quality level of the house. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the created house building. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classBuildingFactory}{Building\+Factory}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Residential\+Building\+Factory.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Residential\+Building\+Factory.\+cpp\end{DoxyCompactItemize}

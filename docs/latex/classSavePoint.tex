@@ -1,0 +1,92 @@
+\hypertarget{classSavePoint}{}\doxysection{Save\+Point Class Reference}
+\label{classSavePoint}\index{SavePoint@{SavePoint}}
+
+
+Memento class to save and restore \mbox{\hyperlink{classCityContext}{City\+Context}}\textquotesingle{}s state.  
+
+
+
+
+{\ttfamily \#include $<$Save\+Point.\+h$>$}
+
+
+
+Inheritance diagram for Save\+Point\+:
+% FIG 0
+
+
+Collaboration diagram for Save\+Point\+:
+% FIG 1
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSavePoint}{Save\+Point}} $>$ \mbox{\hyperlink{classSavePoint_a72bfe8c97c3c53f48fa0ffedb0bcd859}{create}} (int total\+Pop, double avg\+Std\+Of\+Living, double avg\+Edu\+Level, double avg\+Income, double monthly\+Exp, int total\+Buildings, int avg\+Building\+Quality, int total\+Utilities, double total\+Energy\+Consumption, double total\+Water\+Consumption, double total\+Energy\+Production, double total\+Water\+Production, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGovernment}{Government}} $>$ government\+State, const std\+::map$<$ int, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCitizen}{Citizen}} $>$$>$ \&population\+State, const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$$>$ \&buildings\+State, const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classUtilities}{Utilities}} $>$$>$ \&utilities\+State)
+\begin{DoxyCompactList}\small\item\em Factory method for creating a \mbox{\hyperlink{classSavePoint}{Save\+Point}} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSavePoint_aab09e7425a0e9679e566fead60812a38}\label{classSavePoint_aab09e7425a0e9679e566fead60812a38}} 
+class {\bfseries City\+Context}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Memento class to save and restore \mbox{\hyperlink{classCityContext}{City\+Context}}\textquotesingle{}s state. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSavePoint_a72bfe8c97c3c53f48fa0ffedb0bcd859}\label{classSavePoint_a72bfe8c97c3c53f48fa0ffedb0bcd859}} 
+\index{SavePoint@{SavePoint}!create@{create}}
+\index{create@{create}!SavePoint@{SavePoint}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSavePoint}{Save\+Point}} $>$ Save\+Point\+::create (\begin{DoxyParamCaption}\item[{int}]{total\+Pop,  }\item[{double}]{avg\+Std\+Of\+Living,  }\item[{double}]{avg\+Edu\+Level,  }\item[{double}]{avg\+Income,  }\item[{double}]{monthly\+Exp,  }\item[{int}]{total\+Buildings,  }\item[{int}]{avg\+Building\+Quality,  }\item[{int}]{total\+Utilities,  }\item[{double}]{total\+Energy\+Consumption,  }\item[{double}]{total\+Water\+Consumption,  }\item[{double}]{total\+Energy\+Production,  }\item[{double}]{total\+Water\+Production,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGovernment}{Government}} $>$}]{government\+State,  }\item[{const std\+::map$<$ int, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCitizen}{Citizen}} $>$$>$ \&}]{population\+State,  }\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$$>$ \&}]{buildings\+State,  }\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classUtilities}{Utilities}} $>$$>$ \&}]{utilities\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Factory method for creating a \mbox{\hyperlink{classSavePoint}{Save\+Point}} instance. 
+
+This method creates a new shared pointer to a \mbox{\hyperlink{classSavePoint}{Save\+Point}} instance, encapsulating the provided state parameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em total\+Pop} & Total population in the simulation. \\
+\hline
+{\em avg\+Std\+Of\+Living} & Average standard of living. \\
+\hline
+{\em avg\+Edu\+Level} & Average education level. \\
+\hline
+{\em avg\+Income} & Average income. \\
+\hline
+{\em monthly\+Exp} & Monthly expenditure. \\
+\hline
+{\em total\+Buildings} & Total number of buildings. \\
+\hline
+{\em avg\+Building\+Quality} & Average quality of buildings. \\
+\hline
+{\em total\+Utilities} & Total number of utilities. \\
+\hline
+{\em total\+Energy\+Consumption} & Total energy consumption. \\
+\hline
+{\em total\+Water\+Consumption} & Total water consumption. \\
+\hline
+{\em total\+Energy\+Production} & Total energy production. \\
+\hline
+{\em total\+Water\+Production} & Total water production. \\
+\hline
+{\em government\+State} & Shared pointer to the government state. \\
+\hline
+{\em population\+State} & Map containing citizens in the population state. \\
+\hline
+{\em buildings\+State} & Vector containing building components in the state. \\
+\hline
+{\em utilities\+State} & Vector containing utilities in the state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the newly created \mbox{\hyperlink{classSavePoint}{Save\+Point}}. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Save\+Point.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Save\+Point.\+cpp\end{DoxyCompactItemize}

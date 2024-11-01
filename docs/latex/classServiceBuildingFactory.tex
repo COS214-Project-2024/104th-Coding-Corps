@@ -1,0 +1,122 @@
+\hypertarget{classServiceBuildingFactory}{}\doxysection{Service\+Building\+Factory Class Reference}
+\label{classServiceBuildingFactory}\index{ServiceBuildingFactory@{ServiceBuildingFactory}}
+
+
+Inheritance diagram for Service\+Building\+Factory\+:
+% FIG 0
+
+
+Collaboration diagram for Service\+Building\+Factory\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ \mbox{\hyperlink{classServiceBuildingFactory_a644c21345ae20056e9df059cc1394a92}{create\+School}} (int x, int y, const std\+::string \&district, int quality, int num\+Workers, int highest\+Qualification) override
+\begin{DoxyCompactList}\small\item\em Creates a school building. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ \mbox{\hyperlink{classServiceBuildingFactory_a6fd96b60c03f802eb5d672a21c3c7a93}{create\+University}} (int x, int y, const std\+::string \&district, int quality, int num\+Workers, int highest\+Qualification) override
+\begin{DoxyCompactList}\small\item\em Creates a university building. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ \mbox{\hyperlink{classServiceBuildingFactory_a0f0405e90dbc93d3e0ebd37d533ca644}{create\+Hospital}} (int x, int y, const std\+::string \&district, int quality, int num\+Workers) override
+\begin{DoxyCompactList}\small\item\em Creates a hospital building. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classServiceBuildingFactory_a0f0405e90dbc93d3e0ebd37d533ca644}\label{classServiceBuildingFactory_a0f0405e90dbc93d3e0ebd37d533ca644}} 
+\index{ServiceBuildingFactory@{ServiceBuildingFactory}!createHospital@{createHospital}}
+\index{createHospital@{createHospital}!ServiceBuildingFactory@{ServiceBuildingFactory}}
+\doxysubsubsection{\texorpdfstring{createHospital()}{createHospital()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ Service\+Building\+Factory\+::create\+Hospital (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality,  }\item[{int}]{num\+Workers }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a hospital building. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate for the hospital. \\
+\hline
+{\em y} & The y-\/coordinate for the hospital. \\
+\hline
+{\em district} & The district name. \\
+\hline
+{\em quality} & The quality rating of the hospital. \\
+\hline
+{\em num\+Workers} & The number of workers in the hospital. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the created hospital building. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classBuildingFactory}{Building\+Factory}}.
+
+\mbox{\Hypertarget{classServiceBuildingFactory_a644c21345ae20056e9df059cc1394a92}\label{classServiceBuildingFactory_a644c21345ae20056e9df059cc1394a92}} 
+\index{ServiceBuildingFactory@{ServiceBuildingFactory}!createSchool@{createSchool}}
+\index{createSchool@{createSchool}!ServiceBuildingFactory@{ServiceBuildingFactory}}
+\doxysubsubsection{\texorpdfstring{createSchool()}{createSchool()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ Service\+Building\+Factory\+::create\+School (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality,  }\item[{int}]{num\+Workers,  }\item[{int}]{highest\+Qualification }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a school building. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate for the school. \\
+\hline
+{\em y} & The y-\/coordinate for the school. \\
+\hline
+{\em district} & The district name. \\
+\hline
+{\em quality} & The quality rating of the school. \\
+\hline
+{\em num\+Workers} & The number of workers in the school. \\
+\hline
+{\em highest\+Qualification} & The highest qualification level of the school. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the created school building. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classBuildingFactory}{Building\+Factory}}.
+
+\mbox{\Hypertarget{classServiceBuildingFactory_a6fd96b60c03f802eb5d672a21c3c7a93}\label{classServiceBuildingFactory_a6fd96b60c03f802eb5d672a21c3c7a93}} 
+\index{ServiceBuildingFactory@{ServiceBuildingFactory}!createUniversity@{createUniversity}}
+\index{createUniversity@{createUniversity}!ServiceBuildingFactory@{ServiceBuildingFactory}}
+\doxysubsubsection{\texorpdfstring{createUniversity()}{createUniversity()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ Service\+Building\+Factory\+::create\+University (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality,  }\item[{int}]{num\+Workers,  }\item[{int}]{highest\+Qualification }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a university building. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate for the university. \\
+\hline
+{\em y} & The y-\/coordinate for the university. \\
+\hline
+{\em district} & The district name. \\
+\hline
+{\em quality} & The quality rating of the university. \\
+\hline
+{\em num\+Workers} & The number of workers in the university. \\
+\hline
+{\em highest\+Qualification} & The highest qualification level of the university. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the created university building. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classBuildingFactory}{Building\+Factory}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Service\+Building\+Factory.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Service\+Building\+Factory.\+cpp\end{DoxyCompactItemize}

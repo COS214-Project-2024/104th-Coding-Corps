@@ -1,0 +1,132 @@
+\hypertarget{classCommercialBuildingFactory}{}\doxysection{Commercial\+Building\+Factory Class Reference}
+\label{classCommercialBuildingFactory}\index{CommercialBuildingFactory@{CommercialBuildingFactory}}
+
+
+Inheritance diagram for Commercial\+Building\+Factory\+:
+% FIG 0
+
+
+Collaboration diagram for Commercial\+Building\+Factory\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ \mbox{\hyperlink{classCommercialBuildingFactory_a25081be691c7a6700611094451ea3066}{create\+Office}} (int num\+Employees, const std\+::string \&business\+Type, const std\+::string \&district, int quality, int x=0, int y=0) override
+\begin{DoxyCompactList}\small\item\em Creates an \mbox{\hyperlink{classOffice}{Office}} building with randomized coordinates. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ \mbox{\hyperlink{classCommercialBuildingFactory_a5b9bb3fd24db7b9e6f7d1fe17747b62d}{create\+Mall}} (int num\+Shops, const std\+::string \&business\+Type, int num\+Businesses, int x, int y, const std\+::string \&district, int quality) override
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{classMall}{Mall}} building with randomized coordinates. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ \mbox{\hyperlink{classCommercialBuildingFactory_ac0c03db5332e52dea59950a628c11220}{create\+Shop}} (int shop\+Size, const std\+::string \&business\+Type, int x, int y, const std\+::string \&district, int quality) override
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{classShop}{Shop}} building with randomized coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCommercialBuildingFactory_a5b9bb3fd24db7b9e6f7d1fe17747b62d}\label{classCommercialBuildingFactory_a5b9bb3fd24db7b9e6f7d1fe17747b62d}} 
+\index{CommercialBuildingFactory@{CommercialBuildingFactory}!createMall@{createMall}}
+\index{createMall@{createMall}!CommercialBuildingFactory@{CommercialBuildingFactory}}
+\doxysubsubsection{\texorpdfstring{createMall()}{createMall()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ Commercial\+Building\+Factory\+::create\+Mall (\begin{DoxyParamCaption}\item[{int}]{num\+Shops,  }\item[{const std\+::string \&}]{business\+Type,  }\item[{int}]{num\+Businesses,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a \mbox{\hyperlink{classMall}{Mall}} building with randomized coordinates. 
+
+This function generates random x and y coordinates for the mall\textquotesingle{}s position within a defined range and returns a unique pointer to the newly created \mbox{\hyperlink{classMall}{Mall}} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Shops} & The number of shops in the mall. \\
+\hline
+{\em business\+Type} & The type of business the mall operates. \\
+\hline
+{\em num\+Businesses} & The number of businesses in the mall. \\
+\hline
+{\em x} & The x-\/coordinate for the mall\textquotesingle{}s position (overwritten). \\
+\hline
+{\em y} & The y-\/coordinate for the mall\textquotesingle{}s position (overwritten). \\
+\hline
+{\em district} & The district where the mall is located. \\
+\hline
+{\em quality} & The quality rating of the mall building. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the created \mbox{\hyperlink{classMall}{Mall}} building component. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classBuildingFactory}{Building\+Factory}}.
+
+\mbox{\Hypertarget{classCommercialBuildingFactory_a25081be691c7a6700611094451ea3066}\label{classCommercialBuildingFactory_a25081be691c7a6700611094451ea3066}} 
+\index{CommercialBuildingFactory@{CommercialBuildingFactory}!createOffice@{createOffice}}
+\index{createOffice@{createOffice}!CommercialBuildingFactory@{CommercialBuildingFactory}}
+\doxysubsubsection{\texorpdfstring{createOffice()}{createOffice()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ Commercial\+Building\+Factory\+::create\+Office (\begin{DoxyParamCaption}\item[{int}]{num\+Employees,  }\item[{const std\+::string \&}]{business\+Type,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality,  }\item[{int}]{x = {\ttfamily 0},  }\item[{int}]{y = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates an \mbox{\hyperlink{classOffice}{Office}} building with randomized coordinates. 
+
+This function generates random x and y coordinates for the office\textquotesingle{}s position within a defined range and returns a unique pointer to the newly created \mbox{\hyperlink{classOffice}{Office}} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Employees} & The number of employees in the office. \\
+\hline
+{\em business\+Type} & The type of business the office operates. \\
+\hline
+{\em district} & The district where the office is located. \\
+\hline
+{\em quality} & The quality rating of the office building. \\
+\hline
+{\em x} & The x-\/coordinate for the office\textquotesingle{}s position (overwritten). \\
+\hline
+{\em y} & The y-\/coordinate for the office\textquotesingle{}s position (overwritten). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the created \mbox{\hyperlink{classOffice}{Office}} building component. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classBuildingFactory}{Building\+Factory}}.
+
+\mbox{\Hypertarget{classCommercialBuildingFactory_ac0c03db5332e52dea59950a628c11220}\label{classCommercialBuildingFactory_ac0c03db5332e52dea59950a628c11220}} 
+\index{CommercialBuildingFactory@{CommercialBuildingFactory}!createShop@{createShop}}
+\index{createShop@{createShop}!CommercialBuildingFactory@{CommercialBuildingFactory}}
+\doxysubsubsection{\texorpdfstring{createShop()}{createShop()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ Commercial\+Building\+Factory\+::create\+Shop (\begin{DoxyParamCaption}\item[{int}]{shop\+Size,  }\item[{const std\+::string \&}]{business\+Type,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a \mbox{\hyperlink{classShop}{Shop}} building with randomized coordinates. 
+
+This function generates random x and y coordinates for the shop\textquotesingle{}s position within a defined range and returns a unique pointer to the newly created \mbox{\hyperlink{classShop}{Shop}} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shop\+Size} & The size of the shop. \\
+\hline
+{\em business\+Type} & The type of business the shop operates. \\
+\hline
+{\em x} & The x-\/coordinate for the shop\textquotesingle{}s position (overwritten). \\
+\hline
+{\em y} & The y-\/coordinate for the shop\textquotesingle{}s position (overwritten). \\
+\hline
+{\em district} & The district where the shop is located. \\
+\hline
+{\em quality} & The quality rating of the shop building. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the created \mbox{\hyperlink{classShop}{Shop}} building component. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classBuildingFactory}{Building\+Factory}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Commercial\+Building\+Factory.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Commercial\+Building\+Factory.\+cpp\end{DoxyCompactItemize}

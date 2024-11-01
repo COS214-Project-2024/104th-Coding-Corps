@@ -1,0 +1,110 @@
+\hypertarget{classResource}{}\doxysection{Resource Class Reference}
+\label{classResource}\index{Resource@{Resource}}
+
+
+Inheritance diagram for Resource\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classResource_aa66a88a5d14d251bead3660f7bcf1e37}\label{classResource_aa66a88a5d14d251bead3660f7bcf1e37}} 
+{\bfseries Resource} (int quantity)
+\item 
+\mbox{\Hypertarget{classResource_a1bb131ad8159456d24aa249c8d9237d2}\label{classResource_a1bb131ad8159456d24aa249c8d9237d2}} 
+virtual std\+::string {\bfseries get\+Name} ()=0
+\item 
+virtual int \mbox{\hyperlink{classResource_aa50de861baf5cc44ecfce984ec30933a}{get\+Quantity}} () const
+\begin{DoxyCompactList}\small\item\em Get the current quantity of the resource. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classResource_a124c0234e9413c37790d31b26f93acf2}{add\+Quantity}} (int amount)
+\begin{DoxyCompactList}\small\item\em Add a specified amount to the resource\textquotesingle{}s quantity. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classResource_a8d5f8d76b979dd2197f232102cedeadf}{consume}} (int amount)
+\begin{DoxyCompactList}\small\item\em Consume a specified amount of the resource if available. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classResource_a222f18950cfe930c015dc1403aa226b9}{check\+Availability}} (int amount) const
+\begin{DoxyCompactList}\small\item\em Check if enough resource is available. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classResource_ad87427f8c53da8c83f4a00a2eef25f7f}\label{classResource_ad87427f8c53da8c83f4a00a2eef25f7f}} 
+int {\bfseries quantity}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classResource_a124c0234e9413c37790d31b26f93acf2}\label{classResource_a124c0234e9413c37790d31b26f93acf2}} 
+\index{Resource@{Resource}!addQuantity@{addQuantity}}
+\index{addQuantity@{addQuantity}!Resource@{Resource}}
+\doxysubsubsection{\texorpdfstring{addQuantity()}{addQuantity()}}
+{\footnotesize\ttfamily void Resource\+::add\+Quantity (\begin{DoxyParamCaption}\item[{int}]{amount }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Add a specified amount to the resource\textquotesingle{}s quantity. 
+
+This method increases the current quantity of the resource by the specified amount.
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & The amount to add to the resource\textquotesingle{}s quantity. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classResource_a222f18950cfe930c015dc1403aa226b9}\label{classResource_a222f18950cfe930c015dc1403aa226b9}} 
+\index{Resource@{Resource}!checkAvailability@{checkAvailability}}
+\index{checkAvailability@{checkAvailability}!Resource@{Resource}}
+\doxysubsubsection{\texorpdfstring{checkAvailability()}{checkAvailability()}}
+{\footnotesize\ttfamily bool Resource\+::check\+Availability (\begin{DoxyParamCaption}\item[{int}]{amount }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Check if enough resource is available. 
+
+This method checks whether the specified amount of resource is available.
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & The amount to check for availability. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if enough resource is available, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classResource_a8d5f8d76b979dd2197f232102cedeadf}\label{classResource_a8d5f8d76b979dd2197f232102cedeadf}} 
+\index{Resource@{Resource}!consume@{consume}}
+\index{consume@{consume}!Resource@{Resource}}
+\doxysubsubsection{\texorpdfstring{consume()}{consume()}}
+{\footnotesize\ttfamily bool Resource\+::consume (\begin{DoxyParamCaption}\item[{int}]{amount }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Consume a specified amount of the resource if available. 
+
+This method attempts to reduce the resource\textquotesingle{}s quantity by the specified amount. If sufficient quantity is available, it decreases the quantity and returns true; otherwise, it returns false.
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & The amount to consume from the resource. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the resource was successfully consumed, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classResource_aa50de861baf5cc44ecfce984ec30933a}\label{classResource_aa50de861baf5cc44ecfce984ec30933a}} 
+\index{Resource@{Resource}!getQuantity@{getQuantity}}
+\index{getQuantity@{getQuantity}!Resource@{Resource}}
+\doxysubsubsection{\texorpdfstring{getQuantity()}{getQuantity()}}
+{\footnotesize\ttfamily int Resource\+::get\+Quantity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Get the current quantity of the resource. 
+
+This method retrieves the current quantity of the resource.
+
+\begin{DoxyReturn}{Returns}
+The current quantity of the resource. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Resource.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Resource.\+cpp\end{DoxyCompactItemize}

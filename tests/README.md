@@ -17,3 +17,5 @@ Currently we can do the following:
 ./test_BuildingFactory : runs the doctest for the creation of Buildings (Chisom/Capleton)
 
 ./test_BuildingComponents : runs the doctest for Building Components (Chisom/Capleton)
+
+./test_Budget_Resources : runs the doctest for Budget/ResourceManager and Resources (Capleton)

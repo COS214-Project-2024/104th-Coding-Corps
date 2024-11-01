@@ -1,0 +1,230 @@
+\hypertarget{classfactory}{}\doxysection{factory Class Reference}
+\label{classfactory}\index{factory@{factory}}
+
+
+Inheritance diagram for factory\+:
+% FIG 0
+
+
+Collaboration diagram for factory\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfactory_a93b244f3e0969a09c82cc6e3e4a35aa6}{factory}} (int x, int y, const std\+::string \&district, int quality, int num\+Workers, const std\+::string \&factory\+Type, double production)
+\begin{DoxyCompactList}\small\item\em Constructs a factory with the given parameters and initializes the base class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classfactory_a5eb5bfec8a70760f9ffdf3acb8ab0173}\label{classfactory_a5eb5bfec8a70760f9ffdf3acb8ab0173}} 
+void \mbox{\hyperlink{classfactory_a5eb5bfec8a70760f9ffdf3acb8ab0173}{produce\+Goods}} ()
+\begin{DoxyCompactList}\small\item\em Produces goods based on the occupancy of the factory. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classfactory_a7c73789ee99642c5f27d832bbccb6278}{get\+Building\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Gets the type of building. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classfactory_a1621cdb7fd47167339da08d7f9d47e68}{get\+Factory\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Gets the type of the factory. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classfactory_acac2d3cfc71b33543d41a8d946bdb81c}{get\+Occupancy}} ()
+\begin{DoxyCompactList}\small\item\em Gets the occupancy of the factory. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classfactory_ab62cdb5c04d349eee965152438251d90}{get\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Gets the cost of constructing the factory. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classfactory_a1bc6a19fddcb8f9a252c1a3d73ca797f}{get\+Maintenance\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the maintenance cost of the factory. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classfactory_a7494aa2fb64352c88afd9b853268c313}{get\+Energy\+Consumption}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the energy consumption of the factory. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classfactory_a31727de684026e0f279297ba3467625e}{get\+Water\+Consumption}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the water consumption of the factory. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classfactory_a1dc9dc599ef24fe0a5844fa0a127746e}\label{classfactory_a1dc9dc599ef24fe0a5844fa0a127746e}} 
+void \mbox{\hyperlink{classfactory_a1dc9dc599ef24fe0a5844fa0a127746e}{demolish}} ()
+\begin{DoxyCompactList}\small\item\em Demolishes the factory by resetting its attributes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfactory_accd405b41d5aa6870dd130ed2825bc78}{upgrade}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ building) override
+\begin{DoxyCompactList}\small\item\em Upgrades the factory by checking for available resources and updating attributes. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classfactory_a8fa718e3c555c025e8cac8d9b0c576fd}{get\+Area}} ()
+\begin{DoxyCompactList}\small\item\em Gets the area of the factory based on its dimensions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classfactory_a93b244f3e0969a09c82cc6e3e4a35aa6}\label{classfactory_a93b244f3e0969a09c82cc6e3e4a35aa6}} 
+\index{factory@{factory}!factory@{factory}}
+\index{factory@{factory}!factory@{factory}}
+\doxysubsubsection{\texorpdfstring{factory()}{factory()}}
+{\footnotesize\ttfamily factory\+::factory (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality,  }\item[{int}]{num\+Workers,  }\item[{const std\+::string \&}]{factory\+Type,  }\item[{double}]{production }\end{DoxyParamCaption})}
+
+
+
+Constructs a factory with the given parameters and initializes the base class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the factory. \\
+\hline
+{\em y} & The y-\/coordinate of the factory. \\
+\hline
+{\em district} & The district where the factory is located. \\
+\hline
+{\em quality} & The quality rating of the factory. \\
+\hline
+{\em num\+Workers} & The number of workers in the factory. \\
+\hline
+{\em factory\+Type} & The type of the factory. \\
+\hline
+{\em production} & The production capacity of the factory. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classfactory_a8fa718e3c555c025e8cac8d9b0c576fd}\label{classfactory_a8fa718e3c555c025e8cac8d9b0c576fd}} 
+\index{factory@{factory}!getArea@{getArea}}
+\index{getArea@{getArea}!factory@{factory}}
+\doxysubsubsection{\texorpdfstring{getArea()}{getArea()}}
+{\footnotesize\ttfamily double factory\+::get\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the area of the factory based on its dimensions. 
+
+\begin{DoxyReturn}{Returns}
+The area of the factory. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classfactory_a7c73789ee99642c5f27d832bbccb6278}\label{classfactory_a7c73789ee99642c5f27d832bbccb6278}} 
+\index{factory@{factory}!getBuildingType@{getBuildingType}}
+\index{getBuildingType@{getBuildingType}!factory@{factory}}
+\doxysubsubsection{\texorpdfstring{getBuildingType()}{getBuildingType()}}
+{\footnotesize\ttfamily std\+::string factory\+::get\+Building\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the type of building. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the type of building (\char`\"{}\+Factory\char`\"{}). 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classfactory_ab62cdb5c04d349eee965152438251d90}\label{classfactory_ab62cdb5c04d349eee965152438251d90}} 
+\index{factory@{factory}!getCost@{getCost}}
+\index{getCost@{getCost}!factory@{factory}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily double factory\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the cost of constructing the factory. 
+
+\begin{DoxyReturn}{Returns}
+The cost of the factory. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classfactory_a7494aa2fb64352c88afd9b853268c313}\label{classfactory_a7494aa2fb64352c88afd9b853268c313}} 
+\index{factory@{factory}!getEnergyConsumption@{getEnergyConsumption}}
+\index{getEnergyConsumption@{getEnergyConsumption}!factory@{factory}}
+\doxysubsubsection{\texorpdfstring{getEnergyConsumption()}{getEnergyConsumption()}}
+{\footnotesize\ttfamily double factory\+::get\+Energy\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the energy consumption of the factory. 
+
+\begin{DoxyReturn}{Returns}
+The energy consumption based on the number of workers. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classfactory_a1621cdb7fd47167339da08d7f9d47e68}\label{classfactory_a1621cdb7fd47167339da08d7f9d47e68}} 
+\index{factory@{factory}!getFactoryType@{getFactoryType}}
+\index{getFactoryType@{getFactoryType}!factory@{factory}}
+\doxysubsubsection{\texorpdfstring{getFactoryType()}{getFactoryType()}}
+{\footnotesize\ttfamily std\+::string factory\+::get\+Factory\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the type of the factory. 
+
+\begin{DoxyReturn}{Returns}
+The factory type. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classfactory_a1bc6a19fddcb8f9a252c1a3d73ca797f}\label{classfactory_a1bc6a19fddcb8f9a252c1a3d73ca797f}} 
+\index{factory@{factory}!getMaintenanceCost@{getMaintenanceCost}}
+\index{getMaintenanceCost@{getMaintenanceCost}!factory@{factory}}
+\doxysubsubsection{\texorpdfstring{getMaintenanceCost()}{getMaintenanceCost()}}
+{\footnotesize\ttfamily double factory\+::get\+Maintenance\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the maintenance cost of the factory. 
+
+\begin{DoxyReturn}{Returns}
+The maintenance cost of the factory. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classfactory_acac2d3cfc71b33543d41a8d946bdb81c}\label{classfactory_acac2d3cfc71b33543d41a8d946bdb81c}} 
+\index{factory@{factory}!getOccupancy@{getOccupancy}}
+\index{getOccupancy@{getOccupancy}!factory@{factory}}
+\doxysubsubsection{\texorpdfstring{getOccupancy()}{getOccupancy()}}
+{\footnotesize\ttfamily int factory\+::get\+Occupancy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the occupancy of the factory. 
+
+\begin{DoxyReturn}{Returns}
+The occupancy level of the factory. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classfactory_a31727de684026e0f279297ba3467625e}\label{classfactory_a31727de684026e0f279297ba3467625e}} 
+\index{factory@{factory}!getWaterConsumption@{getWaterConsumption}}
+\index{getWaterConsumption@{getWaterConsumption}!factory@{factory}}
+\doxysubsubsection{\texorpdfstring{getWaterConsumption()}{getWaterConsumption()}}
+{\footnotesize\ttfamily double factory\+::get\+Water\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the water consumption of the factory. 
+
+\begin{DoxyReturn}{Returns}
+The water consumption based on the number of workers. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classfactory_accd405b41d5aa6870dd130ed2825bc78}\label{classfactory_accd405b41d5aa6870dd130ed2825bc78}} 
+\index{factory@{factory}!upgrade@{upgrade}}
+\index{upgrade@{upgrade}!factory@{factory}}
+\doxysubsubsection{\texorpdfstring{upgrade()}{upgrade()}}
+{\footnotesize\ttfamily void factory\+::upgrade (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{building }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Upgrades the factory by checking for available resources and updating attributes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em building} & A shared pointer to the building component to upgrade. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Factory.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Factory.\+cpp\end{DoxyCompactItemize}

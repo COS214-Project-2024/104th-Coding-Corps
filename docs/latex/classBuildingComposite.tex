@@ -1,0 +1,198 @@
+\hypertarget{classBuildingComposite}{}\doxysection{Building\+Composite Class Reference}
+\label{classBuildingComposite}\index{BuildingComposite@{BuildingComposite}}
+
+
+Inheritance diagram for Building\+Composite\+:
+% FIG 0
+
+
+Collaboration diagram for Building\+Composite\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBuildingComposite_ae1165ddbf668af0e444906b105b811f0}{Building\+Composite}} (int x, int y, const std\+::string \&district, int quality)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classBuildingComposite}{Building\+Composite}} with specified parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBuildingComposite_a70d1d35a5c9ee0cd156bd3b6896ccf0c}{add\+Building}} (shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ building)
+\begin{DoxyCompactList}\small\item\em Adds a building to the composite. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBuildingComposite_a8568a523b0f799794d0c048c5f9f25d6}{remove\+Building}} (shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ building)
+\begin{DoxyCompactList}\small\item\em Removes a building from the composite. \end{DoxyCompactList}\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ \mbox{\hyperlink{classBuildingComposite_a5344b27a126e19192d9b1843bccefa2c}{get\+Building}} (int index)
+\begin{DoxyCompactList}\small\item\em Gets a building from the composite by index. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classBuildingComposite_a2dcd10d36ecd4a3e4abae9d790766d1d}{get\+Cost}} () override
+\begin{DoxyCompactList}\small\item\em Calculates the total cost of all buildings in the composite. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classBuildingComposite_a14c11a661ff5eeac8ca1e8b39b9e013f}{get\+Maintenance\+Cost}} () override
+\begin{DoxyCompactList}\small\item\em Calculates the total maintenance cost of all buildings in the composite. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classBuildingComposite_a0ac257acc8344213bbb47cb8b2baa81f}{get\+Energy\+Consumption}} () override
+\begin{DoxyCompactList}\small\item\em Calculates the total energy consumption of all buildings in the composite. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classBuildingComposite_a8a4f9b101176847f1500701932d81e46}{get\+Water\+Consumption}} () override
+\begin{DoxyCompactList}\small\item\em Calculates the total water consumption of all buildings in the composite. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBuildingComposite_aa401df71d3f26a57dc62a66ba9fa43d9}{enforce\+Policy}} (const std\+::string \&policy\+Key, const std\+::string \&new\+Value)
+\begin{DoxyCompactList}\small\item\em Enforces a policy by updating its value if valid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBuildingComposite_ae1165ddbf668af0e444906b105b811f0}\label{classBuildingComposite_ae1165ddbf668af0e444906b105b811f0}} 
+\index{BuildingComposite@{BuildingComposite}!BuildingComposite@{BuildingComposite}}
+\index{BuildingComposite@{BuildingComposite}!BuildingComposite@{BuildingComposite}}
+\doxysubsubsection{\texorpdfstring{BuildingComposite()}{BuildingComposite()}}
+{\footnotesize\ttfamily Building\+Composite\+::\+Building\+Composite (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classBuildingComposite}{Building\+Composite}} with specified parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the composite building. \\
+\hline
+{\em y} & The y-\/coordinate of the composite building. \\
+\hline
+{\em district} & The district where the composite building is located. \\
+\hline
+{\em quality} & The quality rating of the composite building. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBuildingComposite_a70d1d35a5c9ee0cd156bd3b6896ccf0c}\label{classBuildingComposite_a70d1d35a5c9ee0cd156bd3b6896ccf0c}} 
+\index{BuildingComposite@{BuildingComposite}!addBuilding@{addBuilding}}
+\index{addBuilding@{addBuilding}!BuildingComposite@{BuildingComposite}}
+\doxysubsubsection{\texorpdfstring{addBuilding()}{addBuilding()}}
+{\footnotesize\ttfamily void Building\+Composite\+::add\+Building (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{building }\end{DoxyParamCaption})}
+
+
+
+Adds a building to the composite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em building} & A shared pointer to the \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBuildingComposite_aa401df71d3f26a57dc62a66ba9fa43d9}\label{classBuildingComposite_aa401df71d3f26a57dc62a66ba9fa43d9}} 
+\index{BuildingComposite@{BuildingComposite}!enforcePolicy@{enforcePolicy}}
+\index{enforcePolicy@{enforcePolicy}!BuildingComposite@{BuildingComposite}}
+\doxysubsubsection{\texorpdfstring{enforcePolicy()}{enforcePolicy()}}
+{\footnotesize\ttfamily void Building\+Composite\+::enforce\+Policy (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{policy\+Key,  }\item[{const std\+::string \&}]{new\+Value }\end{DoxyParamCaption})}
+
+
+
+Enforces a policy by updating its value if valid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em policy\+Key} & The key of the policy to update. \\
+\hline
+{\em new\+Value} & The new value for the policy. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBuildingComposite_a5344b27a126e19192d9b1843bccefa2c}\label{classBuildingComposite_a5344b27a126e19192d9b1843bccefa2c}} 
+\index{BuildingComposite@{BuildingComposite}!getBuilding@{getBuilding}}
+\index{getBuilding@{getBuilding}!BuildingComposite@{BuildingComposite}}
+\doxysubsubsection{\texorpdfstring{getBuilding()}{getBuilding()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ Building\+Composite\+::get\+Building (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Gets a building from the composite by index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the building to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} at the specified index, or nullptr if the index is invalid. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBuildingComposite_a2dcd10d36ecd4a3e4abae9d790766d1d}\label{classBuildingComposite_a2dcd10d36ecd4a3e4abae9d790766d1d}} 
+\index{BuildingComposite@{BuildingComposite}!getCost@{getCost}}
+\index{getCost@{getCost}!BuildingComposite@{BuildingComposite}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily double Building\+Composite\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the total cost of all buildings in the composite. 
+
+\begin{DoxyReturn}{Returns}
+The total cost of all buildings. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classBuildingComponent}{Building\+Component}}.
+
+\mbox{\Hypertarget{classBuildingComposite_a0ac257acc8344213bbb47cb8b2baa81f}\label{classBuildingComposite_a0ac257acc8344213bbb47cb8b2baa81f}} 
+\index{BuildingComposite@{BuildingComposite}!getEnergyConsumption@{getEnergyConsumption}}
+\index{getEnergyConsumption@{getEnergyConsumption}!BuildingComposite@{BuildingComposite}}
+\doxysubsubsection{\texorpdfstring{getEnergyConsumption()}{getEnergyConsumption()}}
+{\footnotesize\ttfamily double Building\+Composite\+::get\+Energy\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the total energy consumption of all buildings in the composite. 
+
+\begin{DoxyReturn}{Returns}
+The total energy consumption of all buildings. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classBuildingComponent}{Building\+Component}}.
+
+\mbox{\Hypertarget{classBuildingComposite_a14c11a661ff5eeac8ca1e8b39b9e013f}\label{classBuildingComposite_a14c11a661ff5eeac8ca1e8b39b9e013f}} 
+\index{BuildingComposite@{BuildingComposite}!getMaintenanceCost@{getMaintenanceCost}}
+\index{getMaintenanceCost@{getMaintenanceCost}!BuildingComposite@{BuildingComposite}}
+\doxysubsubsection{\texorpdfstring{getMaintenanceCost()}{getMaintenanceCost()}}
+{\footnotesize\ttfamily double Building\+Composite\+::get\+Maintenance\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the total maintenance cost of all buildings in the composite. 
+
+\begin{DoxyReturn}{Returns}
+The total maintenance cost of all buildings. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classBuildingComponent}{Building\+Component}}.
+
+\mbox{\Hypertarget{classBuildingComposite_a8a4f9b101176847f1500701932d81e46}\label{classBuildingComposite_a8a4f9b101176847f1500701932d81e46}} 
+\index{BuildingComposite@{BuildingComposite}!getWaterConsumption@{getWaterConsumption}}
+\index{getWaterConsumption@{getWaterConsumption}!BuildingComposite@{BuildingComposite}}
+\doxysubsubsection{\texorpdfstring{getWaterConsumption()}{getWaterConsumption()}}
+{\footnotesize\ttfamily double Building\+Composite\+::get\+Water\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the total water consumption of all buildings in the composite. 
+
+\begin{DoxyReturn}{Returns}
+The total water consumption of all buildings. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classBuildingComponent}{Building\+Component}}.
+
+\mbox{\Hypertarget{classBuildingComposite_a8568a523b0f799794d0c048c5f9f25d6}\label{classBuildingComposite_a8568a523b0f799794d0c048c5f9f25d6}} 
+\index{BuildingComposite@{BuildingComposite}!removeBuilding@{removeBuilding}}
+\index{removeBuilding@{removeBuilding}!BuildingComposite@{BuildingComposite}}
+\doxysubsubsection{\texorpdfstring{removeBuilding()}{removeBuilding()}}
+{\footnotesize\ttfamily void Building\+Composite\+::remove\+Building (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{building }\end{DoxyParamCaption})}
+
+
+
+Removes a building from the composite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em building} & A shared pointer to the \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} to remove. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Building\+Composite.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Building\+Composite.\+cpp\end{DoxyCompactItemize}

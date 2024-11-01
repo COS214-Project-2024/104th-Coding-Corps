@@ -1,0 +1,42 @@
+digraph "BuildingComponent"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="BuildingComponent",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="BuildingComposite",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classBuildingComposite.html",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="CommercialBuildings",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classCommercialBuildings.html",tooltip=" "];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Mall",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMall.html",tooltip=" "];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Office",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classOffice.html",tooltip=" "];
+  Node3 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Shop",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classShop.html",tooltip=" "];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="IndustrialBuildings",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classIndustrialBuildings.html",tooltip=" "];
+  Node7 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Warehouse",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classWarehouse.html",tooltip=" "];
+  Node7 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="factory",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classfactory.html",tooltip=" "];
+  Node7 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="plant",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classplant.html",tooltip=" "];
+  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="ResidentialBuildings",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classResidentialBuildings.html",tooltip=" "];
+  Node11 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="Estate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classEstate.html",tooltip=" "];
+  Node11 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="Flat",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classFlat.html",tooltip=" "];
+  Node11 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="House",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHouse.html",tooltip=" "];
+  Node1 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 [label="ServiceBuildings",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classServiceBuildings.html",tooltip=" "];
+  Node15 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 [label="Hospital",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHospital.html",tooltip=" "];
+  Node15 -> Node17 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node17 [label="School",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSchool.html",tooltip=" "];
+  Node15 -> Node18 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node18 [label="University",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classUniversity.html",tooltip=" "];
+}

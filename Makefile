@@ -16,7 +16,7 @@ TESTS = $(wildcard $(TEST_DIR)/test_*.cpp)
 TEST_OBJS = $(TESTS:$(TEST_DIR)/%.o)
 
 # Test executables
-TEST_EXECUTABLES = test_Government test_Citizen test_BuildingFactory test_BuildingComponents test_Transport
+TEST_EXECUTABLES = test_Government test_Citizen test_BuildingFactory test_BuildingComponents test_Transport	test_Budget_Resources
 
 # Default target
 .PHONY: all clean
@@ -47,6 +47,9 @@ test_BuildingComponents: $(BUILD_DIR)/test_BuildingComponents.o $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
 test_Transport: $(BUILD_DIR)/test_Transport.o $(OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@
+
+test_Budget_Resources: $(BUILD_DIR)/test_Budget_Resources.o $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
 # Target to build and run only test_Transport
