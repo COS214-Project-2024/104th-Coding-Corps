@@ -444,3 +444,36 @@ std::shared_ptr<BuildingComponent> CityContext::findNearestBuilding(int citizenI
 double CityContext::calculateDistance(int w, int x, int y, int z) {
     return std::sqrt((y - w)*(y - w) + (z - x)*(z - x));
 }
+
+
+/**
+ * @brief Enforces a policy by updating its value if valid.
+ * 
+ * @param policyKey The key of the policy to update.
+ * @param newValue The new value for the policy.
+ */
+void CityContext::enforcePolicy(const std::string& policyKey, const std::string& newValue) {
+    // Check if the policyKey exists in the policies map
+    auto it = policies.find(policyKey);
+    if (it != policies.end()) {
+        // Validate the newValue against allowed values
+        auto allowedIt = allowedValues.find(policyKey);
+        if (allowedIt != allowedValues.end()) {
+            const auto& allowedOptions = allowedIt->second;
+            if (std::find(allowedOptions.begin(), allowedOptions.end(), newValue) != allowedOptions.end()) {
+                // Update the policy if newValue is valid
+                it->second = newValue;
+                std::cout << "Policy '" << policyKey << "' updated to: " << newValue << std::endl;
+            } else {
+                // Invalid newValue for the policy
+                std::cerr << "Invalid value '" << newValue << "' for policy '" << policyKey << "'. Update failed." << std::endl;
+            }
+        } else {
+            // Policy key has no allowed values defined
+            std::cerr << "Policy '" << policyKey << "' has no predefined allowed values. Update failed." << std::endl;
+        }
+    } else {
+        // Policy key not found in existing policies
+        std::cerr << "Policy '" << policyKey << "' not found. Update failed." << std::endl;
+    }
+}

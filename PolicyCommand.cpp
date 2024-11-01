@@ -2,11 +2,11 @@
 
 /**
  * @brief Constructs a PolicyCommand with a specified building and policy type.
- * @param b Pointer to the BuildingComposite on which the policy will be enforced.
+ * @param b Pointer to the CityContext on which the policy will be enforced.
  * @param policy The type of policy to enforce.
  */
-PolicyCommand::PolicyCommand(std::shared_ptr<BuildingComposite> district, std::shared_ptr<Government> government, const std::string& policyType, const std::string& updatedValue)
-        : district(std::move(district)), government(std::move(government)), policyType(policyType), updatedValue(updatedValue) {}
+PolicyCommand::PolicyCommand(std::shared_ptr<CityContext> policies, std::shared_ptr<Government> government, const std::string& policyType, const std::string& updatedValue)
+        : policies(std::move(policies)), government(std::move(government)), policyType(policyType), updatedValue(updatedValue) {}
 
 /**
  * @brief Executes the policy command, enforcing the specified policy on the building.
@@ -14,7 +14,7 @@ PolicyCommand::PolicyCommand(std::shared_ptr<BuildingComposite> district, std::s
  */
 void PolicyCommand::execute() {
     // Update policy in BuildingComposite
-    district->enforcePolicy(policyType, updatedValue);
+    policies->enforcePolicy(policyType, updatedValue);
 
     // If the policy being updated is "tax rate", update it in Government
     if (policyType == "tax rate") {
