@@ -25,6 +25,14 @@ public:
     void chooseStrategy(double distance, bool isCongested);
     void travel(std::shared_ptr<BuildingComponent> from, std::shared_ptr<BuildingComponent> to);
     void completeTravel(std::shared_ptr<BuildingComponent> from, std::shared_ptr<BuildingComponent> to, double commuteTime, const std::string& mode);
+
+    std::shared_ptr<TransportStrategy> getCurrentStrategy() const {
+        return currentStrategy;
+    }
+
+      std::shared_ptr<TrafficManager> getTrafficManager() const{
+        return trafficManager;
+      }
 };
 
 #endif
