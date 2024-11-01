@@ -9,15 +9,16 @@ int Citizen::nextID = 10000000; // static ID counter for citizenID
  * @param transportContext Shared pointer to the Transport system for managing citizen travel between locations.
  * @param government Shared pointer to the Government for administrative access and regulatory updates.
 */
-std::shared_ptr<Citizen> Citizen::createCitizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Transport> transportContext, std::shared_ptr<Government> government){
-
+std::shared_ptr<Citizen> Citizen::createCitizen(
+    std::shared_ptr<CityContext> cityContext, 
+    std::shared_ptr<Transport> transportContext, 
+    std::shared_ptr<Government> government
+) {
     auto citizen = std::make_shared<Citizen>(cityContext, transportContext, government);
-    
-    citizen->initialize(); 
-
+    //citizen->initialize(citizen);  // Pass the shared pointer directly
     return citizen;
-
 }
+
 
 /**
 * @brief Constructs a Citizen with a unique ID, initial education level, and assigned job and residence.
@@ -99,20 +100,21 @@ Citizen::Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Trans
 
 /**
  * @brief Function to initialize aspects of citizen that can't be done in constructor
+ * @param self A shared pointer to this citizen instance.
  */
-void Citizen::initialize(){
+void Citizen::initialize() {
     // Register citizen with the city context
-     cityContext->attach(shared_from_this());
+    //cityContext->attach(self);
 
     // Assign nearest residence based on class type
-    auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Estate");
+    auto nearestResidential = cityContext->findNearestBuilding(citizenID, "Estate");
 
     if(classType == "middle" || nearestResidential == nullptr) {
-        nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "House");
+        nearestResidential = cityContext->findNearestBuilding(citizenID, "House");
     }
 
     if(classType == "lower" || nearestResidential == nullptr) {
-        nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Flat");
+        nearestResidential = cityContext->findNearestBuilding(citizenID, "Flat");
     }
 
     // Update satisfaction and standard of living based on residence availability
@@ -123,6 +125,7 @@ void Citizen::initialize(){
         updateASoL(nearestResidential->getQuality());
     }
 }
+
 
 
 /** 
@@ -228,6 +231,13 @@ int Citizen::getY() const {
  */
 std::string Citizen::getDistrict() const {
     return district;
+}
+
+/**
+ * @brief sets the Citizen's district variable
+*/
+void Citizen::setDistrict(std::string d){
+    this->district = d;
 }
 
 /** 
@@ -441,13 +451,13 @@ void Citizen::goToWork() {
         return;
     }
 
-    auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Flat");
+    auto nearestResidential = cityContext->findNearestBuilding(citizenID, "Flat");
 
     if(classType == "middle"){
-        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "House");
+        auto nearestResidential = cityContext->findNearestBuilding(citizenID, "House");
     }
     else if(classType == "upper"){
-        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Estate");
+        auto nearestResidential = cityContext->findNearestBuilding(citizenID, "Estate");
     }
 
     if (!nearestResidential) {
@@ -456,7 +466,7 @@ void Citizen::goToWork() {
     return;
     }
 
-    auto nearestWorkplace = cityContext->findNearestBuilding(shared_from_this(), "Office");
+    auto nearestWorkplace = cityContext->findNearestBuilding(citizenID, "Office");
 
     if (!nearestWorkplace) {
         std::cout << "No workplace available in district for Citizen ID " << citizenID << "." << std::endl;
@@ -479,13 +489,13 @@ void Citizen::goToShops() {
     return;
    }
 
-     auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Flat");
+     auto nearestResidential = cityContext->findNearestBuilding(citizenID, "Flat");
 
     if(classType == "middle"){
-        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "House");
+        auto nearestResidential = cityContext->findNearestBuilding(citizenID, "House");
     }
     else if(classType == "upper"){
-        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Estate");
+        auto nearestResidential = cityContext->findNearestBuilding(citizenID, "Estate");
     }
 
     if (!nearestResidential) {
@@ -495,8 +505,8 @@ void Citizen::goToShops() {
     }
 
     // Find the nearest shop within the same district
-    auto nearestShop = cityContext->findNearestBuilding(shared_from_this(), "Mall");
-    if(!nearestShop){ nearestShop = cityContext->findNearestBuilding(shared_from_this(), "Shop");}
+    auto nearestShop = cityContext->findNearestBuilding(citizenID, "Mall");
+    if(!nearestShop){ nearestShop = cityContext->findNearestBuilding(citizenID, "Shop");}
 
     if (!nearestShop) {
         std::cout << "No shop available in district for Citizen ID " << citizenID << "." << std::endl;
@@ -526,19 +536,19 @@ void Citizen::goToShops() {
  */
 void Citizen::getSchooled() {
     // Locate nearest school within the citizen's district using Transport class
-    auto nearestSchool = cityContext->findNearestBuilding(shared_from_this(), "School");
+    auto nearestSchool = cityContext->findNearestBuilding(citizenID, "School");
     if (!nearestSchool) {
         std::cout << "No school available in district!" << std::endl;
         return;
     }
 
-    auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Flat");
+    auto nearestResidential = cityContext->findNearestBuilding(citizenID, "Flat");
 
     if(classType == "middle"){
-        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "House");
+        auto nearestResidential = cityContext->findNearestBuilding(citizenID, "House");
     }
     else if(classType == "upper"){
-        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Estate");
+        auto nearestResidential = cityContext->findNearestBuilding(citizenID, "Estate");
     }
     if (!nearestResidential) {
     std::cout << "No residential available in district for Citizen ID " << citizenID << "." << std::endl;
@@ -584,7 +594,7 @@ void Citizen::getEducated() {
     if(educationLevel == 0){
         return; //cannot attend university before attending school
     } else if (educationLevel == 1 || educationLevel == 2) {
-        institution = cityContext->findNearestBuilding(shared_from_this(), "University");
+        institution = cityContext->findNearestBuilding(citizenID, "University");
     }
 
     // Check if the educational institution is available
@@ -593,13 +603,13 @@ void Citizen::getEducated() {
         return;
     }
 
-     auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Flat");
+     auto nearestResidential = cityContext->findNearestBuilding(citizenID, "Flat");
 
     if(classType == "middle"){
-        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "House");
+        auto nearestResidential = cityContext->findNearestBuilding(citizenID, "House");
     }
     else if(classType == "upper"){
-        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Estate");
+        auto nearestResidential = cityContext->findNearestBuilding(citizenID, "Estate");
     }
     if (!nearestResidential) {
     std::cout << "No residential available in district for Citizen ID " << citizenID << "." << std::endl;
@@ -642,13 +652,13 @@ void Citizen::getEducated() {
  */
 void Citizen::getHealed() {
 
-    auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Flat");
+    auto nearestResidential = cityContext->findNearestBuilding(citizenID, "Flat");
 
     if(classType == "middle"){
-        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "House");
+        auto nearestResidential = cityContext->findNearestBuilding(citizenID, "House");
     }
     else if(classType == "upper"){
-        auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Estate");
+        auto nearestResidential = cityContext->findNearestBuilding(citizenID, "Estate");
     }
     if (!nearestResidential) {
     std::cout << "No residential available in district for Citizen ID " << citizenID << "." << std::endl;
@@ -658,7 +668,7 @@ void Citizen::getHealed() {
 
 
     // Find the nearest hospital within the citizen's district
-    auto nearestHospital = cityContext->findNearestBuilding(shared_from_this(), "Hospital");
+    auto nearestHospital = cityContext->findNearestBuilding(citizenID, "Hospital");
 
     if (!nearestHospital) {
         std::cout << "No hospital available in district for Citizen ID " << citizenID << "." << std::endl;

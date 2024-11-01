@@ -389,8 +389,15 @@ void CityContext::setSavePoint(std::shared_ptr<SavePoint> savePoint) {
  * @param buildingType Type of building to search for (e.g., "House", "Shop").
  * @return Shared pointer to the nearest building of the specified type.
  */
-std::shared_ptr<BuildingComponent> CityContext::findNearestBuilding(const std::shared_ptr<Citizen>& citizen, const std::string& buildingType) {
-        
+std::shared_ptr<BuildingComponent> CityContext::findNearestBuilding(int citizenID, const std::string& buildingType) {
+    // Retrieve the citizen from the population map using citizenID
+    auto it = population.find(citizenID);
+    if (it == population.end()) {
+        std::cerr << "Citizen with ID " << citizenID << " not found." << std::endl;
+        return nullptr;  // Return nullptr if citizen is not found
+    }
+
+    auto citizen = it->second;  // Get the citizen object
     std::string targetDistrict = citizen->getDistrict();  // Get the citizen's district
     std::shared_ptr<BuildingComponent> nearestBuilding = nullptr;
     double minDistance = std::numeric_limits<double>::max();
@@ -398,26 +405,33 @@ std::shared_ptr<BuildingComponent> CityContext::findNearestBuilding(const std::s
     for (const auto& building : buildings) {
         // Check if building is of the requested type and in the same district
         if (building->getBuildingType() == buildingType) {
-            double distance = calculateDistance(citizen->getX(), citizen->getY(),building->getX(), building->getY());
+            double distance = calculateDistance(citizen->getX(), citizen->getY(), building->getX(), building->getY());
             if (distance < minDistance) {
                 minDistance = distance;
                 nearestBuilding = building;
-                }
             }
         }
+    }
 
-        if(nearestBuilding->getDistrict() != targetDistrict){
-            citizen->updateSatisfaction(-3); //no building in citizen's district
-        }
-        else{
+    // Update citizen's satisfaction and location based on nearest building found
+    if (nearestBuilding) {
+        if (nearestBuilding->getDistrict() != targetDistrict) {
+            citizen->updateSatisfaction(-3); // No building in citizen's district
+        } else {
             citizen->updateSatisfaction(2);
+        }
+
+        if(citizen->getDistrict() == "-"){
+            citizen->setDistrict(nearestBuilding->getDistrict());
         }
 
         citizen->setX(nearestBuilding->getX());
         citizen->setY(nearestBuilding->getY());
+    }
 
-        return nearestBuilding;  // Returns nullptr if no building of the specified type is found
+    return nearestBuilding;  // Returns nullptr if no building of the specified type is found
 }
+
 
 /**
  * @brief Calculates the Euclidean distance between two points.

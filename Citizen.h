@@ -33,7 +33,7 @@ private:
 
 public:
     //-----Citizen stuff-----//
-    std::shared_ptr<Citizen> createCitizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Transport> transportContext, std::shared_ptr<Government> government);
+    static std::shared_ptr<Citizen> createCitizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Transport> transportContext, std::shared_ptr<Government> government);
     Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Transport> transportContext, std::shared_ptr<Government> government);
     void initialize();
     ~Citizen() override;
@@ -53,6 +53,7 @@ public:
     void setX(int x);
     void setY(int y);
     std::string getDistrict() const;
+    void setDistrict(std::string district);
 
     // Updates
     void updateEmployment();

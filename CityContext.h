@@ -78,7 +78,7 @@ public:
 
 
 //Other
-    std::shared_ptr<BuildingComponent> findNearestBuilding(const std::shared_ptr<Citizen>& citizen, const std::string& buildingType);
+    std::shared_ptr<BuildingComponent> findNearestBuilding(int citizenID, const std::string& buildingType);
     double calculateDistance(int x1, int y1, int x2, int y2);
 };
 
