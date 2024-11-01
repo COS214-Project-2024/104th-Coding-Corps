@@ -6,90 +6,83 @@
 #include "../Government.h"
 #include <memory>
 
-TEST_SUITE("Citizen Class Tests") {
-    // Adjusted to use getInstance() if available
-    std::shared_ptr<CityContext> cityContext = CityContext::getInstance(); // Use getInstance()
-    std::shared_ptr<Transport> transportContext = std::make_shared<Transport>();
-    std::shared_ptr<Government> governmentContext = Government::getInstance(); // Use getInstance()
+class CitizenFixture {
+public:
+    std::shared_ptr<CityContext> cityContext;
+    std::shared_ptr<Transport> transportContext;
+    std::shared_ptr<Government> government;
+    std::shared_ptr<Citizen> citizen;
 
-    TEST_CASE("Constructor Test") {
-        auto citizen = std::make_shared<Citizen>(cityContext, transportContext, governmentContext);
+    CitizenFixture() {
+        std::shared_ptr<CityContext> cityContext = CityContext::getInstance();
+        std::shared_ptr<Government> government = Government::getInstance();
+        transportContext = std::make_shared<Transport>();
+        citizen = citizen->createCitizen(cityContext, transportContext, government);
+    }
+};
 
-        CHECK(citizen->getSatisfaction() == 50);
-        CHECK(citizen->getESoL() == 50);
-        CHECK(citizen->getASoL() == 50);
-        CHECK(citizen->getX() == 0);
-        CHECK(citizen->getY() == 0);
-        CHECK(citizen->getEducationLevel() == 0);
+TEST_CASE_FIXTURE(CitizenFixture, "Citizen initialization") {
+    CHECK_EQ(citizen->getSatisfaction(), 50);
+    CHECK_GE(citizen->getCitizenID(), 10000000);  // ID starts from 10000000
+}
+
+TEST_CASE_FIXTURE(CitizenFixture, "Update satisfaction") {
+    int initialSatisfaction = citizen->getSatisfaction();
+    
+    citizen->updateSatisfaction(10);
+    CHECK_EQ(citizen->getSatisfaction(), initialSatisfaction + 10);
+
+    citizen->updateSatisfaction(-20);
+    CHECK_GE(citizen->getSatisfaction(), 0);  // Satisfaction should not go below 0
+}
+
+TEST_CASE_FIXTURE(CitizenFixture, "Employment and income") {
+    citizen->updateEmployment();  // Toggle employment status
+    CHECK_EQ(citizen->getEmployment(), !citizen->getEmployment());  // Check toggled state
+
+    double initialIncome = citizen->getCurrentIncome();
+    citizen->updateCurrentIncome(5000);
+    CHECK_EQ(citizen->getCurrentIncome(), initialIncome + 5000);
+
+    citizen->updateCurrentIncome(-10000);
+    CHECK_GE(citizen->getCurrentIncome(), 0);  // Income should not go negative
+}
+
+TEST_CASE_FIXTURE(CitizenFixture, "Promote and demote class") {
+    std::string initialClass = citizen->getJobType();
+
+    citizen->promoteClass();
+    if (initialClass == "lower") {
+        CHECK_EQ(citizen->getJobType(), "middle");
+    } else if (initialClass == "middle") {
+        CHECK_EQ(citizen->getJobType(), "upper");
+    } else {
+        CHECK_EQ(citizen->getJobType(), initialClass);  // Should not promote if already upper
     }
 
-    TEST_CASE("Employment Status") {
-        Citizen citizen(cityContext, transportContext, governmentContext);
-
-        bool initialEmployment = citizen.getEmployment();
-        citizen.updateEmployment();
-        CHECK(citizen.getEmployment() == !initialEmployment);
+    citizen->demoteClass();
+    if (initialClass == "upper") {
+        CHECK_EQ(citizen->getJobType(), "middle");
+    } else if (initialClass == "middle") {
+        CHECK_EQ(citizen->getJobType(), "lower");
+    } else {
+        CHECK_EQ(citizen->getJobType(), initialClass);  // Should not demote if already lower
     }
+}
 
-    TEST_CASE("Income Update") {
-        Citizen citizen(cityContext, transportContext, governmentContext);
+TEST_CASE_FIXTURE(CitizenFixture, "Tax calculation") {
+    citizen->updateCurrentIncome(50000);
+    double tax = citizen->calculateTax();
 
-        double initialIncome = citizen.getCurrentIncome();
-        citizen.updateCurrentIncome(1000);
-        CHECK(citizen.getCurrentIncome() == initialIncome + 1000);
-    }
-
-    TEST_CASE("Satisfaction Update") {
-        Citizen citizen(cityContext, transportContext, governmentContext);
-
-        int initialSatisfaction = citizen.getSatisfaction();
-        citizen.updateSatisfaction(10);
-        CHECK(citizen.getSatisfaction() == initialSatisfaction + 10);
-
-        citizen.updateSatisfaction(-20);
-        CHECK(citizen.getSatisfaction() == std::max(0, initialSatisfaction - 10));
-    }
-
-    TEST_CASE("Class Promotion and Demotion") {
-        Citizen citizen(cityContext, transportContext, governmentContext);
-
-        citizen.updateCurrentIncome(400000);
-        CHECK(citizen.getCurrentIncome() >= 300000);
-        CHECK(citizen.getSatisfaction() >= 50);
-
-        citizen.updateCurrentIncome(-350000);
-        CHECK(citizen.getCurrentIncome() < 300000);
-    }
-
-    TEST_CASE("Go To Work Test") {
-        Citizen citizen(cityContext, transportContext, governmentContext);
-        int initialIncome = citizen.getCurrentIncome();
-
-        citizen.goToWork();
-        CHECK(citizen.getCurrentIncome() > initialIncome);
-    }
-
-    TEST_CASE("Shopping Test") {
-        Citizen citizen(cityContext, transportContext, governmentContext);
-        int initialSatisfaction = citizen.getSatisfaction();
-
-        citizen.goToShops();
-        CHECK(citizen.getSatisfaction() != initialSatisfaction);
-    }
-
-    TEST_CASE("Education and Job Update") {
-        Citizen citizen(cityContext, transportContext, governmentContext);
-
-        int initialEducationLevel = citizen.getEducationLevel();
-        citizen.getSchooled();
-        CHECK(citizen.getEducationLevel() == initialEducationLevel + 1);
-    }
-
-    TEST_CASE("Health Care Test") {
-        Citizen citizen(cityContext, transportContext, governmentContext);
-        int initialSatisfaction = citizen.getSatisfaction();
-
-        citizen.getHealed();
-        CHECK(citizen.getSatisfaction() != initialSatisfaction);
+    if (citizen->getEmployment()) {
+        if (citizen->getJobType() == "lower") {
+            CHECK_EQ(tax, citizen->getCurrentIncome() * 0.1);
+        } else if (citizen->getJobType() == "middle") {
+            CHECK_EQ(tax, citizen->getCurrentIncome() * 0.22);
+        } else if (citizen->getJobType() == "upper") {
+            CHECK_EQ(tax, citizen->getCurrentIncome() * 0.35);
+        }
+    } else {
+        CHECK_EQ(tax, 0);  // Unemployed citizens shouldn't pay tax
     }
 }

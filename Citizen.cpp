@@ -4,6 +4,22 @@
 int Citizen::nextID = 10000000; // static ID counter for citizenID
 
 /**
+ * @brief Helper function to create citizen objects using the constructor and initialize
+ * @param cityContext Shared pointer to the CityContext for access to city-wide resources and citizen registration.
+ * @param transportContext Shared pointer to the Transport system for managing citizen travel between locations.
+ * @param government Shared pointer to the Government for administrative access and regulatory updates.
+*/
+std::shared_ptr<Citizen> Citizen::createCitizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Transport> transportContext, std::shared_ptr<Government> government){
+
+    auto citizen = std::make_shared<Citizen>(cityContext, transportContext, government);
+    
+    citizen->initialize(); 
+
+    return citizen;
+
+}
+
+/**
 * @brief Constructs a Citizen with a unique ID, initial education level, and assigned job and residence.
  * 
  * Initializes a citizen with attributes such as class type, job type, employment status, and financial metrics.
@@ -70,9 +86,23 @@ Citizen::Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Trans
     }
 
     expectedStandardOfLiving = (classType == "upper") ? 80 : (classType == "middle") ? 50 : 30;
+   
 
+    // Debug print
+    std::cout << "Citizen created with ID: " << citizenID << ", Class: " << classType
+              << ", Job: " << jobType << ", Education Level: " << educationLevel
+              << ", Income: " << currentIncome << ", Monthly Expenditure: " << monthlyExpenditure
+              << ", Employed: " << employed << ", Expected SoL: " << expectedStandardOfLiving
+              << ", Actual SoL: " << actualStandardOfLiving << std::endl;
+
+}
+
+/**
+ * @brief Function to initialize aspects of citizen that can't be done in constructor
+ */
+void Citizen::initialize(){
     // Register citizen with the city context
-    cityContext->attach(shared_from_this());
+     cityContext->attach(shared_from_this());
 
     // Assign nearest residence based on class type
     auto nearestResidential = cityContext->findNearestBuilding(shared_from_this(), "Estate");
@@ -92,13 +122,6 @@ Citizen::Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Trans
     } else {
         updateASoL(nearestResidential->getQuality());
     }
-
-    // Debug print
-    std::cout << "Citizen created with ID: " << citizenID << ", Class: " << classType
-              << ", Job: " << jobType << ", Education Level: " << educationLevel
-              << ", Income: " << currentIncome << ", Monthly Expenditure: " << monthlyExpenditure
-              << ", Employed: " << employed << ", Expected SoL: " << expectedStandardOfLiving
-              << ", Actual SoL: " << actualStandardOfLiving << std::endl;
 }
 
 

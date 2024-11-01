@@ -33,7 +33,9 @@ private:
 
 public:
     //-----Citizen stuff-----//
+    std::shared_ptr<Citizen> createCitizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Transport> transportContext, std::shared_ptr<Government> government);
     Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Transport> transportContext, std::shared_ptr<Government> government);
+    void initialize();
     ~Citizen() override;
 
     // Getters and setters

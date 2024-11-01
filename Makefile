@@ -1,6 +1,6 @@
 # Compiler and flags
 CXX = g++
-CXXFLAGS = -std=c++17 -I./
+CXXFLAGS = -std=c++17 -g -I./  # Add -g for debugging
 
 # Directories
 SRC_DIR = .
@@ -16,8 +16,7 @@ TESTS = $(wildcard $(TEST_DIR)/test_*.cpp)
 TEST_OBJS = $(TESTS:$(TEST_DIR)/%.cpp=$(BUILD_DIR)/%.o)
 
 # Test executables
-
-TEST_EXECUTABLES = test_Government test_Citizen test_BuildingFactory test_BuildingComponents test_Utilities	test_Budget_Resources test_Transport
+TEST_EXECUTABLES = test_Government test_Citizen test_BuildingFactory test_BuildingComponents test_CityContext test_Transport test_Utilities test_Budget_Resources
 
 # Default target
 .PHONY: all clean
@@ -50,6 +49,8 @@ test_BuildingComponents: $(BUILD_DIR)/test_BuildingComponents.o $(OBJS)
 test_Budget_Resources: $(BUILD_DIR)/test_Budget_Resources.o $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
+test_CityContext: $(BUILD_DIR)/test_CityContext.o $(OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 test_Utilities: $(BUILD_DIR)/test_Utilities.o $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
