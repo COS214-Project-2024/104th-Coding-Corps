@@ -3,7 +3,7 @@
 #include <iomanip>
 
 GameEngine::GameEngine() 
-    : budget(1000000) {
+    : budget(10000000) {
     // Initialize CityContext and other subsystem components
     cityContext = CityContext::getInstance();
     buildingFactory = std::make_unique<BuildingFactory>();
@@ -29,24 +29,54 @@ void GameEngine::displayMenu() {
     std::cout << "1. Create Buildings\n";
     std::cout << "2. Create Utility Buildings\n";
     std::cout << "3. Change Tax Policy\n";
-    std::cout << "4. Introduce New Transport\n";
+    std::cout << "4. View Game Index\n";
     std::cout << "5. Start the Game Simulation\n";
     std::cout << "6. View City Summary\n";
     std::cout << "7. Exit Game\n";
     std::cout << "Select an option (1-7): ";
 }
 
-void GameEngine::createBuilding(const std::string& type) {
+void GameEngine::createBuilding(const std::string& type, std::string district) {
     double cost = 0;
 
     // Example of creating buildings based on type
     if (type == "Flat") {
-        cost = 50000;
+        cost = 1595000.00;
         if (budget >= cost) {
-            auto flat = buildingFactory->createFlat(4, 4, 2, true);
+            auto flat = buildingFactory->createFlat(20, 50, 4, true, district, 50);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(flat));
             budget -= cost;
             std::cout << "Flat created. New Budget: $" << budget << "\n";
+        } else {
+            std::cout << "Insufficient budget.\n";
+        }
+    } else if (type == "House") {
+        cost = 7000000;
+        if (budget >= cost) {
+            auto house = buildingFactory->createHouse(2, true, 4, 2, true, district, 50);
+            cityContext->addBuilding(std::shared_ptr<BuildingComponent>(house));
+            budget -= cost;
+            std::cout << "House created. New Budget: $" << budget << "\n";
+        } else {
+            std::cout << "Insufficient budget.\n";
+        }
+    } else if (type == "Estate") {
+        cost = 3000000;
+        if (budget >= cost) {
+            auto estate = buildingFactory->createEstate(2, true, 4, 2, true, 10, district, 50);
+            cityContext->addBuilding(std::shared_ptr<BuildingComponent>(estate));
+            budget -= cost;
+            std::cout << "Estate created. New Budget: $" << budget << "\n";
+        } else {
+            std::cout << "Insufficient budget.\n";
+        }
+    } else if (type == "Factory") {
+        cost = 150000000;
+        if (budget >= cost) {
+            auto estate = buildingFactory->createFactory(0, 0, district, 50, 50, );
+            cityContext->addBuilding(std::shared_ptr<BuildingComponent>(estate));
+            budget -= cost;
+            std::cout << "Estate created. New Budget: $" << budget << "\n";
         } else {
             std::cout << "Insufficient budget.\n";
         }
