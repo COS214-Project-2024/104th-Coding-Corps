@@ -102,6 +102,21 @@ void Family::resolveStrike() {
     }
 }
 
+/**
+ * @brief Gets the district where the citizen resides.
+ * @return char The district identifier for the citizen.
+ */
+std::string Family::getDistrict() const {
+    return district;
+}
+
+/**
+ * @brief sets the Citizen's district variable
+*/
+void Family::setDistrict(std::string d){
+    this->district = d;
+}
+
 /** 
  * @brief Moves the family to a new district.
  * @param district Name of the new district.

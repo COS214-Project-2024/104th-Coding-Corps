@@ -37,10 +37,14 @@ CityContext::~CityContext() {
  * @param citizen Shared pointer to the citizen to attach.
  */
 void CityContext::attach(std::shared_ptr<Citizen> citizen) {
-    int id = citizen->getCitizenID();
-    population[id] = citizen;
+    auto it = population.find(citizen->getCitizenID());
+    if (it == population.end()) {//if not found then add
+         int id = citizen->getCitizenID();
+        population[id] = citizen;
     calculateAverages();
+        }
 }
+   
 
 /** 
  * @brief Detaches a citizen from the city's population.
@@ -475,5 +479,21 @@ void CityContext::enforcePolicy(const std::string& policyKey, const std::string&
     } else {
         // Policy key not found in existing policies
         std::cerr << "Policy '" << policyKey << "' not found. Update failed." << std::endl;
+    }
+}
+
+/**
+ * @brief Retrieves the current value of a specific policy.
+ * 
+ * @param policyKey The key of the policy to retrieve.
+ * @return The current value of the policy if it exists; an empty string if not found.
+ */
+std::string CityContext::getPolicyValue(const std::string& policyKey) const {
+    auto it = policies.find(policyKey);
+    if (it != policies.end()) {
+        return it->second;  // Return the current value of the policy if found
+    } else {
+        std::cerr << "Policy '" << policyKey << "' not found." << std::endl;
+        return "";  // Return an empty string if the policy is not found
     }
 }

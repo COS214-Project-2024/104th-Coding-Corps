@@ -25,6 +25,8 @@ public:
     int getESoL() const override;
     int getASoL() const override;
     double getCurrentIncome() const override;
+    std::string getDistrict() const;
+    void setDistrict(std::string district);
     
     void goOnStrike() override;
     void resolveStrike() override;

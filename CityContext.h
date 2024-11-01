@@ -30,7 +30,7 @@ private:
     std::map<int, std::shared_ptr<Citizen>> population;
     std::vector<std::shared_ptr<BuildingComponent>> buildings;
     std::vector<std::shared_ptr<Utilities>> utilities;
-    std::shared_ptr<Government> government;             
+    std::shared_ptr<Government> government;           
 
     CityContext();
     CityContext(const CityContext&) = delete;
@@ -100,6 +100,7 @@ public:
     std::shared_ptr<BuildingComponent> findNearestBuilding(int citizenID, const std::string& buildingType);
     double calculateDistance(int x1, int y1, int x2, int y2);
 	void enforcePolicy(const std::string& policyKey, const std::string& newValue);
+    std::string getPolicyValue(const std::string& policyKey) const;
 };
 
 #endif // CITYCONTEXT_H
