@@ -98,3 +98,20 @@ double BuildingComposite::getMaintenanceCost() {
     }
     return totalMaintenanceCost;
 }
+
+
+/**
+ * @brief Finds a building in the composite by its type.
+ * 
+ * @param type The type of the building to find (as a string).
+ * @return A shared pointer to the BuildingComponent if found, nullptr otherwise.
+ */
+std::shared_ptr<BuildingComponent> BuildingComposite::findBuilding(const std::string& type) {
+    for (const auto& building : buildings) {
+        // Assuming BuildingComponent has a method to get its type
+        if (building->getType() == type) { 
+            return building; // Return the found building
+        }
+    }
+    return nullptr; // Return nullptr if no matching building is found
+}

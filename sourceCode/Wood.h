@@ -7,7 +7,7 @@
 
 class Wood : public Resource {
 public:
-    Wood(int quantity) : Resource(quantity) {}
+    Wood(int quantity, double costPerUnit) : Resource(quantity,costPerUnit) {}
 
     std::string getName() override;
 };

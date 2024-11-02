@@ -34,22 +34,26 @@ int main() {
                 break;
 
             case 3:
-                game.changeTaxPolicy();
+                game.upgradeBuilding();
                 break;
 
             case 4:
-                game.viewGamIndex();
+                game.changeTaxPolicy();
                 break;
 
             case 5:
-                game.startSimulation();
+                game.viewGamIndex();
                 break;
 
             case 6:
-                game.displayCitySummary();
+                game.startSimulation();
                 break;
 
             case 7:
+                game.displayCitySummary();
+                break;
+
+            case 8:
                 std::cout << "Exiting game.\n";
                 return 0;
 

@@ -39,6 +39,9 @@ public:
 	void demolish() {};
 	void upgrade(std::shared_ptr<BuildingComponent> building) {};
 	double getArea() {return 0.0;};
+ std::string getType() const override { return "Composite"; }
+
+	std::shared_ptr<BuildingComponent> findBuilding(const std::string& type);
 
 };
 

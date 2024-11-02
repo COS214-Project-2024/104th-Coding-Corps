@@ -104,8 +104,8 @@ void Government::notifyResourceChange(const std::string& resourceType, int quant
  * @param quantity The amount of the resource to add.
  * @param factory Reference to the ResourceFactory used to create the resource.
  */
-void Government::addResourceToCity(const std::string& resourceType, int quantity, ResourceFactory& factory) {
-    resourceManager->addResource(resourceType, quantity, factory);
+void Government::addResourceToCity(const std::string& resourceType, int quantity,double costPerUnit, ResourceFactory& factory) {
+    resourceManager->addResource(resourceType, quantity, costPerUnit, factory);
     notifyResourceChange(resourceType, quantity);
 }
 
@@ -117,10 +117,29 @@ void Government::addResourceToCity(const std::string& resourceType, int quantity
  */
 bool Government::useResource(const std::string& type, int quantity) {
     try {
+        auto resource = resourceManager->getResource(type);
+        if (!resource) {
+            return false; // Resource not found
+        }
+
+        // Calculate total cost for the resources being used
+        double totalCost = resource->getCost() * quantity;
+
+        // Deduct resources
         bool consumed = resourceManager->consumeResource(type, quantity);
         if (!consumed) {
-            return false;
+            return false; // Not enough resources
         }
+
+        if(budget->getBalance() > totalCost){
+            budget->deductExpense(totalCost);
+        }else{
+
+            cout<<"Not enough budget for the resources you need "<<endl;
+        }
+        // Deduct the budget
+        
+
         notifyResourceChange(type, -quantity);
         return true;
     } catch (const std::exception& e) {

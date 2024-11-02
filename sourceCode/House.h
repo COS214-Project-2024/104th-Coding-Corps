@@ -25,6 +25,9 @@ public:
     void demolish() override;
     double getArea() override;
     int getOccupancy() override;
+    std::string getType() const override {
+        return "House"; // Return the specific type
+    }
     void upgrade(std::shared_ptr<BuildingComponent> building) override;
 };
 

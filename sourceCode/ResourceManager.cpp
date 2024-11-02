@@ -27,19 +27,21 @@ std::shared_ptr<ResourceManager> ResourceManager::getInstance() {
  * 
  * @param type The type of the resource to add.
  * @param quantity The quantity of the resource to add.
+ * @param costPerUnit The cost per unit of the resource.
  * @param factory The resource factory used to create the resource if it does not exist.
  */
-void ResourceManager::addResource(const std::string& type, int quantity, ResourceFactory& factory) {
+void ResourceManager::addResource(const std::string& type, int quantity, double costPerUnit, ResourceFactory& factory) {
     if (resources.find(type) != resources.end()) {
         auto& existingResource = resources[type];
         existingResource->addQuantity(quantity); 
         std::cout << "Increased " << quantity << " units of " << type << " in the ResourceManager." << std::endl;
     } else {
-        auto resource = factory.createResource(quantity);
+        auto resource = factory.createResource(quantity, costPerUnit);  // Pass costPerUnit here
         resources[type] = std::move(resource);
         std::cout << "Added " << quantity << " units of " << type << " to the ResourceManager." << std::endl;
     }
 }
+
 
 /**
  * @brief Get a resource from the ResourceManager.

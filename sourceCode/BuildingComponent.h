@@ -49,6 +49,7 @@ public:
 	int getX();
 
 	int getY();
+	virtual std::string getType() const = 0; 
 
 	string getDistrict();
 

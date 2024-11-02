@@ -6,7 +6,7 @@
 
 class Steel : public Resource {
 public:
-    Steel(int quantity) : Resource(quantity) {}
+    Steel(int quantity, double costPerUnit) : Resource(quantity,costPerUnit) {}
 
     std::string getName() override;
 };

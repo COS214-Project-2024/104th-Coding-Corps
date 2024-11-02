@@ -21,6 +21,9 @@ public:
     double getWaterConsumption();
     void construct();
     void demolish();
+    std::string getType() const override {
+        return "WareHouse"; // Return the specific type
+    }
     double getArea();
     void upgrade(std::shared_ptr<BuildingComponent> building); // Changed to smart pointer
     int getOccupancy();

@@ -1,5 +1,19 @@
 #include "Resource.h"
 
+
+/**
+ * @brief Constructs a Resource object with an initial quantity and cost per unit.
+ * 
+ * This constructor initializes the resource with a specified initial quantity
+ * and a cost per unit. It sets the internal state of the Resource object 
+ * accordingly.
+ *
+ * @param initialQuantity The initial quantity of the resource.
+ * @param cost The cost per unit of the resource.
+ */
+Resource::Resource(int initialQuantity, double cost) 
+    : quantity(initialQuantity), costPerUnit(cost) {}
+
 /**
  * @brief Get the current quantity of the resource.
  * 
@@ -51,4 +65,8 @@ bool Resource::consume(int amount) {
  */
 bool Resource::checkAvailability(int amount) const {
     return quantity >= amount;
+}
+
+double Resource::getCost() const {
+    return costPerUnit; // Return the cost per unit
 }

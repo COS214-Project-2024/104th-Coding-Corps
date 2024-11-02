@@ -46,3 +46,4 @@ int BuildingComponent::getQuality() {
 std::string BuildingComponent::getDistrict() {
 	return this->district;
 }
+

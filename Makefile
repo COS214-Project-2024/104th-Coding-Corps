@@ -18,6 +18,19 @@ SRC = main.cpp GameEngine.cpp \
       sourceCode/Command.cpp \
       sourceCode/TaxationCommand.cpp \
       sourceCode/TaxCollector.cpp \
+      sourceCode/Estate.cpp \
+      sourceCode/House.cpp \
+      sourceCode/Flat.cpp \
+      sourceCode/mall.cpp \
+      sourceCode/Office.cpp \
+      sourceCode/Shop.cpp \
+      sourceCode/School.cpp \
+      sourceCode/University.cpp \
+      sourceCode/Hospital.cpp \
+      sourceCode/plant.cpp \
+      sourceCode/SteelFactory.cpp \
+      sourceCode/ConcreteFactory.cpp \
+      sourceCode/WoodFactory.cpp \
       sourceCode/Citizen.cpp
 
 # Object files

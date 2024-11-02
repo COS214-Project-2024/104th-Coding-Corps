@@ -6,7 +6,7 @@
 
 class SteelFactory : public ResourceFactory {
 public:
-    std::unique_ptr<Resource> createResource(int quantity);
+    std::unique_ptr<Resource> createResource(int quantity, double costPerUnit);
 };
 
 #endif // STEELFACTORY_H

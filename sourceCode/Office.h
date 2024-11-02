@@ -18,6 +18,9 @@ public:
 	double getCost();
 
 	double getMaintenanceCost();
+	std::string getType() const override {
+        return "Office"; // Return the specific type
+    }
 
 	double getEnergyConsumption();
 

@@ -1,5 +1,5 @@
 #include "GameEngine.h"
-#include <bits/algorithmfwd.h>
+#include <algorithm>
 
 /**
  * @brief Constructs the GameEngine, initializing core components and setting the starting budget.
@@ -252,6 +252,36 @@ void GameEngine::createUtility(const std::string& type) {
         std::cout << "Unknown utility type.\n";
     }
 }
+
+void GameEngine::upgradeBuilding() {
+    // Define resource factories and quantities
+    SteelFactory steelFactory;
+    ConcreteFactory concreteFactory;
+    WoodFactory woodFactory;
+
+    // Add resources to the city through the government
+    government->addResourceToCity("Steel", 100000, 10.0, steelFactory);
+    government->addResourceToCity("Concrete", 20000, 8.0, concreteFactory);
+    government->addResourceToCity("Wood", 15000, 5.0, woodFactory);
+
+    // Prompt the user to select a building type to upgrade
+    std::string buildingType;
+    std::cout << "Select a building to upgrade (Estate, House, Flat, etc.): ";
+    std::cin >> buildingType;
+
+    // Use findBuilding to locate the building
+    std::shared_ptr<BuildingComponent> building = currentComposite->findBuilding(buildingType);
+    
+    // Check if the building was found and perform the upgrade
+    if (building) {
+        building->upgrade(nullptr); // Pass nullptr or any necessary parameters
+        std::cout << buildingType << " upgraded successfully!\n";
+    } else {
+        std::cout << "No " << buildingType << " found to upgrade.\n";
+    }
+}
+
+
 
 /**
  * @brief Allows the user to change the tax policy through a menu.

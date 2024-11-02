@@ -23,7 +23,7 @@ public:
 
     static std::shared_ptr<ResourceManager> getInstance();
 
-    void addResource(const std::string& type, int quantity, ResourceFactory& factory);
+    void addResource(const std::string& type, int quantity, double costPerUnit, ResourceFactory& factory) ;
 
     std::shared_ptr<Resource> getResource(const std::string& type);
 

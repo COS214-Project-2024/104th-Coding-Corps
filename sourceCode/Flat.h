@@ -22,6 +22,9 @@ public:
     double getArea() override;
     int getOccupancy() override;
 	int getNumResidents();
+    std::string getType() const override {
+        return "Flat"; // Return the specific type
+    }
     void upgrade(std::shared_ptr<BuildingComponent> building) override;
 };
 

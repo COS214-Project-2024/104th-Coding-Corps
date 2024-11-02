@@ -17,6 +17,19 @@
 #include "sourceCode/TaxationCommand.h"
 #include "sourceCode/Visitor.h"
 #include "sourceCode/TaxCollector.h"
+#include "sourceCode/Estate.h"
+#include "sourceCode/House.h"
+#include "sourceCode/Flat.h"
+#include "sourceCode/mall.h"
+#include "sourceCode/Office.h"
+#include "sourceCode/Shop.h"
+#include "sourceCode/School.h"
+#include "sourceCode/University.h"
+#include "sourceCode/Hospital.h"
+#include "sourceCode/plant.h"
+#include "sourceCode/SteelFactory.h"
+#include "sourceCode/ConcreteFactory.h"
+#include "sourceCode/WoodFactory.h"
 #include <memory>
 #include <string>
 #include <iostream>
@@ -49,6 +62,7 @@ public:
     void startSimulation();
     void displayCitySummary();
     void viewGamIndex();
+     void upgradeBuilding(); 
 };
 
 #endif // GAMEENGINE_H

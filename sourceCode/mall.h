@@ -17,6 +17,9 @@ public:
 	string getBuildingType();
 
 	double getCost();
+	std::string getType() const override {
+        return "Mall"; // Return the specific type
+    }
 
 	double getMaintenanceCost();
 

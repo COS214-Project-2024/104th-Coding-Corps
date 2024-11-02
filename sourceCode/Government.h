@@ -27,7 +27,7 @@ public:
     void setCommand(const std::shared_ptr<Command>& c);        // Accept shared pointer for command
     void issueCommand();
     void notifyResourceChange(const std::string& resourceType, int quantity);
-    void addResourceToCity(const std::string& resourceType, int quantity, ResourceFactory& factory);
+    void addResourceToCity(const std::string& resourceType, int quantity,double costPerUnit, ResourceFactory& factory);
     bool useResource(const std::string& type, int quantity);
     void displayCityResources();
     void increaseBudget(double amount);

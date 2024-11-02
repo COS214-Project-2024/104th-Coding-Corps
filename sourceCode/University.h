@@ -20,6 +20,9 @@ public:
     double getEnergyConsumption() override;
     double getWaterConsumption() override;
     void demolish() override;
+    std::string getType() const override {
+        return "University"; // Return the specific type
+    }
     void upgrade(std::shared_ptr<BuildingComponent> building) override; // Use shared_ptr
     double getArea() override;
     int getHighestQualification();

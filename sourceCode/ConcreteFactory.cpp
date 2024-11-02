@@ -9,6 +9,6 @@
  * @param quantity The amount of concrete to create.
  * @return A unique pointer to the newly created Concrete resource.
  */
-std::unique_ptr<Resource> ConcreteFactory::createResource(int quantity) {
-    return std::make_unique<Concrete>(quantity);
+std::unique_ptr<Resource> ConcreteFactory::createResource(int quantity, double costPerUnit) {
+    return std::make_unique<Concrete>(quantity,costPerUnit);
 }

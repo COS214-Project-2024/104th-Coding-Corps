@@ -7,7 +7,7 @@
 class ResourceFactory {
 public:
     virtual ~ResourceFactory() = default;
-    virtual std::unique_ptr<Resource> createResource(int quantity) = 0;
+    virtual std::unique_ptr<Resource> createResource(int quantity, double costPerUnit) = 0;
 };
 
 #endif // RESOURCEFACTORY_H
