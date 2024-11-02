@@ -38,10 +38,10 @@ private:
 
 	std::map<std::string, std::vector<std::string>> allowedValues = {
     {"Maximum number of power plants", {"1", "2", "3"}},
-    {"Waste removal frequency", {"weekly", "bi-weekly", "monthly"}},
+    {"Waste removal frequency", {"weekly", "bi-weekly", "monthly"}}, //add reactions
     {"Maximum number of buildings per district", {"100", "200", "300", "400", "500"}},
     {"Renewable energy target", {"0%", "20%", "40%", "60%", "80%", "100%"}},
-    {"Police patrol frequency", {"low", "medium", "high"}},
+    {"Police patrol frequency", {"low", "medium", "high"}}, //add reactions
     {"School capacity limit", {"100", "250", "500", "750", "1000"}},
     {"tax rate", {"low", "standard", "high"}}
 	};
@@ -50,7 +50,7 @@ private:
     {"Waste removal frequency", "bi-weekly"}, //weekly, bi-weekly, monthly
     {"Maximum number of buildings per district", "100"}, //1 - 500
     {"Renewable energy target", "40%"}, //0% - 100%
-    {"Police patrol frequency", "high"}, //low, medium, high
+    {"Police patrol frequency", "medium"}, //low, medium, high
     {"School capacity limit", "500"}, //100-1000
     {"tax rate", "standard"}, //low, standard, high
 	};
@@ -70,6 +70,8 @@ public:
     double calculateAverageIncome();
     int calculateTotalPop();
     double calculateMonthlyExpenditure();
+    const std::map<int, std::shared_ptr<AbstractCitizen>>& getCitizens() const;
+
 
 //Building Functions
     void removeBuilding(std::shared_ptr<BuildingComponent> building);

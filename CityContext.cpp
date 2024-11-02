@@ -157,6 +157,10 @@ int CityContext::calculateTotalPop(){
     return totalPop;
 }
 
+const std::map<int, std::shared_ptr<AbstractCitizen>>& CityContext::getCitizens() const {
+    return population;
+}
+
 //-----------------------------------------------------FOR DA BUILDINGS----------------------------------------------------------
 
 /**

@@ -32,6 +32,8 @@ public:
 
 	double getWaterConsumption() override;
 
+	int getBuildingCount() {return buildings.size();};
+
 };
 
 #endif
