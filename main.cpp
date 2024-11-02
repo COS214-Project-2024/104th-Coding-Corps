@@ -34,10 +34,7 @@ int main() {
                 break;
 
             case 3:
-                std::cout << "Enter new tax rate (e.g., 0.1 for 10%): ";
-                double taxRate;
-                std::cin >> taxRate;
-                game.changeTaxPolicy(taxRate);
+                game.changeTaxPolicy();
                 break;
 
             case 4:
