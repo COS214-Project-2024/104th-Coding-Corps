@@ -6,8 +6,11 @@
 #include "Transport.h"
 #include "Utilities.h"
 #include "Government.h"
+#include "BuildingComponent.h"
 #include <memory>
 #include <string>
+#include <iostream>
+#include <iomanip>
 
 class GameEngine {
 private:
@@ -21,7 +24,7 @@ public:
     GameEngine();
     void displayIntro();
     void displayMenu();
-    void createBuilding(const std::string& type);
+    void createBuilding(const std::string& type, std::string district);
     void createUtility(const std::string& type);
     void changeTaxPolicy(double newRate);
     void addTransport(const std::string& type);
