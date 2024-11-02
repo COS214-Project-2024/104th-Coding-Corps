@@ -21,8 +21,12 @@ TEST_SUITE("Family Class Tests") {
 
     TEST_CASE("Adding and Removing Citizens") {
         Family family(cityContext, government, "Downtown");
-        auto citizen1 = Citizen::createCitizen(cityContext, nullptr, government);
-        auto citizen2 = Citizen::createCitizen(cityContext, nullptr, government);
+        auto citizen1 = std::make_shared<Citizen>(cityContext, nullptr, government);
+        cityContext->attach(citizen1);
+        citizen1->initialize();
+        auto citizen2 = std::make_shared<Citizen>(cityContext, nullptr, government);
+        cityContext->attach(citizen2);
+        citizen2->initialize();
 
         family.add(citizen1);
         family.add(citizen2);
@@ -44,7 +48,9 @@ TEST_SUITE("Family Class Tests") {
 
     TEST_CASE("Calculating Monthly Expenditure") {
         Family family(cityContext, government, "Downtown");
-        auto citizen = Citizen::createCitizen(cityContext, nullptr, government);
+        auto citizen = std::make_shared<Citizen>(cityContext, nullptr, government);
+        cityContext->attach(citizen);
+        citizen->initialize();
         family.add(citizen);
         
         CHECK(family.getMonthlyExpenditure() == doctest::Approx(citizen->getCurrentIncome() * 0.7));
@@ -52,7 +58,9 @@ TEST_SUITE("Family Class Tests") {
 
     TEST_CASE("Tax Calculation and Payment") {
         Family family(cityContext, government, "Downtown");
-        auto citizen = Citizen::createCitizen(cityContext, nullptr, government);
+        auto citizen = std::make_shared<Citizen>(cityContext, nullptr, government);
+        cityContext->attach(citizen);
+        citizen->initialize();
         family.add(citizen);
 
         double taxAmount = family.calculateTax();
@@ -66,7 +74,9 @@ TEST_SUITE("Family Class Tests") {
     
     TEST_CASE("Resource Update") {
         Family family(cityContext, government, "Downtown");
-        auto citizen = Citizen::createCitizen(cityContext, nullptr, government);
+        auto citizen = std::make_shared<Citizen>(cityContext, nullptr, government);
+        cityContext->attach(citizen);
+        citizen->initialize();
         family.add(citizen);
 
         family.update("water", 100);
@@ -75,7 +85,9 @@ TEST_SUITE("Family Class Tests") {
 
     TEST_CASE("Sending Family Members to Work, School, and Shops") {
         Family family(cityContext, government, "Downtown");
-        auto citizen = Citizen::createCitizen(cityContext, nullptr, government);
+        auto citizen = std::make_shared<Citizen>(cityContext, nullptr, government);
+        cityContext->attach(citizen);
+        citizen->initialize();
         family.add(citizen);
 
         family.goToWork();

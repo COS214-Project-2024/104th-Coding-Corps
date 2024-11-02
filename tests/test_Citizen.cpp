@@ -17,7 +17,7 @@ public:
         cityContext = CityContext::getInstance();
         government = Government::getInstance();
         transportContext = std::make_shared<Transport>();
-        citizen = Citizen::createCitizen(cityContext, transportContext, government);
+        citizen = std::make_shared<Citizen>(cityContext, nullptr, government);
         cityContext->attach(citizen);
         citizen->initialize();
     }

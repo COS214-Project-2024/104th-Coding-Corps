@@ -101,6 +101,7 @@ public:
     double calculateDistance(int x1, int y1, int x2, int y2);
 	void enforcePolicy(const std::string& policyKey, const std::string& newValue);
     std::string getPolicyValue(const std::string& policyKey) const;
+    void reset();
 };
 
 #endif // CITYCONTEXT_H

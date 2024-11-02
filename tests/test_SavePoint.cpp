@@ -22,8 +22,9 @@ TEST_SUITE("Memento Pattern Tests") {
     // SavePoint Tests
     TEST_CASE("SavePoint: Save and Restore State") {
         // Initial Setup - Attach a citizen, add a building, and add a utility
-        auto citizen = Citizen::createCitizen(cityContext, nullptr, government);
+        auto citizen = std::make_shared<Citizen>(cityContext, nullptr, government);
         cityContext->attach(citizen);
+        citizen->initialize();
 
         // auto building = std::make_shared<BuildingComponent>(/* args */); // Replace with actual constructor args
         // cityContext->addBuilding(building);
@@ -68,8 +69,9 @@ TEST_SUITE("Memento Pattern Tests") {
         int initialPop = cityContext->calculateTotalPop();
 
         // Make some changes and save them
-        auto newCitizen = Citizen::createCitizen(cityContext, nullptr, government);
+        auto newCitizen = std::make_shared<Citizen>(cityContext, nullptr, government);
         cityContext->attach(newCitizen);
+        newCitizen->initialize();
         auto modifiedSave = createSavePoint();
         manager.saveState(modifiedSave);
 
@@ -99,8 +101,9 @@ TEST_SUITE("Memento Pattern Tests") {
         manager.saveState(initialSave);
 
         // Add a new save point after modifying the context
-        auto newCitizen = Citizen::createCitizen(cityContext, nullptr, government);
+        auto newCitizen = std::make_shared<Citizen>(cityContext, nullptr, government);
         cityContext->attach(newCitizen);
+        newCitizen->initialize();
         auto modifiedSave = createSavePoint();
         manager.saveState(modifiedSave);
 
