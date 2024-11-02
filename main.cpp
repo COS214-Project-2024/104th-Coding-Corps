@@ -2,11 +2,16 @@
 
 #include "GameEngine.h"
 #include <iostream>
+#include <string>
 
 int main() {
     GameEngine game;
     game.displayIntro();
     std::cin.get(); // Pause for intro
+    std::string buildingType;
+    std::string district;
+    std::string utilityType;
+    std::string transportType;
 
     int choice;
     while (true) {
@@ -16,14 +21,14 @@ int main() {
         switch (choice) {
             case 1:
                 std::cout << "Enter building type (Flat, House, etc.): ";
-                std::string buildingType;
+                
                 std::cin >> buildingType;
-                game.createBuilding(buildingType);
+                game.createBuilding(buildingType, district = "A");
                 break;
 
             case 2:
                 std::cout << "Enter utility type (Power Plant, Water Supply, etc.): ";
-                std::string utilityType;
+                
                 std::cin >> utilityType;
                 game.createUtility(utilityType);
                 break;
@@ -37,7 +42,7 @@ int main() {
 
             case 4:
                 std::cout << "Enter transport type (Bus, Train, etc.): ";
-                std::string transportType;
+                
                 std::cin >> transportType;
                 game.addTransport(transportType);
                 break;

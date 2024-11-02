@@ -1,12 +1,12 @@
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 
-#include "CityContext.h"
-#include "BuildingFactory.h"
-#include "Transport.h"
-#include "Utilities.h"
-#include "Government.h"
-#include "BuildingComponent.h"
+#include "source code/CityContext.h"
+#include "source code/BuildingFactory.h"
+#include "source code/Transport.h"
+#include "source code/Utilities.h"
+#include "source code/Government.h"
+#include "source code/BuildingComponent.h"
 #include <memory>
 #include <string>
 #include <iostream>
