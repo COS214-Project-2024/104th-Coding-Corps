@@ -3,21 +3,21 @@
 
 int Citizen::nextID = 10000000; // static ID counter for citizenID
 
-/**
- * @brief Helper function to create citizen objects using the constructor and initialize
- * @param cityContext Shared pointer to the CityContext for access to city-wide resources and citizen registration.
- * @param transportContext Shared pointer to the Transport system for managing citizen travel between locations.
- * @param government Shared pointer to the Government for administrative access and regulatory updates.
-*/
-std::shared_ptr<Citizen> Citizen::createCitizen(
-    std::shared_ptr<CityContext> cityContext, 
-    std::shared_ptr<Transport> transportContext, 
-    std::shared_ptr<Government> government
-) {
-    auto citizen = std::make_shared<Citizen>(cityContext, transportContext, government);
-    //citizen->initialize(citizen);  // Pass the shared pointer directly
-    return citizen;
-}
+// /**
+//  * @brief Helper function to create citizen objects using the constructor and initialize
+//  * @param cityContext Shared pointer to the CityContext for access to city-wide resources and citizen registration.
+//  * @param transportContext Shared pointer to the Transport system for managing citizen travel between locations.
+//  * @param government Shared pointer to the Government for administrative access and regulatory updates.
+// */
+// std::shared_ptr<Citizen> Citizen::createCitizen(
+//     std::shared_ptr<CityContext> cityContext, 
+//     std::shared_ptr<Transport> transportContext, 
+//     std::shared_ptr<Government> government
+// ) {
+//     auto citizen = std::make_shared<Citizen>(cityContext, transportContext, government);
+//     //citizen->initialize(citizen);  // Pass the shared pointer directly
+//     return citizen;
+// }
 
 
 /**
@@ -59,7 +59,7 @@ Citizen::Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Trans
     std::mt19937 gen(static_cast<unsigned>(std::time(0)) + citizenID);  // Unique seed per citizen
     std::uniform_int_distribution<> classDist(0, 2);
     std::uniform_int_distribution<> jobDist(0, 1);
-    std::uniform_int_distribution<> incomeDist(2000, 5000000);
+    std::uniform_int_distribution<> educationDist(0, 2);
     std::bernoulli_distribution employmentDist(0.8);  // 80% chance of being employed
 
     // Randomly assign initial x, y coordinates within the 160x160 map space
@@ -73,30 +73,55 @@ Citizen::Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Trans
     int randomClass = classDist(gen);
     classType = (randomClass == 0) ? "upper" : (randomClass == 1) ? "middle" : "lower";
 
+    // Set education level
+    educationLevel = educationDist(gen);
+
     // Set initial jobType based on educationLevel
     jobType = jobsByEducationLevel[educationLevel][jobDist(gen)];
 
-    // Set employment status
+    // Set employment status and income based on class type
     employed = employmentDist(gen);
     if (employed) {
-        currentIncome = incomeDist(gen);
-        monthlyExpenditure = currentIncome * 0.7;
+        if (classType == "upper") {
+            std::uniform_int_distribution<> incomeDist(500000, 2000000); // R500,000 - R2,000,000
+            currentIncome = incomeDist(gen);
+        } else if (classType == "middle") {
+            std::uniform_int_distribution<> incomeDist(100000, 500000);  // R100,000 - R500,000
+            currentIncome = incomeDist(gen);
+        } else {  // lower class
+            std::uniform_int_distribution<> incomeDist(20000, 100000);   // R20,000 - R100,000
+            currentIncome = incomeDist(gen);
+        }
+        monthlyExpenditure = currentIncome * 0.7;  // Assuming 70% of income as expenditure
     } else {
         currentIncome = 0;
         monthlyExpenditure = 0;
     }
 
+    // Set expected standard of living based on class
     expectedStandardOfLiving = (classType == "upper") ? 80 : (classType == "middle") ? 50 : 30;
-   
 
     // Debug print
-    std::cout << "Citizen created with ID: " << citizenID << ", Class: " << classType
-              << ", Job: " << jobType << ", Education Level: " << educationLevel
-              << ", Income: " << currentIncome << ", Monthly Expenditure: " << monthlyExpenditure
-              << ", Employed: " << employed << ", Expected SoL: " << expectedStandardOfLiving
-              << ", Actual SoL: " << actualStandardOfLiving << std::endl;
+// Debug print
+std::cout << std::fixed << std::setprecision(2)
+          << "Citizen created with ID: " << citizenID
+          << "\n  Class: " << classType
+          << "\n  Job: " << jobType
+          << "\n  Education Level: " << educationLevel
+          << "\n  Income: R" << currentIncome
+          << "\n  Monthly Expenditure: R" << monthlyExpenditure
+          << "\n  Employed: " << (employed ? "Yes" : "No")
+          << "\n  Expected Standard of Living (SoL): " << expectedStandardOfLiving
+          << "\n  Actual Standard of Living (SoL): " << actualStandardOfLiving
+          << "\n  Satisfaction: " << satisfaction
+          << "\n  X Coordinate: " << x
+          << "\n  Y Coordinate: " << y
+          << "\n  District: " << district
+          << "\n  On Strike: " << (onStrike ? "Yes" : "No")
+          << std::endl;
 
 }
+
 
 /**
  * @brief Function to initialize aspects of citizen that can't be done in constructor

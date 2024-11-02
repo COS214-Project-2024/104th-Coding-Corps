@@ -52,7 +52,14 @@ void CityContext::attach(std::shared_ptr<Citizen> citizen) {
  */
 void CityContext::detach(std::shared_ptr<Citizen> citizen) {
     int id = citizen->getCitizenID();
-    population.erase(id);
+    std::cout << "Detaching citizen with ID: " << id << std::endl;
+    
+    if (population.erase(id) > 0) {
+        std::cout << "Successfully detached citizen with ID: " << id << std::endl;
+    } else {
+        std::cout << "Citizen with ID " << id << " not found in population." << std::endl;
+    }
+
     calculateAverages();
 }
 
@@ -148,6 +155,10 @@ int CityContext::calculateAverageSatisfaction(){
 int CityContext::calculateTotalPop(){
     totalPop = population.size();
     return totalPop;
+}
+
+const std::map<int, std::shared_ptr<Citizen>>& CityContext::getCitizens() const {
+    return population;
 }
 
 //-----------------------------------------------------FOR DA BUILDINGS----------------------------------------------------------
@@ -496,4 +507,15 @@ std::string CityContext::getPolicyValue(const std::string& policyKey) const {
         std::cerr << "Policy '" << policyKey << "' not found." << std::endl;
         return "";  // Return an empty string if the policy is not found
     }
+}
+
+
+//for testing:
+void CityContext::reset() {
+    buildings.clear();
+    population.clear();
+    utilities.clear();
+    totalUtilities = 0;
+    totalBuildings = 0;
+    totalPop = 0;
 }
