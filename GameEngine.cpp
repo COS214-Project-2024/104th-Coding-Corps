@@ -242,20 +242,6 @@ void GameEngine::changeTaxPolicy() {
     std::cout << "Tax rate policy updated to '" << newRate << "'.\n";
 }
 
-// void GameEngine::addTransport(const std::string& type) {
-//     // Example of adding transport infrastructure
-//     if (type == "Bus") {
-//         double cost = 100000;
-//         if (budget >= cost) {
-//             transportSystem->addTransport(type);
-//             budget -= cost;
-//             std::cout << "Bus transport added. New Budget: $" << budget << "\n";
-//         } else {
-//             std::cout << "Insufficient budget.\n";
-//         }
-//     }
-// }
-
 void GameEngine::startSimulation() {
     // Example of simulation logic where citizens interact with city context
     cityContext->notify(); // Notify citizens of any updates
