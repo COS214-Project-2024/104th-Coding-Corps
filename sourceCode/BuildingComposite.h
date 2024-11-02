@@ -34,6 +34,12 @@ public:
 
 	int getBuildingCount() {return buildings.size();};
 
+	std::string getBuildingType() {return "";};
+	int getOccupancy() {return 0;};
+	void demolish() {};
+	void upgrade(std::shared_ptr<BuildingComponent> building) {};
+	double getArea() {return 0.0;};
+
 };
 
 #endif

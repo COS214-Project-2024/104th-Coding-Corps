@@ -1,19 +1,22 @@
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 
-#include "source code/CityContext.h"
-#include "source code/BuildingFactory.h"
-#include "source code/BuildingComposite.h"
-#include "source code/Transport.h"
-#include "source code/Utilities.h"
-#include "source code/Government.h"
-#include "source code/BuildingComponent.h"
-#include "source code/PowerPlantFactory.h"
-#include "source code/WaterSupplyFactory.h"
-#include "source code/SewageSystemFactory.h"
-#include "source code/WasteManagementFactory.h"
-#include "source code/PolicyCommand.h"
-#include "source code/Command.h"
+#include "sourceCode/CityContext.h"
+#include "sourceCode/BuildingFactory.h"
+#include "sourceCode/BuildingComposite.h"
+#include "sourceCode/Transport.h"
+#include "sourceCode/Utilities.h"
+#include "sourceCode/Government.h"
+#include "sourceCode/BuildingComponent.h"
+#include "sourceCode/PowerPlantFactory.h"
+#include "sourceCode/WaterSupplyFactory.h"
+#include "sourceCode/SewageSystemFactory.h"
+#include "sourceCode/WasteManagementFactory.h"
+#include "sourceCode/PolicyCommand.h"
+#include "sourceCode/Command.h"
+#include "sourceCode/TaxationCommand.h"
+#include "sourceCode/Visitor.h"
+#include "sourceCode/TaxCollector.h"
 #include <memory>
 #include <string>
 #include <iostream>

@@ -10,7 +10,7 @@ GameEngine::GameEngine()
     cityContext = CityContext::getInstance();
     buildingFactory = std::make_shared<BuildingFactory>();
     transportSystem = std::make_shared<Transport>();
-    government = std::make_shared<Government>();
+    government = Government::getInstance();
 
     for (char c = 'A'; c <= 'Z'; ++c) {
         districts.push_back(std::string(1, c));
@@ -59,7 +59,7 @@ void GameEngine::createBuilding(const std::string& type) {
     std::string district = districts[currentDistrictIndex];
 
     if (!currentComposite) {
-        currentComposite = std::make_shared<BuildingComposite>(district);
+        currentComposite = std::make_shared<BuildingComposite>(0,0,district,50);
     }
 
     if (type == "Flat") {
@@ -325,7 +325,7 @@ void viewGameIndex(){
 
     switch (choice) {
         case 1:
-           displayCitizenInfoMenu();
+           //displayCitizenInfoMenu();
             break;
             
         case 2:
@@ -363,54 +363,61 @@ void viewGameIndex(){
 
 
 /**
- * @brief Starts the city simulation, updating citizens and displaying the summary.
+ * @brief Starts the city simulation, updating citizens, applying tax, and displaying the summary.
  */
 void GameEngine::startSimulation() {
-    // Update citizens with the latest context
-    std::cout << "Simulation running...\n";
-
-    for(int i = 0; i < 12; i++){
-
-    cityContext->notify();
-
-    // Retrieve current population and average citizen satisfaction
-    int populationSize = cityContext->calculateTotalPop();
-    int citizenSatisfaction = cityContext->calculateAverageSatisfaction();
-
-    // Calculate birth rate using population size and satisfaction
-    // Base birth rate as a percentage of the population (e.g., 1%)
-    double baseBirthRate = 0.5; // Adjust as needed
-    double satisfactionFactor = citizenSatisfaction / 100.0; // Scale satisfaction between 0 and 1
-    int birthCount = static_cast<int>(populationSize * baseBirthRate * satisfactionFactor);
-
-    // Add randomness to vary birth count by ±20%
-    std::uniform_int_distribution<> variation(-birthCount * 0.2, birthCount * 0.2);
+    // Initialize random number generator
     std::mt19937 gen(static_cast<unsigned>(std::time(0))); // Random seed
-    birthCount += variation(gen);
 
-    // Create new citizens based on the calculated birth count
-    createCitizens(birthCount);
+    // Simulation loop for each month (or cycle)
+    for (int i = 0; i < 12; i++) {
+        std::cout << "Simulation running... Month: " << (i + 1) << "\n";
 
-    int totalPopulation = cityContext->calculateTotalPop();
+        // Update citizens with the latest context
+        cityContext->notify();
 
-    std::mt19937 gen(static_cast<unsigned>(std::time(0)));
-    std::uniform_int_distribution<> schoolRange(totalPopulation * 0.3, totalPopulation * 0.5);
-    std::uniform_int_distribution<> uniRange(totalPopulation * 0.3, totalPopulation * 0.5);
-    std::uniform_int_distribution<> workRange(totalPopulation * 0.4, totalPopulation * 0.6);
-    std::uniform_int_distribution<> shopRange(totalPopulation * 0.3, totalPopulation * 0.5);
-    std::uniform_int_distribution<> hospitalRange(totalPopulation * 0.05, totalPopulation * 0.1);
+        // Retrieve current population and average citizen satisfaction
+        int populationSize = cityContext->calculateTotalPop();
+        int citizenSatisfaction = cityContext->calculateAverageSatisfaction();
 
-    // Decide the count for each activity based on ranges
-    int schoolCount = schoolRange(gen);
-    int uniCount = uniRange(gen);
-    int workCount = workRange(gen);
-    int shopCount = shopRange(gen);
-    int hospitalCount = hospitalRange(gen);
-    
-    std::map<int, std::shared_ptr<Citizen>> citizens = cityContext->getCitizens();
+        // Calculate birth rate using population size and satisfaction
+        double baseBirthRate = 0.5; // Adjust as needed
+        double satisfactionFactor = citizenSatisfaction / 100.0; // Scale satisfaction between 0 and 1
+        int birthCount = static_cast<int>(populationSize * baseBirthRate * satisfactionFactor);
 
-    std::shuffle(citizens.begin(), citizens.end(), gen);
+        // Add randomness to vary birth count by ±20%
+        std::uniform_int_distribution<> variation(-birthCount * 0.2, birthCount * 0.2);
+        birthCount += variation(gen);
 
+        // Create new citizens based on the calculated birth count
+        createCitizens(birthCount);
+
+        // Update population size after births
+        int totalPopulation = cityContext->calculateTotalPop();
+
+        // Set up activity distribution among citizens
+        std::uniform_int_distribution<> schoolRange(totalPopulation * 0.3, totalPopulation * 0.5);
+        std::uniform_int_distribution<> uniRange(totalPopulation * 0.3, totalPopulation * 0.5);
+        std::uniform_int_distribution<> workRange(totalPopulation * 0.4, totalPopulation * 0.6);
+        std::uniform_int_distribution<> shopRange(totalPopulation * 0.3, totalPopulation * 0.5);
+        std::uniform_int_distribution<> hospitalRange(totalPopulation * 0.05, totalPopulation * 0.1);
+
+        // Decide the count for each activity based on ranges
+        int schoolCount = schoolRange(gen);
+        int uniCount = uniRange(gen);
+        int workCount = workRange(gen);
+        int shopCount = shopRange(gen);
+        int hospitalCount = hospitalRange(gen);
+
+        // Retrieve the list of citizens and shuffle for random activity assignment
+        auto citizensMap = cityContext->getCitizens();
+        std::vector<std::shared_ptr<AbstractCitizen>> citizens;
+        for (const auto& [id, citizen] : citizensMap) {
+            citizens.push_back(citizen);
+        }
+        std::shuffle(citizens.begin(), citizens.end(), gen);
+
+        // Assign activities to citizens
         for (int i = 0; i < schoolCount && i < totalPopulation; ++i) {
             citizens[i]->getSchooled();
         }
@@ -426,11 +433,20 @@ void GameEngine::startSimulation() {
         for (int i = 0; i < hospitalCount && i < totalPopulation; ++i) {
             citizens[i]->getHealed();
         }
+
+        // Tax logic - Issue taxation command
+        double taxRate = 0.1; 
+        auto taxationCommand = std::make_shared<TaxationCommand>(citizens, taxRate);
+        government->setCommand(taxationCommand);
+        government->issueCommand(); // Apply taxes to citizens
+
+        std::cout << "End of month " << (i + 1) << " simulation.\n";
     }
 
     std::cout << "Simulation complete.\n";
     displayCitySummary();
 }
+
 
 
 /**
@@ -441,3 +457,4 @@ void GameEngine::displayCitySummary() {
     std::cout << "Current Budget: $" << budget << "\n";
 }
 
+void GameEngine::viewGamIndex() {}

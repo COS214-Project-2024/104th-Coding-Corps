@@ -40,8 +40,8 @@ void BuildingComposite::removeBuilding(shared_ptr<BuildingComponent> building) {
  * @param index The index of the building to retrieve.
  * @return A shared pointer to the BuildingComponent at the specified index, or nullptr if the index is invalid.
  */
-shared_ptr<BuildingComponent> BuildingComposite::getBuilding(int index) {
-    if (index >= 0 && index < buildings.size()) {
+std::shared_ptr<BuildingComponent> BuildingComposite::getBuilding(int index) {
+    if (index >= 0 && index < static_cast<int>(buildings.size())) {
         return buildings[index];
     }
     return nullptr; // or handle error as needed
