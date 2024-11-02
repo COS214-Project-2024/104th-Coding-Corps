@@ -157,7 +157,7 @@ int CityContext::calculateTotalPop(){
     return totalPop;
 }
 
-const std::map<int, std::shared_ptr<AbstractCitizen>>& CityContext::getCitizens() const {
+const std::map<int, std::shared_ptr<Citizen>>& CityContext::getCitizens() const {
     return population;
 }
 

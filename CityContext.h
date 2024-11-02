@@ -70,7 +70,7 @@ public:
     double calculateAverageIncome();
     int calculateTotalPop();
     double calculateMonthlyExpenditure();
-    const std::map<int, std::shared_ptr<AbstractCitizen>>& getCitizens() const;
+    const std::map<int, std::shared_ptr<Citizen>>& getCitizens() const;
 
 
 //Building Functions
