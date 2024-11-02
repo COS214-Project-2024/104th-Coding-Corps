@@ -1,15 +1,25 @@
 #include "GameEngine.h"
+#include <bits/algorithmfwd.h>
 
-
+/**
+ * @brief Constructs the GameEngine, initializing core components and setting the starting budget.
+ */
 GameEngine::GameEngine() 
-    : budget(10000000) {
+    : budget(10000000), currentComposite(nullptr) {
     // Initialize CityContext and other subsystem components
     cityContext = CityContext::getInstance();
     buildingFactory = std::make_shared<BuildingFactory>();
     transportSystem = std::make_shared<Transport>();
     government = std::make_shared<Government>();
+
+    for (char c = 'A'; c <= 'Z'; ++c) {
+        districts.push_back(std::string(1, c));
+    }
 }
 
+/**
+ * @brief Displays the introduction message and starting budget to the player.
+ */
 void GameEngine::displayIntro() {
     std::cout << "==============================================================\n";
     std::cout << "             WELCOME TO CITY BUILDER SIMULATION\n";
@@ -20,6 +30,9 @@ void GameEngine::displayIntro() {
     std::cout << "Press [Enter] to continue...\n";
 }
 
+/**
+ * @brief Displays the main menu for city management options.
+ */
 void GameEngine::displayMenu() {
     std::cout << "==============================================================\n";
     std::cout << "                  CITY MANAGEMENT MENU\n";
@@ -27,22 +40,34 @@ void GameEngine::displayMenu() {
     std::cout << "Budget: $" << budget << "\n";
     std::cout << "1. Create Buildings\n";
     std::cout << "2. Create Utility Buildings\n";
-    std::cout << "3. Change Tax Policy\n";
-    std::cout << "4. View Game Index\n";
-    std::cout << "5. Start the Game Simulation\n";
-    std::cout << "6. View City Summary\n";
-    std::cout << "7. Exit Game\n";
+    std::cout << "3. Upgrade Building\n";
+    std::cout << "4. Change Tax Policy\n";
+    std::cout << "5. View Game Index\n";
+    std::cout << "6. Start the Game Simulation\n";
+    std::cout << "7. View City Summary\n";
+    std::cout << "8. Exit Game\n";
     std::cout << "Select an option (1-7): ";
+
 }
 
-void GameEngine::createBuilding(const std::string& type, std::string district) {
+/**
+ * @brief Creates a building of the specified type in the current district if budget allows.
+ * @param type The type of building to create.
+ */
+void GameEngine::createBuilding(const std::string& type) {
     double cost = 0;
+    std::string district = districts[currentDistrictIndex];
+
+    if (!currentComposite) {
+        currentComposite = std::make_shared<BuildingComposite>(district);
+    }
 
     if (type == "Flat") {
         cost = 1595000.00;
         if (budget >= cost) {
             auto flat = buildingFactory->createFlat(20, 50, 4, true, district, 50);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(flat)));
+            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(flat)));
             budget -= cost;
             std::cout << "Flat created. New Budget: $" << budget << "\n";
         } else {
@@ -53,6 +78,7 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
         if (budget >= cost) {
             auto house = buildingFactory->createHouse(2, true, 4, 2, true, district, 50);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(house)));
+            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(house)));
             budget -= cost;
             std::cout << "House created. New Budget: $" << budget << "\n";
         } else {
@@ -63,6 +89,7 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
         if (budget >= cost) {
             auto estate = buildingFactory->createEstate(2, true, 4, 2, true, 10, district, 50);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(estate)));
+            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(estate)));
             budget -= cost;
             std::cout << "Estate created. New Budget: $" << budget << "\n";
         } else {
@@ -73,6 +100,7 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
         if (budget >= cost) {
             auto factory = buildingFactory->createFactory(0, 0, district, 50, 50, "factory", 50);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(factory)));
+            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(factory)));
             budget -= cost;
             std::cout << "Factory created. New Budget: $" << budget << "\n";
         } else {
@@ -83,6 +111,7 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
         if (budget >= cost) {
             auto plant = buildingFactory->createPlant(0, 0, district, 50, 200, 60);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(plant)));
+            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(plant)));
             budget -= cost;
             std::cout << "Plant created. New Budget: $" << budget << "\n";
         } else {
@@ -93,6 +122,7 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
         if (budget >= cost) {
             auto warehouse = buildingFactory->createWarehouse(0, 0, district, 50, 1000, 20);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(warehouse)));
+            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(warehouse)));
             budget -= cost;
             std::cout << "Warehouse created. New Budget: $" << budget << "\n";
         } else {
@@ -103,6 +133,7 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
         if (budget >= cost) {
             auto office = buildingFactory->createOffice(100, "Tech", district, 50, 0, 0);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(office)));
+            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(office)));
             budget -= cost;
             std::cout << "Office created. New Budget: $" << budget << "\n";
         } else {
@@ -113,6 +144,7 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
         if (budget >= cost) {
             auto mall = buildingFactory->createMall(20, "Retail", 10, 0, 0, district, 50);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(mall)));
+            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(mall)));
             budget -= cost;
             std::cout << "Mall created. New Budget: $" << budget << "\n";
         } else {
@@ -123,6 +155,7 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
         if (budget >= cost) {
             auto shop = buildingFactory->createShop(20, "Grocery", 0, 0, district, 50);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(shop)));
+            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(shop)));
             budget -= cost;
             std::cout << "Shop created. New Budget: $" << budget << "\n";
         } else {
@@ -143,6 +176,7 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
         if (budget >= cost) {
             auto university = buildingFactory->createUniversity(0, 0, district, 5, 80, 100);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(university)));
+            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(university)));
             budget -= cost;
             std::cout << "University created. New Budget: $" << budget << "\n";
         } else {
@@ -153,6 +187,7 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
         if (budget >= cost) {
             auto hospital = buildingFactory->createHospital(0, 0, district, 50, 50);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(hospital)));
+            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(hospital)));
             budget -= cost;
             std::cout << "Hospital created. New Budget: $" << budget << "\n";
         } else {
@@ -161,8 +196,20 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
     } else {
         std::cout << "Invalid building type: " << type << "\n";
     }
-}
 
+    if (currentComposite->getBuildingCount() == 10) {  // Assuming getBuildingCount() returns the number of buildings
+        cityContext->addBuilding(currentComposite);    // Add the complete composite to city context
+        buildingComposites.push_back(currentComposite); // Store the composite
+        currentComposite.reset();                       // Reset composite for the next set of buildings
+
+        // Move to the next district
+        currentDistrictIndex = (currentDistrictIndex + 1) % districts.size();
+    }
+}
+/**
+ * @brief Creates a utility building of the specified type if budget allows.
+ * @param type The type of utility to create.
+ */
 void GameEngine::createUtility(const std::string& type) {
     double cost = 0;
 
@@ -206,6 +253,9 @@ void GameEngine::createUtility(const std::string& type) {
     }
 }
 
+/**
+ * @brief Allows the user to change the tax policy through a menu.
+ */
 void GameEngine::changeTaxPolicy() {
     std::string newRate;
     int option;
@@ -242,23 +292,152 @@ void GameEngine::changeTaxPolicy() {
     std::cout << "Tax rate policy updated to '" << newRate << "'.\n";
 }
 
+/**
+ * @brief Creates a specified number of citizens and adds them to the CityContext.
+ * @param n The number of citizens to create.
+ */
+void GameEngine::createCitizens(int n){
+
+    for (int i = 0; i < n; ++i){
+        // Create a new Citizen with the required contexts
+        auto newCitizen = std::make_shared<Citizen>(cityContext, transportSystem, government);
+        cityContext->attach(newCitizen);
+        newCitizen->initialize();
+        citizens.push_back(newCitizen);
+    }
+}
+
+void viewGameIndex(){
+     int choice;
+    
+    std::cout << "\n======================== INFORMATION MENU ========================\n";
+    std::cout << "| Here you can find additional information on the proper         |\n";
+    std::cout << "| management of your city!                                       |\n";
+    std::cout << "| Select a topic to learn more about:                            |\n";
+    std::cout << "| 1. Citizen Management                                          |\n";
+    std::cout << "| 2. Building and Utility Creation                               |\n";
+    std::cout << "| 3. Government Taxation and Policies                            |\n";
+    std::cout << "==================================================================\n";
+    std::cout << "Enter the number of the topic you'd like to learn more about: ";
+    std::cin >> choice;
+
+    std::cout << "\n======================== INFORMATION DETAILS =====================\n";
+
+    switch (choice) {
+        case 1:
+           displayCitizenInfoMenu();
+            break;
+            
+        case 2:
+            std::cout << "Building and Utility Creation:\n";
+            std::cout << "  -  You can build a wide variety of BUILDINGS for Residential, Commercial, Industrial and Service sectors.\n";
+            std::cout << "  - Residential: Flat , House , Estate.\n";
+            std::cout << "  - Commercial: Shop , Mall , Office.\n";
+            std::cout << "  - Industrial: Factory , Plant , WareHouse.\n";
+            std::cout << "  - Service: School , University , Hospital.\n";
+            std::cout << "  - Ensure you have enough residential, service and commercial buildings to service and supply your population!.\n";
+            std::cout << "  - Create UTILITIES like a Power Plant , Water Supply, Sewage Management and Waste Management facilities \n"
+                         "to meet the needs of a growing population.\n";
+            std::cout << "  - Hint! Buildings increase a city's energy and water needs.\n";
+            std::cout << "  - Each building and utility impacts citizen satisfaction and the city's economy.\n";
+            std::cout << "  - The quality of the building matters! Upgrade buildings to keep citizens happy.\n";
+            std::cout << "  - Upgrades will use city resources.\n";
+            std::cout << "  - Utilities cannot be upgraded.\n";
+            break;
+
+        case 3:
+            std::cout << "Government Taxation and Policies:\n";
+            std::cout << "  - Set tax policies to balance citizen satisfaction with city revenue.\n";
+            std::cout << "  - Policy options include adjusting tax rates, regulating construction, and setting "
+                         "citywide rules on resource usage.\n";
+            std::cout << "  - Policies can impact citizen happiness and the city's financial status.\n";
+            break;
+
+        default:
+            std::cout << "Invalid selection. Please choose a valid topic number.\n";
+            break;
+    }
+
+    std::cout << "==================================================================\n";
+}
+
+
+/**
+ * @brief Starts the city simulation, updating citizens and displaying the summary.
+ */
 void GameEngine::startSimulation() {
-    // Example of simulation logic where citizens interact with city context
-    cityContext->notify(); // Notify citizens of any updates
+    // Update citizens with the latest context
     std::cout << "Simulation running...\n";
 
-    // Placeholder logic to perform actions in simulation
-    for (auto& citizen : cityContext->getCitizens()) {
-        citizen->goToWork();
-        citizen->goToShops();
-        citizen->getEducated();
+    for(int i = 0; i < 12; i++){
+
+    cityContext->notify();
+
+    // Retrieve current population and average citizen satisfaction
+    int populationSize = cityContext->calculateTotalPop();
+    int citizenSatisfaction = cityContext->calculateAverageSatisfaction();
+
+    // Calculate birth rate using population size and satisfaction
+    // Base birth rate as a percentage of the population (e.g., 1%)
+    double baseBirthRate = 0.5; // Adjust as needed
+    double satisfactionFactor = citizenSatisfaction / 100.0; // Scale satisfaction between 0 and 1
+    int birthCount = static_cast<int>(populationSize * baseBirthRate * satisfactionFactor);
+
+    // Add randomness to vary birth count by ±20%
+    std::uniform_int_distribution<> variation(-birthCount * 0.2, birthCount * 0.2);
+    std::mt19937 gen(static_cast<unsigned>(std::time(0))); // Random seed
+    birthCount += variation(gen);
+
+    // Create new citizens based on the calculated birth count
+    createCitizens(birthCount);
+
+    int totalPopulation = cityContext->calculateTotalPop();
+
+    std::mt19937 gen(static_cast<unsigned>(std::time(0)));
+    std::uniform_int_distribution<> schoolRange(totalPopulation * 0.3, totalPopulation * 0.5);
+    std::uniform_int_distribution<> uniRange(totalPopulation * 0.3, totalPopulation * 0.5);
+    std::uniform_int_distribution<> workRange(totalPopulation * 0.4, totalPopulation * 0.6);
+    std::uniform_int_distribution<> shopRange(totalPopulation * 0.3, totalPopulation * 0.5);
+    std::uniform_int_distribution<> hospitalRange(totalPopulation * 0.05, totalPopulation * 0.1);
+
+    // Decide the count for each activity based on ranges
+    int schoolCount = schoolRange(gen);
+    int uniCount = uniRange(gen);
+    int workCount = workRange(gen);
+    int shopCount = shopRange(gen);
+    int hospitalCount = hospitalRange(gen);
+    
+    std::map<int, std::shared_ptr<Citizen>> citizens = cityContext->getCitizens();
+
+    std::shuffle(citizens.begin(), citizens.end(), gen);
+
+        for (int i = 0; i < schoolCount && i < totalPopulation; ++i) {
+            citizens[i]->getSchooled();
+        }
+        for (int i = 0; i < uniCount && i < totalPopulation; ++i) {
+            citizens[i]->getEducated();
+        }
+        for (int i = 0; i < workCount && i < totalPopulation; ++i) {
+            citizens[i]->goToWork();
+        }
+        for (int i = 0; i < shopCount && i < totalPopulation; ++i) {
+            citizens[i]->goToShops();
+        }
+        for (int i = 0; i < hospitalCount && i < totalPopulation; ++i) {
+            citizens[i]->getHealed();
+        }
     }
 
     std::cout << "Simulation complete.\n";
     displayCitySummary();
 }
 
+
+/**
+ * @brief Displays a summary of the city, including population and financial status.
+ */
 void GameEngine::displayCitySummary() {
     cityContext->getCitySummary();
     std::cout << "Current Budget: $" << budget << "\n";
 }
+

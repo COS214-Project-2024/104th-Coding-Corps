@@ -23,7 +23,7 @@ int main() {
                 std::cout << "Enter building type (Flat, House, etc.): ";
                 
                 std::cin >> buildingType;
-                game.createBuilding(buildingType, district = "A");
+                game.createBuilding(buildingType);
                 break;
 
             case 2:
@@ -38,10 +38,7 @@ int main() {
                 break;
 
             case 4:
-                std::cout << "Enter transport type (Bus, Train, etc.): ";
-                
-                std::cin >> transportType;
-                game.addTransport(transportType);
+                game.viewGamIndex();
                 break;
 
             case 5:
