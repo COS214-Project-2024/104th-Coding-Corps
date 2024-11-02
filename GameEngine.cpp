@@ -163,7 +163,6 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
     }
 }
 
-
 void GameEngine::createUtility(const std::string& type) {
     double cost = 0;
 
@@ -207,24 +206,55 @@ void GameEngine::createUtility(const std::string& type) {
     }
 }
 
-void GameEngine::changeTaxPolicy(double newRate) {
-    government->setTaxRate(newRate);
-    std::cout << "Tax rate updated to " << newRate * 100 << "%.\n";
+void GameEngine::changeTaxPolicy() {
+    std::string newRate;
+    int option;
+
+    // Display options for the user
+    std::cout << "Select the new tax rate:\n";
+    std::cout << "1. Low\n";
+    std::cout << "2. Standard\n";
+    std::cout << "3. High\n";
+    std::cout << "Enter the number corresponding to your choice: ";
+    std::cin >> option;
+
+    // Determine the newRate based on the user's input
+    switch (option) {
+        case 1:
+            newRate = "low";
+            break;
+        case 2:
+            newRate = "standard";
+            break;
+        case 3:
+            newRate = "high";
+            break;
+        default:
+            std::cout << "Invalid selection. Please enter 1, 2, or 3.\n";
+            return;  // Exit the function if an invalid option was chosen
+    }
+
+    // Create and execute the PolicyCommand with the selected tax rate
+    PolicyCommand taxPolicyCommand(cityContext, government, "tax rate", newRate);
+    taxPolicyCommand.execute();
+
+    // Confirm the change to the user
+    std::cout << "Tax rate policy updated to '" << newRate << "'.\n";
 }
 
-void GameEngine::addTransport(const std::string& type) {
-    // Example of adding transport infrastructure
-    if (type == "Bus") {
-        double cost = 100000;
-        if (budget >= cost) {
-            transportSystem->addTransport(type);
-            budget -= cost;
-            std::cout << "Bus transport added. New Budget: $" << budget << "\n";
-        } else {
-            std::cout << "Insufficient budget.\n";
-        }
-    }
-}
+// void GameEngine::addTransport(const std::string& type) {
+//     // Example of adding transport infrastructure
+//     if (type == "Bus") {
+//         double cost = 100000;
+//         if (budget >= cost) {
+//             transportSystem->addTransport(type);
+//             budget -= cost;
+//             std::cout << "Bus transport added. New Budget: $" << budget << "\n";
+//         } else {
+//             std::cout << "Insufficient budget.\n";
+//         }
+//     }
+// }
 
 void GameEngine::startSimulation() {
     // Example of simulation logic where citizens interact with city context

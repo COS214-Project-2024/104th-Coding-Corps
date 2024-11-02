@@ -11,6 +11,8 @@
 #include "source code/WaterSupplyFactory.h"
 #include "source code/SewageSystemFactory.h"
 #include "source code/WasteManagementFactory.h"
+#include "source code/PolicyCommand.h"
+#include "source code/Command.h"
 #include <memory>
 #include <string>
 #include <iostream>
@@ -30,7 +32,7 @@ public:
     void displayMenu();
     void createBuilding(const std::string& type, std::string district);
     void createUtility(const std::string& type);
-    void changeTaxPolicy(double newRate);
+    void changeTaxPolicy();
     void addTransport(const std::string& type);
     void startSimulation();
     void displayCitySummary();
