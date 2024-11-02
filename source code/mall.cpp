@@ -44,7 +44,7 @@ std::string Mall::getBuildingType() {
  * @return The total cost based on the number of shops.
  */
 double Mall::getCost() {
-    const double costPerShop = 5000000.0; // 5 million per shop
+    const double costPerShop = 3000000.0; // 3 million per shop
     return numShops * costPerShop;
 }
 

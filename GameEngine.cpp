@@ -5,7 +5,7 @@ GameEngine::GameEngine()
     : budget(10000000) {
     // Initialize CityContext and other subsystem components
     cityContext = CityContext::getInstance();
-    buildingFactory = std::make_unique<BuildingFactory>();
+    buildingFactory = std::make_shared<BuildingFactory>();
     transportSystem = std::make_shared<Transport>();
     government = std::make_shared<Government>();
 }
@@ -79,9 +79,9 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
             std::cout << "Insufficient budget for Factory.\n";
         }
     } else if (type == "Plant") {
-        cost = 250000000;
+        cost = 220000000;
         if (budget >= cost) {
-            auto plant = buildingFactory->createPlant(0, 0, district, 50, 200, 100);
+            auto plant = buildingFactory->createPlant(0, 0, district, 50, 200, 60);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(plant)));
             budget -= cost;
             std::cout << "Plant created. New Budget: $" << budget << "\n";
@@ -89,7 +89,7 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
             std::cout << "Insufficient budget for Plant.\n";
         }
     } else if (type == "Warehouse") {
-        cost = 10000000;
+        cost = 90000000;
         if (budget >= cost) {
             auto warehouse = buildingFactory->createWarehouse(0, 0, district, 50, 1000, 20);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(warehouse)));
@@ -99,7 +99,7 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
             std::cout << "Insufficient budget for Warehouse.\n";
         }
     } else if (type == "Office") {
-        cost = 5000000;
+        cost = 3000000;
         if (budget >= cost) {
             auto office = buildingFactory->createOffice(100, "Tech", district, 50, 0, 0);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(office)));
@@ -109,9 +109,9 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
             std::cout << "Insufficient budget for Office.\n";
         }
     } else if (type == "Mall") {
-        cost = 20000000;
+        cost = 20 * 3000000;
         if (budget >= cost) {
-            auto mall = buildingFactory->createMall(50, "Retail", 10, 0, 0, district, 50);
+            auto mall = buildingFactory->createMall(20, "Retail", 10, 0, 0, district, 50);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(mall)));
             budget -= cost;
             std::cout << "Mall created. New Budget: $" << budget << "\n";
@@ -119,7 +119,7 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
             std::cout << "Insufficient budget for Mall.\n";
         }
     } else if (type == "Shop") {
-        cost = 1500000;
+        cost = 2000000;
         if (budget >= cost) {
             auto shop = buildingFactory->createShop(20, "Grocery", 0, 0, district, 50);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(shop)));
@@ -129,7 +129,7 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
             std::cout << "Insufficient budget for Shop.\n";
         }
     } else if (type == "School") {
-        cost = 8000000;
+        cost = 3000000;
         if (budget >= cost) {
             auto school = buildingFactory->createSchool(0, 0, district, 3, 50, 30);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(school)));
@@ -139,7 +139,7 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
             std::cout << "Insufficient budget for School.\n";
         }
     } else if (type == "University") {
-        cost = 20000000;
+        cost = 10000000;
         if (budget >= cost) {
             auto university = buildingFactory->createUniversity(0, 0, district, 5, 80, 100);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(university)));
@@ -149,7 +149,7 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
             std::cout << "Insufficient budget for University.\n";
         }
     } else if (type == "Hospital") {
-        cost = 15000000;
+        cost = 7000000;
         if (budget >= cost) {
             auto hospital = buildingFactory->createHospital(0, 0, district, 50, 50);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(hospital)));
@@ -167,19 +167,44 @@ void GameEngine::createBuilding(const std::string& type, std::string district) {
 void GameEngine::createUtility(const std::string& type) {
     double cost = 0;
 
-    // Example of creating utilities based on type
+    std::shared_ptr<Utilities> utility;
+
+    // Use factory pattern to create utility
     if (type == "Power Plant") {
-        cost = 500000;
+        cost = 200000;
         if (budget >= cost) {
-            auto powerPlant = std::make_shared<PowerPlant>();
-            cityContext->addUtility(powerPlant);
-            budget -= cost;
-            std::cout << "Power Plant created. New Budget: $" << budget << "\n";
-        } else {
-            std::cout << "Insufficient budget.\n";
+            PowerPlantFactory powerPlantFactory;
+            utility = powerPlantFactory.createUtilityService();
+        }
+    } else if (type == "Water Supply") {
+        cost = 50000;
+        if (budget >= cost) {
+            WaterSupplyFactory waterSupplyFactory;
+            utility = waterSupplyFactory.createUtilityService();
+        }
+    } else if (type == "Sewage Management") {
+        cost = 120000;
+        if (budget >= cost) {
+            SewageSystemFactory sewageSystemFactory;
+            utility = sewageSystemFactory.createUtilityService();
+        }
+    } else if (type == "Waste Management") {
+        cost = 100000;
+        if (budget >= cost) {
+            WasteManagementFactory wasteManagementFactory;
+            utility = wasteManagementFactory.createUtilityService();
         }
     }
-    // Repeat for other utility types
+
+    if (utility) {
+        cityContext->addUtility(utility);
+        budget -= cost;
+        std::cout << type << " created. New Budget: $" << budget << "\n";
+    } else if (cost > budget) {
+        std::cout << "Insufficient budget.\n";
+    } else {
+        std::cout << "Unknown utility type.\n";
+    }
 }
 
 void GameEngine::changeTaxPolicy(double newRate) {

@@ -7,6 +7,10 @@
 #include "source code/Utilities.h"
 #include "source code/Government.h"
 #include "source code/BuildingComponent.h"
+#include "source code/PowerPlantFactory.h"
+#include "source code/WaterSupplyFactory.h"
+#include "source code/SewageSystemFactory.h"
+#include "source code/WasteManagementFactory.h"
 #include <memory>
 #include <string>
 #include <iostream>
@@ -15,7 +19,7 @@
 class GameEngine {
 private:
     std::shared_ptr<CityContext> cityContext;
-    std::unique_ptr<BuildingFactory> buildingFactory;
+    std::shared_ptr<BuildingFactory> buildingFactory;
     std::shared_ptr<Transport> transportSystem;
     std::shared_ptr<Government> government;
     double budget;

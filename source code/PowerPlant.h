@@ -2,15 +2,16 @@
 #define POWERPLANT_H
 
 #include "BuildingComponent.h"
-#include "string"
+#include <string>
 using namespace std;
 
 class PowerPlant : public Utilities {
-
+private:
+	std::string type = "Power Plant";
 public:
 	PowerPlant();
 	
-	string getUtilityType();
+	string getUtilityType() {return this->type;};
 
 	double getConsumptionRate();
 
