@@ -16,7 +16,18 @@ int main() {
     int choice;
     while (true) {
         game.displayMenu();
+        while (true) {
+        std::cout << "Enter your choice (integer only): ";
         std::cin >> choice;
+
+        if (std::cin.fail()) {
+            std::cin.clear(); // Clear 
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+            std::cout << "Invalid input. Please enter an integer.\n";
+        } else {
+            break; 
+        }
+    }
 
         switch (choice) {
             case 1:
