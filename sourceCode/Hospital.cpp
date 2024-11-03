@@ -102,3 +102,7 @@ double Hospital::getArea() {
 int Hospital::getQualityOfCare() {
     return qualityOfCare;
 }
+
+std::string Hospital::getType() const {
+    return "Hospital"; // or a relevant description
+}

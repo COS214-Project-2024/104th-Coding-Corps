@@ -23,6 +23,7 @@ public:
     void upgrade(std::shared_ptr<BuildingComponent> building) override; // Use smart pointer
     double getArea() override;
     int getQualityOfCare();
+    std::string getType() const override;
 };
 
 #endif

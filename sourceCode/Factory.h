@@ -22,6 +22,7 @@ public:
     void demolish();
     void upgrade(std::shared_ptr<BuildingComponent> building) override; // Changed to smart pointer
     double getArea();
+    std::string getType() const override;
 
 private:
     std::string factoryType; // Type of the factory

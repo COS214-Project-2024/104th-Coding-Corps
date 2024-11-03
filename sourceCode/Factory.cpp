@@ -138,3 +138,7 @@ void factory::upgrade(std::shared_ptr<BuildingComponent> building) {
 double factory::getArea() {
     return getX() * getY();
 }
+
+std::string factory::getType() const {
+    return "Factory";
+}
