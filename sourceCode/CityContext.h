@@ -71,7 +71,6 @@ public:
     int calculateTotalPop();
     double calculateMonthlyExpenditure();
     const std::map<int, std::shared_ptr<Citizen>>& getCitizens() const;
-    std::map<std::string, std::string> getPolicies();
 
 
 //Building Functions

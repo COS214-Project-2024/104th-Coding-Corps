@@ -83,13 +83,13 @@ Citizen::Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Trans
     employed = employmentDist(gen);
     if (employed) {
         if (classType == "upper") {
-            std::uniform_int_distribution<> incomeDist(500000, 2000000); // R500,000 - R2,000,000
+            std::uniform_int_distribution<> incomeDist(50000, 200000); // R500,000 - R2,000,000
             currentIncome = incomeDist(gen);
         } else if (classType == "middle") {
-            std::uniform_int_distribution<> incomeDist(100000, 500000);  // R100,000 - R500,000
+            std::uniform_int_distribution<> incomeDist(10000, 50000);  // R100,000 - R500,000
             currentIncome = incomeDist(gen);
         } else {  // lower class
-            std::uniform_int_distribution<> incomeDist(20000, 100000);   // R20,000 - R100,000
+            std::uniform_int_distribution<> incomeDist(2000, 10000);   // R20,000 - R100,000
             currentIncome = incomeDist(gen);
         }
         monthlyExpenditure = currentIncome * 0.7;  // Assuming 70% of income as expenditure
@@ -349,12 +349,16 @@ void Citizen::updateEmployment() {
 void Citizen::updateSatisfaction(int amount) {
     satisfaction += amount;
     //keep it within bounds
-    if(satisfaction < 0 && !onStrike){
+    if(satisfaction < 0 || !onStrike){
         satisfaction = 0;
         this->goOnStrike();
     }
     else if(satisfaction > 100){
         satisfaction = 100;
+    }
+
+    if(satisfaction < 25){
+        this->goOnStrike();
     }
 }
 
@@ -747,18 +751,17 @@ void Citizen::updateContext() {
     }
 
     //reaction to policies
-    std::map<std::string, std::string> policies = cityContext->getPolicies();
-    if(policies["Waste removal frequency"] == "monthly"){
+    if(cityContext->getPolicyValue("Waste removal frequency") == "monthly"){
         updateSatisfaction(-5);
     }
-    else if(policies["Waste removal frequency"] == "weekly"){
+    else if(cityContext->getPolicyValue("Waste removal frequency") == "weekly"){
         updateSatisfaction(5);
     }
 
-    if(policies["Police patrol frequency"] == "low"){
+    if(cityContext->getPolicyValue("Police patrol frequency") == "low"){
         updateSatisfaction(-4);
     }
-    else if(policies["Police patrol frequency"] == "medium"){
+    else if(cityContext->getPolicyValue("Police patrol frequency") == "medium"){
         updateSatisfaction(3);
     }
 

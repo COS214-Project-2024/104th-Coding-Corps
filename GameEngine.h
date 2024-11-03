@@ -47,6 +47,10 @@ private:
     std::shared_ptr<CommercialBuildingFactory> commercialFactory;
     std::shared_ptr<ServiceBuildingFactory> serviceFactory;
     std::shared_ptr<IndustrialBuildingFactory> indistrialFactory;
+    std::shared_ptr<WaterSupplyFactory> waterSupply;
+    std::shared_ptr<WasteManagementFactory> wasteManagement;
+    std::shared_ptr<SewageSystemFactory> sewageSystem;
+    std::shared_ptr<PowerPlantFactory> powerPlant;
     std::shared_ptr<Transport> transportSystem;
     std::shared_ptr<Government> government;
     std::vector<std::shared_ptr<AbstractCitizen>> citizens;
@@ -71,6 +75,7 @@ public:
     void viewGameIndex();
     void upgradeBuilding(); 
     void addResources();
+
 };
 
 #endif // GAMEENGINE_H

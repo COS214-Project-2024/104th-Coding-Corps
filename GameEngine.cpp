@@ -7,21 +7,39 @@
 GameEngine::GameEngine() 
     : currentComposite(nullptr) {
     // Initialize CityContext and other subsystem components
+    //making factories
     buildingFactory = std::make_shared<BuildingFactory>();
     residentialFactory = std::make_shared<ResidentialBuildingFactory>();
     commercialFactory = std::make_shared<CommercialBuildingFactory>();
     serviceFactory = std::make_shared<ServiceBuildingFactory>();
     indistrialFactory = std::make_shared<IndustrialBuildingFactory>();
+    waterSupply = std::make_shared<WaterSupplyFactory>();
+    wasteManagement = std::make_shared<WasteManagementFactory>();
+    sewageSystem = std::make_shared<SewageSystemFactory>();
+    powerPlant = std::make_shared<PowerPlantFactory>();
+
+    //setting up background city stuff
     transportSystem = std::make_shared<Transport>();
     government = Government::getInstance();
     cityContext = CityContext::getInstance(government);
     government->increaseBudget(100000000);
 
+    //making districts
     for (char c = 'A'; c <= 'Z'; ++c) {
         districts.push_back(std::string(1, c));
     }
 
-    createCitizens(100);
+    //creating buildings for bro so his citizens arent totally miffed out
+    auto utility = powerPlant->createUtilityService();
+    cityContext->addUtility(utility);
+    auto flat = residentialFactory->createFlat(20, 50, 4, true, "A", 50);
+    cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(flat)));
+    if (!currentComposite) {
+        currentComposite = std::make_shared<BuildingComposite>(0,0,"A",50);
+    }
+    currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(flat)));
+
+    createCitizens(500);
 }
 
 /**
@@ -32,7 +50,8 @@ void GameEngine::displayIntro() {
     std::cout << "             WELCOME TO CITY BUILDER SIMULATION\n";
     std::cout << "==============================================================\n";
     std::cout << "Your goal is to build a prosperous city by managing resources, "
-              << "building infrastructure, and ensuring citizens' well-being.\n\n";
+              << "building infrastructure, and ensuring citizens' well-being.\n"
+              << "Start by adding some buildings for your citizens to live in!\n\n";
     std::cout << "Starting Budget: $" <<  std::fixed << std::setprecision(2) << government->getBalance() << "\n";
     std::cout << "Press [Enter] to continue...\n";
 }
@@ -48,6 +67,7 @@ void GameEngine::displayMenu() {
     std::cout << "1. Create Buildings\n";
     std::cout << "2. Create Utility Buildings\n";
     std::cout << "3. Upgrade Building\n";
+    std::cout << "4. Get More Resources\n";
     std::cout << "4. Change Tax Policy\n";
     std::cout << "5. View Game Index\n";
     std::cout << "6. Start the Game Simulation\n";
@@ -230,8 +250,7 @@ void GameEngine::createUtility(const std::string& type) {
     if (type == "Power Plant") {
         cost = 200000;
         if (government->getBalance() >= cost) {
-            PowerPlantFactory powerPlantFactory;
-            utility = powerPlantFactory.createUtilityService();
+            utility = powerPlant->createUtilityService();
             cityContext->addUtility(utility);
             government->decreaseBudget(cost);
             std::cout << type << " created. New Budget: $" << government->getBalance() << "\n";
@@ -239,8 +258,7 @@ void GameEngine::createUtility(const std::string& type) {
     } else if (type == "Water Supply") {
         cost = 50000;
         if (government->getBalance() >= cost) {
-            WaterSupplyFactory waterSupplyFactory;
-            utility = waterSupplyFactory.createUtilityService();
+            utility = waterSupply->createUtilityService();
             cityContext->addUtility(utility);
             government->decreaseBudget(cost);
             std::cout << type << " created. New Budget: $" << government->getBalance() << "\n";
@@ -248,8 +266,7 @@ void GameEngine::createUtility(const std::string& type) {
     } else if (type == "Sewage Management") {
         cost = 120000;
         if (government->getBalance() >= cost) {
-            SewageSystemFactory sewageSystemFactory;
-            utility = sewageSystemFactory.createUtilityService();
+            utility = sewageSystem->createUtilityService();
             cityContext->addUtility(utility);
             government->decreaseBudget(cost);
             std::cout << type << " created. New Budget: $" << government->getBalance() << "\n";
@@ -257,8 +274,7 @@ void GameEngine::createUtility(const std::string& type) {
     } else if (type == "Waste Management") {
         cost = 100000;
         if (government->getBalance() >= cost) {
-            WasteManagementFactory wasteManagementFactory;
-            utility = wasteManagementFactory.createUtilityService();
+            utility = wasteManagement->createUtilityService();
             cityContext->addUtility(utility);
             government->decreaseBudget(cost);
             std::cout << type << " created. New Budget: $" << government->getBalance() << "\n";
@@ -391,7 +407,15 @@ void GameEngine::viewGameIndex(){
 
     switch (choice) {
         case 1:
-           //displayCitizenInfoMenu();
+           std::cout << "Citizen Management\n";
+           std::cout << "Each citizen's satisfaction is influenced by your management of the game.\n";
+           std::cout << "Unhappy citizens (with a satisfaction bellow 25) will go on strike and stop participating in your economy!\n";
+           std::cout << "Here's some tips on keeping them happy and active in your society:\n"
+                    << "- Educating citizens increases their happiness and pushes them into higher earning jobs,"
+                    << "so make sure to have enough educational facilities\n"
+                    << "- Citizens like high quality buildings. Increase the quality through upgrades.\n"
+                    << "-Some policies make citizens happier than others, it's your job to figure out which one they are.\n"
+                    << "-Balance taxes with citizen happiness. They don't like high tax rates, but you may need it to improve your city!";
             break;
             
         case 2:
@@ -428,6 +452,7 @@ void GameEngine::viewGameIndex(){
 }
 
 
+
 /**
  * @brief Starts the city simulation, updating citizens, applying tax, and displaying the summary.
  */
@@ -440,23 +465,19 @@ void GameEngine::startSimulation() {
         std::cout << "Simulation running... Month: " << (i + 1) << "\n";
 
         // Update citizens with the latest context
+        std::cout << "CITIZENS ABOUT TO BE NOTIFIED" << std::endl;
         cityContext->notify();
+        std::cout << "CITIZENS HAVE BEEN NOTIFIED" << std::endl;
 
         // Retrieve current population and average citizen satisfaction
         int populationSize = cityContext->calculateTotalPop();
         int citizenSatisfaction = cityContext->calculateAverageSatisfaction();
+        double satisfactionFactor = citizenSatisfaction/100;
+        int birthCount = static_cast<int>(populationSize * 0.05 * satisfactionFactor);
 
-        // Calculate birth rate using population size and satisfaction
-        double baseBirthRate = 0.5; // Adjust as needed
-        double satisfactionFactor = citizenSatisfaction / 100.0; // Scale satisfaction between 0 and 1
-        int birthCount = static_cast<int>(populationSize * baseBirthRate * satisfactionFactor);
-
-        // Add randomness to vary birth count by ±20%
-        std::uniform_int_distribution<> variation(-birthCount * 0.2, birthCount * 0.2);
-        birthCount += variation(gen);
-
-        // Create new citizens based on the calculated birth count
         createCitizens(birthCount);
+        std::cout << "AFTER CITIZEN CREATION " << i <<std::endl;
+
 
         // Update population size after births
         int totalPopulation = cityContext->calculateTotalPop();

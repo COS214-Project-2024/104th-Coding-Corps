@@ -162,9 +162,7 @@ const std::map<int, std::shared_ptr<Citizen>>& CityContext::getCitizens() const 
 }
 
 
-std::map<std::string, std::string> CityContext::getPolicies(){
-    return policies;
-}
+
 
 //-----------------------------------------------------FOR DA BUILDINGS----------------------------------------------------------
 
@@ -324,9 +322,12 @@ void CityContext::calculateAverages() {
     calculateAverageSatisfaction();
     calculateTotalPop();
     calculateTotalBuildings();
+    countTotalUtilities();
     calculateAverageBuildingQuality();
     calculateTotalEnergyConsumption();
     calculateTotalWaterConsumption();
+    calculateTotalEnergyProduction();
+    calculateTotalWaterProduction();
 }
 
 /**
