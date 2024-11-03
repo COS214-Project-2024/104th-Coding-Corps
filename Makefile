@@ -81,6 +81,15 @@ build/%.o: %.cpp
 run: $(BIN)
 	./$(BIN)
 
+# Debug build
+debug: $(OBJ)
+	mkdir -p bin
+	$(CXX) $(CXXFLAGS) -g $(OBJ) -o $(BIN)
+
+# Launch gdb with the binary
+gdb: debug
+	gdb $(BIN)
+
 # Clean build files
 clean:
 	rm -rf build bin $(OBJ) $(BIN)
