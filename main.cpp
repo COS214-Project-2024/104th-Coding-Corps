@@ -31,14 +31,14 @@ int main() {
 
         switch (choice) {
             case 1:
-                std::cout << "Enter building type (Flat, House, etc.): ";
+                std::cout << "Enter building type (Flat, House, Estate, Factory, Plant, Warehouse, Office, Mall, Shop, School, University, Hospital): ";
                 
                 std::cin >> buildingType;
                 game.createBuilding(buildingType);
                 break;
 
             case 2:
-                std::cout << "Enter utility type (Power Plant, Water Supply, etc.): ";
+                std::cout << "Enter utility type (Power Plant, Water Supply, Sewage Management, Waste Management): ";
                 
                 std::cin >> utilityType;
                 game.createUtility(utilityType);
