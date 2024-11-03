@@ -69,13 +69,14 @@ void GameEngine::displayMenu() {
     std::cout << "3. Upgrade Building\n";
     std::cout << "4. Get More Resources\n";
     std::cout << "5. Change Tax Policy\n";
-    std::cout << "6. View Game Index\n";
-    std::cout << "7. Save Current City\n";
-    std::cout << "8. Return to last city save\n";
-    std::cout << "9. Start the Game Simulation\n";
-    std::cout << "10. View City Summary\n";
-    std::cout << "11. Exit Game\n";
-    std::cout << "Select an option (1-11):" << std::endl;
+    std::cout << "6. Change Policy\n";
+    std::cout << "7. View Game Index\n";
+    std::cout << "8. Save Current City\n";
+    std::cout << "9. Return to last city save\n";
+    std::cout << "10. Start the Game Simulation\n";
+    std::cout << "11. View City Summary\n";
+    std::cout << "12. Exit Game\n";
+    std::cout << "Select an option (1-12):" << std::endl;
 }
 
 /**
@@ -443,6 +444,96 @@ void GameEngine::changeTaxPolicy() {
     //std::cout << "Tax rate policy updated to '" << newRate << "'.\n";
 }
 
+void GameEngine::changePolicy() {
+    int policyOption, valueOption;
+    std::string selectedPolicy, newValue;
+
+    // Display the list of policies to the user
+    std::cout << "Select the policy you want to change:\n";
+    std::cout << "1. Maximum number of power plants\n";
+    std::cout << "2. Waste removal frequency\n";
+    std::cout << "3. Maximum number of buildings per district\n";
+    std::cout << "4. Renewable energy target\n";
+    std::cout << "5. Police patrol frequency\n";
+    std::cout << "6. School capacity limit\n";
+    std::cout << "7. Tax rate\n";
+    std::cout << "Enter the number corresponding to your choice: ";
+
+    // Validate policy selection
+    while (true) {
+        std::cin >> policyOption;
+        if (std::cin.fail() || policyOption < 1 || policyOption > 7) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Invalid input. Please enter an integer (1-7).\n";
+        } else {
+            break;
+        }
+    }
+
+    // Map the policy option to the corresponding policy key
+    switch (policyOption) {
+        case 1:
+            selectedPolicy = "Maximum number of power plants";
+            break;
+        case 2:
+            selectedPolicy = "Waste removal frequency";
+            break;
+        case 3:
+            selectedPolicy = "Maximum number of buildings per district";
+            break;
+        case 4:
+            selectedPolicy = "Renewable energy target";
+            break;
+        case 5:
+            selectedPolicy = "Police patrol frequency";
+            break;
+        case 6:
+            selectedPolicy = "School capacity limit";
+            break;
+        case 7:
+            selectedPolicy = "tax rate";
+            break;
+    }
+
+    const auto& allowedOptions = cityContext->getAllowedValues(selectedPolicy);
+
+    if (allowedOptions.empty()) {
+        std::cerr << "No allowed values defined for the selected policy.\n";
+        return;
+    }
+
+    // Display allowed values for the selected policy
+    std::cout << "Choose a new value for " << selectedPolicy << ":\n";
+    for (size_t i = 0; i < allowedOptions.size(); ++i) {
+        std::cout << (i + 1) << ". " << allowedOptions[i] << "\n";
+    }
+
+    // Validate value selection
+    while (true) {
+        std::cout << "Please enter a value for the policy you would like to change" << std::endl;
+        std::cin >> valueOption;
+        if (std::cin.fail() || valueOption < 1 || valueOption > static_cast<int>(allowedOptions.size())) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Invalid input. Please select a valid option.\n";
+        } else {
+            newValue = allowedOptions[valueOption - 1];
+            break;
+        }
+    }
+
+    // Create and execute the PolicyCommand to enforce the policy change
+    auto policyCommand = std::make_shared<PolicyCommand>(cityContext, government, selectedPolicy, newValue);
+    government->setCommand(policyCommand);
+    government->issueCommand();
+
+    // Confirm the change to the user
+    //std::cout << "Policy '" << selectedPolicy << "' updated to '" << newValue << "'.\n";
+}
+
+
+
 /**
  * @brief Creates a specified number of citizens and adds them to the CityContext.
  * @param n The number of citizens to create.
@@ -587,7 +678,7 @@ void GameEngine::startSimulation() {
         }
 
         // Tax logic - Issue taxation command
-        if(i == 5 || i == 11) {
+        if(i == 11) {
             // Tax logic - Issue taxation command
             double taxRate = 0.1; 
             auto taxationCommand = std::make_shared<TaxationCommand>(citizens, taxRate);

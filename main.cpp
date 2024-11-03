@@ -89,26 +89,30 @@ int main() {
                 break;
 
             case 6:
-                game.viewGameIndex();
+                game.changePolicy();
                 break;
 
             case 7:
-                game.saveCheckpoint();
+                game.viewGameIndex();
                 break;
 
             case 8:
+                game.saveCheckpoint();
+                break;
+
+            case 9:
                 game.returnToLastCheckpoint();
                 break;
             
-            case 9:
+            case 10:
                 game.startSimulation();
                 break;
 
-            case 10:
+            case 11:
                 game.displayCitySummary();
                 break;
 
-            case 11:
+            case 12:
                 std::cout << "Exiting game.\n";
                 return 0;
 

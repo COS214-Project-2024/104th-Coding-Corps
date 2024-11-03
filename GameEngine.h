@@ -71,6 +71,7 @@ public:
     void createBuilding(int type);
     void createUtility(int type);
     void changeTaxPolicy();
+    void changePolicy();
     void createCitizens(int n);
     void startSimulation();
     void displayCitySummary();

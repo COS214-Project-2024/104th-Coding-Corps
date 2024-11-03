@@ -93,6 +93,7 @@ public:
     void calculateAverages();
     void getCitySummary();
     void prepareCitySummary();
+    const std::vector<std::string>& getAllowedValues(const std::string& policyKey) const;
 
 //Memento Functions
     std::shared_ptr<SavePoint> saveGame(); //createMemento

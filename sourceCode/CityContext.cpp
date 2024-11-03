@@ -554,3 +554,9 @@ void CityContext::reset() {
     totalBuildings = 0;
     totalPop = 0;
 }
+
+const std::vector<std::string>& CityContext::getAllowedValues(const std::string& policyKey) const {
+    static const std::vector<std::string> empty; // Fallback in case the key doesn't exist
+    auto it = allowedValues.find(policyKey);
+    return it != allowedValues.end() ? it->second : empty;
+}
