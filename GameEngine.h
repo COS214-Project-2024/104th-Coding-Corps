@@ -61,8 +61,8 @@ public:
     void createCitizens(int n);
     void startSimulation();
     void displayCitySummary();
-    void viewGamIndex();
-     void upgradeBuilding(); 
+    void viewGameIndex();
+    void upgradeBuilding(); 
 };
 
 #endif // GAMEENGINE_H

@@ -5,7 +5,7 @@
  * @brief Constructs the GameEngine, initializing core components and setting the starting budget.
  */
 GameEngine::GameEngine() 
-    : budget(10000000), currentComposite(nullptr) {
+    : budget(100000000), currentComposite(nullptr) {
     // Initialize CityContext and other subsystem components
     cityContext = CityContext::getInstance();
     buildingFactory = std::make_shared<BuildingFactory>();
@@ -15,6 +15,8 @@ GameEngine::GameEngine()
     for (char c = 'A'; c <= 'Z'; ++c) {
         districts.push_back(std::string(1, c));
     }
+
+    createCitizens(100);
 }
 
 /**
@@ -26,7 +28,7 @@ void GameEngine::displayIntro() {
     std::cout << "==============================================================\n";
     std::cout << "Your goal is to build a prosperous city by managing resources, "
               << "building infrastructure, and ensuring citizens' well-being.\n\n";
-    std::cout << "Starting Budget: $" << budget << "\n";
+    std::cout << "Starting Budget: $" <<  std::fixed << std::setprecision(2) << budget << "\n";
     std::cout << "Press [Enter] to continue...\n";
 }
 
@@ -37,7 +39,7 @@ void GameEngine::displayMenu() {
     std::cout << "==============================================================\n";
     std::cout << "                  CITY MANAGEMENT MENU\n";
     std::cout << "==============================================================\n";
-    std::cout << "Budget: $" << budget << "\n";
+    std::cout << "Budget: $" << std::fixed << std::setprecision(2) << budget << "\n"; 
     std::cout << "1. Create Buildings\n";
     std::cout << "2. Create Utility Buildings\n";
     std::cout << "3. Upgrade Building\n";
@@ -205,6 +207,10 @@ void GameEngine::createBuilding(const std::string& type) {
         // Move to the next district
         currentDistrictIndex = (currentDistrictIndex + 1) % districts.size();
     }
+
+    if(budget == 0){
+        std::cout << "You're out of cash! Start the simulation to earn more!" << std:: endl;
+    }
 }
 /**
  * @brief Creates a utility building of the specified type if budget allows.
@@ -221,36 +227,50 @@ void GameEngine::createUtility(const std::string& type) {
         if (budget >= cost) {
             PowerPlantFactory powerPlantFactory;
             utility = powerPlantFactory.createUtilityService();
+            cityContext->addUtility(utility);
+            budget -= cost;
+            std::cout << type << " created. New Budget: $" << budget << "\n";
         }
     } else if (type == "Water Supply") {
         cost = 50000;
         if (budget >= cost) {
             WaterSupplyFactory waterSupplyFactory;
             utility = waterSupplyFactory.createUtilityService();
+            cityContext->addUtility(utility);
+            budget -= cost;
+            std::cout << type << " created. New Budget: $" << budget << "\n";
         }
     } else if (type == "Sewage Management") {
         cost = 120000;
         if (budget >= cost) {
             SewageSystemFactory sewageSystemFactory;
             utility = sewageSystemFactory.createUtilityService();
+            cityContext->addUtility(utility);
+            budget -= cost;
+            std::cout << type << " created. New Budget: $" << budget << "\n";
         }
     } else if (type == "Waste Management") {
         cost = 100000;
         if (budget >= cost) {
             WasteManagementFactory wasteManagementFactory;
             utility = wasteManagementFactory.createUtilityService();
+            cityContext->addUtility(utility);
+            budget -= cost;
+            std::cout << type << " created. New Budget: $" << budget << "\n";
         }
     }
-
-    if (utility) {
-        cityContext->addUtility(utility);
-        budget -= cost;
-        std::cout << type << " created. New Budget: $" << budget << "\n";
-    } else if (cost > budget) {
-        std::cout << "Insufficient budget.\n";
-    } else {
+    else{
         std::cout << "Unknown utility type.\n";
     }
+
+    if (cost > budget) {
+        std::cout << "Insufficient budget.\n";
+    }
+
+    if(budget == 0){
+        std::cout << "You're out of cash! Start the simulation to earn more!" << std:: endl;
+    }
+
 }
 
 void GameEngine::upgradeBuilding() {
@@ -337,7 +357,7 @@ void GameEngine::createCitizens(int n){
     }
 }
 
-void viewGameIndex(){
+void GameEngine::viewGameIndex(){
      int choice;
     
     std::cout << "\n======================== INFORMATION MENU ========================\n";
@@ -486,5 +506,3 @@ void GameEngine::displayCitySummary() {
     cityContext->getCitySummary();
     std::cout << "Current Budget: $" << budget << "\n";
 }
-
-void GameEngine::viewGamIndex() {}

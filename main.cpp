@@ -42,7 +42,7 @@ int main() {
                 break;
 
             case 5:
-                game.viewGamIndex();
+                game.viewGameIndex();
                 break;
 
             case 6:
@@ -59,6 +59,7 @@ int main() {
 
             default:
                 std::cout << "Invalid choice. Please try again.\n";
+                break;
         }
     }
 

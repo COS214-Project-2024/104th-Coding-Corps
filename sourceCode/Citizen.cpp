@@ -103,22 +103,22 @@ Citizen::Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Trans
 
     // Debug print
 // Debug print
-std::cout << std::fixed << std::setprecision(2)
-          << "Citizen created with ID: " << citizenID
-          << "\n  Class: " << classType
-          << "\n  Job: " << jobType
-          << "\n  Education Level: " << educationLevel
-          << "\n  Income: R" << currentIncome
-          << "\n  Monthly Expenditure: R" << monthlyExpenditure
-          << "\n  Employed: " << (employed ? "Yes" : "No")
-          << "\n  Expected Standard of Living (SoL): " << expectedStandardOfLiving
-          << "\n  Actual Standard of Living (SoL): " << actualStandardOfLiving
-          << "\n  Satisfaction: " << satisfaction
-          << "\n  X Coordinate: " << x
-          << "\n  Y Coordinate: " << y
-          << "\n  District: " << district
-          << "\n  On Strike: " << (onStrike ? "Yes" : "No")
-          << std::endl;
+// std::cout << std::fixed << std::setprecision(2)
+//           << "Citizen created with ID: " << citizenID
+//           << "\n  Class: " << classType
+//           << "\n  Job: " << jobType
+//           << "\n  Education Level: " << educationLevel
+//           << "\n  Income: R" << currentIncome
+//           << "\n  Monthly Expenditure: R" << monthlyExpenditure
+//           << "\n  Employed: " << (employed ? "Yes" : "No")
+//           << "\n  Expected Standard of Living (SoL): " << expectedStandardOfLiving
+//           << "\n  Actual Standard of Living (SoL): " << actualStandardOfLiving
+//           << "\n  Satisfaction: " << satisfaction
+//           << "\n  X Coordinate: " << x
+//           << "\n  Y Coordinate: " << y
+//           << "\n  District: " << district
+//           << "\n  On Strike: " << (onStrike ? "Yes" : "No")
+//           << std::endl;
 
 }
 
@@ -144,8 +144,8 @@ void Citizen::initialize() {
 
     // Update satisfaction and standard of living based on residence availability
     if(!nearestResidential) {
-        updateSatisfaction(-10);
-        std::cout << "No available space for Citizen to live!" << std::endl;
+        updateSatisfaction(-5);
+       // std::cout << "No available space for Citizen to live!" << std::endl;
     } else {
         updateASoL(nearestResidential->getQuality());
     }
@@ -494,7 +494,7 @@ void Citizen::goToWork() {
     auto nearestWorkplace = cityContext->findNearestBuilding(citizenID, "Office");
 
     if (!nearestWorkplace) {
-        std::cout << "No workplace available in district for Citizen ID " << citizenID << "." << std::endl;
+       // std::cout << "No workplace available in district for Citizen ID " << citizenID << "." << std::endl;
         updateSatisfaction(-3);
         return;
     }
@@ -524,7 +524,7 @@ void Citizen::goToShops() {
     }
 
     if (!nearestResidential) {
-    std::cout << "No residential available in district for Citizen ID " << citizenID << "." << std::endl;
+    //std::cout << "No residential available in district for Citizen ID " << citizenID << "." << std::endl;
     updateSatisfaction(-3);
     return;
     }
@@ -534,7 +534,7 @@ void Citizen::goToShops() {
     if(!nearestShop){ nearestShop = cityContext->findNearestBuilding(citizenID, "Shop");}
 
     if (!nearestShop) {
-        std::cout << "No shop available in district for Citizen ID " << citizenID << "." << std::endl;
+        //std::cout << "No shop available in district for Citizen ID " << citizenID << "." << std::endl;
         updateSatisfaction(-3);
         return;
     }
@@ -563,7 +563,7 @@ void Citizen::getSchooled() {
     // Locate nearest school within the citizen's district using Transport class
     auto nearestSchool = cityContext->findNearestBuilding(citizenID, "School");
     if (!nearestSchool) {
-        std::cout << "No school available in district!" << std::endl;
+        //std::cout << "No school available in district!" << std::endl;
         return;
     }
 
@@ -576,7 +576,7 @@ void Citizen::getSchooled() {
         auto nearestResidential = cityContext->findNearestBuilding(citizenID, "Estate");
     }
     if (!nearestResidential) {
-    std::cout << "No residential available in district for Citizen ID " << citizenID << "." << std::endl;
+    //std::cout << "No residential available in district for Citizen ID " << citizenID << "." << std::endl;
     updateSatisfaction(-3);
     return;
     }
@@ -601,11 +601,11 @@ void Citizen::getSchooled() {
             updateEmployment();
             };
 
-        std::cout << "Citizen ID " << citizenID << " attended school, new education level: " 
-                  << educationLevel << ", possible new job type: " << jobType << std::endl;
+        //std::cout << "Citizen ID " << citizenID << " attended school, new education level: " 
+          //        << educationLevel << ", possible new job type: " << jobType << std::endl;
     } else {
-        std::cout << "Citizen ID " << citizenID << " already has education level " 
-                  << educationLevel << " and did not need additional schooling." << std::endl;
+        //std::cout << "Citizen ID " << citizenID << " already has education level " 
+         //         << educationLevel << " and did not need additional schooling." << std::endl;
     }
 }
 
@@ -624,7 +624,7 @@ void Citizen::getEducated() {
 
     // Check if the educational institution is available
     if (!institution) {
-        std::cout << "No suitable educational institution available in district for Citizen ID " << citizenID << "." << std::endl;
+        //std::cout << "No suitable educational institution available in district for Citizen ID " << citizenID << "." << std::endl;
         return;
     }
 
@@ -637,7 +637,7 @@ void Citizen::getEducated() {
         auto nearestResidential = cityContext->findNearestBuilding(citizenID, "Estate");
     }
     if (!nearestResidential) {
-    std::cout << "No residential available in district for Citizen ID " << citizenID << "." << std::endl;
+    //std::cout << "No residential available in district for Citizen ID " << citizenID << "." << std::endl;
     updateSatisfaction(-3);
     return;
     }
@@ -686,7 +686,7 @@ void Citizen::getHealed() {
         auto nearestResidential = cityContext->findNearestBuilding(citizenID, "Estate");
     }
     if (!nearestResidential) {
-    std::cout << "No residential available in district for Citizen ID " << citizenID << "." << std::endl;
+    //std::cout << "No residential available in district for Citizen ID " << citizenID << "." << std::endl;
     updateSatisfaction(-3);
     return;
     }
@@ -696,7 +696,7 @@ void Citizen::getHealed() {
     auto nearestHospital = cityContext->findNearestBuilding(citizenID, "Hospital");
 
     if (!nearestHospital) {
-        std::cout << "No hospital available in district for Citizen ID " << citizenID << "." << std::endl;
+       // std::cout << "No hospital available in district for Citizen ID " << citizenID << "." << std::endl;
         updateSatisfaction(-5);
         return;
     }
