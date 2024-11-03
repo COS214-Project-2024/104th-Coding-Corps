@@ -50,7 +50,6 @@ private:
     std::shared_ptr<Transport> transportSystem;
     std::shared_ptr<Government> government;
     std::vector<std::shared_ptr<AbstractCitizen>> citizens;
-    double budget;
 
     std::vector<std::string> districts; 
     std::shared_ptr<BuildingComposite> currentComposite;
