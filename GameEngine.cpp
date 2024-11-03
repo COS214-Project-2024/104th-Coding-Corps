@@ -546,3 +546,26 @@ void GameEngine::displayCitySummary() {
     cityContext->getCitySummary();
     std::cout << "Current Budget: $" << government->getBalance() << "\n";
 }
+
+
+void GameEngine::saveCheckpoint() {
+    // Create a new save point from the current CityContext state
+    auto savePoint = cityContext->saveGame();
+
+    savePointManager.saveState(savePoint);
+
+    std::cout << "Checkpoint saved.\n";
+}
+
+void GameEngine::returnToLastCheckpoint() {
+    // Use SavePointManager to retrieve the previous save point
+    auto lastCheckpoint = savePointManager.undo();
+
+    if (lastCheckpoint != nullptr) {
+        // Restore the CityContext state from the retrieved save point
+        cityContext->setSavePoint(lastCheckpoint);
+        std::cout << "Returned to last checkpoint.\n";
+    } else {
+        std::cout << "No checkpoint to return to.\n";
+    }
+}

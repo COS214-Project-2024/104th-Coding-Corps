@@ -45,7 +45,7 @@ int main() {
                 break;
 
             case 3:
-                game.upgradeBuilding();
+                game.upgradeBuilding(); //DOESNT WORK DOESNT WORK
                 break;
 
             case 4:
@@ -61,11 +61,11 @@ int main() {
                 break;
 
             case 7:
-                //game.saveCheckpoint();
+                game.saveCheckpoint();
                 break;
 
             case 8:
-                //game.returnToLastCheckpoint();
+                game.returnToLastCheckpoint();
                 break;
             
             case 9:

@@ -34,6 +34,7 @@
 #include "sourceCode/SteelFactory.h"
 #include "sourceCode/ConcreteFactory.h"
 #include "sourceCode/WoodFactory.h"
+#include "sourceCode/SavePointManager.h"
 #include <memory>
 #include <string>
 #include <iostream>
@@ -54,6 +55,7 @@ private:
     std::shared_ptr<Transport> transportSystem;
     std::shared_ptr<Government> government;
     std::vector<std::shared_ptr<AbstractCitizen>> citizens;
+    SavePointManager savePointManager;
 
     std::vector<std::string> districts; 
     std::shared_ptr<BuildingComposite> currentComposite;
@@ -75,7 +77,8 @@ public:
     void viewGameIndex();
     void upgradeBuilding(); 
     void addResources();
-
+    void saveCheckpoint();
+    void returnToLastCheckpoint();
 };
 
 #endif // GAMEENGINE_H

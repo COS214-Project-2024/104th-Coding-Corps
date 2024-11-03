@@ -409,6 +409,10 @@ void CityContext::setSavePoint(std::shared_ptr<SavePoint> savePoint) {
         totalEnergyProduction = savePoint->totalEnergyProduction;
         totalWaterProduction = savePoint->totalWaterProduction;
 
+        buildings.clear();
+        population.clear();
+        utilities.clear();
+
         // Restore complex objects
         government = savePoint->government;
         population = savePoint->population;
