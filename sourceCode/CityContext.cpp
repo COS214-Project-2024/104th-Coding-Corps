@@ -8,17 +8,17 @@ std::shared_ptr<CityContext> CityContext::instance = nullptr;
 /** 
  * @brief Constructs a CityContext with default values.
  */
-CityContext::CityContext() : totalPop(0), averageStandardOfLiving(0.0), averageEducationLevel(0.0),
+CityContext::CityContext(std::shared_ptr<Government> government) : totalPop(0), averageStandardOfLiving(0.0), averageEducationLevel(0.0),
             averageIncome(0.0), monthlyExpenditure(0.0), totalBuildings(0),
-            averageBuildingQuality(0), totalUtilities(0){}
+            averageBuildingQuality(0), totalUtilities(0), government(government){}
 
 /**
  * @brief Returns the singleton instance of CityContext.
  * @return A shared pointer to the single instance of CityContext.
  */
-std::shared_ptr<CityContext> CityContext::getInstance() {
+std::shared_ptr<CityContext> CityContext::getInstance(std::shared_ptr<Government> government) {
     if (!instance) {
-        instance = std::shared_ptr<CityContext>(new CityContext());
+        instance = std::shared_ptr<CityContext>(new CityContext(government));
     }
     return instance;
 }
@@ -323,11 +323,11 @@ void CityContext::getCitySummary() {
     std::cout << "======================= CITY SUMMARY =======================" << std::endl;
     std::cout << "|                        CITIZENS                         |" << std::endl;
     std::cout << "|--------------------------------------------------------|" << std::endl;
-    std::cout << "| Total Population       | " << std::setw(8) << totalPop                  << " citizens      |" << std::endl;
-    std::cout << "| Average Satisfaction   | " << std::setw(8) << averageSatisfaction       << "/100           |" << std::endl;
-    std::cout << "| Average Education Level| " << std::setw(8) << averageEducationLevel     << "               |" << std::endl;
-    std::cout << "| Average Income         | " << std::setw(8) << averageIncome             << "               |" << std::endl;
-    std::cout << "| Monthly Expenditure    | " << std::setw(8) << monthlyExpenditure        << "               |" << std::endl;
+    std::cout << "| Total Population             | " << std::setw(8) << totalPop                  << " citizens      |" << std::endl;
+    std::cout << "| Average Satisfaction         | " << std::setw(8) << averageSatisfaction       << "/100           |" << std::endl;
+    std::cout << "| Average Education Level      | " << std::setw(8) << averageEducationLevel     << "               |" << std::endl;
+    std::cout << "| Average Income               | " << std::setw(8) << averageIncome             << "               |" << std::endl;
+    std::cout << "| Average Monthly Expenditure  | " << std::setw(8) << monthlyExpenditure/population.size()        << "               |" << std::endl;
     std::cout << "|--------------------------------------------------------|" << std::endl;
 
     std::cout << "\n|                        BUILDINGS                        |" << std::endl;

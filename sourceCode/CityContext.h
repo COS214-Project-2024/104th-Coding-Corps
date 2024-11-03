@@ -32,7 +32,7 @@ private:
     std::vector<std::shared_ptr<Utilities>> utilities;
     std::shared_ptr<Government> government;           
 
-    CityContext();
+    CityContext(std::shared_ptr<Government> government);
     CityContext(const CityContext&) = delete;
     CityContext& operator=(const CityContext&) = delete;
 
@@ -57,7 +57,7 @@ private:
 
 public:
 //Singleton Pattern
-    static std::shared_ptr<CityContext> getInstance();
+    static std::shared_ptr<CityContext> getInstance(std::shared_ptr<Government> government);
     ~CityContext();
 
 //Citizen functions

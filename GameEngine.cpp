@@ -7,10 +7,10 @@
 GameEngine::GameEngine() 
     : budget(100000000), currentComposite(nullptr) {
     // Initialize CityContext and other subsystem components
-    cityContext = CityContext::getInstance();
     buildingFactory = std::make_shared<BuildingFactory>();
     transportSystem = std::make_shared<Transport>();
     government = Government::getInstance();
+    cityContext = CityContext::getInstance(government);
 
     for (char c = 'A'; c <= 'Z'; ++c) {
         districts.push_back(std::string(1, c));
