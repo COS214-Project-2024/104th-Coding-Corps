@@ -346,12 +346,23 @@ void GameEngine::changeTaxPolicy() {
     int option;
 
     // Display options for the user
-    std::cout << "Select the new tax rate:\n";
-    std::cout << "1. Low\n";
-    std::cout << "2. Standard\n";
-    std::cout << "3. High\n";
-    std::cout << "Enter the number corresponding to your choice: ";
-    std::cin >> option;
+
+    while (true) {
+        std::cout << "Select the new tax rate:\n";
+        std::cout << "1. Low\n";
+        std::cout << "2. Standard\n";
+        std::cout << "3. High\n";
+        std::cout << "Enter the number corresponding to your choice: ";
+
+        if (std::cin.fail()) {
+            std::cin.clear(); // Clear 
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+            std::cout << "Invalid input. Please enter an integer.\n";
+        } else {
+            break; 
+        }
+    }
+
 
     // Determine the newRate based on the user's input
     switch (option) {

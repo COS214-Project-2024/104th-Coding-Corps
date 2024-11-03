@@ -671,8 +671,14 @@ void Citizen::getEducated() {
     std::bernoulli_distribution jobChangeDist(0.8);  // 50% chance to change job
 
     if (jobChangeDist(gen) || this->jobType == "ManualLabour" || jobType == "Retail") {
+        if(educationLevel >= 0 && educationLevel <= 3){
         std::uniform_int_distribution<> jobDist(0, 2);
-        jobType = jobsByEducationLevel[educationLevel][jobDist(gen)];
+        int selectedJobIndex = jobDist(gen);
+        const char* selectedJob = jobsByEducationLevel[educationLevel][selectedJobIndex];
+        if (selectedJob != nullptr) {
+                jobType = selectedJob;
+            }
+        }
     }
 }
 
