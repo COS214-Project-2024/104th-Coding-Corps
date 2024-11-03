@@ -33,6 +33,7 @@ public:
     void increaseBudget(double amount);
     void decreaseBudget(double amount);
     double getBalance() const;
+    void printTransactionHistory() const;
     void setTaxRatePolicy(const std::string& taxRatePolicy);
     std::string getTaxRatePolicy() const;
 };
