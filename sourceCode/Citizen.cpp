@@ -746,6 +746,22 @@ void Citizen::updateContext() {
         updateSatisfaction(12);
     }
 
+    //reaction to policies
+    std::map<std::string, std::string> policies = cityContext->getPolicies();
+    if(policies["Waste removal frequency"] == "monthly"){
+        updateSatisfaction(-5);
+    }
+    else if(policies["Waste removal frequency"] == "weekly"){
+        updateSatisfaction(5);
+    }
+
+    if(policies["Police patrol frequency"] == "low"){
+        updateSatisfaction(-4);
+    }
+    else if(policies["Police patrol frequency"] == "medium"){
+        updateSatisfaction(3);
+    }
+
 }
 
 

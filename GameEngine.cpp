@@ -8,6 +8,10 @@ GameEngine::GameEngine()
     : budget(100000000), currentComposite(nullptr) {
     // Initialize CityContext and other subsystem components
     buildingFactory = std::make_shared<BuildingFactory>();
+    residentialFactory = std::make_shared<ResidentialBuildingFactory>();
+    commercialFactory = std::make_shared<CommercialBuildingFactory>();
+    serviceFactory = std::make_shared<ServiceBuildingFactory>();
+    indistrialFactory = std::make_shared<IndustrialBuildingFactory>();
     transportSystem = std::make_shared<Transport>();
     government = Government::getInstance();
     cityContext = CityContext::getInstance(government);
@@ -49,7 +53,6 @@ void GameEngine::displayMenu() {
     std::cout << "7. View City Summary\n";
     std::cout << "8. Exit Game\n";
     std::cout << "Select an option (1-7): ";
-
 }
 
 /**
@@ -67,7 +70,7 @@ void GameEngine::createBuilding(const std::string& type) {
     if (type == "Flat") {
         cost = 1595000.00;
         if (budget >= cost) {
-            auto flat = buildingFactory->createFlat(20, 50, 4, true, district, 50);
+            auto flat = residentialFactory->createFlat(20, 50, 4, true, district, 50);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(flat)));
             currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(flat)));
             budget -= cost;
@@ -78,7 +81,7 @@ void GameEngine::createBuilding(const std::string& type) {
     } else if (type == "House") {
         cost = 7000000;
         if (budget >= cost) {
-            auto house = buildingFactory->createHouse(2, true, 4, 2, true, district, 50);
+            auto house = residentialFactory->createHouse(2, true, 4, 2, true, district, 50);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(house)));
             currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(house)));
             budget -= cost;
@@ -89,7 +92,7 @@ void GameEngine::createBuilding(const std::string& type) {
     } else if (type == "Estate") {
         cost = 3000000;
         if (budget >= cost) {
-            auto estate = buildingFactory->createEstate(2, true, 4, 2, true, 10, district, 50);
+            auto estate = residentialFactory->createEstate(2, true, 4, 2, true, 10, district, 50);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(estate)));
             currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(estate)));
             budget -= cost;
@@ -100,7 +103,7 @@ void GameEngine::createBuilding(const std::string& type) {
     } else if (type == "Factory") {
         cost = 150000000;
         if (budget >= cost) {
-            auto factory = buildingFactory->createFactory(0, 0, district, 50, 50, "factory", 50);
+            auto factory = indistrialFactory->createFactory(0, 0, district, 50, 50, "factory", 50);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(factory)));
             currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(factory)));
             budget -= cost;
@@ -111,7 +114,7 @@ void GameEngine::createBuilding(const std::string& type) {
     } else if (type == "Plant") {
         cost = 220000000;
         if (budget >= cost) {
-            auto plant = buildingFactory->createPlant(0, 0, district, 50, 200, 60);
+            auto plant = indistrialFactory->createPlant(0, 0, district, 50, 200, 60);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(plant)));
             currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(plant)));
             budget -= cost;
@@ -122,7 +125,7 @@ void GameEngine::createBuilding(const std::string& type) {
     } else if (type == "Warehouse") {
         cost = 90000000;
         if (budget >= cost) {
-            auto warehouse = buildingFactory->createWarehouse(0, 0, district, 50, 1000, 20);
+            auto warehouse = indistrialFactory->createWarehouse(0, 0, district, 50, 1000, 20);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(warehouse)));
             currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(warehouse)));
             budget -= cost;
@@ -133,7 +136,7 @@ void GameEngine::createBuilding(const std::string& type) {
     } else if (type == "Office") {
         cost = 3000000;
         if (budget >= cost) {
-            auto office = buildingFactory->createOffice(100, "Tech", district, 50, 0, 0);
+            auto office = commercialFactory->createOffice(100, "Tech", district, 50, 0, 0);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(office)));
             currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(office)));
             budget -= cost;
@@ -144,7 +147,7 @@ void GameEngine::createBuilding(const std::string& type) {
     } else if (type == "Mall") {
         cost = 20 * 3000000;
         if (budget >= cost) {
-            auto mall = buildingFactory->createMall(20, "Retail", 10, 0, 0, district, 50);
+            auto mall = commercialFactory->createMall(20, "Retail", 10, 0, 0, district, 50);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(mall)));
             currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(mall)));
             budget -= cost;
@@ -155,7 +158,7 @@ void GameEngine::createBuilding(const std::string& type) {
     } else if (type == "Shop") {
         cost = 2000000;
         if (budget >= cost) {
-            auto shop = buildingFactory->createShop(20, "Grocery", 0, 0, district, 50);
+            auto shop = commercialFactory->createShop(20, "Grocery", 0, 0, district, 50);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(shop)));
             currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(shop)));
             budget -= cost;
@@ -166,7 +169,7 @@ void GameEngine::createBuilding(const std::string& type) {
     } else if (type == "School") {
         cost = 3000000;
         if (budget >= cost) {
-            auto school = buildingFactory->createSchool(0, 0, district, 3, 50, 30);
+            auto school = serviceFactory->createSchool(0, 0, district, 3, 50, 30);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(school)));
             budget -= cost;
             std::cout << "School created. New Budget: $" << budget << "\n";
@@ -176,7 +179,7 @@ void GameEngine::createBuilding(const std::string& type) {
     } else if (type == "University") {
         cost = 10000000;
         if (budget >= cost) {
-            auto university = buildingFactory->createUniversity(0, 0, district, 5, 80, 100);
+            auto university = serviceFactory->createUniversity(0, 0, district, 5, 80, 100);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(university)));
             currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(university)));
             budget -= cost;
@@ -187,7 +190,7 @@ void GameEngine::createBuilding(const std::string& type) {
     } else if (type == "Hospital") {
         cost = 7000000;
         if (budget >= cost) {
-            auto hospital = buildingFactory->createHospital(0, 0, district, 50, 50);
+            auto hospital = serviceFactory->createHospital(0, 0, district, 50, 50);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(hospital)));
             currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(hospital)));
             budget -= cost;
@@ -273,8 +276,8 @@ void GameEngine::createUtility(const std::string& type) {
 
 }
 
-void GameEngine::upgradeBuilding() {
-    // Define resource factories and quantities
+void GameEngine::addResources(){
+        // Define resource factories and quantities
     SteelFactory steelFactory;
     ConcreteFactory concreteFactory;
     WoodFactory woodFactory;
@@ -283,14 +286,25 @@ void GameEngine::upgradeBuilding() {
     government->addResourceToCity("Steel", 100000, 10.0, steelFactory);
     government->addResourceToCity("Concrete", 20000, 8.0, concreteFactory);
     government->addResourceToCity("Wood", 15000, 5.0, woodFactory);
+}
+
+void GameEngine::upgradeBuilding() {
+
 
     // Prompt the user to select a building type to upgrade
     std::string buildingType;
     std::cout << "Select a building to upgrade (Estate, House, Flat, etc.): ";
     std::cin >> buildingType;
 
+    std::shared_ptr<BuildingComponent> building = nullptr;
+
     // Use findBuilding to locate the building
-    std::shared_ptr<BuildingComponent> building = currentComposite->findBuilding(buildingType);
+    for (const auto& composite : buildingComposites) {
+        building = composite->findBuilding(buildingType);
+        if (building != nullptr) {
+            break;
+        }
+}
     
     // Check if the building was found and perform the upgrade
     if (building) {

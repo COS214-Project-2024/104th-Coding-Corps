@@ -3,6 +3,10 @@
 
 #include "sourceCode/CityContext.h"
 #include "sourceCode/BuildingFactory.h"
+#include "sourceCode/ResidentialBuildingFactory.h"
+#include "sourceCode/CommercialBuildingFactory.h"
+#include "sourceCode/ServiceBuildingFactory.h"
+#include "sourceCode/IndustrialBuildingFactory.h"
 #include "sourceCode/BuildingComposite.h"
 #include "sourceCode/Transport.h"
 #include "sourceCode/Utilities.h"
@@ -39,6 +43,10 @@ class GameEngine {
 private:
     std::shared_ptr<CityContext> cityContext;
     std::shared_ptr<BuildingFactory> buildingFactory;
+    std::shared_ptr<ResidentialBuildingFactory> residentialFactory;
+    std::shared_ptr<CommercialBuildingFactory> commercialFactory;
+    std::shared_ptr<ServiceBuildingFactory> serviceFactory;
+    std::shared_ptr<IndustrialBuildingFactory> indistrialFactory;
     std::shared_ptr<Transport> transportSystem;
     std::shared_ptr<Government> government;
     std::vector<std::shared_ptr<AbstractCitizen>> citizens;
@@ -63,6 +71,7 @@ public:
     void displayCitySummary();
     void viewGameIndex();
     void upgradeBuilding(); 
+    void addResources();
 };
 
 #endif // GAMEENGINE_H

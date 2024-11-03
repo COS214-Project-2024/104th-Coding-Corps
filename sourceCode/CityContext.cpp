@@ -10,7 +10,7 @@ std::shared_ptr<CityContext> CityContext::instance = nullptr;
  */
 CityContext::CityContext(std::shared_ptr<Government> government) : totalPop(0), averageStandardOfLiving(0.0), averageEducationLevel(0.0),
             averageIncome(0.0), monthlyExpenditure(0.0), totalBuildings(0),
-            averageBuildingQuality(0), totalUtilities(0), government(government){}
+            averageBuildingQuality(0), totalUtilities(0), government(government) {         }
 
 /**
  * @brief Returns the singleton instance of CityContext.
@@ -161,6 +161,11 @@ const std::map<int, std::shared_ptr<Citizen>>& CityContext::getCitizens() const 
     return population;
 }
 
+
+std::map<std::string, std::string> CityContext::getPolicies(){
+    return policies;
+}
+
 //-----------------------------------------------------FOR DA BUILDINGS----------------------------------------------------------
 
 /**
@@ -231,6 +236,20 @@ double CityContext::calculateTotalWaterConsumption() {
     totalWaterConsumption = totalWater;
     return totalWater;
 }
+
+double CityContext::getTotalMaintenanceCost() {
+    double totalMaintenanceCost = 0.0;
+
+    // Sum maintenance costs for all buildings
+    for (const auto& building : buildings) {
+        if (building) {
+            totalMaintenanceCost += building->getMaintenanceCost();
+        }
+    }
+
+    return totalMaintenanceCost;
+}
+
 
 //---------------------------------------------------------------------------FOR DA UTILITIES----------------------------------------------------------------------------------------
 
@@ -317,7 +336,12 @@ void CityContext::calculateAverages() {
  * city summary in a game-like table format.
  */
 void CityContext::getCitySummary() {
-    notify(); // Notify first to update citizens' satisfaction
+    int totalMaintenance = getTotalMaintenanceCost();
+    government->decreaseBudget(totalMaintenance);
+    if(population.size() == 0){
+        notify(); // Notify first to update citizens' satisfaction
+    }
+   
     calculateAverages(); // Calculate averages
 
     std::cout << "======================= CITY SUMMARY =======================" << std::endl;
@@ -391,7 +415,6 @@ void CityContext::setSavePoint(std::shared_ptr<SavePoint> savePoint) {
         utilities = savePoint->utilities;
     }
 }
-
 
 
 
