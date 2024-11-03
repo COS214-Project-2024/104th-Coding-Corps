@@ -330,6 +330,16 @@ void CityContext::calculateAverages() {
     calculateTotalWaterProduction();
 }
 
+void CityContext::prepareCitySummary(){
+        int totalMaintenance = getTotalMaintenanceCost();
+    government->decreaseBudget(totalMaintenance);
+    if(population.size() == 0){
+        notify(); // Notify first to update citizens' satisfaction
+    }
+   
+    calculateAverages(); // Calculate averages
+}
+
 /**
  * @brief Displays a structured summary of the city's citizens, buildings, and utility resources.
  * 
@@ -337,13 +347,6 @@ void CityContext::calculateAverages() {
  * city summary in a game-like table format.
  */
 void CityContext::getCitySummary() {
-    int totalMaintenance = getTotalMaintenanceCost();
-    government->decreaseBudget(totalMaintenance);
-    if(population.size() == 0){
-        notify(); // Notify first to update citizens' satisfaction
-    }
-   
-    calculateAverages(); // Calculate averages
 
     std::cout << "======================= CITY SUMMARY =======================" << std::endl;
     std::cout << "|                        CITIZENS                         |" << std::endl;
@@ -373,7 +376,7 @@ void CityContext::getCitySummary() {
     // Add Financial and Resource Information
     std::cout << "\n|                       GOVERNMENT                        |" << std::endl;
     std::cout << "|--------------------------------------------------------|" << std::endl;
-    std::cout << "| City Balance             | " << std::setw(8) << government->getBalance() << " currency units|" << std::endl;
+    std::cout << "| City Balance             | " << std::setw(8) << government->getBalance() << "           |" << std::endl;
     std::cout << "|--------------------------------------------------------|" << std::endl;
 
     // Display additional city resources from the government
@@ -439,6 +442,10 @@ std::shared_ptr<BuildingComponent> CityContext::findNearestBuilding(int citizenI
         std::cerr << "Citizen with ID " << citizenID << " not found." << std::endl;
         return nullptr;  // Return nullptr if citizen is not found
     }
+
+    if(buildingType == "Hospital" || buildingType == "University" ){
+            government->decreaseBudget(2500);
+        }
 
     auto citizen = it->second;  // Get the citizen object
     std::string targetDistrict = citizen->getDistrict();  // Get the citizen's district

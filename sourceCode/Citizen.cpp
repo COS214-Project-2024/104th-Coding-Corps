@@ -349,14 +349,17 @@ void Citizen::updateEmployment() {
 void Citizen::updateSatisfaction(int amount) {
     satisfaction += amount;
     //keep it within bounds
-    if(satisfaction < 0 || !onStrike){
+    if(satisfaction < 0 && !onStrike){
         satisfaction = 0;
         this->goOnStrike();
+    }
+    else if(satisfaction < 0){
+        satisfaction = 0;
     }
     else if(satisfaction > 100){
         satisfaction = 100;
     }
-
+    
     if(satisfaction < 25){
         this->goOnStrike();
     }
@@ -544,7 +547,7 @@ void Citizen::goToShops() {
     }
 
     transportationContext->travel(nearestResidential, nearestShop);
-    government->increaseBudget(monthlyExpenditure*0.15);
+    government->increaseBudget(monthlyExpenditure*0.05);
 
     int shopQuality = nearestShop->getQuality(); // Assume `getQuality()` returns an integer (1-100)
     int qualityImpact = (shopQuality / 7);

@@ -107,11 +107,20 @@ double BuildingComposite::getMaintenanceCost() {
  * @return A shared pointer to the BuildingComponent if found, nullptr otherwise.
  */
 std::shared_ptr<BuildingComponent> BuildingComposite::findBuilding(const std::string& type) {
-    for (const auto& building : buildings) {
-        // Assuming BuildingComponent has a method to get its type
-        if (building->getType() == type) { 
-            return building; // Return the found building
+    std::shared_ptr<BuildingComponent> building = nullptr;
+
+    for (const auto& building1 : buildings) {
+        if (building1 && building1->getType() == type) { // Ensure building1 is not nullptr
+            if (building1->getQuality() <= 50) {
+                // Return the first non-upgraded building found
+                return building1;
+            }
+            // Store the first upgraded building if no non-upgraded ones are found
+            if (!building) {
+                building = building1;
+            }
         }
     }
-    return nullptr; // Return nullptr if no matching building is found
+
+    return building;
 }

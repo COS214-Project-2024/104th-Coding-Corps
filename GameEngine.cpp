@@ -12,7 +12,7 @@ GameEngine::GameEngine()
     residentialFactory = std::make_shared<ResidentialBuildingFactory>();
     commercialFactory = std::make_shared<CommercialBuildingFactory>();
     serviceFactory = std::make_shared<ServiceBuildingFactory>();
-    indistrialFactory = std::make_shared<IndustrialBuildingFactory>();
+    industrialFactory = std::make_shared<IndustrialBuildingFactory>();
     waterSupply = std::make_shared<WaterSupplyFactory>();
     wasteManagement = std::make_shared<WasteManagementFactory>();
     sewageSystem = std::make_shared<SewageSystemFactory>();
@@ -22,7 +22,7 @@ GameEngine::GameEngine()
     transportSystem = std::make_shared<Transport>();
     government = Government::getInstance();
     cityContext = CityContext::getInstance(government);
-    government->increaseBudget(100000000);
+    government->increaseBudget(40000000);
 
     //making districts
     for (char c = 'A'; c <= 'Z'; ++c) {
@@ -75,160 +75,199 @@ void GameEngine::displayMenu() {
     std::cout << "9. Start the Game Simulation\n";
     std::cout << "10. View City Summary\n";
     std::cout << "11. Exit Game\n";
-    std::cout << "Select an option (1-11):";
+    std::cout << "Select an option (1-11):" << std::endl;
 }
 
 /**
  * @brief Creates a building of the specified type in the current district if budget allows.
- * @param type The type of building to create.
+ * @param typeCode An integer representing the building type.
  */
-void GameEngine::createBuilding(const std::string& type) {
+void GameEngine::createBuilding(int typeCode) {
     double funBudget = government->getBalance();
     double cost = 0;
     std::string district = districts[currentDistrictIndex];
 
+    // Ensure the current composite exists
     if (!currentComposite) {
-        currentComposite = std::make_shared<BuildingComposite>(0,0,district,50);
+        currentComposite = std::make_shared<BuildingComposite>(0, 0, district, 50);
     }
 
-    if (type == "Flat") {
-        cost = 1595000.00;
-        if (funBudget >= cost) {
-            auto flat = residentialFactory->createFlat(20, 50, 4, true, district, 50);
-            cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(flat)));
-            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(flat)));
-            government->decreaseBudget(cost);
-            std::cout << "Flat created. New Budget: $" << government->getBalance() << "\n";
-        } else {
-            std::cout << "Insufficient budget for Flat.\n";
+    switch (typeCode) {
+        case 1: { // Flat
+            cost = 1595000.00;
+            if (funBudget >= cost) {
+                auto flat = residentialFactory->createFlat(20, 50, 4, true, district, 50);
+                auto flatPtr = std::shared_ptr<BuildingComponent>(std::move(flat)); // Convert unique_ptr to shared_ptr
+                cityContext->addBuilding(flatPtr);
+                currentComposite->addBuilding(flatPtr);
+                government->decreaseBudget(cost);
+                std::cout << "Flat created. New Budget: $" << government->getBalance() << "\n";
+            } else {
+                std::cout << "Insufficient budget for Flat.\n";
+            }
+            break;
         }
-    } else if (type == "House") {
-        cost = 7000000;
-        if (funBudget >= cost) {
-            auto house = residentialFactory->createHouse(2, true, 4, 2, true, district, 50);
-            cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(house)));
-            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(house)));
-            government->decreaseBudget(cost);
-            std::cout << "House created. New Budget: $" << government->getBalance() << "\n";
-        } else {
-            std::cout << "Insufficient budget for House.\n";
+        case 2: { // House
+            cost = 5000000.00;
+            if (funBudget >= cost) {
+                auto house = residentialFactory->createHouse(2, true, 4, 2, true, district, 50);
+                auto housePtr = std::shared_ptr<BuildingComponent>(std::move(house));
+                cityContext->addBuilding(housePtr);
+                currentComposite->addBuilding(housePtr);
+                government->decreaseBudget(cost);
+                std::cout << "House created. New Budget: $" << government->getBalance() << "\n";
+            } else {
+                std::cout << "Insufficient budget for House.\n";
+            }
+            break;
         }
-    } else if (type == "Estate") {
-        cost = 3000000;
-        if (funBudget >= cost) {
-            auto estate = residentialFactory->createEstate(2, true, 4, 2, true, 10, district, 50);
-            cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(estate)));
-            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(estate)));
-            government->decreaseBudget(cost);
-            std::cout << "Estate created. New Budget: $" << government->getBalance() << "\n";
-        } else {
-            std::cout << "Insufficient budget for Estate.\n";
+        case 3: { // Estate
+            cost = 20000000.00;
+            if (funBudget >= cost) {
+                auto estate = residentialFactory->createEstate(2, true, 4, 2, true, 10, district, 50);
+                auto estatePtr = std::shared_ptr<BuildingComponent>(std::move(estate));
+                cityContext->addBuilding(estatePtr);
+                currentComposite->addBuilding(estatePtr);
+                government->decreaseBudget(cost);
+                std::cout << "Estate created. New Budget: $" << government->getBalance() << "\n";
+            } else {
+                std::cout << "Insufficient budget for Estate.\n";
+            }
+            break;
         }
-    } else if (type == "Factory") {
-        cost = 150000;
-        if (funBudget >= cost) {
-            auto factory = indistrialFactory->createFactory(0, 0, district, 50, 50, "factory", 50);
-            cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(factory)));
-            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(factory)));
-            government->decreaseBudget(cost);
-            std::cout << "Factory created. New Budget: $" << government->getBalance() << "\n";
-        } else {
-            std::cout << "Insufficient budget for Factory.\n";
+        case 4: { // Factory
+            cost = 18000000.00;
+            if (funBudget >= cost) {
+                auto factory = industrialFactory->createFactory(0, 0, district, 50, 50, "factory", 50);
+                auto factoryPtr = std::shared_ptr<BuildingComponent>(std::move(factory));
+                cityContext->addBuilding(factoryPtr);
+                currentComposite->addBuilding(factoryPtr);
+                government->decreaseBudget(cost);
+                std::cout << "Factory created. New Budget: $" << government->getBalance() << "\n";
+            } else {
+                std::cout << "Insufficient budget for Factory.\n";
+            }
+            break;
         }
-    } else if (type == "Plant") {
-        cost = 2200000;
-        if (funBudget >= cost) {
-            auto plant = indistrialFactory->createPlant(0, 0, district, 50, 200, 60);
-            cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(plant)));
-            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(plant)));
-            government->decreaseBudget(cost);
-            std::cout << "Plant created. New Budget: $" << government->getBalance() << "\n";
-        } else {
-            std::cout << "Insufficient budget for Plant.\n";
+        case 5: { // Plant
+            cost = 7000000.00;
+            if (funBudget >= cost) {
+                auto plant = industrialFactory->createPlant(0, 0, district, 50, 200, 60);
+                auto plantPtr = std::shared_ptr<BuildingComponent>(std::move(plant));
+                cityContext->addBuilding(plantPtr);
+                currentComposite->addBuilding(plantPtr);
+                government->decreaseBudget(cost);
+                std::cout << "Plant created. New Budget: $" << government->getBalance() << "\n";
+            } else {
+                std::cout << "Insufficient budget for Plant.\n";
+            }
+            break;
         }
-    } else if (type == "Warehouse") {
-        cost = 8000000;
-        if (funBudget >= cost) {
-            auto warehouse = indistrialFactory->createWarehouse(0, 0, district, 50, 1000, 20);
-            cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(warehouse)));
-            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(warehouse)));
-            government->decreaseBudget(cost);
-            std::cout << "Warehouse created. New Budget: $" << government->getBalance() << "\n";
-        } else {
-            std::cout << "Insufficient budget for Warehouse.\n";
+        case 6: { // Warehouse
+            cost = 8000000.00;
+            if (funBudget >= cost) {
+                auto warehouse = industrialFactory->createWarehouse(0, 0, district, 50, 1000, 20);
+                auto warehousePtr = std::shared_ptr<BuildingComponent>(std::move(warehouse));
+                cityContext->addBuilding(warehousePtr);
+                currentComposite->addBuilding(warehousePtr);
+                government->decreaseBudget(cost);
+                std::cout << "Warehouse created. New Budget: $" << government->getBalance() << "\n";
+            } else {
+                std::cout << "Insufficient budget for Warehouse.\n";
+            }
+            break;
         }
-    } else if (type == "Office") {
-        cost = 3000000;
-        if (funBudget >= cost) {
-            auto office = commercialFactory->createOffice(100, "Tech", district, 50, 0, 0);
-            cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(office)));
-            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(office)));
-            government->decreaseBudget(cost);
-            std::cout << "Office created. New Budget: $" << government->getBalance() << "\n";
-        } else {
-            std::cout << "Insufficient budget for Office.\n";
+        case 7: { // Office
+            cost = 3000000.00;
+            if (funBudget >= cost) {
+                auto office = commercialFactory->createOffice(100, "Tech", district, 50, 0, 0);
+                auto officePtr = std::shared_ptr<BuildingComponent>(std::move(office));
+                cityContext->addBuilding(officePtr);
+                currentComposite->addBuilding(officePtr);
+                government->decreaseBudget(cost);
+                std::cout << "Office created. New Budget: $" << government->getBalance() << "\n";
+            } else {
+                std::cout << "Insufficient budget for Office.\n";
+            }
+            break;
         }
-    } else if (type == "Mall") {
-        cost = 20 * 3000000;
-        if (funBudget >= cost) {
-            auto mall = commercialFactory->createMall(20, "Retail", 10, 0, 0, district, 50);
-            cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(mall)));
-            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(mall)));
-            government->decreaseBudget(cost);
-            std::cout << "Mall created. New Budget: $" << government->getBalance() << "\n";
-        } else {
-            std::cout << "Insufficient budget for Mall.\n";
+        case 8: { // Mall
+            cost = 40000000.00;
+            if (funBudget >= cost) {
+                auto mall = commercialFactory->createMall(20, "Retail", 10, 0, 0, district, 50);
+                auto mallPtr = std::shared_ptr<BuildingComponent>(std::move(mall));
+                cityContext->addBuilding(mallPtr);
+                currentComposite->addBuilding(mallPtr);
+                government->decreaseBudget(cost);
+                std::cout << "Mall created. New Budget: $" << government->getBalance() << "\n";
+            } else {
+                std::cout << "Insufficient budget for Mall.\n";
+            }
+            break;
         }
-    } else if (type == "Shop") {
-        cost = 2000000;
-        if (funBudget >= cost) {
-            auto shop = commercialFactory->createShop(20, "Grocery", 0, 0, district, 50);
-            cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(shop)));
-            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(shop)));
-            government->decreaseBudget(cost);
-            std::cout << "Shop created. New Budget: $" << government->getBalance() << "\n";
-        } else {
-            std::cout << "Insufficient budget for Shop.\n";
+        case 9: { // Shop
+            cost = 2000000.00;
+            if (funBudget >= cost) {
+                auto shop = commercialFactory->createShop(20, "Grocery", 0, 0, district, 50);
+                auto shopPtr = std::shared_ptr<BuildingComponent>(std::move(shop));
+                cityContext->addBuilding(shopPtr);
+                currentComposite->addBuilding(shopPtr);
+                government->decreaseBudget(cost);
+                std::cout << "Shop created. New Budget: $" << government->getBalance() << "\n";
+            } else {
+                std::cout << "Insufficient budget for Shop.\n";
+            }
+            break;
         }
-    } else if (type == "School") {
-        cost = 3000000;
-        if (funBudget >= cost) {
-            auto school = serviceFactory->createSchool(0, 0, district, 3, 50, 30);
-            cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(school)));
-            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(school)));
-            government->decreaseBudget(cost);
-            std::cout << "School created. New Budget: $" << government->getBalance() << "\n";
-        } else {
-            std::cout << "Insufficient budget for School.\n";
+        case 10: { // School
+            cost = 10000000.00;
+            if (funBudget >= cost) {
+                auto school = serviceFactory->createSchool(0, 0, district, 3, 50, 30);
+                auto schoolPtr = std::shared_ptr<BuildingComponent>(std::move(school));
+                cityContext->addBuilding(schoolPtr);
+                currentComposite->addBuilding(schoolPtr);
+                government->decreaseBudget(cost);
+                std::cout << "School created. New Budget: $" << government->getBalance() << "\n";
+            } else {
+                std::cout << "Insufficient budget for School.\n";
+            }
+            break;
         }
-    } else if (type == "University") {
-        cost = 7000000;
-        if (funBudget >= cost) {
-            auto university = serviceFactory->createUniversity(0, 0, district, 5, 80, 100);
-            cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(university)));
-            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(university)));
-            government->decreaseBudget(cost);
-            std::cout << "University created. New Budget: $" << government->getBalance() << "\n";
-        } else {
-            std::cout << "Insufficient budget for University.\n";
+        case 11: { // University
+            cost = 25000000.00;
+            if (funBudget >= cost) {
+                auto university = serviceFactory->createUniversity(0, 0, district, 5, 80, 100);
+                auto universityPtr = std::shared_ptr<BuildingComponent>(std::move(university));
+                cityContext->addBuilding(universityPtr);
+                currentComposite->addBuilding(universityPtr);
+                government->decreaseBudget(cost);
+                std::cout << "University created. New Budget: $" << government->getBalance() << "\n";
+            } else {
+                std::cout << "Insufficient budget for University.\n";
+            }
+            break;
         }
-    } else if (type == "Hospital") {
-        cost = 7000000;
-        if (funBudget >= cost) {
-            auto hospital = serviceFactory->createHospital(0, 0, district, 50, 50);
-            cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(hospital)));
-            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(hospital)));
-            government->decreaseBudget(cost);
-            std::cout << "Hospital created. New Budget: $" << government->getBalance() << "\n";
-        } else {
-            std::cout << "Insufficient budget for Hospital.\n";
+        case 12: { // Hospital
+            cost = 15000000.00;
+            if (funBudget >= cost) {
+                auto hospital = serviceFactory->createHospital(0, 0, district, 50, 50);
+                auto hospitalPtr = std::shared_ptr<BuildingComponent>(std::move(hospital));
+                cityContext->addBuilding(hospitalPtr);
+                currentComposite->addBuilding(hospitalPtr);
+                government->decreaseBudget(cost);
+                std::cout << "Hospital created. New Budget: $" << government->getBalance() << "\n";
+            } else {
+                std::cout << "Insufficient budget for Hospital.\n";
+            }
+            break;
         }
-    } else {
-        std::cout << "Invalid building type: " << type << "\n";
+        default:
+            std::cout << "Invalid building type code: " << typeCode << "\n";
+            break;
     }
 
-    if (currentComposite->getBuildingCount() == 10) {  // Assuming getBuildingCount() returns the number of buildings
-        cityContext->addBuilding(currentComposite);    // Add the complete composite to city context
+    // Check if the composite has enough buildings and save it if so
+    if (currentComposite->getBuildingCount() == 10) {
         buildingComposites.push_back(currentComposite); // Store the composite
         currentComposite.reset();                       // Reset composite for the next set of buildings
 
@@ -236,65 +275,77 @@ void GameEngine::createBuilding(const std::string& type) {
         currentDistrictIndex = (currentDistrictIndex + 1) % districts.size();
     }
 
-    if(government->getBalance() == 0){
-        std::cout << "You're out of cash! Start the simulation to earn more!" << std:: endl;
+    // Notify the user if funds are depleted
+    if (government->getBalance() == 0) {
+        std::cout << "You're out of cash! Start the simulation to earn more!" << std::endl;
     }
 }
+
 /**
  * @brief Creates a utility building of the specified type if budget allows.
  * @param type The type of utility to create.
  */
-void GameEngine::createUtility(const std::string& type) {
+void GameEngine::createUtility(int typeCode) {
     double cost = 0;
-
     std::shared_ptr<Utilities> utility;
 
-    // Use factory pattern to create utility
-    if (type == "Power Plant") {
-        cost = 200000;
-        if (government->getBalance() >= cost) {
-            utility = powerPlant->createUtilityService();
-            cityContext->addUtility(utility);
-            government->decreaseBudget(cost);
-            std::cout << type << " created. New Budget: $" << government->getBalance() << "\n";
-        }
-    } else if (type == "Water Supply") {
-        cost = 50000;
-        if (government->getBalance() >= cost) {
-            utility = waterSupply->createUtilityService();
-            cityContext->addUtility(utility);
-            government->decreaseBudget(cost);
-            std::cout << type << " created. New Budget: $" << government->getBalance() << "\n";
-        }
-    } else if (type == "Sewage Management") {
-        cost = 120000;
-        if (government->getBalance() >= cost) {
-            utility = sewageSystem->createUtilityService();
-            cityContext->addUtility(utility);
-            government->decreaseBudget(cost);
-            std::cout << type << " created. New Budget: $" << government->getBalance() << "\n";
-        }
-    } else if (type == "Waste Management") {
-        cost = 100000;
-        if (government->getBalance() >= cost) {
-            utility = wasteManagement->createUtilityService();
-            cityContext->addUtility(utility);
-            government->decreaseBudget(cost);
-            std::cout << type << " created. New Budget: $" << government->getBalance() << "\n";
-        }
-    }
-    else{
-        std::cout << "Unknown utility type.\n";
+    switch (typeCode) {
+        case 1: // PowerPlant
+            cost = 200000;
+            if (government->getBalance() >= cost) {
+                utility = powerPlant->createUtilityService();
+                cityContext->addUtility(utility);
+                government->decreaseBudget(cost);
+                std::cout << "PowerPlant created. New Budget: $" << government->getBalance() << "\n";
+            } else {
+                std::cout << "Insufficient budget for PowerPlant.\n";
+            }
+            break;
+
+        case 2: // WaterSupply
+            cost = 50000;
+            if (government->getBalance() >= cost) {
+                utility = waterSupply->createUtilityService();
+                cityContext->addUtility(utility);
+                government->decreaseBudget(cost);
+                std::cout << "WaterSupply created. New Budget: $" << government->getBalance() << "\n";
+            } else {
+                std::cout << "Insufficient budget for WaterSupply.\n";
+            }
+            break;
+
+        case 3: // SewageManagement
+            cost = 120000;
+            if (government->getBalance() >= cost) {
+                utility = sewageSystem->createUtilityService();
+                cityContext->addUtility(utility);
+                government->decreaseBudget(cost);
+                std::cout << "SewageManagement created. New Budget: $" << government->getBalance() << "\n";
+            } else {
+                std::cout << "Insufficient budget for SewageManagement.\n";
+            }
+            break;
+
+        case 4: // WasteManagement
+            cost = 100000;
+            if (government->getBalance() >= cost) {
+                utility = wasteManagement->createUtilityService();
+                cityContext->addUtility(utility);
+                government->decreaseBudget(cost);
+                std::cout << "WasteManagement created. New Budget: $" << government->getBalance() << "\n";
+            } else {
+                std::cout << "Insufficient budget for WasteManagement.\n";
+            }
+            break;
+
+        default:
+            std::cout << "Unknown utility type.\n";
+            break;
     }
 
-    if (cost > government->getBalance()) {
-        std::cout << "Insufficient budget.\n";
+    if (government->getBalance() == 0) {
+        std::cout << "You're out of cash! Start the simulation to earn more!" << std::endl;
     }
-
-    if(government->getBalance() == 0){
-        std::cout << "You're out of cash! Start the simulation to earn more!" << std:: endl;
-    }
-
 }
 
 void GameEngine::addResources(){
@@ -310,8 +361,6 @@ void GameEngine::addResources(){
 }
 
 void GameEngine::upgradeBuilding() {
-
-
     // Prompt the user to select a building type to upgrade
     std::string buildingType;
     std::cout << "Select a building to upgrade (Estate, House, Flat, etc.): ";
@@ -320,23 +369,29 @@ void GameEngine::upgradeBuilding() {
     std::shared_ptr<BuildingComponent> building = nullptr;
 
     // Use findBuilding to locate the building
-    for (const auto& composite : buildingComposites) {
-        building = composite->findBuilding(buildingType);
-        if (building != nullptr) {
-            break;
+    if (!buildingComposites.empty()) {  // Corrected condition check
+        for (const auto& composite : buildingComposites) {
+            if (composite) {  // Ensure composite is not nullptr
+                building = composite->findBuilding(buildingType);
+                if (building != nullptr) {
+                    break;
+                }
+            }
         }
-}
-    
+    }
+
+    if (!building && currentComposite) {  // Only access currentComposite if it's not nullptr
+        building = currentComposite->findBuilding(buildingType);
+    }
+
     // Check if the building was found and perform the upgrade
     if (building) {
         building->upgrade(nullptr); // Pass nullptr or any necessary parameters
-        std::cout << buildingType << " upgraded successfully!\n";
+        //std::cout << buildingType << " upgraded successfully!\n";
     } else {
         std::cout << "No " << buildingType << " found to upgrade.\n";
     }
 }
-
-
 
 /**
  * @brief Allows the user to change the tax policy through a menu.
@@ -353,11 +408,12 @@ void GameEngine::changeTaxPolicy() {
         std::cout << "2. Standard\n";
         std::cout << "3. High\n";
         std::cout << "Enter the number corresponding to your choice: ";
+        cin >> option;
 
-        if (std::cin.fail()) {
+        if (std::cin.fail() || option > 3 || option <1) {
             std::cin.clear(); // Clear 
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
-            std::cout << "Invalid input. Please enter an integer.\n";
+            std::cout << "Invalid input. Please enter an integer (1-3).\n";
         } else {
             break; 
         }
@@ -377,15 +433,14 @@ void GameEngine::changeTaxPolicy() {
             break;
         default:
             std::cout << "Invalid selection. Please enter 1, 2, or 3.\n";
-            return;  // Exit the function if an invalid option was chosen
+            return;  // Exit the function if an invalid option was chosen
     }
-
     // Create and execute the PolicyCommand with the selected tax rate
     PolicyCommand taxPolicyCommand(cityContext, government, "tax rate", newRate);
     taxPolicyCommand.execute();
 
     // Confirm the change to the user
-    std::cout << "Tax rate policy updated to '" << newRate << "'.\n";
+    //std::cout << "Tax rate policy updated to '" << newRate << "'.\n";
 }
 
 /**
@@ -465,33 +520,29 @@ void GameEngine::viewGameIndex(){
     std::cout << "==================================================================\n";
 }
 
-
-
 /**
  * @brief Starts the city simulation, updating citizens, applying tax, and displaying the summary.
  */
 void GameEngine::startSimulation() {
     // Initialize random number generator
+
     std::mt19937 gen(static_cast<unsigned>(std::time(0))); // Random seed
 
     // Simulation loop for each month (or cycle)
-    for (int i = 0; i < 12; i++) {
+    for(int i = 0; i < 12; i++) {
+        if(i > 0 && government->getBalance() == 0){
+            std::cout << "GAME OVER :(( no more monies \n";
+        }
         std::cout << "Simulation running... Month: " << (i + 1) << "\n";
 
-        // Update citizens with the latest context
-        //std::cout << "CITIZENS ABOUT TO BE NOTIFIED" << std::endl;
         cityContext->notify();
-        //std::cout << "CITIZENS HAVE BEEN NOTIFIED" << std::endl;
 
         // Retrieve current population and average citizen satisfaction
         int populationSize = cityContext->calculateTotalPop();
         int citizenSatisfaction = cityContext->calculateAverageSatisfaction();
-        double satisfactionFactor = citizenSatisfaction/100;
-        int birthCount = static_cast<int>(populationSize * 0.05 * satisfactionFactor);
-
+        double satisfactionFactor = static_cast<double>(citizenSatisfaction) / 100.0;        
+        int birthCount = static_cast<int>(populationSize * 0.09 * satisfactionFactor);
         createCitizens(birthCount);
-        //std::cout << "AFTER CITIZEN CREATION " << i <<std::endl;
-
 
         // Update population size after births
         int totalPopulation = cityContext->calculateTotalPop();
@@ -536,19 +587,21 @@ void GameEngine::startSimulation() {
         }
 
         // Tax logic - Issue taxation command
-        double taxRate = 0.1; 
-        auto taxationCommand = std::make_shared<TaxationCommand>(citizens, taxRate);
-        government->setCommand(taxationCommand);
-        government->issueCommand(); // Apply taxes to citizens
+        if(i == 5 || i == 11) {
+            // Tax logic - Issue taxation command
+            double taxRate = 0.1; 
+            auto taxationCommand = std::make_shared<TaxationCommand>(citizens, taxRate);
+            government->setCommand(taxationCommand);
+            government->issueCommand(); // Apply taxes to citizens
+        }
 
         std::cout << "End of month " << (i + 1) << " simulation.\n";
     }
 
     std::cout << "Simulation complete.\n";
+    cityContext->prepareCitySummary();
     displayCitySummary();
 }
-
-
 
 /**
  * @brief Displays a summary of the city, including population and financial status.
@@ -557,7 +610,6 @@ void GameEngine::displayCitySummary() {
     cityContext->getCitySummary();
     std::cout << "Current Budget: $" << government->getBalance() << "\n";
 }
-
 
 void GameEngine::saveCheckpoint() {
     // Create a new save point from the current CityContext state

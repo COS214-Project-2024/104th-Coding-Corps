@@ -92,6 +92,7 @@ public:
 //Simulation Functions
     void calculateAverages();
     void getCitySummary();
+    void prepareCitySummary();
 
 //Memento Functions
     std::shared_ptr<SavePoint> saveGame(); //createMemento

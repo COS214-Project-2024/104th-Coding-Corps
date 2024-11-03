@@ -47,7 +47,7 @@ private:
     std::shared_ptr<ResidentialBuildingFactory> residentialFactory;
     std::shared_ptr<CommercialBuildingFactory> commercialFactory;
     std::shared_ptr<ServiceBuildingFactory> serviceFactory;
-    std::shared_ptr<IndustrialBuildingFactory> indistrialFactory;
+    std::shared_ptr<IndustrialBuildingFactory> industrialFactory;
     std::shared_ptr<WaterSupplyFactory> waterSupply;
     std::shared_ptr<WasteManagementFactory> wasteManagement;
     std::shared_ptr<SewageSystemFactory> sewageSystem;
@@ -68,8 +68,8 @@ public:
     GameEngine();
     void displayIntro();
     void displayMenu();
-    void createBuilding(const std::string& type);
-    void createUtility(const std::string& type);
+    void createBuilding(int type);
+    void createUtility(int type);
     void changeTaxPolicy();
     void createCitizens(int n);
     void startSimulation();
