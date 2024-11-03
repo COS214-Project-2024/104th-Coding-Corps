@@ -68,12 +68,14 @@ void GameEngine::displayMenu() {
     std::cout << "2. Create Utility Buildings\n";
     std::cout << "3. Upgrade Building\n";
     std::cout << "4. Get More Resources\n";
-    std::cout << "4. Change Tax Policy\n";
-    std::cout << "5. View Game Index\n";
-    std::cout << "6. Start the Game Simulation\n";
-    std::cout << "7. View City Summary\n";
-    std::cout << "8. Exit Game\n";
-    std::cout << "Select an option (1-7): ";
+    std::cout << "5. Change Tax Policy\n";
+    std::cout << "6. View Game Index\n";
+    std::cout << "7. Save Current City\n";
+    std::cout << "8. Return to last city save\n";
+    std::cout << "9. Start the Game Simulation\n";
+    std::cout << "10. View City Summary\n";
+    std::cout << "11. Exit Game\n";
+    std::cout << "Select an option (1-11):";
 }
 
 /**
@@ -193,6 +195,7 @@ void GameEngine::createBuilding(const std::string& type) {
         if (funBudget >= cost) {
             auto school = serviceFactory->createSchool(0, 0, district, 3, 50, 30);
             cityContext->addBuilding(std::shared_ptr<BuildingComponent>(std::move(school)));
+            currentComposite->addBuilding(std::shared_ptr<BuildingComponent>(std::move(school)));
             government->decreaseBudget(cost);
             std::cout << "School created. New Budget: $" << government->getBalance() << "\n";
         } else {
@@ -465,9 +468,9 @@ void GameEngine::startSimulation() {
         std::cout << "Simulation running... Month: " << (i + 1) << "\n";
 
         // Update citizens with the latest context
-        std::cout << "CITIZENS ABOUT TO BE NOTIFIED" << std::endl;
+        //std::cout << "CITIZENS ABOUT TO BE NOTIFIED" << std::endl;
         cityContext->notify();
-        std::cout << "CITIZENS HAVE BEEN NOTIFIED" << std::endl;
+        //std::cout << "CITIZENS HAVE BEEN NOTIFIED" << std::endl;
 
         // Retrieve current population and average citizen satisfaction
         int populationSize = cityContext->calculateTotalPop();
@@ -476,7 +479,7 @@ void GameEngine::startSimulation() {
         int birthCount = static_cast<int>(populationSize * 0.05 * satisfactionFactor);
 
         createCitizens(birthCount);
-        std::cout << "AFTER CITIZEN CREATION " << i <<std::endl;
+        //std::cout << "AFTER CITIZEN CREATION " << i <<std::endl;
 
 
         // Update population size after births

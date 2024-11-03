@@ -49,22 +49,34 @@ int main() {
                 break;
 
             case 4:
-                game.changeTaxPolicy();
+                game.addResources();
                 break;
 
             case 5:
-                game.viewGameIndex();
+                game.changeTaxPolicy();
                 break;
 
             case 6:
-                game.startSimulation();
+                game.viewGameIndex();
                 break;
 
             case 7:
-                game.displayCitySummary();
+                //game.saveCheckpoint();
                 break;
 
             case 8:
+                //game.returnToLastCheckpoint();
+                break;
+            
+            case 9:
+                game.startSimulation();
+                break;
+
+            case 10:
+                game.displayCitySummary();
+                break;
+
+            case 11:
                 std::cout << "Exiting game.\n";
                 return 0;
 
