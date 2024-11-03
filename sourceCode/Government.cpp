@@ -81,6 +81,10 @@ void Government::decreaseBudget(double amount) {
 double Government::getBalance() const {
     return budget->getBalance();
 }
+
+void Government::printTransactionHistory() const{
+    return budget->printTransactionHistory();
+}
 //--------------------------------------------------------------------------------------------------------
 
 //----------------------------------------------RESOURCE STUFF----------------------------------------------
