@@ -43,6 +43,7 @@ int main() {
 
         switch (choice) {
             case 1:
+                system("clear");
                 std::cout << "Choose a building type:\n";
                 std::cout << "1. Flat ($1,595,000)\n";
                 std::cout << "2. House ($5,000,000)\n";
@@ -64,6 +65,7 @@ int main() {
                 break;
 
             case 2:
+                system("clear");
                 std::cout << "Enter utility type:\n";
                 std::cout << "1. PowerPlant ($200,000)\n";
                 std::cout << "2. WaterSupply ($50,000)\n";
@@ -77,34 +79,42 @@ int main() {
                 break;
 
             case 3:
+                system("clear");
                 game.upgradeBuilding();
                 break;
 
             case 4:
+                system("clear");
                 game.addResources();
                 break;
 
             case 5:
+                system("clear");
                 game.changeTaxPolicy();
                 break;
 
             case 6:
+                system("clear");
                 game.changePolicy();
                 break;
 
             case 7:
+                system("clear");
                 game.viewGameIndex();
                 break;
 
             case 8:
+                system("clear");
                 game.saveCheckpoint();
                 break;
 
             case 9:
+                system("clear");
                 game.returnToLastCheckpoint();
                 break;
             
             case 10:
+                system("clear");
                 game.startSimulation();
                 if(game.getGameOver() == true) {
                     return 0;
@@ -112,10 +122,12 @@ int main() {
                 break;
 
             case 11:
+                system("clear");
                 game.displayCitySummary();
                 break;
 
             case 12:
+                system("clear");
                 std::cout << "Exiting game.\n";
                 return 0;
 

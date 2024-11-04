@@ -550,7 +550,8 @@ void GameEngine::createCitizens(int n){
 }
 
 void GameEngine::viewGameIndex(){
-     int choice;
+    //system("clear");
+    int choice;
     
     std::cout << "\n======================== INFORMATION MENU ========================\n";
     std::cout << "| Here you can find additional information on the proper         |\n";
@@ -621,7 +622,7 @@ void GameEngine::startSimulation() {
 
     // Simulation loop for each month (or cycle)
     for(int i = 0; i < 12; i++) {
-        if(i > 0 && government->getBalance() == 0 || cityContext->getBankrupt() == true){
+        if((i > 0 && government->getBalance() == 0) || cityContext->getBankrupt() == true){
             std::cout << "==============================================================\n";
             std::cout << "                  GAME OVER :(( no more monies                  \n";
             std::cout << "==============================================================\n";
@@ -636,7 +637,7 @@ void GameEngine::startSimulation() {
         int populationSize = cityContext->calculateTotalPop();
         int citizenSatisfaction = cityContext->calculateAverageSatisfaction();
         double satisfactionFactor = static_cast<double>(citizenSatisfaction) / 100.0;        
-        int birthCount = static_cast<int>(populationSize * 0.09 * satisfactionFactor);
+        int birthCount = static_cast<int>(populationSize * 0.04 * satisfactionFactor);
         createCitizens(birthCount);
 
         // Update population size after births
@@ -702,6 +703,7 @@ void GameEngine::startSimulation() {
  * @brief Displays a summary of the city, including population and financial status.
  */
 void GameEngine::displayCitySummary() {
+    //system("clear");
     cityContext->getCitySummary();
     std::cout << "Current Budget: $" << government->getBalance() << "\n";
 }

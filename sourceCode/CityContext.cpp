@@ -445,11 +445,11 @@ std::shared_ptr<BuildingComponent> CityContext::findNearestBuilding(int citizenI
     }
 
     if(buildingType == "Hospital" || buildingType == "University" ) {
-        if(government->deductExpense(2500) == false) {
+        if(government->deductExpense(1000) == false) {
             cityIsBankrupt = true;
             return nullptr;
         } else {
-            government->decreaseBudget(2500);
+            government->decreaseBudget(1000);
         }
     }
 
