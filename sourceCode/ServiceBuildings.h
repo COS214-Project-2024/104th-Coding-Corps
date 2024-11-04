@@ -16,6 +16,14 @@ public:
     ServiceBuildings(int x, int y, const std::string& district, int quality, int workers)
         : BuildingComponent(x, y, district, quality), numWorkers(workers) {}
 
+    // Copy constructor
+    ServiceBuildings(const ServiceBuildings& other)
+        : BuildingComponent(other),    // Call base class copy constructor
+        numWorkers(other.numWorkers) {}
+
+    // Pure virtual clone function for derived classes to implement
+    virtual std::shared_ptr<BuildingComponent> clone() const = 0;
+
     // Pure virtual functions that must be implemented by derived classes
     virtual std::string getBuildingType() override = 0;
     virtual int getOccupancy() override = 0;

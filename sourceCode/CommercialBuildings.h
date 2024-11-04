@@ -16,6 +16,15 @@ public:
     CommercialBuildings(int x, int y, const std::string& district, int quality, const std::string& business, int num)
         : BuildingComponent(x, y, district, quality), businessType(business), numBusinesses(num) {}
 
+    // Copy constructor
+    CommercialBuildings(const CommercialBuildings& other)
+        : BuildingComponent(other),         // Call base class copy constructor
+        businessType(other.businessType), // Copy businessType attribute
+        numBusinesses(other.numBusinesses) {} // Copy numBusinesses attribute
+
+    // Pure virtual clone function for derived classes to implement
+    virtual std::shared_ptr<BuildingComponent> clone() const = 0;
+
     // Pure virtual functions that must be implemented by derived classes
     virtual std::string getBuildingType() = 0;
     virtual int getOccupancy() = 0;

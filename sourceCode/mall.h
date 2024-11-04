@@ -12,6 +12,10 @@ private:
 public:
 	Mall(int numShops, string businessType, int numBusinesses, int x, int y, const std::string& district, int quality);
 
+    std::shared_ptr<BuildingComponent> clone() const override {
+        return std::make_shared<Mall>(*this);
+    }
+
 	int getNumShops();
 
 	string getBuildingType();

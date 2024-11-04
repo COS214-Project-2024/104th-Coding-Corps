@@ -13,6 +13,10 @@ public:
     // Constructor that accepts coordinates, quality, number of workers, and highest qualification
     School(int x, int y, const std::string& district, int quality, int numWorkers, int highestQualification);
 
+    std::shared_ptr<BuildingComponent> clone() const override {
+        return std::make_shared<School>(*this);
+    }
+
     std::string getBuildingType() override;
     int getOccupancy() override;
     double getCost() override;

@@ -13,6 +13,10 @@ public:
     // Constructor that accepts coordinates, quality, and number of workers
     Hospital(int x, int y, const std::string& district, int quality, int numWorkers);
 
+    std::shared_ptr<BuildingComponent> clone() const override {
+        return std::make_shared<Hospital>(*this);
+    }
+
     std::string getBuildingType() override;
     int getOccupancy() override;
     double getCost() override;
