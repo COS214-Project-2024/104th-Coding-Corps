@@ -1,0 +1,292 @@
+\hypertarget{classEstate}{}\doxysection{Estate Class Reference}
+\label{classEstate}\index{Estate@{Estate}}
+
+
+Inheritance diagram for Estate\+:
+% FIG 0
+
+
+Collaboration diagram for Estate\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEstate_a37f25a27bd2103a75dae456e8127ebb2}{Estate}} (int x, int y, const std\+::string \&district, int quality, int garage\+Size, bool has\+Pool, int residents, int floors, bool has\+Garden, int units)
+\begin{DoxyCompactList}\small\item\em Constructs an \mbox{\hyperlink{classEstate}{Estate}} object with specified parameters. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEstate_a74687fcc7ec8dd5f1c4af6a7617e2d7e}{get\+Garage\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Gets the size of the garage. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEstate_a3d46c0ceb37d7d6a5768068d998ea420}{has\+Swimming\+Pool}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the estate has a swimming pool. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classEstate_ab77d2dd57f17b2795c094a3fbb48fcdf}{get\+Building\+Type}} () override
+\begin{DoxyCompactList}\small\item\em Gets the type of the building. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classEstate_ab95a6be74bc421d1dbc9508b0de21d7f}{get\+Cost}} () override
+\begin{DoxyCompactList}\small\item\em Calculates the cost of the estate. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classEstate_aa4286c1de61221b2294fccef68fe3b8b}{get\+Maintenance\+Cost}} () override
+\begin{DoxyCompactList}\small\item\em Calculates the maintenance cost of the estate. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classEstate_a69ae88198b68e958a5cd8c148c8d624c}{get\+Energy\+Consumption}} () override
+\begin{DoxyCompactList}\small\item\em Calculates the total energy consumption of the estate. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classEstate_afe261cceb9d9d8ea4d7576c6905b34e9}{get\+Water\+Consumption}} () override
+\begin{DoxyCompactList}\small\item\em Calculates the total water consumption of the estate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEstate_a32df3f3350869e3a7978314c6698e1ab}{construct}} ()
+\begin{DoxyCompactList}\small\item\em Constructs the estate, initializing attributes for residents and floors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEstate_afe1000ea417583727cfca9f23c59d5f8}{demolish}} () override
+\begin{DoxyCompactList}\small\item\em Demolishes the estate by resetting its attributes. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classEstate_ad6e7d8b11ca24a2f8dd25d8d822307a8}{get\+Area}} () override
+\begin{DoxyCompactList}\small\item\em Calculates the total area of the estate, accounting for units and garage size. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEstate_a6fdfb6177af8534d3e079f8359976f92}{get\+Occupancy}} () override
+\begin{DoxyCompactList}\small\item\em Gets the occupancy of the estate. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEstate_a72ff31aa5a23c994f70b147cf0e79ae0}{get\+Num\+Residents}} ()
+\begin{DoxyCompactList}\small\item\em Gets the total number of residents in the estate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEstate_a38a94f51e7fc4a2d362b283bef23b6c7}{upgrade}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ building) override
+\begin{DoxyCompactList}\small\item\em Upgrades the estate if sufficient resources are available. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEstate_a37f25a27bd2103a75dae456e8127ebb2}\label{classEstate_a37f25a27bd2103a75dae456e8127ebb2}} 
+\index{Estate@{Estate}!Estate@{Estate}}
+\index{Estate@{Estate}!Estate@{Estate}}
+\doxysubsubsection{\texorpdfstring{Estate()}{Estate()}}
+{\footnotesize\ttfamily Estate\+::\+Estate (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality,  }\item[{int}]{garage\+Size,  }\item[{bool}]{has\+Pool,  }\item[{int}]{residents,  }\item[{int}]{floors,  }\item[{bool}]{has\+Garden,  }\item[{int}]{units }\end{DoxyParamCaption})}
+
+
+
+Constructs an \mbox{\hyperlink{classEstate}{Estate}} object with specified parameters. 
+
+Initializes an \mbox{\hyperlink{classEstate}{Estate}} with the given coordinates, district, quality, garage size, pool availability, number of residents, number of floors, garden availability, and number of units.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the estate. \\
+\hline
+{\em y} & The y-\/coordinate of the estate. \\
+\hline
+{\em district} & The district where the estate is located. \\
+\hline
+{\em quality} & The quality rating of the estate. \\
+\hline
+{\em garage\+Size} & The size of the garage in the estate. \\
+\hline
+{\em has\+Pool} & Whether the estate has a swimming pool. \\
+\hline
+{\em residents} & The number of residents in the estate. \\
+\hline
+{\em floors} & The number of floors in the estate. \\
+\hline
+{\em has\+Garden} & Whether the estate has a garden. \\
+\hline
+{\em units} & The number of units in the estate. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEstate_a32df3f3350869e3a7978314c6698e1ab}\label{classEstate_a32df3f3350869e3a7978314c6698e1ab}} 
+\index{Estate@{Estate}!construct@{construct}}
+\index{construct@{construct}!Estate@{Estate}}
+\doxysubsubsection{\texorpdfstring{construct()}{construct()}}
+{\footnotesize\ttfamily void Estate\+::construct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructs the estate, initializing attributes for residents and floors. 
+
+This function sets the number of residents to four times the number of units and assumes most estates have two floors. \mbox{\Hypertarget{classEstate_afe1000ea417583727cfca9f23c59d5f8}\label{classEstate_afe1000ea417583727cfca9f23c59d5f8}} 
+\index{Estate@{Estate}!demolish@{demolish}}
+\index{demolish@{demolish}!Estate@{Estate}}
+\doxysubsubsection{\texorpdfstring{demolish()}{demolish()}}
+{\footnotesize\ttfamily void Estate\+::demolish (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Demolishes the estate by resetting its attributes. 
+
+This function resets the number of residents, floors, pool, garage size, and number of units to simulate the demolition of the estate. 
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+\mbox{\Hypertarget{classEstate_ad6e7d8b11ca24a2f8dd25d8d822307a8}\label{classEstate_ad6e7d8b11ca24a2f8dd25d8d822307a8}} 
+\index{Estate@{Estate}!getArea@{getArea}}
+\index{getArea@{getArea}!Estate@{Estate}}
+\doxysubsubsection{\texorpdfstring{getArea()}{getArea()}}
+{\footnotesize\ttfamily double Estate\+::get\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the total area of the estate, accounting for units and garage size. 
+
+\begin{DoxyReturn}{Returns}
+The total area of the estate. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classBuildingComponent}{Building\+Component}}.
+
+\mbox{\Hypertarget{classEstate_ab77d2dd57f17b2795c094a3fbb48fcdf}\label{classEstate_ab77d2dd57f17b2795c094a3fbb48fcdf}} 
+\index{Estate@{Estate}!getBuildingType@{getBuildingType}}
+\index{getBuildingType@{getBuildingType}!Estate@{Estate}}
+\doxysubsubsection{\texorpdfstring{getBuildingType()}{getBuildingType()}}
+{\footnotesize\ttfamily std\+::string Estate\+::get\+Building\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the type of the building. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the building type \char`\"{}\+Estate\char`\"{}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+\mbox{\Hypertarget{classEstate_ab95a6be74bc421d1dbc9508b0de21d7f}\label{classEstate_ab95a6be74bc421d1dbc9508b0de21d7f}} 
+\index{Estate@{Estate}!getCost@{getCost}}
+\index{getCost@{getCost}!Estate@{Estate}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily double Estate\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the cost of the estate. 
+
+\begin{DoxyReturn}{Returns}
+The total cost based on the number of units in the estate. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+\mbox{\Hypertarget{classEstate_a69ae88198b68e958a5cd8c148c8d624c}\label{classEstate_a69ae88198b68e958a5cd8c148c8d624c}} 
+\index{Estate@{Estate}!getEnergyConsumption@{getEnergyConsumption}}
+\index{getEnergyConsumption@{getEnergyConsumption}!Estate@{Estate}}
+\doxysubsubsection{\texorpdfstring{getEnergyConsumption()}{getEnergyConsumption()}}
+{\footnotesize\ttfamily double Estate\+::get\+Energy\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the total energy consumption of the estate. 
+
+\begin{DoxyReturn}{Returns}
+The total energy consumption based on the number of units. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+\mbox{\Hypertarget{classEstate_a74687fcc7ec8dd5f1c4af6a7617e2d7e}\label{classEstate_a74687fcc7ec8dd5f1c4af6a7617e2d7e}} 
+\index{Estate@{Estate}!getGarageSize@{getGarageSize}}
+\index{getGarageSize@{getGarageSize}!Estate@{Estate}}
+\doxysubsubsection{\texorpdfstring{getGarageSize()}{getGarageSize()}}
+{\footnotesize\ttfamily int Estate\+::get\+Garage\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the size of the garage. 
+
+\begin{DoxyReturn}{Returns}
+The size of the garage in the estate. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEstate_aa4286c1de61221b2294fccef68fe3b8b}\label{classEstate_aa4286c1de61221b2294fccef68fe3b8b}} 
+\index{Estate@{Estate}!getMaintenanceCost@{getMaintenanceCost}}
+\index{getMaintenanceCost@{getMaintenanceCost}!Estate@{Estate}}
+\doxysubsubsection{\texorpdfstring{getMaintenanceCost()}{getMaintenanceCost()}}
+{\footnotesize\ttfamily double Estate\+::get\+Maintenance\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the maintenance cost of the estate. 
+
+\begin{DoxyReturn}{Returns}
+The total maintenance cost based on the number of units and pool maintenance if applicable. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+\mbox{\Hypertarget{classEstate_a72ff31aa5a23c994f70b147cf0e79ae0}\label{classEstate_a72ff31aa5a23c994f70b147cf0e79ae0}} 
+\index{Estate@{Estate}!getNumResidents@{getNumResidents}}
+\index{getNumResidents@{getNumResidents}!Estate@{Estate}}
+\doxysubsubsection{\texorpdfstring{getNumResidents()}{getNumResidents()}}
+{\footnotesize\ttfamily int Estate\+::get\+Num\+Residents (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the total number of residents in the estate. 
+
+\begin{DoxyReturn}{Returns}
+The total number of residents, calculated as four times the number of units. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEstate_a6fdfb6177af8534d3e079f8359976f92}\label{classEstate_a6fdfb6177af8534d3e079f8359976f92}} 
+\index{Estate@{Estate}!getOccupancy@{getOccupancy}}
+\index{getOccupancy@{getOccupancy}!Estate@{Estate}}
+\doxysubsubsection{\texorpdfstring{getOccupancy()}{getOccupancy()}}
+{\footnotesize\ttfamily int Estate\+::get\+Occupancy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the occupancy of the estate. 
+
+\begin{DoxyReturn}{Returns}
+The number of units in the estate. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+\mbox{\Hypertarget{classEstate_afe261cceb9d9d8ea4d7576c6905b34e9}\label{classEstate_afe261cceb9d9d8ea4d7576c6905b34e9}} 
+\index{Estate@{Estate}!getWaterConsumption@{getWaterConsumption}}
+\index{getWaterConsumption@{getWaterConsumption}!Estate@{Estate}}
+\doxysubsubsection{\texorpdfstring{getWaterConsumption()}{getWaterConsumption()}}
+{\footnotesize\ttfamily double Estate\+::get\+Water\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the total water consumption of the estate. 
+
+\begin{DoxyReturn}{Returns}
+The total water consumption based on the number of units. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+\mbox{\Hypertarget{classEstate_a3d46c0ceb37d7d6a5768068d998ea420}\label{classEstate_a3d46c0ceb37d7d6a5768068d998ea420}} 
+\index{Estate@{Estate}!hasSwimmingPool@{hasSwimmingPool}}
+\index{hasSwimmingPool@{hasSwimmingPool}!Estate@{Estate}}
+\doxysubsubsection{\texorpdfstring{hasSwimmingPool()}{hasSwimmingPool()}}
+{\footnotesize\ttfamily bool Estate\+::has\+Swimming\+Pool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the estate has a swimming pool. 
+
+\begin{DoxyReturn}{Returns}
+True if the estate has a pool; otherwise, false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEstate_a38a94f51e7fc4a2d362b283bef23b6c7}\label{classEstate_a38a94f51e7fc4a2d362b283bef23b6c7}} 
+\index{Estate@{Estate}!upgrade@{upgrade}}
+\index{upgrade@{upgrade}!Estate@{Estate}}
+\doxysubsubsection{\texorpdfstring{upgrade()}{upgrade()}}
+{\footnotesize\ttfamily void Estate\+::upgrade (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{building }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Upgrades the estate if sufficient resources are available. 
+
+This function requests resources from the \mbox{\hyperlink{classGovernment}{Government}} and, if available, increases the quality of the estate. If resources are insufficient, it indicates the upgrade failed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em building} & A shared pointer to a \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} (not used in this implementation). \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Estate.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Estate.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,198 @@
+\hypertarget{classUniversity}{}\doxysection{University Class Reference}
+\label{classUniversity}\index{University@{University}}
+
+
+Inheritance diagram for University\+:
+% FIG 0
+
+
+Collaboration diagram for University\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUniversity_a812205e08ed75baf92dbd1f40e0c0933}\label{classUniversity_a812205e08ed75baf92dbd1f40e0c0933}} 
+{\bfseries University} (int x, int y, const std\+::string \&district, int quality, int num\+Workers, int highest\+Qualification)
+\item 
+std\+::string \mbox{\hyperlink{classUniversity_aea640fcfbda22be09c444f4e473c347f}{get\+Building\+Type}} () override
+\begin{DoxyCompactList}\small\item\em Gets the type of building. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classUniversity_a6c94e713aae03f2ac2e7dc539b047429}{get\+Occupancy}} () override
+\begin{DoxyCompactList}\small\item\em Gets the occupancy of the university. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classUniversity_a02ca280ad8a9d15754d9252284b797de}{get\+Cost}} () override
+\begin{DoxyCompactList}\small\item\em Gets the cost of constructing the university. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classUniversity_ae45558d8123e6b505f16e4212b9fd48d}{get\+Maintenance\+Cost}} () override
+\begin{DoxyCompactList}\small\item\em Gets the maintenance cost of the university. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classUniversity_a0377a2e908d289b5899a66e5d012b682}{get\+Energy\+Consumption}} () override
+\begin{DoxyCompactList}\small\item\em Gets the energy consumption of the university. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classUniversity_ab074cca0e094bc3e17e8210687329ec0}{get\+Water\+Consumption}} () override
+\begin{DoxyCompactList}\small\item\em Gets the water consumption of the university. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUniversity_a5398b4539b9138c1d2b71fdd0b53d0f7}\label{classUniversity_a5398b4539b9138c1d2b71fdd0b53d0f7}} 
+void \mbox{\hyperlink{classUniversity_a5398b4539b9138c1d2b71fdd0b53d0f7}{demolish}} () override
+\begin{DoxyCompactList}\small\item\em Demolishes the university building and resets its attributes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUniversity_a01d53f2cdcff4da75bb405621e36c8d2}{upgrade}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ building) override
+\begin{DoxyCompactList}\small\item\em Upgrades the university building. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classUniversity_a592f82dde1faa7a5b1264c1096b50cb9}{get\+Area}} () override
+\begin{DoxyCompactList}\small\item\em Calculates the area of the university building. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classUniversity_a9fb748db456d53b618ed90c393b3ebcc}{get\+Highest\+Qualification}} ()
+\begin{DoxyCompactList}\small\item\em Gets the highest qualification level. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classUniversity_a592f82dde1faa7a5b1264c1096b50cb9}\label{classUniversity_a592f82dde1faa7a5b1264c1096b50cb9}} 
+\index{University@{University}!getArea@{getArea}}
+\index{getArea@{getArea}!University@{University}}
+\doxysubsubsection{\texorpdfstring{getArea()}{getArea()}}
+{\footnotesize\ttfamily double University\+::get\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the area of the university building. 
+
+\begin{DoxyReturn}{Returns}
+The area of the building. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classUniversity_aea640fcfbda22be09c444f4e473c347f}\label{classUniversity_aea640fcfbda22be09c444f4e473c347f}} 
+\index{University@{University}!getBuildingType@{getBuildingType}}
+\index{getBuildingType@{getBuildingType}!University@{University}}
+\doxysubsubsection{\texorpdfstring{getBuildingType()}{getBuildingType()}}
+{\footnotesize\ttfamily std\+::string University\+::get\+Building\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the type of building. 
+
+\begin{DoxyReturn}{Returns}
+The string \char`\"{}\+University\char`\"{}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classUniversity_a02ca280ad8a9d15754d9252284b797de}\label{classUniversity_a02ca280ad8a9d15754d9252284b797de}} 
+\index{University@{University}!getCost@{getCost}}
+\index{getCost@{getCost}!University@{University}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily double University\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the cost of constructing the university. 
+
+\begin{DoxyReturn}{Returns}
+The construction cost in ZAR. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classUniversity_a0377a2e908d289b5899a66e5d012b682}\label{classUniversity_a0377a2e908d289b5899a66e5d012b682}} 
+\index{University@{University}!getEnergyConsumption@{getEnergyConsumption}}
+\index{getEnergyConsumption@{getEnergyConsumption}!University@{University}}
+\doxysubsubsection{\texorpdfstring{getEnergyConsumption()}{getEnergyConsumption()}}
+{\footnotesize\ttfamily double University\+::get\+Energy\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the energy consumption of the university. 
+
+\begin{DoxyReturn}{Returns}
+The monthly energy consumption in k\+Wh. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classUniversity_a9fb748db456d53b618ed90c393b3ebcc}\label{classUniversity_a9fb748db456d53b618ed90c393b3ebcc}} 
+\index{University@{University}!getHighestQualification@{getHighestQualification}}
+\index{getHighestQualification@{getHighestQualification}!University@{University}}
+\doxysubsubsection{\texorpdfstring{getHighestQualification()}{getHighestQualification()}}
+{\footnotesize\ttfamily int University\+::get\+Highest\+Qualification (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the highest qualification level. 
+
+\begin{DoxyReturn}{Returns}
+The highest qualification level. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUniversity_ae45558d8123e6b505f16e4212b9fd48d}\label{classUniversity_ae45558d8123e6b505f16e4212b9fd48d}} 
+\index{University@{University}!getMaintenanceCost@{getMaintenanceCost}}
+\index{getMaintenanceCost@{getMaintenanceCost}!University@{University}}
+\doxysubsubsection{\texorpdfstring{getMaintenanceCost()}{getMaintenanceCost()}}
+{\footnotesize\ttfamily double University\+::get\+Maintenance\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the maintenance cost of the university. 
+
+\begin{DoxyReturn}{Returns}
+The maintenance cost as a percentage of the total cost. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classUniversity_a6c94e713aae03f2ac2e7dc539b047429}\label{classUniversity_a6c94e713aae03f2ac2e7dc539b047429}} 
+\index{University@{University}!getOccupancy@{getOccupancy}}
+\index{getOccupancy@{getOccupancy}!University@{University}}
+\doxysubsubsection{\texorpdfstring{getOccupancy()}{getOccupancy()}}
+{\footnotesize\ttfamily int University\+::get\+Occupancy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the occupancy of the university. 
+
+\begin{DoxyReturn}{Returns}
+The number of students the university can accommodate. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classUniversity_ab074cca0e094bc3e17e8210687329ec0}\label{classUniversity_ab074cca0e094bc3e17e8210687329ec0}} 
+\index{University@{University}!getWaterConsumption@{getWaterConsumption}}
+\index{getWaterConsumption@{getWaterConsumption}!University@{University}}
+\doxysubsubsection{\texorpdfstring{getWaterConsumption()}{getWaterConsumption()}}
+{\footnotesize\ttfamily double University\+::get\+Water\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the water consumption of the university. 
+
+\begin{DoxyReturn}{Returns}
+The monthly water consumption in liters. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classUniversity_a01d53f2cdcff4da75bb405621e36c8d2}\label{classUniversity_a01d53f2cdcff4da75bb405621e36c8d2}} 
+\index{University@{University}!upgrade@{upgrade}}
+\index{upgrade@{upgrade}!University@{University}}
+\doxysubsubsection{\texorpdfstring{upgrade()}{upgrade()}}
+{\footnotesize\ttfamily void University\+::upgrade (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{building }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Upgrades the university building. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em building} & A shared pointer to a \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} (for resource management). \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/University.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/University.\+cpp\end{DoxyCompactItemize}

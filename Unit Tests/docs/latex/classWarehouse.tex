@@ -1,0 +1,228 @@
+\hypertarget{classWarehouse}{}\doxysection{Warehouse Class Reference}
+\label{classWarehouse}\index{Warehouse@{Warehouse}}
+
+
+Inheritance diagram for Warehouse\+:
+% FIG 0
+
+
+Collaboration diagram for Warehouse\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWarehouse_aaac11b7addfb41fb0a62ef89df54a013}{Warehouse}} (int x, int y, const std\+::string \&district, int quality, int storage\+Capacity, int num\+Workers)
+\begin{DoxyCompactList}\small\item\em Constructs a warehouse with the given parameters and initializes the base class. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classWarehouse_a93dcf40450ef467849bd84d8dbf57d63}{get\+Storage\+Capacity}} ()
+\begin{DoxyCompactList}\small\item\em Gets the storage capacity of the warehouse. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classWarehouse_a554e94440cbc792176b239a743af0e7b}{get\+Building\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Gets the type of the building. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classWarehouse_a3d2c529212f2637e57ee1e6c7f9d0399}{get\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Gets the cost of constructing the warehouse. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classWarehouse_a8ebf665f7afe095650212fd301128f4f}{get\+Maintenance\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the maintenance cost of the warehouse. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classWarehouse_a65d0e651c15e1a07fd9ba0705516e08d}{get\+Energy\+Consumption}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the energy consumption of the warehouse. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classWarehouse_a17df0db513b846761172838139a3fe56}{get\+Water\+Consumption}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the water consumption of the warehouse. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWarehouse_ad06c691ba8c2616dc242e6a22bc97a32}\label{classWarehouse_ad06c691ba8c2616dc242e6a22bc97a32}} 
+void \mbox{\hyperlink{classWarehouse_ad06c691ba8c2616dc242e6a22bc97a32}{construct}} ()
+\begin{DoxyCompactList}\small\item\em Constructs the warehouse and outputs construction message. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWarehouse_a8640c3803901f6ec727660c0b2a0a58f}\label{classWarehouse_a8640c3803901f6ec727660c0b2a0a58f}} 
+void \mbox{\hyperlink{classWarehouse_a8640c3803901f6ec727660c0b2a0a58f}{demolish}} ()
+\begin{DoxyCompactList}\small\item\em Demolishes the warehouse by resetting its attributes. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classWarehouse_aee060748141e82819d61d71e823a8ab5}{get\+Area}} ()
+\begin{DoxyCompactList}\small\item\em Gets the area of the warehouse based on its dimensions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWarehouse_a988bc65100d8bf302cef2ae2b965c93b}{upgrade}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ building)
+\begin{DoxyCompactList}\small\item\em Upgrades the warehouse\textquotesingle{}s storage capacity. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classWarehouse_aebba0116136d6fb7be07b09321703c33}{get\+Occupancy}} ()
+\begin{DoxyCompactList}\small\item\em Gets the occupancy of the warehouse. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classWarehouse_aaac11b7addfb41fb0a62ef89df54a013}\label{classWarehouse_aaac11b7addfb41fb0a62ef89df54a013}} 
+\index{Warehouse@{Warehouse}!Warehouse@{Warehouse}}
+\index{Warehouse@{Warehouse}!Warehouse@{Warehouse}}
+\doxysubsubsection{\texorpdfstring{Warehouse()}{Warehouse()}}
+{\footnotesize\ttfamily Warehouse\+::\+Warehouse (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality,  }\item[{int}]{storage\+Capacity,  }\item[{int}]{num\+Workers }\end{DoxyParamCaption})}
+
+
+
+Constructs a warehouse with the given parameters and initializes the base class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the building. \\
+\hline
+{\em y} & The y-\/coordinate of the building. \\
+\hline
+{\em district} & The district where the building is located. \\
+\hline
+{\em quality} & The quality rating of the building. \\
+\hline
+{\em storage\+Capacity} & The storage capacity of the warehouse. \\
+\hline
+{\em num\+Workers} & The number of workers in the warehouse. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWarehouse_aee060748141e82819d61d71e823a8ab5}\label{classWarehouse_aee060748141e82819d61d71e823a8ab5}} 
+\index{Warehouse@{Warehouse}!getArea@{getArea}}
+\index{getArea@{getArea}!Warehouse@{Warehouse}}
+\doxysubsubsection{\texorpdfstring{getArea()}{getArea()}}
+{\footnotesize\ttfamily double Warehouse\+::get\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the area of the warehouse based on its dimensions. 
+
+\begin{DoxyReturn}{Returns}
+The area of the warehouse. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classWarehouse_a554e94440cbc792176b239a743af0e7b}\label{classWarehouse_a554e94440cbc792176b239a743af0e7b}} 
+\index{Warehouse@{Warehouse}!getBuildingType@{getBuildingType}}
+\index{getBuildingType@{getBuildingType}!Warehouse@{Warehouse}}
+\doxysubsubsection{\texorpdfstring{getBuildingType()}{getBuildingType()}}
+{\footnotesize\ttfamily std\+::string Warehouse\+::get\+Building\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the type of the building. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the type of building (\char`\"{}\+Warehouse\char`\"{}). 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classWarehouse_a3d2c529212f2637e57ee1e6c7f9d0399}\label{classWarehouse_a3d2c529212f2637e57ee1e6c7f9d0399}} 
+\index{Warehouse@{Warehouse}!getCost@{getCost}}
+\index{getCost@{getCost}!Warehouse@{Warehouse}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily double Warehouse\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the cost of constructing the warehouse. 
+
+\begin{DoxyReturn}{Returns}
+The cost of the warehouse. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classWarehouse_a65d0e651c15e1a07fd9ba0705516e08d}\label{classWarehouse_a65d0e651c15e1a07fd9ba0705516e08d}} 
+\index{Warehouse@{Warehouse}!getEnergyConsumption@{getEnergyConsumption}}
+\index{getEnergyConsumption@{getEnergyConsumption}!Warehouse@{Warehouse}}
+\doxysubsubsection{\texorpdfstring{getEnergyConsumption()}{getEnergyConsumption()}}
+{\footnotesize\ttfamily double Warehouse\+::get\+Energy\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the energy consumption of the warehouse. 
+
+\begin{DoxyReturn}{Returns}
+The energy consumption based on the number of workers. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classWarehouse_a8ebf665f7afe095650212fd301128f4f}\label{classWarehouse_a8ebf665f7afe095650212fd301128f4f}} 
+\index{Warehouse@{Warehouse}!getMaintenanceCost@{getMaintenanceCost}}
+\index{getMaintenanceCost@{getMaintenanceCost}!Warehouse@{Warehouse}}
+\doxysubsubsection{\texorpdfstring{getMaintenanceCost()}{getMaintenanceCost()}}
+{\footnotesize\ttfamily double Warehouse\+::get\+Maintenance\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the maintenance cost of the warehouse. 
+
+\begin{DoxyReturn}{Returns}
+The maintenance cost of the warehouse. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classWarehouse_aebba0116136d6fb7be07b09321703c33}\label{classWarehouse_aebba0116136d6fb7be07b09321703c33}} 
+\index{Warehouse@{Warehouse}!getOccupancy@{getOccupancy}}
+\index{getOccupancy@{getOccupancy}!Warehouse@{Warehouse}}
+\doxysubsubsection{\texorpdfstring{getOccupancy()}{getOccupancy()}}
+{\footnotesize\ttfamily int Warehouse\+::get\+Occupancy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the occupancy of the warehouse. 
+
+\begin{DoxyReturn}{Returns}
+The occupancy level of the warehouse. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classWarehouse_a93dcf40450ef467849bd84d8dbf57d63}\label{classWarehouse_a93dcf40450ef467849bd84d8dbf57d63}} 
+\index{Warehouse@{Warehouse}!getStorageCapacity@{getStorageCapacity}}
+\index{getStorageCapacity@{getStorageCapacity}!Warehouse@{Warehouse}}
+\doxysubsubsection{\texorpdfstring{getStorageCapacity()}{getStorageCapacity()}}
+{\footnotesize\ttfamily double Warehouse\+::get\+Storage\+Capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the storage capacity of the warehouse. 
+
+\begin{DoxyReturn}{Returns}
+The maximum storage capacity of the warehouse. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWarehouse_a17df0db513b846761172838139a3fe56}\label{classWarehouse_a17df0db513b846761172838139a3fe56}} 
+\index{Warehouse@{Warehouse}!getWaterConsumption@{getWaterConsumption}}
+\index{getWaterConsumption@{getWaterConsumption}!Warehouse@{Warehouse}}
+\doxysubsubsection{\texorpdfstring{getWaterConsumption()}{getWaterConsumption()}}
+{\footnotesize\ttfamily double Warehouse\+::get\+Water\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the water consumption of the warehouse. 
+
+\begin{DoxyReturn}{Returns}
+The water consumption based on the number of workers. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classWarehouse_a988bc65100d8bf302cef2ae2b965c93b}\label{classWarehouse_a988bc65100d8bf302cef2ae2b965c93b}} 
+\index{Warehouse@{Warehouse}!upgrade@{upgrade}}
+\index{upgrade@{upgrade}!Warehouse@{Warehouse}}
+\doxysubsubsection{\texorpdfstring{upgrade()}{upgrade()}}
+{\footnotesize\ttfamily void Warehouse\+::upgrade (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{building }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Upgrades the warehouse\textquotesingle{}s storage capacity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em building} & A shared pointer to the building component to upgrade. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/warehouse.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Ware\+House.\+cpp\end{DoxyCompactItemize}

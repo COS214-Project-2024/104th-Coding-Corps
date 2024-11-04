@@ -1,0 +1,94 @@
+\hypertarget{classTransportStrategy}{}\doxysection{Transport\+Strategy Class Reference}
+\label{classTransportStrategy}\index{TransportStrategy@{TransportStrategy}}
+
+
+Inheritance diagram for Transport\+Strategy\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTransportStrategy_a908d44d0c128c96448c608b47a1cd282}{Transport\+Strategy}} (double speed, std\+::string mode)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classTransportStrategy}{Transport\+Strategy}} with a specified speed and mode of transportation. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{classTransportStrategy_abb6d6be398b5fffba18228c1b6c8c1f2}{calculate\+Commute\+Time}} (double distance)
+\begin{DoxyCompactList}\small\item\em Calculates the commute time based on distance and the strategy\textquotesingle{}s speed. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classTransportStrategy_afb05cb55da025751a1685267290eb6f5}{get\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the mode of transportation for this strategy. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classTransportStrategy_ae06f5867ae3c8f1ae1c2c5869df01eac}{get\+Speed}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the speed of this transportation strategy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTransportStrategy_a908d44d0c128c96448c608b47a1cd282}\label{classTransportStrategy_a908d44d0c128c96448c608b47a1cd282}} 
+\index{TransportStrategy@{TransportStrategy}!TransportStrategy@{TransportStrategy}}
+\index{TransportStrategy@{TransportStrategy}!TransportStrategy@{TransportStrategy}}
+\doxysubsubsection{\texorpdfstring{TransportStrategy()}{TransportStrategy()}}
+{\footnotesize\ttfamily Transport\+Strategy\+::\+Transport\+Strategy (\begin{DoxyParamCaption}\item[{double}]{speed,  }\item[{std\+::string}]{mode }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classTransportStrategy}{Transport\+Strategy}} with a specified speed and mode of transportation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & The speed of the transportation mode. \\
+\hline
+{\em mode} & The name of the transportation mode. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTransportStrategy_abb6d6be398b5fffba18228c1b6c8c1f2}\label{classTransportStrategy_abb6d6be398b5fffba18228c1b6c8c1f2}} 
+\index{TransportStrategy@{TransportStrategy}!calculateCommuteTime@{calculateCommuteTime}}
+\index{calculateCommuteTime@{calculateCommuteTime}!TransportStrategy@{TransportStrategy}}
+\doxysubsubsection{\texorpdfstring{calculateCommuteTime()}{calculateCommuteTime()}}
+{\footnotesize\ttfamily double Transport\+Strategy\+::calculate\+Commute\+Time (\begin{DoxyParamCaption}\item[{double}]{distance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the commute time based on distance and the strategy\textquotesingle{}s speed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em distance} & The distance to be traveled. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The time required to complete the commute. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classRoadBased_a159d768719e7d57b1c1ad45718ddd89e}{Road\+Based}}, \mbox{\hyperlink{classRailBased_a769ad19e00a754dbffeddfd33be69722}{Rail\+Based}}, and \mbox{\hyperlink{classPublicTransit_a55eefa4e578b9829f99d4c2180fd4c91}{Public\+Transit}}.
+
+\mbox{\Hypertarget{classTransportStrategy_afb05cb55da025751a1685267290eb6f5}\label{classTransportStrategy_afb05cb55da025751a1685267290eb6f5}} 
+\index{TransportStrategy@{TransportStrategy}!getMode@{getMode}}
+\index{getMode@{getMode}!TransportStrategy@{TransportStrategy}}
+\doxysubsubsection{\texorpdfstring{getMode()}{getMode()}}
+{\footnotesize\ttfamily std\+::string Transport\+Strategy\+::get\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the mode of transportation for this strategy. 
+
+\begin{DoxyReturn}{Returns}
+The mode of transportation as a string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTransportStrategy_ae06f5867ae3c8f1ae1c2c5869df01eac}\label{classTransportStrategy_ae06f5867ae3c8f1ae1c2c5869df01eac}} 
+\index{TransportStrategy@{TransportStrategy}!getSpeed@{getSpeed}}
+\index{getSpeed@{getSpeed}!TransportStrategy@{TransportStrategy}}
+\doxysubsubsection{\texorpdfstring{getSpeed()}{getSpeed()}}
+{\footnotesize\ttfamily double Transport\+Strategy\+::get\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the speed of this transportation strategy. 
+
+\begin{DoxyReturn}{Returns}
+The speed of the transportation mode. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Transport\+Strategy.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Transport\+Strategy.\+cpp\end{DoxyCompactItemize}

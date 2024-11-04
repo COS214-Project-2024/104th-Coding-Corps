@@ -1,0 +1,198 @@
+\hypertarget{classHospital}{}\doxysection{Hospital Class Reference}
+\label{classHospital}\index{Hospital@{Hospital}}
+
+
+Inheritance diagram for Hospital\+:
+% FIG 0
+
+
+Collaboration diagram for Hospital\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHospital_a1d6bdff07c0ce77a58db85c4bf7ac91c}\label{classHospital_a1d6bdff07c0ce77a58db85c4bf7ac91c}} 
+{\bfseries Hospital} (int x, int y, const std\+::string \&district, int quality, int num\+Workers)
+\item 
+std\+::string \mbox{\hyperlink{classHospital_ab7d827c04371585224da9abbda28365b}{get\+Building\+Type}} () override
+\begin{DoxyCompactList}\small\item\em Gets the type of building. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classHospital_ab660e239b27bd1f4e7db6d7c1fb8778a}{get\+Occupancy}} () override
+\begin{DoxyCompactList}\small\item\em Gets the occupancy of the hospital. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classHospital_a3d293534b70bcc6bac33c06aa019303e}{get\+Cost}} () override
+\begin{DoxyCompactList}\small\item\em Gets the cost of constructing the hospital. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classHospital_ab3e319e8996755f3a4c47f3af7bfcea3}{get\+Maintenance\+Cost}} () override
+\begin{DoxyCompactList}\small\item\em Gets the maintenance cost of the hospital. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classHospital_af7ffdfb2fa3ed0ac2dc6ee0aded43d22}{get\+Energy\+Consumption}} () override
+\begin{DoxyCompactList}\small\item\em Gets the energy consumption of the hospital. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classHospital_a15a3fd31b43bd31a49fb90e5bb55c735}{get\+Water\+Consumption}} () override
+\begin{DoxyCompactList}\small\item\em Gets the water consumption of the hospital. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHospital_aa0105ac72800acc2ba0cd08123112ee1}\label{classHospital_aa0105ac72800acc2ba0cd08123112ee1}} 
+void \mbox{\hyperlink{classHospital_aa0105ac72800acc2ba0cd08123112ee1}{demolish}} () override
+\begin{DoxyCompactList}\small\item\em Demolishes the hospital building and resets its attributes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classHospital_acbf6059f0e0bc27b3b244e6dc82a4b8a}{upgrade}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ building) override
+\begin{DoxyCompactList}\small\item\em Upgrades the hospital building. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classHospital_a4701147ae0c04a3259cb3e8a5aafab98}{get\+Area}} () override
+\begin{DoxyCompactList}\small\item\em Calculates the area of the hospital building. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classHospital_a2615d22cfbce578ae3ae65ee1765fe67}{get\+Quality\+Of\+Care}} ()
+\begin{DoxyCompactList}\small\item\em Gets the quality of care provided by the hospital. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHospital_a4701147ae0c04a3259cb3e8a5aafab98}\label{classHospital_a4701147ae0c04a3259cb3e8a5aafab98}} 
+\index{Hospital@{Hospital}!getArea@{getArea}}
+\index{getArea@{getArea}!Hospital@{Hospital}}
+\doxysubsubsection{\texorpdfstring{getArea()}{getArea()}}
+{\footnotesize\ttfamily double Hospital\+::get\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the area of the hospital building. 
+
+\begin{DoxyReturn}{Returns}
+The area of the building. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classHospital_ab7d827c04371585224da9abbda28365b}\label{classHospital_ab7d827c04371585224da9abbda28365b}} 
+\index{Hospital@{Hospital}!getBuildingType@{getBuildingType}}
+\index{getBuildingType@{getBuildingType}!Hospital@{Hospital}}
+\doxysubsubsection{\texorpdfstring{getBuildingType()}{getBuildingType()}}
+{\footnotesize\ttfamily std\+::string Hospital\+::get\+Building\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the type of building. 
+
+\begin{DoxyReturn}{Returns}
+The string \char`\"{}\+Hospital\char`\"{}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classHospital_a3d293534b70bcc6bac33c06aa019303e}\label{classHospital_a3d293534b70bcc6bac33c06aa019303e}} 
+\index{Hospital@{Hospital}!getCost@{getCost}}
+\index{getCost@{getCost}!Hospital@{Hospital}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily double Hospital\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the cost of constructing the hospital. 
+
+\begin{DoxyReturn}{Returns}
+The construction cost in ZAR. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classHospital_af7ffdfb2fa3ed0ac2dc6ee0aded43d22}\label{classHospital_af7ffdfb2fa3ed0ac2dc6ee0aded43d22}} 
+\index{Hospital@{Hospital}!getEnergyConsumption@{getEnergyConsumption}}
+\index{getEnergyConsumption@{getEnergyConsumption}!Hospital@{Hospital}}
+\doxysubsubsection{\texorpdfstring{getEnergyConsumption()}{getEnergyConsumption()}}
+{\footnotesize\ttfamily double Hospital\+::get\+Energy\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the energy consumption of the hospital. 
+
+\begin{DoxyReturn}{Returns}
+The monthly energy consumption in k\+Wh. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classHospital_ab3e319e8996755f3a4c47f3af7bfcea3}\label{classHospital_ab3e319e8996755f3a4c47f3af7bfcea3}} 
+\index{Hospital@{Hospital}!getMaintenanceCost@{getMaintenanceCost}}
+\index{getMaintenanceCost@{getMaintenanceCost}!Hospital@{Hospital}}
+\doxysubsubsection{\texorpdfstring{getMaintenanceCost()}{getMaintenanceCost()}}
+{\footnotesize\ttfamily double Hospital\+::get\+Maintenance\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the maintenance cost of the hospital. 
+
+\begin{DoxyReturn}{Returns}
+The maintenance cost as a percentage of the total cost. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classHospital_ab660e239b27bd1f4e7db6d7c1fb8778a}\label{classHospital_ab660e239b27bd1f4e7db6d7c1fb8778a}} 
+\index{Hospital@{Hospital}!getOccupancy@{getOccupancy}}
+\index{getOccupancy@{getOccupancy}!Hospital@{Hospital}}
+\doxysubsubsection{\texorpdfstring{getOccupancy()}{getOccupancy()}}
+{\footnotesize\ttfamily int Hospital\+::get\+Occupancy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the occupancy of the hospital. 
+
+\begin{DoxyReturn}{Returns}
+The number of patients the hospital can accommodate. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classHospital_a2615d22cfbce578ae3ae65ee1765fe67}\label{classHospital_a2615d22cfbce578ae3ae65ee1765fe67}} 
+\index{Hospital@{Hospital}!getQualityOfCare@{getQualityOfCare}}
+\index{getQualityOfCare@{getQualityOfCare}!Hospital@{Hospital}}
+\doxysubsubsection{\texorpdfstring{getQualityOfCare()}{getQualityOfCare()}}
+{\footnotesize\ttfamily int Hospital\+::get\+Quality\+Of\+Care (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the quality of care provided by the hospital. 
+
+\begin{DoxyReturn}{Returns}
+The quality of care. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHospital_a15a3fd31b43bd31a49fb90e5bb55c735}\label{classHospital_a15a3fd31b43bd31a49fb90e5bb55c735}} 
+\index{Hospital@{Hospital}!getWaterConsumption@{getWaterConsumption}}
+\index{getWaterConsumption@{getWaterConsumption}!Hospital@{Hospital}}
+\doxysubsubsection{\texorpdfstring{getWaterConsumption()}{getWaterConsumption()}}
+{\footnotesize\ttfamily double Hospital\+::get\+Water\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the water consumption of the hospital. 
+
+\begin{DoxyReturn}{Returns}
+The monthly water consumption in liters. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classHospital_acbf6059f0e0bc27b3b244e6dc82a4b8a}\label{classHospital_acbf6059f0e0bc27b3b244e6dc82a4b8a}} 
+\index{Hospital@{Hospital}!upgrade@{upgrade}}
+\index{upgrade@{upgrade}!Hospital@{Hospital}}
+\doxysubsubsection{\texorpdfstring{upgrade()}{upgrade()}}
+{\footnotesize\ttfamily void Hospital\+::upgrade (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{building }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Upgrades the hospital building. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em building} & A shared pointer to a \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} (for resource management). \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Hospital.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Hospital.\+cpp\end{DoxyCompactItemize}

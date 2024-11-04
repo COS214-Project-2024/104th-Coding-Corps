@@ -1,0 +1,106 @@
+\hypertarget{classTransport}{}\doxysection{Transport Class Reference}
+\label{classTransport}\index{Transport@{Transport}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTransport_a36928c178aa490c02aa25b4b12e2bf63}\label{classTransport_a36928c178aa490c02aa25b4b12e2bf63}} 
+\mbox{\hyperlink{classTransport_a36928c178aa490c02aa25b4b12e2bf63}{Transport}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classTransport}{Transport}} object and initializes the \mbox{\hyperlink{classTrafficManager}{Traffic\+Manager}} and the current transportation strategy. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classTransport_a8c6abd0b3c526aebe7051479c2c5132e}{calculate\+Distance}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ from, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ to)
+\begin{DoxyCompactList}\small\item\em Calculates the Euclidean distance between two buildings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTransport_aa707ef1541abb0787a242578fa8486b4}{choose\+Strategy}} (double distance, bool is\+Congested)
+\begin{DoxyCompactList}\small\item\em Chooses the appropriate transportation strategy based on the distance and congestion status. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTransport_afd5d5203ac2fa57bea9fff7ff57bd980}{travel}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ from, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ to)
+\begin{DoxyCompactList}\small\item\em Initiates travel between two buildings, calculates the distance, chooses the strategy, and manages traffic updates. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTransport_a0c9c2d9dbca3fe54947e2ab4e912bf88}{complete\+Travel}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ from, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ to, double commute\+Time, const std\+::string \&mode)
+\begin{DoxyCompactList}\small\item\em Completes the travel process by decreasing traffic congestion after travel. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTransport_a091e083a47905077d8ad86ffa23d6002}\label{classTransport_a091e083a47905077d8ad86ffa23d6002}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTransportStrategy}{Transport\+Strategy}} $>$ {\bfseries get\+Current\+Strategy} () const
+\item 
+\mbox{\Hypertarget{classTransport_ae76b29fd08204eb5bc230a4e7be3df1e}\label{classTransport_ae76b29fd08204eb5bc230a4e7be3df1e}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTrafficManager}{Traffic\+Manager}} $>$ {\bfseries get\+Traffic\+Manager} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTransport_a8c6abd0b3c526aebe7051479c2c5132e}\label{classTransport_a8c6abd0b3c526aebe7051479c2c5132e}} 
+\index{Transport@{Transport}!calculateDistance@{calculateDistance}}
+\index{calculateDistance@{calculateDistance}!Transport@{Transport}}
+\doxysubsubsection{\texorpdfstring{calculateDistance()}{calculateDistance()}}
+{\footnotesize\ttfamily double Transport\+::calculate\+Distance (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{from,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{to }\end{DoxyParamCaption})}
+
+
+
+Calculates the Euclidean distance between two buildings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & The starting building component. \\
+\hline
+{\em to} & The destination building component. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The calculated distance between the two buildings. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTransport_aa707ef1541abb0787a242578fa8486b4}\label{classTransport_aa707ef1541abb0787a242578fa8486b4}} 
+\index{Transport@{Transport}!chooseStrategy@{chooseStrategy}}
+\index{chooseStrategy@{chooseStrategy}!Transport@{Transport}}
+\doxysubsubsection{\texorpdfstring{chooseStrategy()}{chooseStrategy()}}
+{\footnotesize\ttfamily void Transport\+::choose\+Strategy (\begin{DoxyParamCaption}\item[{double}]{distance,  }\item[{bool}]{is\+Congested }\end{DoxyParamCaption})}
+
+
+
+Chooses the appropriate transportation strategy based on the distance and congestion status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em distance} & The distance between two buildings. \\
+\hline
+{\em is\+Congested} & Indicates if the route between the two buildings is congested. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTransport_a0c9c2d9dbca3fe54947e2ab4e912bf88}\label{classTransport_a0c9c2d9dbca3fe54947e2ab4e912bf88}} 
+\index{Transport@{Transport}!completeTravel@{completeTravel}}
+\index{completeTravel@{completeTravel}!Transport@{Transport}}
+\doxysubsubsection{\texorpdfstring{completeTravel()}{completeTravel()}}
+{\footnotesize\ttfamily void Transport\+::complete\+Travel (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{from,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{to,  }\item[{double}]{commute\+Time,  }\item[{const std\+::string \&}]{mode }\end{DoxyParamCaption})}
+
+
+
+Completes the travel process by decreasing traffic congestion after travel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & The starting building component. \\
+\hline
+{\em to} & The destination building component. \\
+\hline
+{\em commute\+Time} & The time taken for the commute. \\
+\hline
+{\em mode} & The transportation mode used for the commute. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTransport_afd5d5203ac2fa57bea9fff7ff57bd980}\label{classTransport_afd5d5203ac2fa57bea9fff7ff57bd980}} 
+\index{Transport@{Transport}!travel@{travel}}
+\index{travel@{travel}!Transport@{Transport}}
+\doxysubsubsection{\texorpdfstring{travel()}{travel()}}
+{\footnotesize\ttfamily void Transport\+::travel (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{from,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{to }\end{DoxyParamCaption})}
+
+
+
+Initiates travel between two buildings, calculates the distance, chooses the strategy, and manages traffic updates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & The starting building component. \\
+\hline
+{\em to} & The destination building component. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Transport.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Transport.\+cpp\end{DoxyCompactItemize}

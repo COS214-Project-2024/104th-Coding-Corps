@@ -1,0 +1,264 @@
+\hypertarget{classOffice}{}\doxysection{Office Class Reference}
+\label{classOffice}\index{Office@{Office}}
+
+
+Inheritance diagram for Office\+:
+% FIG 0
+
+
+Collaboration diagram for Office\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classOffice_a344acc4222f17a08081af0849f4ed632}{Office}} (int num\+Employees, string business\+Type, int x, int y, const std\+::string \&district, int quality)
+\begin{DoxyCompactList}\small\item\em Constructs an \mbox{\hyperlink{classOffice}{Office}} object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classOffice_ac49a0c520a03ce4eac625d5c8f79a530}{get\+Num\+Employees}} ()
+\begin{DoxyCompactList}\small\item\em Gets the number of employees in the office. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classOffice_ad073f63053ac9b9bd6164618b62da230}{get\+Building\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Gets the type of building. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classOffice_a538f37cd1712e230655c7a6b24ceb6b5}{get\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the total cost of the office. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classOffice_a0b2d5062396b2fb129e5996c33c67a16}{get\+Maintenance\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the monthly maintenance cost of the office. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classOffice_a3258a0067ffdab45708a423b64bedbec}{get\+Energy\+Consumption}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the monthly energy consumption of the office. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classOffice_a893013d432699ceb07b07759f7f8a0e7}{get\+Water\+Consumption}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the monthly water consumption of the office. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOffice_a63b49837f510a6bc7d20138777bc1b4b}{construct}} ()
+\begin{DoxyCompactList}\small\item\em Constructs the office. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOffice_ad4eb1058b80b2da1d551161cca16b4c0}{demolish}} ()
+\begin{DoxyCompactList}\small\item\em Demolishes the office. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classOffice_a4ed62b8da4c4d70f42bba5f5fa98b32f}{get\+Area}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the area of the office. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classOffice_ab0392227ff678b0998759c3d91207a37}{get\+Occupancy}} ()
+\begin{DoxyCompactList}\small\item\em Gets the occupancy of the office. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOffice_a804aa6a6338e5502465dbd221a8d85b6}{upgrade}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ building)
+\begin{DoxyCompactList}\small\item\em Upgrades the office if sufficient resources are available. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classOffice_a8692845f9802e37558c6b4349954beb8}\label{classOffice_a8692845f9802e37558c6b4349954beb8}} 
+int {\bfseries num\+Employees}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classOffice_a344acc4222f17a08081af0849f4ed632}\label{classOffice_a344acc4222f17a08081af0849f4ed632}} 
+\index{Office@{Office}!Office@{Office}}
+\index{Office@{Office}!Office@{Office}}
+\doxysubsubsection{\texorpdfstring{Office()}{Office()}}
+{\footnotesize\ttfamily Office\+::\+Office (\begin{DoxyParamCaption}\item[{int}]{num\+Employees,  }\item[{string}]{business\+Type,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality }\end{DoxyParamCaption})}
+
+
+
+Constructs an \mbox{\hyperlink{classOffice}{Office}} object. 
+
+Initializes the office with the specified number of employees, business type, and location attributes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Employees} & The number of employees in the office. \\
+\hline
+{\em business\+Type} & The type of business operating in the office. \\
+\hline
+{\em x} & The x-\/coordinate of the office. \\
+\hline
+{\em y} & The y-\/coordinate of the office. \\
+\hline
+{\em district} & The district where the office is located. \\
+\hline
+{\em quality} & The quality rating of the office. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classOffice_a63b49837f510a6bc7d20138777bc1b4b}\label{classOffice_a63b49837f510a6bc7d20138777bc1b4b}} 
+\index{Office@{Office}!construct@{construct}}
+\index{construct@{construct}!Office@{Office}}
+\doxysubsubsection{\texorpdfstring{construct()}{construct()}}
+{\footnotesize\ttfamily void Office\+::construct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Constructs the office. 
+
+Prints a message indicating that the office is being constructed. 
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classOffice_ad4eb1058b80b2da1d551161cca16b4c0}\label{classOffice_ad4eb1058b80b2da1d551161cca16b4c0}} 
+\index{Office@{Office}!demolish@{demolish}}
+\index{demolish@{demolish}!Office@{Office}}
+\doxysubsubsection{\texorpdfstring{demolish()}{demolish()}}
+{\footnotesize\ttfamily void Office\+::demolish (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Demolishes the office. 
+
+Resets the number of employees to represent demolition and prints a message. 
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classOffice_a4ed62b8da4c4d70f42bba5f5fa98b32f}\label{classOffice_a4ed62b8da4c4d70f42bba5f5fa98b32f}} 
+\index{Office@{Office}!getArea@{getArea}}
+\index{getArea@{getArea}!Office@{Office}}
+\doxysubsubsection{\texorpdfstring{getArea()}{getArea()}}
+{\footnotesize\ttfamily double Office\+::get\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the area of the office. 
+
+\begin{DoxyReturn}{Returns}
+The area of the office. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classBuildingComponent}{Building\+Component}}.
+
+\mbox{\Hypertarget{classOffice_ad073f63053ac9b9bd6164618b62da230}\label{classOffice_ad073f63053ac9b9bd6164618b62da230}} 
+\index{Office@{Office}!getBuildingType@{getBuildingType}}
+\index{getBuildingType@{getBuildingType}!Office@{Office}}
+\doxysubsubsection{\texorpdfstring{getBuildingType()}{getBuildingType()}}
+{\footnotesize\ttfamily std\+::string Office\+::get\+Building\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the type of building. 
+
+\begin{DoxyReturn}{Returns}
+The building type as a string. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classOffice_a538f37cd1712e230655c7a6b24ceb6b5}\label{classOffice_a538f37cd1712e230655c7a6b24ceb6b5}} 
+\index{Office@{Office}!getCost@{getCost}}
+\index{getCost@{getCost}!Office@{Office}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily double Office\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the total cost of the office. 
+
+\begin{DoxyReturn}{Returns}
+The fixed cost of the office. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classOffice_a3258a0067ffdab45708a423b64bedbec}\label{classOffice_a3258a0067ffdab45708a423b64bedbec}} 
+\index{Office@{Office}!getEnergyConsumption@{getEnergyConsumption}}
+\index{getEnergyConsumption@{getEnergyConsumption}!Office@{Office}}
+\doxysubsubsection{\texorpdfstring{getEnergyConsumption()}{getEnergyConsumption()}}
+{\footnotesize\ttfamily double Office\+::get\+Energy\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the monthly energy consumption of the office. 
+
+\begin{DoxyReturn}{Returns}
+The energy consumption based on the number of employees. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classOffice_a0b2d5062396b2fb129e5996c33c67a16}\label{classOffice_a0b2d5062396b2fb129e5996c33c67a16}} 
+\index{Office@{Office}!getMaintenanceCost@{getMaintenanceCost}}
+\index{getMaintenanceCost@{getMaintenanceCost}!Office@{Office}}
+\doxysubsubsection{\texorpdfstring{getMaintenanceCost()}{getMaintenanceCost()}}
+{\footnotesize\ttfamily double Office\+::get\+Maintenance\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the monthly maintenance cost of the office. 
+
+\begin{DoxyReturn}{Returns}
+The maintenance cost as a percentage of the total cost. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classOffice_ac49a0c520a03ce4eac625d5c8f79a530}\label{classOffice_ac49a0c520a03ce4eac625d5c8f79a530}} 
+\index{Office@{Office}!getNumEmployees@{getNumEmployees}}
+\index{getNumEmployees@{getNumEmployees}!Office@{Office}}
+\doxysubsubsection{\texorpdfstring{getNumEmployees()}{getNumEmployees()}}
+{\footnotesize\ttfamily int Office\+::get\+Num\+Employees (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the number of employees in the office. 
+
+\begin{DoxyReturn}{Returns}
+The number of employees. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classOffice_ab0392227ff678b0998759c3d91207a37}\label{classOffice_ab0392227ff678b0998759c3d91207a37}} 
+\index{Office@{Office}!getOccupancy@{getOccupancy}}
+\index{getOccupancy@{getOccupancy}!Office@{Office}}
+\doxysubsubsection{\texorpdfstring{getOccupancy()}{getOccupancy()}}
+{\footnotesize\ttfamily int Office\+::get\+Occupancy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the occupancy of the office. 
+
+\begin{DoxyReturn}{Returns}
+The occupancy rate, assumed to be 150. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classOffice_a893013d432699ceb07b07759f7f8a0e7}\label{classOffice_a893013d432699ceb07b07759f7f8a0e7}} 
+\index{Office@{Office}!getWaterConsumption@{getWaterConsumption}}
+\index{getWaterConsumption@{getWaterConsumption}!Office@{Office}}
+\doxysubsubsection{\texorpdfstring{getWaterConsumption()}{getWaterConsumption()}}
+{\footnotesize\ttfamily double Office\+::get\+Water\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the monthly water consumption of the office. 
+
+\begin{DoxyReturn}{Returns}
+The water consumption based on the number of employees. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classOffice_a804aa6a6338e5502465dbd221a8d85b6}\label{classOffice_a804aa6a6338e5502465dbd221a8d85b6}} 
+\index{Office@{Office}!upgrade@{upgrade}}
+\index{upgrade@{upgrade}!Office@{Office}}
+\doxysubsubsection{\texorpdfstring{upgrade()}{upgrade()}}
+{\footnotesize\ttfamily void Office\+::upgrade (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{building }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Upgrades the office if sufficient resources are available. 
+
+Requests resources from the government and upgrades the quality if possible.
+
+
+\begin{DoxyParams}{Parameters}
+{\em building} & A shared pointer to the building component being upgraded. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classBuildingComponent}{Building\+Component}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Office.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Office.\+cpp\end{DoxyCompactItemize}

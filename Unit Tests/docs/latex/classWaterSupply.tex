@@ -1,0 +1,92 @@
+\hypertarget{classWaterSupply}{}\doxysection{Water\+Supply Class Reference}
+\label{classWaterSupply}\index{WaterSupply@{WaterSupply}}
+
+
+Inheritance diagram for Water\+Supply\+:
+% FIG 0
+
+
+Collaboration diagram for Water\+Supply\+:
+% FIG 1
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classWaterSupply_af1a396e42f834c00c5105eb442fa22da}\label{classWaterSupply_af1a396e42f834c00c5105eb442fa22da}} 
+using {\bfseries Ptr} = std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classWaterSupply}{Water\+Supply}} $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classWaterSupply_af780e010e5cfb1f455acbc7472ceee12}\label{classWaterSupply_af780e010e5cfb1f455acbc7472ceee12}} 
+\mbox{\hyperlink{classWaterSupply_af780e010e5cfb1f455acbc7472ceee12}{Water\+Supply}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classWaterSupply}{Water\+Supply}} utility instance. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classWaterSupply_a63f7114741f6f905922b51a6fafa3e61}{get\+Consumption\+Rate}} () override
+\begin{DoxyCompactList}\small\item\em Gets the consumption rate of water per building per day. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classWaterSupply_a808a8b80d838bb5328a696d7e402293a}{get\+Cost}} () override
+\begin{DoxyCompactList}\small\item\em Gets the monthly cost of the water supply utility. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWaterSupply_afd3704311386998fec24af6085b76173}\label{classWaterSupply_afd3704311386998fec24af6085b76173}} 
+void \mbox{\hyperlink{classWaterSupply_afd3704311386998fec24af6085b76173}{activate\+Utility}} () override
+\begin{DoxyCompactList}\small\item\em Activates the water supply utility. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWaterSupply_a6a6c11d5d58708b93cce0c8bcfbf3b13}\label{classWaterSupply_a6a6c11d5d58708b93cce0c8bcfbf3b13}} 
+void \mbox{\hyperlink{classWaterSupply_a6a6c11d5d58708b93cce0c8bcfbf3b13}{deactivate\+Utility}} () override
+\begin{DoxyCompactList}\small\item\em Deactivates the water supply utility. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWaterSupply_a4465a41a1a077ca65477af2f9e3e55f2}{distribute\+Water}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ building)
+\begin{DoxyCompactList}\small\item\em Distributes water to the specified building. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWaterSupply_a4465a41a1a077ca65477af2f9e3e55f2}\label{classWaterSupply_a4465a41a1a077ca65477af2f9e3e55f2}} 
+\index{WaterSupply@{WaterSupply}!distributeWater@{distributeWater}}
+\index{distributeWater@{distributeWater}!WaterSupply@{WaterSupply}}
+\doxysubsubsection{\texorpdfstring{distributeWater()}{distributeWater()}}
+{\footnotesize\ttfamily void Water\+Supply\+::distribute\+Water (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{building }\end{DoxyParamCaption})}
+
+
+
+Distributes water to the specified building. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em building} & A shared pointer to the \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} receiving water. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWaterSupply_a63f7114741f6f905922b51a6fafa3e61}\label{classWaterSupply_a63f7114741f6f905922b51a6fafa3e61}} 
+\index{WaterSupply@{WaterSupply}!getConsumptionRate@{getConsumptionRate}}
+\index{getConsumptionRate@{getConsumptionRate}!WaterSupply@{WaterSupply}}
+\doxysubsubsection{\texorpdfstring{getConsumptionRate()}{getConsumptionRate()}}
+{\footnotesize\ttfamily double Water\+Supply\+::get\+Consumption\+Rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the consumption rate of water per building per day. 
+
+\begin{DoxyReturn}{Returns}
+The base consumption rate in liters. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classUtilities}{Utilities}}.
+
+\mbox{\Hypertarget{classWaterSupply_a808a8b80d838bb5328a696d7e402293a}\label{classWaterSupply_a808a8b80d838bb5328a696d7e402293a}} 
+\index{WaterSupply@{WaterSupply}!getCost@{getCost}}
+\index{getCost@{getCost}!WaterSupply@{WaterSupply}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily double Water\+Supply\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the monthly cost of the water supply utility. 
+
+\begin{DoxyReturn}{Returns}
+The base monthly cost in ZAR. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classUtilities}{Utilities}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Water\+Supply.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Water\+Supply.\+cpp\end{DoxyCompactItemize}

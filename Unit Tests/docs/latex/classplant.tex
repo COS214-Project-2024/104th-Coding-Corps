@@ -1,0 +1,230 @@
+\hypertarget{classplant}{}\doxysection{plant Class Reference}
+\label{classplant}\index{plant@{plant}}
+
+
+Inheritance diagram for plant\+:
+% FIG 0
+
+
+Collaboration diagram for plant\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classplant_aab1891c8231f639a930d2d86921305a7}{plant}} (int x, int y, const std\+::string \&district, int quality, double production, int workers)
+\begin{DoxyCompactList}\small\item\em Constructs a plant with the given parameters and initializes the base class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classplant_a028b3f3b0992599b7a1cdd82d5fa57c0}{generate\+Electricity}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ building)
+\begin{DoxyCompactList}\small\item\em Generates electricity based on the number of workers. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classplant_aa64181da24fb55d1fa98241346e5ae04}{get\+Building\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Gets the type of the building. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classplant_a479afbd8709bde7632995e439eade2f4}{get\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Gets the cost of constructing the plant. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classplant_a1658bcbb8e42a67cb0cdd95f4a855919}{get\+Maintenance\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the maintenance cost of the plant. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classplant_a881175e7cb0b2e07867214fdb2066a67}{get\+Energy\+Consumption}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the energy consumption of the plant. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classplant_a453a60c80f27e397174279b78b161711}{get\+Water\+Consumption}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the water consumption of the plant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classplant_a0bdab147dc602a6a400656a11f970c9c}\label{classplant_a0bdab147dc602a6a400656a11f970c9c}} 
+void {\bfseries construct} ()
+\item 
+\mbox{\Hypertarget{classplant_a530dcab82f1550e4e4b43e6fab11e78a}\label{classplant_a530dcab82f1550e4e4b43e6fab11e78a}} 
+void \mbox{\hyperlink{classplant_a530dcab82f1550e4e4b43e6fab11e78a}{demolish}} ()
+\begin{DoxyCompactList}\small\item\em Demolishes the plant by resetting its attributes. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classplant_afea114781b39b31ec0fcd0bd555ff68c}{get\+Area}} ()
+\begin{DoxyCompactList}\small\item\em Gets the area of the plant based on its dimensions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classplant_a01053b1fde85640cc5ef80375bb161ec}{upgrade}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ building)
+\begin{DoxyCompactList}\small\item\em Upgrades the plant\textquotesingle{}s production capacity if sufficient resources are available. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classplant_a314039300b5cabba9193f14183308aaa}{get\+Occupancy}} ()
+\begin{DoxyCompactList}\small\item\em Gets the occupancy of the plant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classplant_aab1891c8231f639a930d2d86921305a7}\label{classplant_aab1891c8231f639a930d2d86921305a7}} 
+\index{plant@{plant}!plant@{plant}}
+\index{plant@{plant}!plant@{plant}}
+\doxysubsubsection{\texorpdfstring{plant()}{plant()}}
+{\footnotesize\ttfamily plant\+::plant (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality,  }\item[{double}]{production,  }\item[{int}]{workers }\end{DoxyParamCaption})}
+
+
+
+Constructs a plant with the given parameters and initializes the base class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the building. \\
+\hline
+{\em y} & The y-\/coordinate of the building. \\
+\hline
+{\em district} & The district where the building is located. \\
+\hline
+{\em quality} & The quality rating of the building. \\
+\hline
+{\em production} & The production capacity of the plant. \\
+\hline
+{\em workers} & The number of workers in the plant. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classplant_a028b3f3b0992599b7a1cdd82d5fa57c0}\label{classplant_a028b3f3b0992599b7a1cdd82d5fa57c0}} 
+\index{plant@{plant}!generateElectricity@{generateElectricity}}
+\index{generateElectricity@{generateElectricity}!plant@{plant}}
+\doxysubsubsection{\texorpdfstring{generateElectricity()}{generateElectricity()}}
+{\footnotesize\ttfamily void plant\+::generate\+Electricity (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{building }\end{DoxyParamCaption})}
+
+
+
+Generates electricity based on the number of workers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em building} & A shared pointer to the associated building component. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classplant_afea114781b39b31ec0fcd0bd555ff68c}\label{classplant_afea114781b39b31ec0fcd0bd555ff68c}} 
+\index{plant@{plant}!getArea@{getArea}}
+\index{getArea@{getArea}!plant@{plant}}
+\doxysubsubsection{\texorpdfstring{getArea()}{getArea()}}
+{\footnotesize\ttfamily double plant\+::get\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the area of the plant based on its dimensions. 
+
+\begin{DoxyReturn}{Returns}
+The area of the plant. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classplant_aa64181da24fb55d1fa98241346e5ae04}\label{classplant_aa64181da24fb55d1fa98241346e5ae04}} 
+\index{plant@{plant}!getBuildingType@{getBuildingType}}
+\index{getBuildingType@{getBuildingType}!plant@{plant}}
+\doxysubsubsection{\texorpdfstring{getBuildingType()}{getBuildingType()}}
+{\footnotesize\ttfamily std\+::string plant\+::get\+Building\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the type of the building. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the type of building (\char`\"{}\+Plant\char`\"{}). 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classplant_a479afbd8709bde7632995e439eade2f4}\label{classplant_a479afbd8709bde7632995e439eade2f4}} 
+\index{plant@{plant}!getCost@{getCost}}
+\index{getCost@{getCost}!plant@{plant}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily double plant\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the cost of constructing the plant. 
+
+\begin{DoxyReturn}{Returns}
+The cost of the plant. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classplant_a881175e7cb0b2e07867214fdb2066a67}\label{classplant_a881175e7cb0b2e07867214fdb2066a67}} 
+\index{plant@{plant}!getEnergyConsumption@{getEnergyConsumption}}
+\index{getEnergyConsumption@{getEnergyConsumption}!plant@{plant}}
+\doxysubsubsection{\texorpdfstring{getEnergyConsumption()}{getEnergyConsumption()}}
+{\footnotesize\ttfamily double plant\+::get\+Energy\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the energy consumption of the plant. 
+
+\begin{DoxyReturn}{Returns}
+The energy consumption based on the number of workers. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classplant_a1658bcbb8e42a67cb0cdd95f4a855919}\label{classplant_a1658bcbb8e42a67cb0cdd95f4a855919}} 
+\index{plant@{plant}!getMaintenanceCost@{getMaintenanceCost}}
+\index{getMaintenanceCost@{getMaintenanceCost}!plant@{plant}}
+\doxysubsubsection{\texorpdfstring{getMaintenanceCost()}{getMaintenanceCost()}}
+{\footnotesize\ttfamily double plant\+::get\+Maintenance\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the maintenance cost of the plant. 
+
+\begin{DoxyReturn}{Returns}
+The maintenance cost of the plant. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classplant_a314039300b5cabba9193f14183308aaa}\label{classplant_a314039300b5cabba9193f14183308aaa}} 
+\index{plant@{plant}!getOccupancy@{getOccupancy}}
+\index{getOccupancy@{getOccupancy}!plant@{plant}}
+\doxysubsubsection{\texorpdfstring{getOccupancy()}{getOccupancy()}}
+{\footnotesize\ttfamily int plant\+::get\+Occupancy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the occupancy of the plant. 
+
+\begin{DoxyReturn}{Returns}
+The occupancy level of the plant. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classplant_a453a60c80f27e397174279b78b161711}\label{classplant_a453a60c80f27e397174279b78b161711}} 
+\index{plant@{plant}!getWaterConsumption@{getWaterConsumption}}
+\index{getWaterConsumption@{getWaterConsumption}!plant@{plant}}
+\doxysubsubsection{\texorpdfstring{getWaterConsumption()}{getWaterConsumption()}}
+{\footnotesize\ttfamily double plant\+::get\+Water\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the water consumption of the plant. 
+
+\begin{DoxyReturn}{Returns}
+The water consumption based on the number of workers. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+\mbox{\Hypertarget{classplant_a01053b1fde85640cc5ef80375bb161ec}\label{classplant_a01053b1fde85640cc5ef80375bb161ec}} 
+\index{plant@{plant}!upgrade@{upgrade}}
+\index{upgrade@{upgrade}!plant@{plant}}
+\doxysubsubsection{\texorpdfstring{upgrade()}{upgrade()}}
+{\footnotesize\ttfamily void plant\+::upgrade (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{building }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Upgrades the plant\textquotesingle{}s production capacity if sufficient resources are available. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em building} & A shared pointer to the building component to upgrade. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classIndustrialBuildings}{Industrial\+Buildings}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/plant.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/plant.\+cpp\end{DoxyCompactItemize}

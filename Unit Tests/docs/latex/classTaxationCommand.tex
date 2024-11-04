@@ -1,0 +1,60 @@
+\hypertarget{classTaxationCommand}{}\doxysection{Taxation\+Command Class Reference}
+\label{classTaxationCommand}\index{TaxationCommand@{TaxationCommand}}
+
+
+Inheritance diagram for Taxation\+Command\+:
+% FIG 0
+
+
+Collaboration diagram for Taxation\+Command\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTaxationCommand_a16aa7bd2ac9bf6525668f3c092bb621d}{Taxation\+Command}} (std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}} $>$$>$ c, double rate)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classTaxationCommand}{Taxation\+Command}} with a specified list of citizens and a tax rate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTaxationCommand_afd1e903fbc6ada171d4280d38d0389b9}{execute}} () override
+\begin{DoxyCompactList}\small\item\em Executes the taxation command, using the visitor pattern to apply the tax to each citizen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTaxationCommand_a16aa7bd2ac9bf6525668f3c092bb621d}\label{classTaxationCommand_a16aa7bd2ac9bf6525668f3c092bb621d}} 
+\index{TaxationCommand@{TaxationCommand}!TaxationCommand@{TaxationCommand}}
+\index{TaxationCommand@{TaxationCommand}!TaxationCommand@{TaxationCommand}}
+\doxysubsubsection{\texorpdfstring{TaxationCommand()}{TaxationCommand()}}
+{\footnotesize\ttfamily Taxation\+Command\+::\+Taxation\+Command (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}} $>$$>$}]{c,  }\item[{double}]{rate }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classTaxationCommand}{Taxation\+Command}} with a specified list of citizens and a tax rate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Vector of shared pointers to \mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}} objects that will be taxed. \\
+\hline
+{\em rate} & The tax rate to apply to each citizen. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTaxationCommand_afd1e903fbc6ada171d4280d38d0389b9}\label{classTaxationCommand_afd1e903fbc6ada171d4280d38d0389b9}} 
+\index{TaxationCommand@{TaxationCommand}!execute@{execute}}
+\index{execute@{execute}!TaxationCommand@{TaxationCommand}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily void Taxation\+Command\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Executes the taxation command, using the visitor pattern to apply the tax to each citizen. 
+
+Creates a \mbox{\hyperlink{classTaxCollector}{Tax\+Collector}} visitor and iterates over each citizen in the list, calling the accept method to apply the tax based on the defined tax rate. 
+
+Implements \mbox{\hyperlink{classCommand}{Command}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Taxation\+Command.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Taxation\+Command.\+cpp\end{DoxyCompactItemize}

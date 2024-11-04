@@ -1,0 +1,86 @@
+\hypertarget{classAbstractCitizen}{}\doxysection{Abstract\+Citizen Class Reference}
+\label{classAbstractCitizen}\index{AbstractCitizen@{AbstractCitizen}}
+
+
+Inheritance diagram for Abstract\+Citizen\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_a59d0590d43ad22c7e680aea1505ea0ec}\label{classAbstractCitizen_a59d0590d43ad22c7e680aea1505ea0ec}} 
+virtual void {\bfseries update\+Context} ()=0
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_a4e39ed2c13c04e95d29f9fdf609365e4}\label{classAbstractCitizen_a4e39ed2c13c04e95d29f9fdf609365e4}} 
+virtual int {\bfseries get\+Satisfaction} () const =0
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_a9e92ec69b7f2b804dce6a0ade19b8634}\label{classAbstractCitizen_a9e92ec69b7f2b804dce6a0ade19b8634}} 
+virtual int {\bfseries get\+ESoL} () const =0
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_ad8b6a776bac221141d7a87ffaf939ce7}\label{classAbstractCitizen_ad8b6a776bac221141d7a87ffaf939ce7}} 
+virtual int {\bfseries get\+ASoL} () const =0
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_a99088641aa8f895e33aece575a8bb221}\label{classAbstractCitizen_a99088641aa8f895e33aece575a8bb221}} 
+virtual void {\bfseries add} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}} $>$ citizen)=0
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_a90e3c88c10dc6b165f694e08583cce97}\label{classAbstractCitizen_a90e3c88c10dc6b165f694e08583cce97}} 
+virtual void {\bfseries remove} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}} $>$ citizen)=0
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_ae1638ec1ce76cda41005f3fa183b5f49}\label{classAbstractCitizen_ae1638ec1ce76cda41005f3fa183b5f49}} 
+virtual double {\bfseries get\+Current\+Income} () const =0
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_a83e14235c92b4b9eeab1f55a4cb0aca3}\label{classAbstractCitizen_a83e14235c92b4b9eeab1f55a4cb0aca3}} 
+virtual void {\bfseries go\+On\+Strike} ()=0
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_a000958048a0cca7cbb2d838ec3aeb5ad}\label{classAbstractCitizen_a000958048a0cca7cbb2d838ec3aeb5ad}} 
+virtual void {\bfseries resolve\+Strike} ()=0
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_a84ae03f64bdf5f938b529d3a82f39e4e}\label{classAbstractCitizen_a84ae03f64bdf5f938b529d3a82f39e4e}} 
+virtual double {\bfseries calculate\+Tax} ()=0
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_a211ee06b6a81a4be53d8521aa498ec0f}\label{classAbstractCitizen_a211ee06b6a81a4be53d8521aa498ec0f}} 
+virtual void {\bfseries pay\+Tax} (double amount)=0
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_a017efc166b011f9423e1e3af8d2f65dd}\label{classAbstractCitizen_a017efc166b011f9423e1e3af8d2f65dd}} 
+virtual void {\bfseries update} (const std\+::string \&resource\+Type, int quantity)=0
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_aa3457b61cb5602100e7b673c6ac79d18}\label{classAbstractCitizen_aa3457b61cb5602100e7b673c6ac79d18}} 
+virtual void {\bfseries accept} (\mbox{\hyperlink{classTaxCollector}{Tax\+Collector}} \&collector)=0
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_a0cf8ffcf70e7cc322c68832cb1e36a0b}\label{classAbstractCitizen_a0cf8ffcf70e7cc322c68832cb1e36a0b}} 
+virtual void {\bfseries go\+To\+Work} ()=0
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_af9f2258d51c21cdb11a79124f36e4728}\label{classAbstractCitizen_af9f2258d51c21cdb11a79124f36e4728}} 
+virtual void {\bfseries go\+To\+Shops} ()=0
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_ade30f97c15f8efebb366577b4faa9c9d}\label{classAbstractCitizen_ade30f97c15f8efebb366577b4faa9c9d}} 
+virtual void {\bfseries get\+Schooled} ()=0
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_a9688510ff092f1ea82b827142bd1f735}\label{classAbstractCitizen_a9688510ff092f1ea82b827142bd1f735}} 
+virtual void {\bfseries get\+Educated} ()=0
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_ab8a1b24e867142a72ad1a223c12ececa}\label{classAbstractCitizen_ab8a1b24e867142a72ad1a223c12ececa}} 
+virtual void {\bfseries get\+Healed} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_a6801e31b9378ca3eb71508024544788e}\label{classAbstractCitizen_a6801e31b9378ca3eb71508024544788e}} 
+int {\bfseries satisfaction}
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_a05c487d2ead80b4214afebb234614563}\label{classAbstractCitizen_a05c487d2ead80b4214afebb234614563}} 
+int {\bfseries expected\+Standard\+Of\+Living}
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_a8e68eb9f8f9db3e6fb2cdd9a95a42103}\label{classAbstractCitizen_a8e68eb9f8f9db3e6fb2cdd9a95a42103}} 
+int {\bfseries actual\+Standard\+Of\+Living}
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_a4aa1cbf5c10d8ee497f70542965daa73}\label{classAbstractCitizen_a4aa1cbf5c10d8ee497f70542965daa73}} 
+double {\bfseries current\+Income}
+\item 
+\mbox{\Hypertarget{classAbstractCitizen_abbaa4398e06e698e3698e8843dea33bf}\label{classAbstractCitizen_abbaa4398e06e698e3698e8843dea33bf}} 
+std\+::string {\bfseries district}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Abstract\+Citizen.\+h\end{DoxyCompactItemize}

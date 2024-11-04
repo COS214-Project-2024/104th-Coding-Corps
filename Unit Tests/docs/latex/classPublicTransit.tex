@@ -1,0 +1,68 @@
+\hypertarget{classPublicTransit}{}\doxysection{Public\+Transit Class Reference}
+\label{classPublicTransit}\index{PublicTransit@{PublicTransit}}
+
+
+Inheritance diagram for Public\+Transit\+:
+% FIG 0
+
+
+Collaboration diagram for Public\+Transit\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPublicTransit_ac3be5d28a4e1272cc27965e320f2c1af}{Public\+Transit}} (double speed, std\+::string mode)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classPublicTransit}{Public\+Transit}} transportation strategy with a specified speed and mode. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classPublicTransit_a55eefa4e578b9829f99d4c2180fd4c91}{calculate\+Commute\+Time}} (double distance) override
+\begin{DoxyCompactList}\small\item\em Calculates the commute time for public transit, adding a fixed delay to the base time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPublicTransit_ac3be5d28a4e1272cc27965e320f2c1af}\label{classPublicTransit_ac3be5d28a4e1272cc27965e320f2c1af}} 
+\index{PublicTransit@{PublicTransit}!PublicTransit@{PublicTransit}}
+\index{PublicTransit@{PublicTransit}!PublicTransit@{PublicTransit}}
+\doxysubsubsection{\texorpdfstring{PublicTransit()}{PublicTransit()}}
+{\footnotesize\ttfamily Public\+Transit\+::\+Public\+Transit (\begin{DoxyParamCaption}\item[{double}]{speed,  }\item[{std\+::string}]{mode }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classPublicTransit}{Public\+Transit}} transportation strategy with a specified speed and mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & The speed of the public transit mode. \\
+\hline
+{\em mode} & The name of the public transit mode. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPublicTransit_a55eefa4e578b9829f99d4c2180fd4c91}\label{classPublicTransit_a55eefa4e578b9829f99d4c2180fd4c91}} 
+\index{PublicTransit@{PublicTransit}!calculateCommuteTime@{calculateCommuteTime}}
+\index{calculateCommuteTime@{calculateCommuteTime}!PublicTransit@{PublicTransit}}
+\doxysubsubsection{\texorpdfstring{calculateCommuteTime()}{calculateCommuteTime()}}
+{\footnotesize\ttfamily double Public\+Transit\+::calculate\+Commute\+Time (\begin{DoxyParamCaption}\item[{double}]{distance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the commute time for public transit, adding a fixed delay to the base time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em distance} & The distance to be traveled. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The total commute time, including a fixed public transit delay. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classTransportStrategy_abb6d6be398b5fffba18228c1b6c8c1f2}{Transport\+Strategy}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Public\+Transit.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Public\+Transit.\+cpp\end{DoxyCompactItemize}

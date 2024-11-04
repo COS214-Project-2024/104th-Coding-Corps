@@ -1,0 +1,149 @@
+\hypertarget{classResourceManager}{}\doxysection{Resource\+Manager Class Reference}
+\label{classResourceManager}\index{ResourceManager@{ResourceManager}}
+
+
+Inheritance diagram for Resource\+Manager\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classResourceManager_ab69f63d44bed2b736ac816d9a2bf84c1}\label{classResourceManager_ab69f63d44bed2b736ac816d9a2bf84c1}} 
+{\bfseries Resource\+Manager} (const \mbox{\hyperlink{classResourceManager}{Resource\+Manager}} \&)=delete
+\item 
+\mbox{\Hypertarget{classResourceManager_a876d78c8fa674e6c778f2c037ca7ea29}\label{classResourceManager_a876d78c8fa674e6c778f2c037ca7ea29}} 
+void {\bfseries operator=} (const \mbox{\hyperlink{classResourceManager}{Resource\+Manager}} \&)=delete
+\item 
+void \mbox{\hyperlink{classResourceManager_aab079e1a208073dceb12cd6e3a9e9f41}{add\+Resource}} (const std\+::string \&type, int quantity, \mbox{\hyperlink{classResourceFactory}{Resource\+Factory}} \&\mbox{\hyperlink{classfactory}{factory}})
+\begin{DoxyCompactList}\small\item\em Add a resource to the \mbox{\hyperlink{classResourceManager}{Resource\+Manager}}. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classResource}{Resource}} $>$ \mbox{\hyperlink{classResourceManager_a9d70fd34fee57e8354b67f7aba040fd8}{get\+Resource}} (const std\+::string \&type)
+\begin{DoxyCompactList}\small\item\em Get a resource from the \mbox{\hyperlink{classResourceManager}{Resource\+Manager}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classResourceManager_a11835166003a9a3df9751f4009df8caf}{consume\+Resource}} (const std\+::string \&type, int quantity)
+\begin{DoxyCompactList}\small\item\em Consume a specified quantity of a resource. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classResourceManager_a3efbd7ea14861e6932b4408e8de6e2fd}{is\+Resource\+Available}} (const std\+::string \&type, int quantity)
+\begin{DoxyCompactList}\small\item\em Check if a specified quantity of a resource is available. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classResourceManager_a1ddb7ed24bf751112756364970e5bfdd}{display\+Resources}} () const
+\begin{DoxyCompactList}\small\item\em Display the current resources in the \mbox{\hyperlink{classResourceManager}{Resource\+Manager}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classResourceManager}{Resource\+Manager}} $>$ \mbox{\hyperlink{classResourceManager_a747d4c6fd1ec50be58c5e0f4cc5c1baf}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Get the singleton instance of \mbox{\hyperlink{classResourceManager}{Resource\+Manager}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classResourceManager_aab079e1a208073dceb12cd6e3a9e9f41}\label{classResourceManager_aab079e1a208073dceb12cd6e3a9e9f41}} 
+\index{ResourceManager@{ResourceManager}!addResource@{addResource}}
+\index{addResource@{addResource}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{addResource()}{addResource()}}
+{\footnotesize\ttfamily void Resource\+Manager\+::add\+Resource (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{type,  }\item[{int}]{quantity,  }\item[{\mbox{\hyperlink{classResourceFactory}{Resource\+Factory}} \&}]{factory }\end{DoxyParamCaption})}
+
+
+
+Add a resource to the \mbox{\hyperlink{classResourceManager}{Resource\+Manager}}. 
+
+This method adds a specified quantity of a resource to the \mbox{\hyperlink{classResourceManager}{Resource\+Manager}}. If the resource already exists, its quantity is increased. If it does not exist, it creates a new resource using the provided factory.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of the resource to add. \\
+\hline
+{\em quantity} & The quantity of the resource to add. \\
+\hline
+{\em factory} & The resource factory used to create the resource if it does not exist. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classResourceManager_a11835166003a9a3df9751f4009df8caf}\label{classResourceManager_a11835166003a9a3df9751f4009df8caf}} 
+\index{ResourceManager@{ResourceManager}!consumeResource@{consumeResource}}
+\index{consumeResource@{consumeResource}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{consumeResource()}{consumeResource()}}
+{\footnotesize\ttfamily bool Resource\+Manager\+::consume\+Resource (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{type,  }\item[{int}]{quantity }\end{DoxyParamCaption})}
+
+
+
+Consume a specified quantity of a resource. 
+
+This method attempts to consume a specified quantity of the given resource type. If the resource is available and the consumption is successful, it returns true; otherwise, it returns false.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of the resource to consume. \\
+\hline
+{\em quantity} & The quantity of the resource to consume. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the resource was successfully consumed, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classResourceManager_a1ddb7ed24bf751112756364970e5bfdd}\label{classResourceManager_a1ddb7ed24bf751112756364970e5bfdd}} 
+\index{ResourceManager@{ResourceManager}!displayResources@{displayResources}}
+\index{displayResources@{displayResources}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{displayResources()}{displayResources()}}
+{\footnotesize\ttfamily void Resource\+Manager\+::display\+Resources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Display the current resources in the \mbox{\hyperlink{classResourceManager}{Resource\+Manager}}. 
+
+This method prints out the current inventory of resources, including their types and quantities. \mbox{\Hypertarget{classResourceManager_a747d4c6fd1ec50be58c5e0f4cc5c1baf}\label{classResourceManager_a747d4c6fd1ec50be58c5e0f4cc5c1baf}} 
+\index{ResourceManager@{ResourceManager}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classResourceManager}{Resource\+Manager}} $>$ Resource\+Manager\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the singleton instance of \mbox{\hyperlink{classResourceManager}{Resource\+Manager}}. 
+
+This method returns the single instance of \mbox{\hyperlink{classResourceManager}{Resource\+Manager}}. If the instance does not exist, it creates one.
+
+\begin{DoxyReturn}{Returns}
+A shared pointer to the \mbox{\hyperlink{classResourceManager}{Resource\+Manager}} instance. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classResourceManager_a9d70fd34fee57e8354b67f7aba040fd8}\label{classResourceManager_a9d70fd34fee57e8354b67f7aba040fd8}} 
+\index{ResourceManager@{ResourceManager}!getResource@{getResource}}
+\index{getResource@{getResource}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{getResource()}{getResource()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classResource}{Resource}} $>$ Resource\+Manager\+::get\+Resource (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{type }\end{DoxyParamCaption})}
+
+
+
+Get a resource from the \mbox{\hyperlink{classResourceManager}{Resource\+Manager}}. 
+
+This method retrieves a shared pointer to the specified resource type.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of the resource to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the resource if found; otherwise, nullptr. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classResourceManager_a3efbd7ea14861e6932b4408e8de6e2fd}\label{classResourceManager_a3efbd7ea14861e6932b4408e8de6e2fd}} 
+\index{ResourceManager@{ResourceManager}!isResourceAvailable@{isResourceAvailable}}
+\index{isResourceAvailable@{isResourceAvailable}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{isResourceAvailable()}{isResourceAvailable()}}
+{\footnotesize\ttfamily bool Resource\+Manager\+::is\+Resource\+Available (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{type,  }\item[{int}]{quantity }\end{DoxyParamCaption})}
+
+
+
+Check if a specified quantity of a resource is available. 
+
+This method checks whether the specified quantity of the given resource type is available in the \mbox{\hyperlink{classResourceManager}{Resource\+Manager}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of the resource to check. \\
+\hline
+{\em quantity} & The quantity to check for availability. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the resource is available, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Resource\+Manager.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Resource\+Manager.\+cpp\end{DoxyCompactItemize}

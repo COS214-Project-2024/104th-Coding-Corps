@@ -1,0 +1,50 @@
+\hypertarget{classBuildingFactory}{}\doxysection{Building\+Factory Class Reference}
+\label{classBuildingFactory}\index{BuildingFactory@{BuildingFactory}}
+
+
+Inheritance diagram for Building\+Factory\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBuildingFactory_aafbde35bb28f89f08edde54e0a81e668}\label{classBuildingFactory_aafbde35bb28f89f08edde54e0a81e668}} 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ {\bfseries create\+Flat} (int units, int residents, int floors, bool has\+Garden, const std\+::string \&district, int quality)
+\item 
+\mbox{\Hypertarget{classBuildingFactory_ad013e0fab3e68b0e34a6745ea03c8fc2}\label{classBuildingFactory_ad013e0fab3e68b0e34a6745ea03c8fc2}} 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ {\bfseries create\+House} (int garage\+Size, bool has\+Pool, int residents, int floors, bool has\+Garden, const std\+::string \&district, int quality)
+\item 
+\mbox{\Hypertarget{classBuildingFactory_ad7d7f72a9f1b1184e3b0beb9552dcce4}\label{classBuildingFactory_ad7d7f72a9f1b1184e3b0beb9552dcce4}} 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ {\bfseries create\+Estate} (int garage\+Size, bool has\+Pool, int residents, int floors, bool has\+Garden, int units, const std\+::string \&district, int quality)
+\item 
+\mbox{\Hypertarget{classBuildingFactory_a09d18e7da4f82aed9b4f3510fc8fdb78}\label{classBuildingFactory_a09d18e7da4f82aed9b4f3510fc8fdb78}} 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ {\bfseries create\+Factory} (int x, int y, const std\+::string \&district, int quality, int num\+Workers, const std\+::string \&factory\+Type, double production)
+\item 
+\mbox{\Hypertarget{classBuildingFactory_ad1f451510d08f41dd0dd930b2238904a}\label{classBuildingFactory_ad1f451510d08f41dd0dd930b2238904a}} 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ {\bfseries create\+Plant} (int x, int y, const std\+::string \&district, int quality, double production, int workers)
+\item 
+\mbox{\Hypertarget{classBuildingFactory_a404eea1348e5324389f107a04509eb44}\label{classBuildingFactory_a404eea1348e5324389f107a04509eb44}} 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ {\bfseries create\+Warehouse} (int x, int y, const std\+::string \&district, int quality, int storage\+Capacity, int num\+Workers)
+\item 
+\mbox{\Hypertarget{classBuildingFactory_a2a830cc785f3564639c5cdc9bc7b1cb2}\label{classBuildingFactory_a2a830cc785f3564639c5cdc9bc7b1cb2}} 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ {\bfseries create\+Office} (int num\+Employees, const std\+::string \&business\+Type, const std\+::string \&district, int quality, int x, int y)
+\item 
+\mbox{\Hypertarget{classBuildingFactory_ad321b2b9964d94687d267f8c759c41cf}\label{classBuildingFactory_ad321b2b9964d94687d267f8c759c41cf}} 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ {\bfseries create\+Mall} (int num\+Shops, const std\+::string \&business\+Type, int num\+Businesses, int x, int y, const std\+::string \&district, int quality)
+\item 
+\mbox{\Hypertarget{classBuildingFactory_a7330165b34b551ed2de057fbe161331f}\label{classBuildingFactory_a7330165b34b551ed2de057fbe161331f}} 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ {\bfseries create\+Shop} (int shop\+Size, const std\+::string \&business\+Type, int x, int y, const std\+::string \&district, int quality)
+\item 
+\mbox{\Hypertarget{classBuildingFactory_a7df8ca6b8e9ebc62b922a095ced19b03}\label{classBuildingFactory_a7df8ca6b8e9ebc62b922a095ced19b03}} 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ {\bfseries create\+School} (int x, int y, const std\+::string \&district, int highest\+Qualification, int quality, int num\+Workers)
+\item 
+\mbox{\Hypertarget{classBuildingFactory_a4763ac2ac79b1449b3240dd5cf663df3}\label{classBuildingFactory_a4763ac2ac79b1449b3240dd5cf663df3}} 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ {\bfseries create\+University} (int x, int y, const std\+::string \&district, int highest\+Qualification, int quality, int num\+Workers)
+\item 
+\mbox{\Hypertarget{classBuildingFactory_a2570da07b34a2dafd227ad991900de21}\label{classBuildingFactory_a2570da07b34a2dafd227ad991900de21}} 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ {\bfseries create\+Hospital} (int x, int y, const std\+::string \&district, int quality, int num\+Workers)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Building\+Factory.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,118 @@
+\hypertarget{classSavePointManager}{}\doxysection{Save\+Point\+Manager Class Reference}
+\label{classSavePointManager}\index{SavePointManager@{SavePointManager}}
+
+
+Caretaker class that manages \mbox{\hyperlink{classSavePoint}{Save\+Point}} instances for \mbox{\hyperlink{classCityContext}{City\+Context}}.  
+
+
+
+
+{\ttfamily \#include $<$Save\+Point\+Manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSavePointManager_acc8d5fc9c7597dbdfc883ca5abb7879d}{Save\+Point\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classSavePointManager}{Save\+Point\+Manager}} instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSavePointManager_a07cbbfe30678e1d7ed873dff1c477b10}{save\+State}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSavePoint}{Save\+Point}} $>$ save\+Point)
+\begin{DoxyCompactList}\small\item\em Saves the current state of the \mbox{\hyperlink{classCityContext}{City\+Context}}. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSavePoint}{Save\+Point}} $>$ \mbox{\hyperlink{classSavePointManager_a34f13efc9e177088db0e1637c72aabe3}{undo}} ()
+\begin{DoxyCompactList}\small\item\em Reverts to the previous state (Undo operation). \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSavePoint}{Save\+Point}} $>$ \mbox{\hyperlink{classSavePointManager_acf03e9a02deb95639a18ed09f742969e}{redo}} ()
+\begin{DoxyCompactList}\small\item\em Advances to the next state (Redo operation). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSavePointManager_a4f134f1fcb152f7affd71acf78ffb6c7}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Clears all saved states in the manager. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSavePointManager_aa2e1fccb3d7155317780746b9b33faf8}{$\sim$\+Save\+Point\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \mbox{\hyperlink{classSavePointManager}{Save\+Point\+Manager}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Caretaker class that manages \mbox{\hyperlink{classSavePoint}{Save\+Point}} instances for \mbox{\hyperlink{classCityContext}{City\+Context}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSavePointManager_acc8d5fc9c7597dbdfc883ca5abb7879d}\label{classSavePointManager_acc8d5fc9c7597dbdfc883ca5abb7879d}} 
+\index{SavePointManager@{SavePointManager}!SavePointManager@{SavePointManager}}
+\index{SavePointManager@{SavePointManager}!SavePointManager@{SavePointManager}}
+\doxysubsubsection{\texorpdfstring{SavePointManager()}{SavePointManager()}}
+{\footnotesize\ttfamily Save\+Point\+Manager\+::\+Save\+Point\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Constructs a \mbox{\hyperlink{classSavePointManager}{Save\+Point\+Manager}} instance. 
+
+Initializes an empty list of save points and sets the current save index to -\/1. \mbox{\Hypertarget{classSavePointManager_aa2e1fccb3d7155317780746b9b33faf8}\label{classSavePointManager_aa2e1fccb3d7155317780746b9b33faf8}} 
+\index{SavePointManager@{SavePointManager}!````~SavePointManager@{$\sim$SavePointManager}}
+\index{````~SavePointManager@{$\sim$SavePointManager}!SavePointManager@{SavePointManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$SavePointManager()}{~SavePointManager()}}
+{\footnotesize\ttfamily Save\+Point\+Manager\+::$\sim$\+Save\+Point\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destructor for the \mbox{\hyperlink{classSavePointManager}{Save\+Point\+Manager}}. 
+
+Ensures the manager is properly cleaned up. Uses default destructor behavior. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSavePointManager_a4f134f1fcb152f7affd71acf78ffb6c7}\label{classSavePointManager_a4f134f1fcb152f7affd71acf78ffb6c7}} 
+\index{SavePointManager@{SavePointManager}!clear@{clear}}
+\index{clear@{clear}!SavePointManager@{SavePointManager}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void Save\+Point\+Manager\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clears all saved states in the manager. 
+
+Removes all {\ttfamily \mbox{\hyperlink{classSavePoint}{Save\+Point}}} instances from the manager and resets the current save index to -\/1, indicating no saved states. \mbox{\Hypertarget{classSavePointManager_acf03e9a02deb95639a18ed09f742969e}\label{classSavePointManager_acf03e9a02deb95639a18ed09f742969e}} 
+\index{SavePointManager@{SavePointManager}!redo@{redo}}
+\index{redo@{redo}!SavePointManager@{SavePointManager}}
+\doxysubsubsection{\texorpdfstring{redo()}{redo()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSavePoint}{Save\+Point}} $>$ Save\+Point\+Manager\+::redo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Advances to the next state (Redo operation). 
+
+Retrieves the {\ttfamily \mbox{\hyperlink{classSavePoint}{Save\+Point}}} after the current save state, effectively redoing the previously undone save. If there is no future state, returns nullptr.
+
+\begin{DoxyReturn}{Returns}
+A shared pointer to the next {\ttfamily \mbox{\hyperlink{classSavePoint}{Save\+Point}}} or nullptr if no future state exists. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSavePointManager_a07cbbfe30678e1d7ed873dff1c477b10}\label{classSavePointManager_a07cbbfe30678e1d7ed873dff1c477b10}} 
+\index{SavePointManager@{SavePointManager}!saveState@{saveState}}
+\index{saveState@{saveState}!SavePointManager@{SavePointManager}}
+\doxysubsubsection{\texorpdfstring{saveState()}{saveState()}}
+{\footnotesize\ttfamily void Save\+Point\+Manager\+::save\+State (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSavePoint}{Save\+Point}} $>$}]{save\+Point }\end{DoxyParamCaption})}
+
+
+
+Saves the current state of the \mbox{\hyperlink{classCityContext}{City\+Context}}. 
+
+Adds a new {\ttfamily \mbox{\hyperlink{classSavePoint}{Save\+Point}}} to the list of save points. If new save states are added after undoing to a previous state, any redo states will be erased.
+
+
+\begin{DoxyParams}{Parameters}
+{\em save\+Point} & A shared pointer to the {\ttfamily \mbox{\hyperlink{classSavePoint}{Save\+Point}}} representing the current state. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSavePointManager_a34f13efc9e177088db0e1637c72aabe3}\label{classSavePointManager_a34f13efc9e177088db0e1637c72aabe3}} 
+\index{SavePointManager@{SavePointManager}!undo@{undo}}
+\index{undo@{undo}!SavePointManager@{SavePointManager}}
+\doxysubsubsection{\texorpdfstring{undo()}{undo()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSavePoint}{Save\+Point}} $>$ Save\+Point\+Manager\+::undo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reverts to the previous state (Undo operation). 
+
+Retrieves the {\ttfamily \mbox{\hyperlink{classSavePoint}{Save\+Point}}} prior to the current save state, effectively undoing the last save. If there is no previous state, returns nullptr.
+
+\begin{DoxyReturn}{Returns}
+A shared pointer to the previous {\ttfamily \mbox{\hyperlink{classSavePoint}{Save\+Point}}} or nullptr if no prior state exists. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Save\+Point\+Manager.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Save\+Point\+Manager.\+cpp\end{DoxyCompactItemize}
