@@ -7,5 +7,3 @@ The game files are contained in the 'System' directory. If you would like to che
 The Unit Testing is contained in a directory called 'UnitTests'. If you would like to see the unit tests, go into the directory and compile with 'make' as a result, you will be able to run each of the unit tests separately by typing in './test_Name' where 'Name' is the name of the relavant unit test file.
 
 The 'Report' directory contains the functional requirements, an overview of the system and all patterns used as well as a link to our git repo.
-
-The 'Diagrams' directory contains all of the diagrams used in making our project.
