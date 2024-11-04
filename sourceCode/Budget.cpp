@@ -63,6 +63,10 @@ double Budget::getBalance() const {
     return balance;
 }
 
+void Budget::setBalance(double balance) {
+    this->balance = balance;
+}
+
 /**
  * @brief Logs each transaction for auditing purposes.
  * 

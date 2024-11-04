@@ -24,6 +24,7 @@ public:
 	void addRevenue(double amount);
 	bool deductExpense(double amount);
 	double getBalance() const;
+	void setBalance(double balance);
 	void logTransaction(const std::string& transaction);
 	void printTransactionHistory() const;
 };
