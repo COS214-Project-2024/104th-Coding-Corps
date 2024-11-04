@@ -445,9 +445,14 @@ std::shared_ptr<BuildingComponent> CityContext::findNearestBuilding(int citizenI
         return nullptr;  // Return nullptr if citizen is not found
     }
 
-    if(buildingType == "Hospital" || buildingType == "University" ){
+    if(buildingType == "Hospital" || buildingType == "University" ) {
+        if(government->deductExpense(2500) == false) {
+            cityIsBankrupt = true;
+            return nullptr;
+        } else {
             government->decreaseBudget(2500);
         }
+    }
 
     auto citizen = it->second;  // Get the citizen object
     std::string targetDistrict = citizen->getDistrict();  // Get the citizen's district
@@ -482,6 +487,10 @@ std::shared_ptr<BuildingComponent> CityContext::findNearestBuilding(int citizenI
     }
 
     return nearestBuilding;  // Returns nullptr if no building of the specified type is found
+}
+
+bool CityContext::getBankrupt() {
+    return cityIsBankrupt;
 }
 
 

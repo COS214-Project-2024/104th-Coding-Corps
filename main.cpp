@@ -106,6 +106,9 @@ int main() {
             
             case 10:
                 game.startSimulation();
+                if(game.getGameOver() == true) {
+                    return 0;
+                }
                 break;
 
             case 11:

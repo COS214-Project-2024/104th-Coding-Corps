@@ -12,6 +12,7 @@ class Citizen;
 
 class CityContext {
 private:
+    bool cityIsBankrupt = false;
     static std::shared_ptr<CityContext> instance;
     int totalPop;
     int averageSatisfaction;
@@ -71,6 +72,7 @@ public:
     int calculateTotalPop();
     double calculateMonthlyExpenditure();
     const std::map<int, std::shared_ptr<Citizen>>& getCitizens() const;
+    bool getBankrupt();
 
 
 //Building Functions

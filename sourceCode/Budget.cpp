@@ -41,10 +41,14 @@ bool Budget::deductExpense(double amount) {
         balance -= amount;
         logTransaction("Deducted expense: R" + std::to_string(amount));
         std::cout << std::fixed << std::setprecision(2);
-        //std::cout << "Deducted R" << amount << " from the budget. Current balance: R" << balance << std::endl;
-        return true;
+        if(amount != 2500.00) {
+            std::cout << "Deducted R" << amount << " from the budget. Current balance: R" << balance << std::endl;
+            return true;
+        }
     } else {
-        std::cout << "Insufficient funds! Cannot deduct R" << amount << ". Current balance: R" << balance << std::endl;
+        if(amount != 2500.00) {
+            std::cout << "Insufficient funds! Cannot deduct R" << amount << ". Current balance: R" << balance << std::endl;
+        }
         logTransaction("Failed to deduct expense due to insufficient funds: R" + std::to_string(amount));
         return false;
     }

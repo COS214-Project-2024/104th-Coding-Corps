@@ -621,8 +621,12 @@ void GameEngine::startSimulation() {
 
     // Simulation loop for each month (or cycle)
     for(int i = 0; i < 12; i++) {
-        if(i > 0 && government->getBalance() == 0){
-            std::cout << "GAME OVER :(( no more monies \n";
+        if(i > 0 && government->getBalance() == 0 || cityContext->getBankrupt() == true){
+            std::cout << "==============================================================\n";
+            std::cout << "                  GAME OVER :(( no more monies                  \n";
+            std::cout << "==============================================================\n";
+            gameOver = true;
+            return;
         }
         std::cout << "Simulation running... Month: " << (i + 1) << "\n";
 
@@ -722,4 +726,8 @@ void GameEngine::returnToLastCheckpoint() {
     } else {
         std::cout << "No checkpoint to return to.\n";
     }
+}
+
+bool GameEngine::getGameOver() {
+    return gameOver;
 }

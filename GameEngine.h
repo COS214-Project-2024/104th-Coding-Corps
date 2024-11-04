@@ -62,6 +62,7 @@ private:
     std::vector<std::shared_ptr<BuildingComposite>> buildingComposites;
     int currentBuildingCount = 0;
     int currentDistrictIndex = 0; 
+    bool gameOver = false;
 
 
 public:
@@ -80,6 +81,7 @@ public:
     void addResources();
     void saveCheckpoint();
     void returnToLastCheckpoint();
+    bool getGameOver();
 };
 
 #endif // GAMEENGINE_H
