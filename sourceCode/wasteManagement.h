@@ -22,6 +22,10 @@ public:
 
 	void processWaste(BuildingComponent* building);
 
+	std::shared_ptr<Utilities> clone() const override {
+        return std::make_shared<WasteManagement>(*this); // Clone implementation
+    }
+
 };
 
 #endif

@@ -15,6 +15,14 @@ private:
 public:
     Estate(int x, int y, const std::string& district, int quality, int garageSize, bool hasPool, int residents, int floors, bool hasGarden, int units);
 
+        Estate(const Estate& other)
+        : ResidentialBuildings(other), garageSize(other.garageSize), pool(other.pool), numUnits(other.numUnits) {} // Copy base and Estate-specific attributes
+
+    // Clone function
+    std::shared_ptr<BuildingComponent> clone() const override {
+        return std::make_shared<Estate>(*this);
+    }
+
     int getGarageSize() const;
     bool hasSwimmingPool() const;
     std::string getBuildingType() override;

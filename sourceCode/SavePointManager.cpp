@@ -25,9 +25,7 @@ void SavePointManager::saveState(std::shared_ptr<SavePoint> savePoint) {
     savePoints.push_back(savePoint);
     currentSaveIndex = savePoints.size() - 1;
 
-    // Debugging information
-    std::cout << "[DEBUG] SavePoint added. Total SavePoints: " << savePoints.size() 
-              << ", Current Index: " << currentSaveIndex << "\n";
+    
 }
 
 /**
@@ -40,10 +38,11 @@ void SavePointManager::saveState(std::shared_ptr<SavePoint> savePoint) {
  * @return A shared pointer to the previous `SavePoint` or nullptr if no prior state exists.
  */
 std::shared_ptr<SavePoint> SavePointManager::undo() {
-    if (currentSaveIndex > 0) {
-        currentSaveIndex--;
-        std::cout << "[DEBUG] Undoing to SavePoint. Current Index: " << currentSaveIndex << "\n";
+    if (currentSaveIndex >= 0) {
+        //std::cout << "[DEBUG] Undoing to SavePoint. Current Index: " << currentSaveIndex << "\n";
         return savePoints[currentSaveIndex];
+        currentSaveIndex--;
+
     }
     std::cout << "[DEBUG] No previous SavePoint to return to.\n";
     return nullptr;  

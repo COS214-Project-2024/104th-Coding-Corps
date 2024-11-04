@@ -18,6 +18,7 @@ public:
     virtual double getCost() = 0;
     virtual void activateUtility() = 0;
     virtual void deactivateUtility() = 0;
+    virtual std::shared_ptr<Utilities> clone() const = 0;
 
     bool getStatus() { return active; }
     void changeStatus(bool status) { active = status; }

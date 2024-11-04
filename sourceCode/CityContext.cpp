@@ -390,17 +390,19 @@ void CityContext::getCitySummary() {
 //----------------------------------------------------------------MEMENTO TINGS YERRR----------------------------------------------------------------
 
 std::shared_ptr<SavePoint> CityContext::saveGame() {
-    return std::shared_ptr<SavePoint>(new SavePoint(
+    // Directly pass current state to SavePoint; SavePoint will handle copying.
+    return std::make_shared<SavePoint>(
         totalPop, averageStandardOfLiving, averageEducationLevel,
         averageIncome, monthlyExpenditure, totalBuildings, 
         averageBuildingQuality, totalUtilities, totalEnergyConsumption,
         totalWaterConsumption, totalEnergyProduction, totalWaterProduction,
-        government, population, buildings, utilities));
+        government->getBalance(),  // Only pass the balance
+        population, buildings, utilities);
 }
+
 
 void CityContext::setSavePoint(std::shared_ptr<SavePoint> savePoint) {
     if (savePoint) {
-        // Restore each member of CityContext from the SavePoint
         totalPop = savePoint->totalPopulation;
         averageStandardOfLiving = savePoint->averageStandardOfLiving;
         averageEducationLevel = savePoint->averageEducationLevel;
@@ -414,18 +416,15 @@ void CityContext::setSavePoint(std::shared_ptr<SavePoint> savePoint) {
         totalEnergyProduction = savePoint->totalEnergyProduction;
         totalWaterProduction = savePoint->totalWaterProduction;
 
-        buildings.clear();
-        population.clear();
-        utilities.clear();
+        // Restore government balance
+        government->setBalance(savePoint->governmentBalance);
 
-        // Restore complex objects
-        government = savePoint->government;
+        // Directly assign deep-copied containers from SavePoint
         population = savePoint->population;
         buildings = savePoint->buildings;
         utilities = savePoint->utilities;
     }
 }
-
 
 
 

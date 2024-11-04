@@ -12,6 +12,16 @@ private:
 public:
     Flat(int x, int y, const std::string& district, int quality, int units, int residents, int floors, bool hasGarden);
 
+        // Copy constructor
+    Flat(const Flat& other)
+        : ResidentialBuildings(other), // Call the base class copy constructor
+          numUnits(other.numUnits) {}
+
+    // Clone function
+    std::shared_ptr<BuildingComponent> clone() const override {
+        return std::make_shared<Flat>(*this);
+    }
+
     int getNumUnits() const;
     std::string getBuildingType() override;
     double getCost() override;
@@ -26,6 +36,11 @@ public:
         return "Flat"; // Return the specific type
     }
     void upgrade(std::shared_ptr<BuildingComponent> building) override;
+    Flat::Flat(const Flat& other)
+    : ResidentialBuildings(other), // Call the base class copy constructor
+      numUnits(other.numUnits) {}
+
+
 };
 
 #endif // FLAT_H

@@ -14,6 +14,18 @@ private:
 public:
     House(int x, int y, const std::string& district, int quality, int garageSize, bool hasPool, int residents, int floors, bool hasGarden);
 
+        // Copy constructor
+    House(const House& other)
+        : ResidentialBuildings(other), // Call the base class copy constructor
+          garageSize(other.garageSize),
+          pool(other.pool),
+          residents(other.residents) {}
+
+    // Clone function
+    std::shared_ptr<BuildingComponent> clone() const override {
+        return std::make_shared<House>(*this);
+    }
+
     int getGarageSize() const;
     bool hasSwimmingPool() const;
     std::string getBuildingType() override;

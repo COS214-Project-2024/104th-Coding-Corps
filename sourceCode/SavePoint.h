@@ -9,7 +9,6 @@ class CityContext;
 class Citizen;
 class BuildingComponent;
 class Utilities;
-class Government;
 
 /**
  * @brief Memento class to save and restore CityContext's state.
@@ -22,7 +21,7 @@ private:
               int avgBuildingQuality, int totalUtilities,
               double totalEnergyConsumption, double totalWaterConsumption,
               double totalEnergyProduction, double totalWaterProduction,
-              std::shared_ptr<Government> governmentState,
+              double governmentBalance,
               const std::map<int, std::shared_ptr<Citizen>>& populationState,
               const std::vector<std::shared_ptr<BuildingComponent>>& buildingsState,
               const std::vector<std::shared_ptr<Utilities>>& utilitiesState);
@@ -41,29 +40,39 @@ private:
     double totalEnergyProduction;
     double totalWaterProduction;
 
-    std::shared_ptr<Government> government;
+    // Store balance as a simple variable instead of Government pointer
+    double governmentBalance;
+
+    // Deep copies of complex objects
     std::map<int, std::shared_ptr<Citizen>> population;
     std::vector<std::shared_ptr<BuildingComponent>> buildings;
     std::vector<std::shared_ptr<Utilities>> utilities;
 
-    // Private methods for state management, accessible only by CityContext
-    std::shared_ptr<SavePoint> getState();
-    void setState(const std::shared_ptr<SavePoint>& savePoint);
-
-    friend class CityContext; // CityContext can access all members
-
 public:
+    // Factory method to create a SavePoint instance
     static std::shared_ptr<SavePoint> create(int totalPop, double avgStdOfLiving, double avgEduLevel, 
                                              double avgIncome, double monthlyExp, int totalBuildings, 
                                              int avgBuildingQuality, int totalUtilities,
                                              double totalEnergyConsumption, double totalWaterConsumption,
                                              double totalEnergyProduction, double totalWaterProduction,
-                                             std::shared_ptr<Government> governmentState,
+                                             double governmentBalance,
                                              const std::map<int, std::shared_ptr<Citizen>>& populationState,
                                              const std::vector<std::shared_ptr<BuildingComponent>>& buildingsState,
                                              const std::vector<std::shared_ptr<Utilities>>& utilitiesState);
 
+    // Retrieve a snapshot of the current state
+    std::shared_ptr<SavePoint> getState();
+
+    // Restore state from another SavePoint
+    void setState(const std::shared_ptr<SavePoint>& savePoint);
+
+    // Accessor for government balance
+    double getGovernmentBalance() const { return governmentBalance; }
+
+    // Destructor
     ~SavePoint() = default;
+
+    friend CityContext;
 };
 
 #endif // SAVEPOINT_H

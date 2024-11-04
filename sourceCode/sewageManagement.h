@@ -20,6 +20,10 @@ public:
 	void deactivateUtility();
 
 	void manageSewage(BuildingComponent* building);
+
+	std::shared_ptr<Utilities> clone() const override {
+        return std::make_shared<SewageManagement>(*this); // Clone implementation
+    }
 };
 
 #endif

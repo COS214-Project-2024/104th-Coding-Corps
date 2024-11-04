@@ -2,38 +2,16 @@
 #include "Citizen.h"
 #include "BuildingComponent.h"
 #include "Utilities.h"
-#include "Government.h"
 
 /**
  * @brief Constructs a SavePoint instance with the given state attributes.
- * 
- * This constructor initializes a SavePoint object that captures the current 
- * state of the simulation, including population metrics, building statistics, 
- * utility information, and government state.
- * 
- * @param totalPop Total population in the simulation.
- * @param avgStdOfLiving Average standard of living.
- * @param avgEduLevel Average education level.
- * @param avgIncome Average income.
- * @param monthlyExp Monthly expenditure.
- * @param totalBuildings Total number of buildings.
- * @param avgBuildingQuality Average quality of buildings.
- * @param totalUtilities Total number of utilities.
- * @param totalEnergyConsumption Total energy consumption.
- * @param totalWaterConsumption Total water consumption.
- * @param totalEnergyProduction Total energy production.
- * @param totalWaterProduction Total water production.
- * @param governmentState Shared pointer to the government state.
- * @param populationState Map containing citizens in the population state.
- * @param buildingsState Vector containing building components in the state.
- * @param utilitiesState Vector containing utilities in the state.
  */
 SavePoint::SavePoint(int totalPop, double avgStdOfLiving, double avgEduLevel, 
                      double avgIncome, double monthlyExp, int totalBuildings, 
                      int avgBuildingQuality, int totalUtilities,
                      double totalEnergyConsumption, double totalWaterConsumption,
                      double totalEnergyProduction, double totalWaterProduction,
-                     std::shared_ptr<Government> governmentState,
+                     double governmentBalance,
                      const std::map<int, std::shared_ptr<Citizen>>& populationState,
                      const std::vector<std::shared_ptr<BuildingComponent>>& buildingsState,
                      const std::vector<std::shared_ptr<Utilities>>& utilitiesState)
@@ -49,87 +27,45 @@ SavePoint::SavePoint(int totalPop, double avgStdOfLiving, double avgEduLevel,
       totalWaterConsumption(totalWaterConsumption),
       totalEnergyProduction(totalEnergyProduction),
       totalWaterProduction(totalWaterProduction),
-      government(governmentState),
-      population(populationState),
-      buildings(buildingsState),
-      utilities(utilitiesState) {}
+      governmentBalance(governmentBalance) // Store balance instead of Government pointer
+{
+    // Deep copy of population using clone or copy constructor
+    for (const auto& [id, citizen] : populationState) {
+        population[id] = std::make_shared<Citizen>(*citizen); // Assume Citizen has a copy constructor
+    }
+
+    // Deep copy of buildings using clone or copy constructor
+    for (const auto& building : buildingsState) {
+        buildings.push_back(building->clone()); // Assume clone() returns a deep copy
+    }
+
+    // Deep copy of utilities using clone or copy constructor
+    for (const auto& utility : utilitiesState) {
+        utilities.push_back(utility->clone()); // Assume clone() returns a deep copy
+    }
+}
 
 /**
  * @brief Factory method for creating a SavePoint instance.
- * 
- * This method creates a new shared pointer to a SavePoint instance, 
- * encapsulating the provided state parameters.
- * 
- * @param totalPop Total population in the simulation.
- * @param avgStdOfLiving Average standard of living.
- * @param avgEduLevel Average education level.
- * @param avgIncome Average income.
- * @param monthlyExp Monthly expenditure.
- * @param totalBuildings Total number of buildings.
- * @param avgBuildingQuality Average quality of buildings.
- * @param totalUtilities Total number of utilities.
- * @param totalEnergyConsumption Total energy consumption.
- * @param totalWaterConsumption Total water consumption.
- * @param totalEnergyProduction Total energy production.
- * @param totalWaterProduction Total water production.
- * @param governmentState Shared pointer to the government state.
- * @param populationState Map containing citizens in the population state.
- * @param buildingsState Vector containing building components in the state.
- * @param utilitiesState Vector containing utilities in the state.
- * @return A shared pointer to the newly created SavePoint.
  */
 std::shared_ptr<SavePoint> SavePoint::create(int totalPop, double avgStdOfLiving, double avgEduLevel, 
                                              double avgIncome, double monthlyExp, int totalBuildings, 
                                              int avgBuildingQuality, int totalUtilities,
                                              double totalEnergyConsumption, double totalWaterConsumption,
                                              double totalEnergyProduction, double totalWaterProduction,
-                                             std::shared_ptr<Government> governmentState,
+                                             double governmentBalance,
                                              const std::map<int, std::shared_ptr<Citizen>>& populationState,
                                              const std::vector<std::shared_ptr<BuildingComponent>>& buildingsState,
                                              const std::vector<std::shared_ptr<Utilities>>& utilitiesState) {
-    return std::shared_ptr<SavePoint>(new SavePoint(totalPop, avgStdOfLiving, avgEduLevel, avgIncome, monthlyExp,
-                                                    totalBuildings, avgBuildingQuality, totalUtilities,
-                                                    totalEnergyConsumption, totalWaterConsumption, 
-                                                    totalEnergyProduction, totalWaterProduction, 
-                                                    governmentState, populationState, buildingsState, utilitiesState));
-}
-
-/**
- * @brief Retrieves a snapshot of the current state as a SavePoint.
- * 
- * This method returns a new shared pointer to a SavePoint that captures 
- * the current state of the simulation.
- * 
- * @return A shared pointer to the current state as a SavePoint.
- */
-std::shared_ptr<SavePoint> SavePoint::getState() {
-    return SavePoint::create(
-        totalPopulation,
-        averageStandardOfLiving,
-        averageEducationLevel,
-        averageIncome,
-        monthlyExpenditure,
-        totalBuildings,
-        averageBuildingQuality,
-        totalUtilities,
-        totalEnergyConsumption,
-        totalWaterConsumption,
-        totalEnergyProduction,
-        totalWaterProduction,
-        government,
-        population,
-        buildings,
-        utilities
-    );
+    return std::make_shared<SavePoint>(totalPop, avgStdOfLiving, avgEduLevel, avgIncome, monthlyExp,
+                                       totalBuildings, avgBuildingQuality, totalUtilities,
+                                       totalEnergyConsumption, totalWaterConsumption, 
+                                       totalEnergyProduction, totalWaterProduction, 
+                                       governmentBalance, populationState, buildingsState, utilitiesState);
 }
 
 /**
  * @brief Updates the current SavePoint with the state from another SavePoint.
- * 
- * This method copies the state attributes from the provided SavePoint into 
- * the current instance.
- * 
- * @param savePoint The SavePoint containing the desired state to copy.
  */
 void SavePoint::setState(const std::shared_ptr<SavePoint>& savePoint) {
     if (savePoint) {
@@ -145,9 +81,24 @@ void SavePoint::setState(const std::shared_ptr<SavePoint>& savePoint) {
         totalWaterConsumption = savePoint->totalWaterConsumption;
         totalEnergyProduction = savePoint->totalEnergyProduction;
         totalWaterProduction = savePoint->totalWaterProduction;
-        government = savePoint->government;
-        population = savePoint->population;
-        buildings = savePoint->buildings;
-        utilities = savePoint->utilities;
+        governmentBalance = savePoint->governmentBalance;
+
+        // Deep copy population
+        population.clear();
+        for (const auto& [id, citizen] : savePoint->population) {
+            population[id] = std::make_shared<Citizen>(*citizen);
+        }
+
+        // Deep copy buildings
+        buildings.clear();
+        for (const auto& building : savePoint->buildings) {
+            buildings.push_back(building->clone());
+        }
+
+        // Deep copy utilities
+        utilities.clear();
+        for (const auto& utility : savePoint->utilities) {
+            utilities.push_back(utility->clone());
+        }
     }
 }

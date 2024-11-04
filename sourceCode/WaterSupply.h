@@ -23,6 +23,10 @@ public:
     void deactivateUtility() override;
 
     void distributeWater(std::shared_ptr<BuildingComponent> building); // Use shared_ptr here as well
+
+    std::shared_ptr<Utilities> clone() const override {
+        return std::make_shared<WaterSupply>(*this); // Clone implementation
+    }
 };
 
 #endif

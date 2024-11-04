@@ -11,6 +11,16 @@ public:
     // Constructor that initializes base class and factory-specific attributes
     factory(int x, int y, const std::string& district, int quality, int numWorkers, const std::string& factoryType, double production);
 
+        // Copy constructor
+    factory(const factory& other)
+        : IndustrialBuildings(other), factoryType(other.factoryType) {} // Copy base and factory-specific attributes
+
+    // Clone function
+    std::shared_ptr<BuildingComponent> clone() const override {
+        return std::make_shared<factory>(*this);
+    }
+
+
     void produceGoods();
     std::string getBuildingType();
     std::string getFactoryType();

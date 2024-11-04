@@ -3,23 +3,6 @@
 
 int Citizen::nextID = 10000000; // static ID counter for citizenID
 
-// /**
-//  * @brief Helper function to create citizen objects using the constructor and initialize
-//  * @param cityContext Shared pointer to the CityContext for access to city-wide resources and citizen registration.
-//  * @param transportContext Shared pointer to the Transport system for managing citizen travel between locations.
-//  * @param government Shared pointer to the Government for administrative access and regulatory updates.
-// */
-// std::shared_ptr<Citizen> Citizen::createCitizen(
-//     std::shared_ptr<CityContext> cityContext, 
-//     std::shared_ptr<Transport> transportContext, 
-//     std::shared_ptr<Government> government
-// ) {
-//     auto citizen = std::make_shared<Citizen>(cityContext, transportContext, government);
-//     //citizen->initialize(citizen);  // Pass the shared pointer directly
-//     return citizen;
-// }
-
-
 /**
 * @brief Constructs a Citizen with a unique ID, initial education level, and assigned job and residence.
  * 
@@ -100,26 +83,26 @@ Citizen::Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Trans
 
     // Set expected standard of living based on class
     expectedStandardOfLiving = (classType == "upper") ? 80 : (classType == "middle") ? 50 : 30;
+}
 
-    // Debug print
-// Debug print
-// std::cout << std::fixed << std::setprecision(2)
-//           << "Citizen created with ID: " << citizenID
-//           << "\n  Class: " << classType
-//           << "\n  Job: " << jobType
-//           << "\n  Education Level: " << educationLevel
-//           << "\n  Income: R" << currentIncome
-//           << "\n  Monthly Expenditure: R" << monthlyExpenditure
-//           << "\n  Employed: " << (employed ? "Yes" : "No")
-//           << "\n  Expected Standard of Living (SoL): " << expectedStandardOfLiving
-//           << "\n  Actual Standard of Living (SoL): " << actualStandardOfLiving
-//           << "\n  Satisfaction: " << satisfaction
-//           << "\n  X Coordinate: " << x
-//           << "\n  Y Coordinate: " << y
-//           << "\n  District: " << district
-//           << "\n  On Strike: " << (onStrike ? "Yes" : "No")
-//           << std::endl;
+Citizen::Citizen(std::shared_ptr<CityContext> cityContext,
+                 std::shared_ptr<Transport> transportContext,
+                 std::shared_ptr<Government> government)
+    : cityContext(cityContext), transportationContext(transportContext), government(government) {
+}
 
+std::shared_ptr<Citizen> Citizen::clone() const {
+    auto clone = std::make_shared<Citizen>(cityContext, transportationContext, government);
+    clone->citizenID = citizenID;
+    clone->classType = classType;
+    clone->employed = employed;
+    clone->educationLevel = educationLevel;
+    clone->jobType = jobType;
+    clone->monthlyExpenditure = monthlyExpenditure;
+    clone->onStrike = onStrike;
+    clone->x = x;
+    clone->y = y;
+    return clone;
 }
 
 

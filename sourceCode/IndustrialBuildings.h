@@ -16,6 +16,15 @@ public:
     IndustrialBuildings(int x, int y, const std::string& district, int quality, double production, int workers)
         : BuildingComponent(x, y, district, quality), productionCapacity(production), numWorkers(workers) {}
 
+            // Copy constructor defined within the header file
+    IndustrialBuildings(const IndustrialBuildings& other)
+        : BuildingComponent(other),  // Call base class copy constructor
+          productionCapacity(other.productionCapacity),
+          numWorkers(other.numWorkers) {}
+
+    // Pure virtual clone function, to be implemented in derived classes
+    virtual std::shared_ptr<BuildingComponent> clone() const = 0;
+
     virtual std::string getBuildingType() = 0;
     virtual int getOccupancy() = 0;
     virtual double getCost() = 0;

@@ -28,6 +28,8 @@ public:
 
 	//virtual shared_ptr<BuildingComponent> getBuilding(int index);
 
+	virtual std::shared_ptr<BuildingComponent> clone() const = 0;
+
 	virtual string getBuildingType() = 0;
 
 	virtual int getOccupancy() = 0;

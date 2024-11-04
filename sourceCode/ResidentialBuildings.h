@@ -27,6 +27,16 @@ public:
     virtual void demolish() = 0;
     virtual void upgrade(std::shared_ptr<BuildingComponent> building) = 0;
 
+    ResidentialBuildings(const ResidentialBuildings& other)
+        : BuildingComponent(other),  // Call base class copy constructor
+          numResidents(other.numResidents),
+          numFloors(other.numFloors),
+          garden(other.garden) {}
+
+    // Pure virtual clone function, to be implemented in derived classes
+    virtual std::shared_ptr<BuildingComponent> clone() const = 0;
+
+
     // Additional methods specific to ResidentialBuildings
     int getNumResidents() const {
         return numResidents;

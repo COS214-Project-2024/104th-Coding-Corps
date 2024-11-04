@@ -63,6 +63,10 @@ public:
     void updateCurrentIncome(double amount);
     void updateMonthlyExpenditure(double amount);
 
+    //Prototype
+    Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Transport> transportContext, std::shared_ptr<Government> government);
+    std::shared_ptr<Citizen> clone() const;
+
     // Additional functionality
     void increaseEducation();
     void promoteClass();

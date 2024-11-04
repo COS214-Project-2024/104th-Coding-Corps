@@ -21,6 +21,10 @@ public:
 	void deactivateUtility();
 
 	void generateEnergy(std::shared_ptr<BuildingComponent> building);
+
+	std::shared_ptr<Utilities> clone() const override {
+        return std::make_shared<PowerPlant>(*this); // Clone implementation
+    }
 };
 
 #endif
