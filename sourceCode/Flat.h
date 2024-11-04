@@ -36,9 +36,6 @@ public:
         return "Flat"; // Return the specific type
     }
     void upgrade(std::shared_ptr<BuildingComponent> building) override;
-    Flat::Flat(const Flat& other)
-    : ResidentialBuildings(other), // Call the base class copy constructor
-      numUnits(other.numUnits) {}
 
 
 };

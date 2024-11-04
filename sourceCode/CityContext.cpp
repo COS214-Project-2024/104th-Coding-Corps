@@ -390,15 +390,15 @@ void CityContext::getCitySummary() {
 //----------------------------------------------------------------MEMENTO TINGS YERRR----------------------------------------------------------------
 
 std::shared_ptr<SavePoint> CityContext::saveGame() {
-    // Directly pass current state to SavePoint; SavePoint will handle copying.
-    return std::make_shared<SavePoint>(
+    return std::shared_ptr<SavePoint>(new SavePoint(
         totalPop, averageStandardOfLiving, averageEducationLevel,
-        averageIncome, monthlyExpenditure, totalBuildings, 
+        averageIncome, monthlyExpenditure, totalBuildings,
         averageBuildingQuality, totalUtilities, totalEnergyConsumption,
         totalWaterConsumption, totalEnergyProduction, totalWaterProduction,
-        government->getBalance(),  // Only pass the balance
-        population, buildings, utilities);
+        government->getBalance(), population, buildings, utilities
+    ));
 }
+
 
 
 void CityContext::setSavePoint(std::shared_ptr<SavePoint> savePoint) {

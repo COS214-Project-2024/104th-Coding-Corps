@@ -85,14 +85,26 @@ Citizen::Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Trans
     expectedStandardOfLiving = (classType == "upper") ? 80 : (classType == "middle") ? 50 : 30;
 }
 
-Citizen::Citizen(std::shared_ptr<CityContext> cityContext,
-                 std::shared_ptr<Transport> transportContext,
-                 std::shared_ptr<Government> government)
-    : cityContext(cityContext), transportationContext(transportContext), government(government) {
-}
+Citizen::Citizen(const Citizen& other) {
+    if (&other != nullptr) {
+        citizenID = other.citizenID;
+        classType = other.classType;
+        employed = other.employed;
+        educationLevel = other.educationLevel;
+        jobType = other.jobType;
+        monthlyExpenditure = other.monthlyExpenditure;
+        onStrike = other.onStrike;
+        x = other.x;
+        y = other.y;
 
+        // Clone shared resources for deep copy
+        transportationContext = other.transportationContext;
+        cityContext = other.cityContext;
+        government = other.government;
+    }
+}
 std::shared_ptr<Citizen> Citizen::clone() const {
-    auto clone = std::make_shared<Citizen>(cityContext, transportationContext, government);
+    auto clone = std::make_shared<Citizen>(*this);
     clone->citizenID = citizenID;
     clone->classType = classType;
     clone->employed = employed;

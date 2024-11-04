@@ -48,21 +48,26 @@ SavePoint::SavePoint(int totalPop, double avgStdOfLiving, double avgEduLevel,
 /**
  * @brief Factory method for creating a SavePoint instance.
  */
-std::shared_ptr<SavePoint> SavePoint::create(int totalPop, double avgStdOfLiving, double avgEduLevel, 
-                                             double avgIncome, double monthlyExp, int totalBuildings, 
-                                             int avgBuildingQuality, int totalUtilities,
-                                             double totalEnergyConsumption, double totalWaterConsumption,
-                                             double totalEnergyProduction, double totalWaterProduction,
-                                             double governmentBalance,
-                                             const std::map<int, std::shared_ptr<Citizen>>& populationState,
-                                             const std::vector<std::shared_ptr<BuildingComponent>>& buildingsState,
-                                             const std::vector<std::shared_ptr<Utilities>>& utilitiesState) {
-    return std::make_shared<SavePoint>(totalPop, avgStdOfLiving, avgEduLevel, avgIncome, monthlyExp,
-                                       totalBuildings, avgBuildingQuality, totalUtilities,
-                                       totalEnergyConsumption, totalWaterConsumption, 
-                                       totalEnergyProduction, totalWaterProduction, 
-                                       governmentBalance, populationState, buildingsState, utilitiesState);
+std::shared_ptr<SavePoint> SavePoint::create(
+    int totalPop, double avgStdOfLiving, double avgEduLevel, 
+    double avgIncome, double monthlyExp, int totalBuildings, 
+    int avgBuildingQuality, int totalUtilities,
+    double totalEnergyConsumption, double totalWaterConsumption,
+    double totalEnergyProduction, double totalWaterProduction,
+    double governmentBalance,
+    const std::map<int, std::shared_ptr<Citizen>>& populationState,
+    const std::vector<std::shared_ptr<BuildingComponent>>& buildingsState,
+    const std::vector<std::shared_ptr<Utilities>>& utilitiesState
+) {
+    return std::shared_ptr<SavePoint>(new SavePoint(
+        totalPop, avgStdOfLiving, avgEduLevel, avgIncome, monthlyExp,
+        totalBuildings, avgBuildingQuality, totalUtilities,
+        totalEnergyConsumption, totalWaterConsumption, 
+        totalEnergyProduction, totalWaterProduction, 
+        governmentBalance, populationState, buildingsState, utilitiesState
+    ));
 }
+
 
 /**
  * @brief Updates the current SavePoint with the state from another SavePoint.

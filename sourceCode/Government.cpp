@@ -89,6 +89,10 @@ void Government::printTransactionHistory() const{
 bool Government::deductExpense(double amount) {
     return budget->deductExpense(amount);
 }
+
+void Government::setBalance(double balance) {
+    return budget->setBalance(balance);
+}
 //--------------------------------------------------------------------------------------------------------
 
 //----------------------------------------------RESOURCE STUFF----------------------------------------------

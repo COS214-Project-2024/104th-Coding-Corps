@@ -37,6 +37,8 @@ public:
     void setTaxRatePolicy(const std::string& taxRatePolicy);
     std::string getTaxRatePolicy() const;
     bool deductExpense(double amount);
+    void setBalance(double balance);
+
 };
 
 #endif

@@ -37,6 +37,8 @@ public:
     Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Transport> transportContext, std::shared_ptr<Government> government);
     void initialize();
     ~Citizen() override;
+    Citizen(const Citizen& other);
+    std::shared_ptr<Citizen> clone() const;
 
     // Getters and setters
     int getSatisfaction() const override;
@@ -62,10 +64,6 @@ public:
     void updateASoL(int update);
     void updateCurrentIncome(double amount);
     void updateMonthlyExpenditure(double amount);
-
-    //Prototype
-    Citizen(std::shared_ptr<CityContext> cityContext, std::shared_ptr<Transport> transportContext, std::shared_ptr<Government> government);
-    std::shared_ptr<Citizen> clone() const;
 
     // Additional functionality
     void increaseEducation();
