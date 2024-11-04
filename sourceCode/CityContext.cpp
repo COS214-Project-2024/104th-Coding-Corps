@@ -348,6 +348,8 @@ void CityContext::prepareCitySummary(){
  */
 void CityContext::getCitySummary() {
 
+    calculateAverages();
+
     std::cout << "======================= CITY SUMMARY =======================" << std::endl;
     std::cout << "|                        CITIZENS                         |" << std::endl;
     std::cout << "|--------------------------------------------------------|" << std::endl;

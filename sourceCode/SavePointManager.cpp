@@ -23,7 +23,7 @@ void SavePointManager::saveState(std::shared_ptr<SavePoint> savePoint) {
     }
 
     savePoints.push_back(savePoint);
-    currentSaveIndex++;
+    currentSaveIndex = savePoints.size() - 1;
 }
 
 /**
