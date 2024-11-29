@@ -1,0 +1,407 @@
+\hypertarget{classCityContext}{}\doxysection{City\+Context Class Reference}
+\label{classCityContext}\index{CityContext@{CityContext}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCityContext_a7425d588ab9cbe4846c5babc25dbc44b}\label{classCityContext_a7425d588ab9cbe4846c5babc25dbc44b}} 
+\mbox{\hyperlink{classCityContext_a7425d588ab9cbe4846c5babc25dbc44b}{$\sim$\+City\+Context}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classCityContext}{City\+Context}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCityContext_a5ddf424bf75919f6b7cc801113eae7fc}{attach}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCitizen}{Citizen}} $>$ citizen)
+\begin{DoxyCompactList}\small\item\em Attaches a citizen to the city\textquotesingle{}s population. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCityContext_a8bcd989eb2b1be735963e9bd67c653ba}{detach}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCitizen}{Citizen}} $>$ citizen)
+\begin{DoxyCompactList}\small\item\em Detaches a citizen from the city\textquotesingle{}s population. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCityContext_a36f046ade39587b4a4bd2ad46ea8a209}\label{classCityContext_a36f046ade39587b4a4bd2ad46ea8a209}} 
+void \mbox{\hyperlink{classCityContext_a36f046ade39587b4a4bd2ad46ea8a209}{notify}} ()
+\begin{DoxyCompactList}\small\item\em Notifies all citizens of a change in context. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCityContext_a09dc2603dc0981da184d51fc1bf8bf83}{calculate\+Average\+Satisfaction}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the average satisfaction level of the city\textquotesingle{}s citizens. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCityContext_a6026c64597b42179bbb8d009affe3abb}{calculate\+Average\+Standard\+Of\+Living}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the average standard of living for all citizens in the city. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCityContext_a1d7706090fea9c99d82148bd17d619d6}{calculate\+Average\+Education\+Level}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the average education level for all citizens in the city. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCityContext_a206f7dab5a77cfc1c94ae06eb9dfc368}{calculate\+Average\+Income}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the average income for all citizens in the city. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCityContext_a7b926b93887bdd9a0bf89d7348c2d563}{calculate\+Total\+Pop}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the total population of the city. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCityContext_a8cbace64be5f2cfcad6df1ab8e3aba4e}{calculate\+Monthly\+Expenditure}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the total monthly expenditure of all citizens in the city. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCityContext_a1232f29ba70452b6b00390157ebd5512}{remove\+Building}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ building)
+\begin{DoxyCompactList}\small\item\em Removes a building from the city\textquotesingle{}s list of buildings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCityContext_aa670255d4d26f4a8f23c1184b93213f9}{add\+Building}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ building)
+\begin{DoxyCompactList}\small\item\em Adds a building to the city\textquotesingle{}s list of buildings. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCityContext_a0343f1c575fb366bc97726ce5cef6268}{calculate\+Total\+Buildings}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the total number of buildings in the city. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCityContext_a7dbe522135bab39898b76878aff95eb9}{calculate\+Average\+Building\+Quality}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the average quality of buildings in the city. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCityContext_a413e738326192951f149797370dcfc6f}{calculate\+Total\+Energy\+Consumption}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the total energy consumption of all buildings in the city. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCityContext_a6257cacdb0f78209cd2ddfffc201e592}{calculate\+Total\+Water\+Consumption}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the total water consumption of all buildings in the city. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCityContext_a88bcae74df4ada57738ba39f0d0c4668}\label{classCityContext_a88bcae74df4ada57738ba39f0d0c4668}} 
+double {\bfseries get\+Total\+Maintenance\+Cost} ()
+\item 
+void \mbox{\hyperlink{classCityContext_ac85dc4b06ea314ed8b9df817dada553f}{add\+Utility}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classUtilities}{Utilities}} $>$ utility)
+\begin{DoxyCompactList}\small\item\em Adds a utility to the city\textquotesingle{}s list of utilities. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCityContext_a148bfee2941582cdcb01d0dd765d45a5}{remove\+Utility}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classUtilities}{Utilities}} $>$ utility)
+\begin{DoxyCompactList}\small\item\em Removes a utility from the city\textquotesingle{}s list of utilities. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCityContext_a33bb32564244e0cadba8085fb6104e90}{calculate\+Total\+Water\+Production}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the total water production from all water utilities. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCityContext_aea4be89f47bde7676f191c6057254899}{calculate\+Total\+Energy\+Production}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the total energy production from all energy utilities. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCityContext_aef3301cc48ca2f1cde00b987fc87340a}{count\+Total\+Utilities}} ()
+\begin{DoxyCompactList}\small\item\em Counts the total number of utility buildings in the city. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCityContext_a9828562e3ef54cd9aa29aff41845ab58}\label{classCityContext_a9828562e3ef54cd9aa29aff41845ab58}} 
+void \mbox{\hyperlink{classCityContext_a9828562e3ef54cd9aa29aff41845ab58}{calculate\+Averages}} ()
+\begin{DoxyCompactList}\small\item\em Calculates all city-\/wide averages and totals for a complete summary. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCityContext_a9264e90e6690e9aace26aeda9b2379a7}{get\+City\+Summary}} ()
+\begin{DoxyCompactList}\small\item\em Displays a structured summary of the city\textquotesingle{}s citizens, buildings, and utility resources. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCityContext_afe1d2ddc5d8c2b53c88018809d74b50a}\label{classCityContext_afe1d2ddc5d8c2b53c88018809d74b50a}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSavePoint}{Save\+Point}} $>$ {\bfseries save\+Game} ()
+\item 
+\mbox{\Hypertarget{classCityContext_aea33316634cec8062d50a7809d63a5b1}\label{classCityContext_aea33316634cec8062d50a7809d63a5b1}} 
+void {\bfseries set\+Save\+Point} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSavePoint}{Save\+Point}} $>$ save\+Point)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ \mbox{\hyperlink{classCityContext_a99914afaef3373a2e2e420c309fd0edb}{find\+Nearest\+Building}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCitizen}{Citizen}} $>$ \&citizen, const std\+::string \&building\+Type)
+\begin{DoxyCompactList}\small\item\em Finds the nearest building of a specified type to a given citizen. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCityContext_a73d88fe1ee84bcee64363f0d3e52afee}{calculate\+Distance}} (int x1, int y1, int x2, int y2)
+\begin{DoxyCompactList}\small\item\em Calculates the Euclidean distance between two points. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCityContext}{City\+Context}} $>$ \mbox{\hyperlink{classCityContext_a857776c39ff4f840d0a39a7cb41728b4}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Returns the singleton instance of \mbox{\hyperlink{classCityContext}{City\+Context}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCityContext_aa670255d4d26f4a8f23c1184b93213f9}\label{classCityContext_aa670255d4d26f4a8f23c1184b93213f9}} 
+\index{CityContext@{CityContext}!addBuilding@{addBuilding}}
+\index{addBuilding@{addBuilding}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{addBuilding()}{addBuilding()}}
+{\footnotesize\ttfamily void City\+Context\+::add\+Building (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{building }\end{DoxyParamCaption})}
+
+
+
+Adds a building to the city\textquotesingle{}s list of buildings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em building} & Shared pointer to the building to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCityContext_ac85dc4b06ea314ed8b9df817dada553f}\label{classCityContext_ac85dc4b06ea314ed8b9df817dada553f}} 
+\index{CityContext@{CityContext}!addUtility@{addUtility}}
+\index{addUtility@{addUtility}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{addUtility()}{addUtility()}}
+{\footnotesize\ttfamily void City\+Context\+::add\+Utility (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classUtilities}{Utilities}} $>$}]{utility }\end{DoxyParamCaption})}
+
+
+
+Adds a utility to the city\textquotesingle{}s list of utilities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em utility} & Shared pointer to the utility to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCityContext_a5ddf424bf75919f6b7cc801113eae7fc}\label{classCityContext_a5ddf424bf75919f6b7cc801113eae7fc}} 
+\index{CityContext@{CityContext}!attach@{attach}}
+\index{attach@{attach}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{attach()}{attach()}}
+{\footnotesize\ttfamily void City\+Context\+::attach (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCitizen}{Citizen}} $>$}]{citizen }\end{DoxyParamCaption})}
+
+
+
+Attaches a citizen to the city\textquotesingle{}s population. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em citizen} & Shared pointer to the citizen to attach. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCityContext_a7dbe522135bab39898b76878aff95eb9}\label{classCityContext_a7dbe522135bab39898b76878aff95eb9}} 
+\index{CityContext@{CityContext}!calculateAverageBuildingQuality@{calculateAverageBuildingQuality}}
+\index{calculateAverageBuildingQuality@{calculateAverageBuildingQuality}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{calculateAverageBuildingQuality()}{calculateAverageBuildingQuality()}}
+{\footnotesize\ttfamily int City\+Context\+::calculate\+Average\+Building\+Quality (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the average quality of buildings in the city. 
+
+\begin{DoxyReturn}{Returns}
+int Average building quality. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCityContext_a1d7706090fea9c99d82148bd17d619d6}\label{classCityContext_a1d7706090fea9c99d82148bd17d619d6}} 
+\index{CityContext@{CityContext}!calculateAverageEducationLevel@{calculateAverageEducationLevel}}
+\index{calculateAverageEducationLevel@{calculateAverageEducationLevel}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{calculateAverageEducationLevel()}{calculateAverageEducationLevel()}}
+{\footnotesize\ttfamily double City\+Context\+::calculate\+Average\+Education\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the average education level for all citizens in the city. 
+
+\begin{DoxyReturn}{Returns}
+double The average education level. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCityContext_a206f7dab5a77cfc1c94ae06eb9dfc368}\label{classCityContext_a206f7dab5a77cfc1c94ae06eb9dfc368}} 
+\index{CityContext@{CityContext}!calculateAverageIncome@{calculateAverageIncome}}
+\index{calculateAverageIncome@{calculateAverageIncome}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{calculateAverageIncome()}{calculateAverageIncome()}}
+{\footnotesize\ttfamily double City\+Context\+::calculate\+Average\+Income (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the average income for all citizens in the city. 
+
+\begin{DoxyReturn}{Returns}
+double The average income. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCityContext_a09dc2603dc0981da184d51fc1bf8bf83}\label{classCityContext_a09dc2603dc0981da184d51fc1bf8bf83}} 
+\index{CityContext@{CityContext}!calculateAverageSatisfaction@{calculateAverageSatisfaction}}
+\index{calculateAverageSatisfaction@{calculateAverageSatisfaction}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{calculateAverageSatisfaction()}{calculateAverageSatisfaction()}}
+{\footnotesize\ttfamily int City\+Context\+::calculate\+Average\+Satisfaction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the average satisfaction level of the city\textquotesingle{}s citizens. 
+
+\begin{DoxyReturn}{Returns}
+int Average satisfaction level. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCityContext_a6026c64597b42179bbb8d009affe3abb}\label{classCityContext_a6026c64597b42179bbb8d009affe3abb}} 
+\index{CityContext@{CityContext}!calculateAverageStandardOfLiving@{calculateAverageStandardOfLiving}}
+\index{calculateAverageStandardOfLiving@{calculateAverageStandardOfLiving}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{calculateAverageStandardOfLiving()}{calculateAverageStandardOfLiving()}}
+{\footnotesize\ttfamily double City\+Context\+::calculate\+Average\+Standard\+Of\+Living (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the average standard of living for all citizens in the city. 
+
+\begin{DoxyReturn}{Returns}
+double The average standard of living. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCityContext_a73d88fe1ee84bcee64363f0d3e52afee}\label{classCityContext_a73d88fe1ee84bcee64363f0d3e52afee}} 
+\index{CityContext@{CityContext}!calculateDistance@{calculateDistance}}
+\index{calculateDistance@{calculateDistance}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{calculateDistance()}{calculateDistance()}}
+{\footnotesize\ttfamily double City\+Context\+::calculate\+Distance (\begin{DoxyParamCaption}\item[{int}]{w,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{z }\end{DoxyParamCaption})}
+
+
+
+Calculates the Euclidean distance between two points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & X-\/coordinate of the first point. \\
+\hline
+{\em x} & Y-\/coordinate of the first point. \\
+\hline
+{\em y} & X-\/coordinate of the second point. \\
+\hline
+{\em z} & Y-\/coordinate of the second point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Euclidean distance between the two points. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCityContext_a8cbace64be5f2cfcad6df1ab8e3aba4e}\label{classCityContext_a8cbace64be5f2cfcad6df1ab8e3aba4e}} 
+\index{CityContext@{CityContext}!calculateMonthlyExpenditure@{calculateMonthlyExpenditure}}
+\index{calculateMonthlyExpenditure@{calculateMonthlyExpenditure}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{calculateMonthlyExpenditure()}{calculateMonthlyExpenditure()}}
+{\footnotesize\ttfamily double City\+Context\+::calculate\+Monthly\+Expenditure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the total monthly expenditure of all citizens in the city. 
+
+\begin{DoxyReturn}{Returns}
+double Total monthly expenditure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCityContext_a0343f1c575fb366bc97726ce5cef6268}\label{classCityContext_a0343f1c575fb366bc97726ce5cef6268}} 
+\index{CityContext@{CityContext}!calculateTotalBuildings@{calculateTotalBuildings}}
+\index{calculateTotalBuildings@{calculateTotalBuildings}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{calculateTotalBuildings()}{calculateTotalBuildings()}}
+{\footnotesize\ttfamily int City\+Context\+::calculate\+Total\+Buildings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the total number of buildings in the city. 
+
+\begin{DoxyReturn}{Returns}
+int Total number of buildings. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCityContext_a413e738326192951f149797370dcfc6f}\label{classCityContext_a413e738326192951f149797370dcfc6f}} 
+\index{CityContext@{CityContext}!calculateTotalEnergyConsumption@{calculateTotalEnergyConsumption}}
+\index{calculateTotalEnergyConsumption@{calculateTotalEnergyConsumption}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{calculateTotalEnergyConsumption()}{calculateTotalEnergyConsumption()}}
+{\footnotesize\ttfamily double City\+Context\+::calculate\+Total\+Energy\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the total energy consumption of all buildings in the city. 
+
+\begin{DoxyReturn}{Returns}
+double Total energy consumption. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCityContext_aea4be89f47bde7676f191c6057254899}\label{classCityContext_aea4be89f47bde7676f191c6057254899}} 
+\index{CityContext@{CityContext}!calculateTotalEnergyProduction@{calculateTotalEnergyProduction}}
+\index{calculateTotalEnergyProduction@{calculateTotalEnergyProduction}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{calculateTotalEnergyProduction()}{calculateTotalEnergyProduction()}}
+{\footnotesize\ttfamily double City\+Context\+::calculate\+Total\+Energy\+Production (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the total energy production from all energy utilities. 
+
+\begin{DoxyReturn}{Returns}
+double Total energy production. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCityContext_a7b926b93887bdd9a0bf89d7348c2d563}\label{classCityContext_a7b926b93887bdd9a0bf89d7348c2d563}} 
+\index{CityContext@{CityContext}!calculateTotalPop@{calculateTotalPop}}
+\index{calculateTotalPop@{calculateTotalPop}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{calculateTotalPop()}{calculateTotalPop()}}
+{\footnotesize\ttfamily int City\+Context\+::calculate\+Total\+Pop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the total population of the city. 
+
+\begin{DoxyReturn}{Returns}
+int Total population. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCityContext_a6257cacdb0f78209cd2ddfffc201e592}\label{classCityContext_a6257cacdb0f78209cd2ddfffc201e592}} 
+\index{CityContext@{CityContext}!calculateTotalWaterConsumption@{calculateTotalWaterConsumption}}
+\index{calculateTotalWaterConsumption@{calculateTotalWaterConsumption}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{calculateTotalWaterConsumption()}{calculateTotalWaterConsumption()}}
+{\footnotesize\ttfamily double City\+Context\+::calculate\+Total\+Water\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the total water consumption of all buildings in the city. 
+
+\begin{DoxyReturn}{Returns}
+double Total water consumption. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCityContext_a33bb32564244e0cadba8085fb6104e90}\label{classCityContext_a33bb32564244e0cadba8085fb6104e90}} 
+\index{CityContext@{CityContext}!calculateTotalWaterProduction@{calculateTotalWaterProduction}}
+\index{calculateTotalWaterProduction@{calculateTotalWaterProduction}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{calculateTotalWaterProduction()}{calculateTotalWaterProduction()}}
+{\footnotesize\ttfamily double City\+Context\+::calculate\+Total\+Water\+Production (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the total water production from all water utilities. 
+
+\begin{DoxyReturn}{Returns}
+double Total water production. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCityContext_aef3301cc48ca2f1cde00b987fc87340a}\label{classCityContext_aef3301cc48ca2f1cde00b987fc87340a}} 
+\index{CityContext@{CityContext}!countTotalUtilities@{countTotalUtilities}}
+\index{countTotalUtilities@{countTotalUtilities}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{countTotalUtilities()}{countTotalUtilities()}}
+{\footnotesize\ttfamily int City\+Context\+::count\+Total\+Utilities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Counts the total number of utility buildings in the city. 
+
+\begin{DoxyReturn}{Returns}
+int Total number of utility buildings. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCityContext_a8bcd989eb2b1be735963e9bd67c653ba}\label{classCityContext_a8bcd989eb2b1be735963e9bd67c653ba}} 
+\index{CityContext@{CityContext}!detach@{detach}}
+\index{detach@{detach}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{detach()}{detach()}}
+{\footnotesize\ttfamily void City\+Context\+::detach (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCitizen}{Citizen}} $>$}]{citizen }\end{DoxyParamCaption})}
+
+
+
+Detaches a citizen from the city\textquotesingle{}s population. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em citizen} & Shared pointer to the citizen to detach. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCityContext_a99914afaef3373a2e2e420c309fd0edb}\label{classCityContext_a99914afaef3373a2e2e420c309fd0edb}} 
+\index{CityContext@{CityContext}!findNearestBuilding@{findNearestBuilding}}
+\index{findNearestBuilding@{findNearestBuilding}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{findNearestBuilding()}{findNearestBuilding()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ City\+Context\+::find\+Nearest\+Building (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCitizen}{Citizen}} $>$ \&}]{citizen,  }\item[{const std\+::string \&}]{building\+Type }\end{DoxyParamCaption})}
+
+
+
+Finds the nearest building of a specified type to a given citizen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em citizen} & Shared pointer to the citizen looking for the building. \\
+\hline
+{\em building\+Type} & Type of building to search for (e.\+g., \char`\"{}\+House\char`\"{}, \char`\"{}\+Shop\char`\"{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Shared pointer to the nearest building of the specified type. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCityContext_a9264e90e6690e9aace26aeda9b2379a7}\label{classCityContext_a9264e90e6690e9aace26aeda9b2379a7}} 
+\index{CityContext@{CityContext}!getCitySummary@{getCitySummary}}
+\index{getCitySummary@{getCitySummary}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{getCitySummary()}{getCitySummary()}}
+{\footnotesize\ttfamily void City\+Context\+::get\+City\+Summary (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays a structured summary of the city\textquotesingle{}s citizens, buildings, and utility resources. 
+
+This function calculates averages and totals before displaying a formatted city summary in a game-\/like table format. \mbox{\Hypertarget{classCityContext_a857776c39ff4f840d0a39a7cb41728b4}\label{classCityContext_a857776c39ff4f840d0a39a7cb41728b4}} 
+\index{CityContext@{CityContext}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCityContext}{City\+Context}} $>$ City\+Context\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns the singleton instance of \mbox{\hyperlink{classCityContext}{City\+Context}}. 
+
+\begin{DoxyReturn}{Returns}
+A shared pointer to the single instance of \mbox{\hyperlink{classCityContext}{City\+Context}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCityContext_a1232f29ba70452b6b00390157ebd5512}\label{classCityContext_a1232f29ba70452b6b00390157ebd5512}} 
+\index{CityContext@{CityContext}!removeBuilding@{removeBuilding}}
+\index{removeBuilding@{removeBuilding}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{removeBuilding()}{removeBuilding()}}
+{\footnotesize\ttfamily void City\+Context\+::remove\+Building (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{building }\end{DoxyParamCaption})}
+
+
+
+Removes a building from the city\textquotesingle{}s list of buildings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em building} & Shared pointer to the building to remove. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCityContext_a148bfee2941582cdcb01d0dd765d45a5}\label{classCityContext_a148bfee2941582cdcb01d0dd765d45a5}} 
+\index{CityContext@{CityContext}!removeUtility@{removeUtility}}
+\index{removeUtility@{removeUtility}!CityContext@{CityContext}}
+\doxysubsubsection{\texorpdfstring{removeUtility()}{removeUtility()}}
+{\footnotesize\ttfamily void City\+Context\+::remove\+Utility (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classUtilities}{Utilities}} $>$}]{utility }\end{DoxyParamCaption})}
+
+
+
+Removes a utility from the city\textquotesingle{}s list of utilities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em utility} & Shared pointer to the utility to remove. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/City\+Context.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/City\+Context.\+cpp\end{DoxyCompactItemize}

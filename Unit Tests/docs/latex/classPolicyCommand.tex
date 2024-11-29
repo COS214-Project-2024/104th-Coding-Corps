@@ -1,0 +1,63 @@
+\hypertarget{classPolicyCommand}{}\doxysection{Policy\+Command Class Reference}
+\label{classPolicyCommand}\index{PolicyCommand@{PolicyCommand}}
+
+
+Inheritance diagram for Policy\+Command\+:
+% FIG 0
+
+
+Collaboration diagram for Policy\+Command\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPolicyCommand_ae162ec4c7591d01be1743c1700f991c5}{Policy\+Command}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComposite}{Building\+Composite}} $>$ district, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGovernment}{Government}} $>$ government, const std\+::string \&policy\+Type, const std\+::string \&updated\+Value)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classPolicyCommand}{Policy\+Command}} with a specified building and policy type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPolicyCommand_a565a8d69cb5c27115273016b04bc5b53}{execute}} ()
+\begin{DoxyCompactList}\small\item\em Executes the policy command, enforcing the specified policy on the building. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPolicyCommand_ae162ec4c7591d01be1743c1700f991c5}\label{classPolicyCommand_ae162ec4c7591d01be1743c1700f991c5}} 
+\index{PolicyCommand@{PolicyCommand}!PolicyCommand@{PolicyCommand}}
+\index{PolicyCommand@{PolicyCommand}!PolicyCommand@{PolicyCommand}}
+\doxysubsubsection{\texorpdfstring{PolicyCommand()}{PolicyCommand()}}
+{\footnotesize\ttfamily Policy\+Command\+::\+Policy\+Command (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComposite}{Building\+Composite}} $>$}]{district,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGovernment}{Government}} $>$}]{government,  }\item[{const std\+::string \&}]{policy\+Type,  }\item[{const std\+::string \&}]{updated\+Value }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classPolicyCommand}{Policy\+Command}} with a specified building and policy type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Pointer to the \mbox{\hyperlink{classBuildingComposite}{Building\+Composite}} on which the policy will be enforced. \\
+\hline
+{\em policy} & The type of policy to enforce. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPolicyCommand_a565a8d69cb5c27115273016b04bc5b53}\label{classPolicyCommand_a565a8d69cb5c27115273016b04bc5b53}} 
+\index{PolicyCommand@{PolicyCommand}!execute@{execute}}
+\index{execute@{execute}!PolicyCommand@{PolicyCommand}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily void Policy\+Command\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Executes the policy command, enforcing the specified policy on the building. 
+
+\begin{DoxyNote}{Note}
+The {\ttfamily enforce\+Policy} method in \mbox{\hyperlink{classBuildingComposite}{Building\+Composite}} is not yet implemented. 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{classCommand}{Command}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Policy\+Command.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Policy\+Command.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,130 @@
+\hypertarget{classSewageManagement}{}\doxysection{Sewage\+Management Class Reference}
+\label{classSewageManagement}\index{SewageManagement@{SewageManagement}}
+
+
+Inheritance diagram for Sewage\+Management\+:
+% FIG 0
+
+
+Collaboration diagram for Sewage\+Management\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSewageManagement_a1d2e8f98b985333d8678ec5990c908bd}{Sewage\+Management}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classSewageManagement}{Sewage\+Management}} utility instance. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classSewageManagement_a6cd8d6b6fc005d34d914792b3a678b02}{get\+Consumption\+Rate}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the consumption rate of the sewage management system. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classSewageManagement_a84c1f343193e463f9b4ef996b3674921}{get\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the monthly cost of the sewage management system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSewageManagement_a583024b6fa84547a288424d2541d7a31}{activate\+Utility}} ()
+\begin{DoxyCompactList}\small\item\em Activates the sewage management utility. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSewageManagement_a560f530c7ae7ed008b7c2e20360f3c94}{deactivate\+Utility}} ()
+\begin{DoxyCompactList}\small\item\em Deactivates the sewage management utility. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSewageManagement_a86106490e6c6b14928648b9e059bcd2a}{manage\+Sewage}} (\mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $\ast$building)
+\begin{DoxyCompactList}\small\item\em Manages sewage processing for a specific building. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSewageManagement_a1d2e8f98b985333d8678ec5990c908bd}\label{classSewageManagement_a1d2e8f98b985333d8678ec5990c908bd}} 
+\index{SewageManagement@{SewageManagement}!SewageManagement@{SewageManagement}}
+\index{SewageManagement@{SewageManagement}!SewageManagement@{SewageManagement}}
+\doxysubsubsection{\texorpdfstring{SewageManagement()}{SewageManagement()}}
+{\footnotesize\ttfamily Sewage\+Management\+::\+Sewage\+Management (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classSewageManagement}{Sewage\+Management}} utility instance. 
+
+This constructor initializes the \mbox{\hyperlink{classSewageManagement}{Sewage\+Management}} utility with a name and an active status. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSewageManagement_a583024b6fa84547a288424d2541d7a31}\label{classSewageManagement_a583024b6fa84547a288424d2541d7a31}} 
+\index{SewageManagement@{SewageManagement}!activateUtility@{activateUtility}}
+\index{activateUtility@{activateUtility}!SewageManagement@{SewageManagement}}
+\doxysubsubsection{\texorpdfstring{activateUtility()}{activateUtility()}}
+{\footnotesize\ttfamily void Sewage\+Management\+::activate\+Utility (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Activates the sewage management utility. 
+
+This method changes the status of the sewage management utility to active and outputs a message indicating its activation. 
+
+Implements \mbox{\hyperlink{classUtilities}{Utilities}}.
+
+\mbox{\Hypertarget{classSewageManagement_a560f530c7ae7ed008b7c2e20360f3c94}\label{classSewageManagement_a560f530c7ae7ed008b7c2e20360f3c94}} 
+\index{SewageManagement@{SewageManagement}!deactivateUtility@{deactivateUtility}}
+\index{deactivateUtility@{deactivateUtility}!SewageManagement@{SewageManagement}}
+\doxysubsubsection{\texorpdfstring{deactivateUtility()}{deactivateUtility()}}
+{\footnotesize\ttfamily void Sewage\+Management\+::deactivate\+Utility (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Deactivates the sewage management utility. 
+
+This method changes the status of the sewage management utility to inactive and outputs a message indicating its deactivation. 
+
+Implements \mbox{\hyperlink{classUtilities}{Utilities}}.
+
+\mbox{\Hypertarget{classSewageManagement_a6cd8d6b6fc005d34d914792b3a678b02}\label{classSewageManagement_a6cd8d6b6fc005d34d914792b3a678b02}} 
+\index{SewageManagement@{SewageManagement}!getConsumptionRate@{getConsumptionRate}}
+\index{getConsumptionRate@{getConsumptionRate}!SewageManagement@{SewageManagement}}
+\doxysubsubsection{\texorpdfstring{getConsumptionRate()}{getConsumptionRate()}}
+{\footnotesize\ttfamily double Sewage\+Management\+::get\+Consumption\+Rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retrieves the consumption rate of the sewage management system. 
+
+This method returns the base consumption rate of sewage in cubic meters per month.
+
+\begin{DoxyReturn}{Returns}
+The base consumption rate (units consumed per cubic meter). 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classUtilities}{Utilities}}.
+
+\mbox{\Hypertarget{classSewageManagement_a84c1f343193e463f9b4ef996b3674921}\label{classSewageManagement_a84c1f343193e463f9b4ef996b3674921}} 
+\index{SewageManagement@{SewageManagement}!getCost@{getCost}}
+\index{getCost@{getCost}!SewageManagement@{SewageManagement}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily double Sewage\+Management\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retrieves the monthly cost of the sewage management system. 
+
+This method returns the base monthly cost of operating the sewage management system in ZAR.
+
+\begin{DoxyReturn}{Returns}
+The base monthly cost of sewage management. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classUtilities}{Utilities}}.
+
+\mbox{\Hypertarget{classSewageManagement_a86106490e6c6b14928648b9e059bcd2a}\label{classSewageManagement_a86106490e6c6b14928648b9e059bcd2a}} 
+\index{SewageManagement@{SewageManagement}!manageSewage@{manageSewage}}
+\index{manageSewage@{manageSewage}!SewageManagement@{SewageManagement}}
+\doxysubsubsection{\texorpdfstring{manageSewage()}{manageSewage()}}
+{\footnotesize\ttfamily void Sewage\+Management\+::manage\+Sewage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $\ast$}]{building }\end{DoxyParamCaption})}
+
+
+
+Manages sewage processing for a specific building. 
+
+This method calculates the total sewage processed based on the sewage generated per building and outputs the amount of sewage being processed from the specified building.
+
+
+\begin{DoxyParams}{Parameters}
+{\em building} & A pointer to the \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} object whose sewage is being managed. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/sewage\+Management.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/sewage\+Management.\+cpp\end{DoxyCompactItemize}

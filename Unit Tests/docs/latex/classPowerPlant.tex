@@ -1,0 +1,129 @@
+\hypertarget{classPowerPlant}{}\doxysection{Power\+Plant Class Reference}
+\label{classPowerPlant}\index{PowerPlant@{PowerPlant}}
+
+
+Inheritance diagram for Power\+Plant\+:
+% FIG 0
+
+
+Collaboration diagram for Power\+Plant\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPowerPlant_a62b58f161c06e7971bd903da89b18d05}{Power\+Plant}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classPowerPlant}{Power\+Plant}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPowerPlant_a29ffbbcddd07e02ff58bceefcff7f475}\label{classPowerPlant_a29ffbbcddd07e02ff58bceefcff7f475}} 
+string {\bfseries get\+Utility\+Type} ()
+\item 
+double \mbox{\hyperlink{classPowerPlant_a76200ffe06f1106f74156781595f520d}{get\+Consumption\+Rate}} ()
+\begin{DoxyCompactList}\small\item\em Gets the consumption rate of the power plant. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classPowerPlant_aac3741bfa90337e7651ce37299acde43}{get\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Gets the monthly cost of operating the power plant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPowerPlant_a8c9b245c852f8512b4ff1965918f7c24}{activate\+Utility}} ()
+\begin{DoxyCompactList}\small\item\em Activates the power plant utility. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPowerPlant_ad0994489161c1edbd210c8621c084dce}{deactivate\+Utility}} ()
+\begin{DoxyCompactList}\small\item\em Deactivates the power plant utility. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPowerPlant_afdfa78bf5f41138f939606d84bdd2f7f}{generate\+Energy}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ building)
+\begin{DoxyCompactList}\small\item\em Generates energy for a specified building. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPowerPlant_a62b58f161c06e7971bd903da89b18d05}\label{classPowerPlant_a62b58f161c06e7971bd903da89b18d05}} 
+\index{PowerPlant@{PowerPlant}!PowerPlant@{PowerPlant}}
+\index{PowerPlant@{PowerPlant}!PowerPlant@{PowerPlant}}
+\doxysubsubsection{\texorpdfstring{PowerPlant()}{PowerPlant()}}
+{\footnotesize\ttfamily Power\+Plant\+::\+Power\+Plant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classPowerPlant}{Power\+Plant}} object. 
+
+Initializes the power plant utility with a specific name and status. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPowerPlant_a8c9b245c852f8512b4ff1965918f7c24}\label{classPowerPlant_a8c9b245c852f8512b4ff1965918f7c24}} 
+\index{PowerPlant@{PowerPlant}!activateUtility@{activateUtility}}
+\index{activateUtility@{activateUtility}!PowerPlant@{PowerPlant}}
+\doxysubsubsection{\texorpdfstring{activateUtility()}{activateUtility()}}
+{\footnotesize\ttfamily void Power\+Plant\+::activate\+Utility (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Activates the power plant utility. 
+
+Changes the status of the utility to active and prints a message. 
+
+Implements \mbox{\hyperlink{classUtilities}{Utilities}}.
+
+\mbox{\Hypertarget{classPowerPlant_ad0994489161c1edbd210c8621c084dce}\label{classPowerPlant_ad0994489161c1edbd210c8621c084dce}} 
+\index{PowerPlant@{PowerPlant}!deactivateUtility@{deactivateUtility}}
+\index{deactivateUtility@{deactivateUtility}!PowerPlant@{PowerPlant}}
+\doxysubsubsection{\texorpdfstring{deactivateUtility()}{deactivateUtility()}}
+{\footnotesize\ttfamily void Power\+Plant\+::deactivate\+Utility (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Deactivates the power plant utility. 
+
+Changes the status of the utility to inactive and prints a message. 
+
+Implements \mbox{\hyperlink{classUtilities}{Utilities}}.
+
+\mbox{\Hypertarget{classPowerPlant_afdfa78bf5f41138f939606d84bdd2f7f}\label{classPowerPlant_afdfa78bf5f41138f939606d84bdd2f7f}} 
+\index{PowerPlant@{PowerPlant}!generateEnergy@{generateEnergy}}
+\index{generateEnergy@{generateEnergy}!PowerPlant@{PowerPlant}}
+\doxysubsubsection{\texorpdfstring{generateEnergy()}{generateEnergy()}}
+{\footnotesize\ttfamily void Power\+Plant\+::generate\+Energy (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{building }\end{DoxyParamCaption})}
+
+
+
+Generates energy for a specified building. 
+
+Calculates the energy produced based on the consumption rate and prints a message.
+
+
+\begin{DoxyParams}{Parameters}
+{\em building} & A shared pointer to the building component that receives energy. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPowerPlant_a76200ffe06f1106f74156781595f520d}\label{classPowerPlant_a76200ffe06f1106f74156781595f520d}} 
+\index{PowerPlant@{PowerPlant}!getConsumptionRate@{getConsumptionRate}}
+\index{getConsumptionRate@{getConsumptionRate}!PowerPlant@{PowerPlant}}
+\doxysubsubsection{\texorpdfstring{getConsumptionRate()}{getConsumptionRate()}}
+{\footnotesize\ttfamily double Power\+Plant\+::get\+Consumption\+Rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the consumption rate of the power plant. 
+
+\begin{DoxyReturn}{Returns}
+The base production rate of the power plant in k\+Wh per building per day. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classUtilities}{Utilities}}.
+
+\mbox{\Hypertarget{classPowerPlant_aac3741bfa90337e7651ce37299acde43}\label{classPowerPlant_aac3741bfa90337e7651ce37299acde43}} 
+\index{PowerPlant@{PowerPlant}!getCost@{getCost}}
+\index{getCost@{getCost}!PowerPlant@{PowerPlant}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily double Power\+Plant\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the monthly cost of operating the power plant. 
+
+\begin{DoxyReturn}{Returns}
+The base monthly cost in ZAR. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classUtilities}{Utilities}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Power\+Plant.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Power\+Plant.\+cpp\end{DoxyCompactItemize}

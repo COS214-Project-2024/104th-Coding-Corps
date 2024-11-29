@@ -1,0 +1,260 @@
+\hypertarget{classMall}{}\doxysection{Mall Class Reference}
+\label{classMall}\index{Mall@{Mall}}
+
+
+Inheritance diagram for Mall\+:
+% FIG 0
+
+
+Collaboration diagram for Mall\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMall_a2081a356b48324af8f3f47a1b649f59f}{Mall}} (int num\+Shops, string business\+Type, int num\+Businesses, int x, int y, const std\+::string \&district, int quality)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classMall}{Mall}} object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classMall_a41dffdfc91e57bd46ea9bf758d9018d9}{get\+Num\+Shops}} ()
+\begin{DoxyCompactList}\small\item\em Gets the number of shops in the mall. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classMall_a29b34a1b0ec6dd718908717b16369fe4}{get\+Building\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Gets the type of building. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMall_acdc84f9a26e0435b9379ceba65172d95}{get\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the total cost of the mall. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMall_a1b82e5b2448863742d3348eeb48a17ab}{get\+Maintenance\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the monthly maintenance cost of the mall. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMall_a6d30954ff1f299b15c49eba78570f633}{get\+Energy\+Consumption}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the monthly energy consumption of the mall. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMall_ab299bf35054bc52e0a51f90688c6deb6}{get\+Water\+Consumption}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the monthly water consumption of the mall. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMall_a2f53564e4f9383e6faa89028fd66ec59}{construct}} ()
+\begin{DoxyCompactList}\small\item\em Constructs the mall. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMall_a7f1077eb094e197fe035d0c306dbbbba}{demolish}} ()
+\begin{DoxyCompactList}\small\item\em Demolishes the mall. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMall_a1237df5b886989e0be8a7a109cf88ae7}{get\+Area}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the area of the mall. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMall_a46a86d4ffa1a7afd6aaf914a8e4e3eca}{upgrade}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ building)
+\begin{DoxyCompactList}\small\item\em Upgrades the mall if sufficient resources are available. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classMall_a3a314242528cb0d10f29084d17ff5f1f}{get\+Occupancy}} ()
+\begin{DoxyCompactList}\small\item\em Gets the occupancy of the mall. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMall_a2081a356b48324af8f3f47a1b649f59f}\label{classMall_a2081a356b48324af8f3f47a1b649f59f}} 
+\index{Mall@{Mall}!Mall@{Mall}}
+\index{Mall@{Mall}!Mall@{Mall}}
+\doxysubsubsection{\texorpdfstring{Mall()}{Mall()}}
+{\footnotesize\ttfamily Mall\+::\+Mall (\begin{DoxyParamCaption}\item[{int}]{num\+Shops,  }\item[{string}]{business\+Type,  }\item[{int}]{num\+Businesses,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classMall}{Mall}} object. 
+
+Initializes the mall with the specified number of shops, business type, number of businesses, and location attributes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Shops} & The number of shops in the mall. \\
+\hline
+{\em business\+Type} & The type of businesses operating in the mall. \\
+\hline
+{\em num\+Businesses} & The total number of businesses in the mall. \\
+\hline
+{\em x} & The x-\/coordinate of the mall. \\
+\hline
+{\em y} & The y-\/coordinate of the mall. \\
+\hline
+{\em district} & The district where the mall is located. \\
+\hline
+{\em quality} & The quality rating of the mall. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMall_a2f53564e4f9383e6faa89028fd66ec59}\label{classMall_a2f53564e4f9383e6faa89028fd66ec59}} 
+\index{Mall@{Mall}!construct@{construct}}
+\index{construct@{construct}!Mall@{Mall}}
+\doxysubsubsection{\texorpdfstring{construct()}{construct()}}
+{\footnotesize\ttfamily void Mall\+::construct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Constructs the mall. 
+
+Prints a message indicating that the mall is being constructed. 
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classMall_a7f1077eb094e197fe035d0c306dbbbba}\label{classMall_a7f1077eb094e197fe035d0c306dbbbba}} 
+\index{Mall@{Mall}!demolish@{demolish}}
+\index{demolish@{demolish}!Mall@{Mall}}
+\doxysubsubsection{\texorpdfstring{demolish()}{demolish()}}
+{\footnotesize\ttfamily void Mall\+::demolish (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Demolishes the mall. 
+
+Resets the number of shops to represent demolition and prints a message. 
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classMall_a1237df5b886989e0be8a7a109cf88ae7}\label{classMall_a1237df5b886989e0be8a7a109cf88ae7}} 
+\index{Mall@{Mall}!getArea@{getArea}}
+\index{getArea@{getArea}!Mall@{Mall}}
+\doxysubsubsection{\texorpdfstring{getArea()}{getArea()}}
+{\footnotesize\ttfamily double Mall\+::get\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the area of the mall. 
+
+\begin{DoxyReturn}{Returns}
+The area of the mall. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classBuildingComponent}{Building\+Component}}.
+
+\mbox{\Hypertarget{classMall_a29b34a1b0ec6dd718908717b16369fe4}\label{classMall_a29b34a1b0ec6dd718908717b16369fe4}} 
+\index{Mall@{Mall}!getBuildingType@{getBuildingType}}
+\index{getBuildingType@{getBuildingType}!Mall@{Mall}}
+\doxysubsubsection{\texorpdfstring{getBuildingType()}{getBuildingType()}}
+{\footnotesize\ttfamily std\+::string Mall\+::get\+Building\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the type of building. 
+
+\begin{DoxyReturn}{Returns}
+The building type as a string. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classMall_acdc84f9a26e0435b9379ceba65172d95}\label{classMall_acdc84f9a26e0435b9379ceba65172d95}} 
+\index{Mall@{Mall}!getCost@{getCost}}
+\index{getCost@{getCost}!Mall@{Mall}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily double Mall\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the total cost of the mall. 
+
+\begin{DoxyReturn}{Returns}
+The total cost based on the number of shops. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classMall_a6d30954ff1f299b15c49eba78570f633}\label{classMall_a6d30954ff1f299b15c49eba78570f633}} 
+\index{Mall@{Mall}!getEnergyConsumption@{getEnergyConsumption}}
+\index{getEnergyConsumption@{getEnergyConsumption}!Mall@{Mall}}
+\doxysubsubsection{\texorpdfstring{getEnergyConsumption()}{getEnergyConsumption()}}
+{\footnotesize\ttfamily double Mall\+::get\+Energy\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the monthly energy consumption of the mall. 
+
+\begin{DoxyReturn}{Returns}
+The energy consumption based on the area of the mall. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classMall_a1b82e5b2448863742d3348eeb48a17ab}\label{classMall_a1b82e5b2448863742d3348eeb48a17ab}} 
+\index{Mall@{Mall}!getMaintenanceCost@{getMaintenanceCost}}
+\index{getMaintenanceCost@{getMaintenanceCost}!Mall@{Mall}}
+\doxysubsubsection{\texorpdfstring{getMaintenanceCost()}{getMaintenanceCost()}}
+{\footnotesize\ttfamily double Mall\+::get\+Maintenance\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the monthly maintenance cost of the mall. 
+
+\begin{DoxyReturn}{Returns}
+The maintenance cost as a percentage of the total cost. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classMall_a41dffdfc91e57bd46ea9bf758d9018d9}\label{classMall_a41dffdfc91e57bd46ea9bf758d9018d9}} 
+\index{Mall@{Mall}!getNumShops@{getNumShops}}
+\index{getNumShops@{getNumShops}!Mall@{Mall}}
+\doxysubsubsection{\texorpdfstring{getNumShops()}{getNumShops()}}
+{\footnotesize\ttfamily int Mall\+::get\+Num\+Shops (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the number of shops in the mall. 
+
+\begin{DoxyReturn}{Returns}
+The number of shops. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMall_a3a314242528cb0d10f29084d17ff5f1f}\label{classMall_a3a314242528cb0d10f29084d17ff5f1f}} 
+\index{Mall@{Mall}!getOccupancy@{getOccupancy}}
+\index{getOccupancy@{getOccupancy}!Mall@{Mall}}
+\doxysubsubsection{\texorpdfstring{getOccupancy()}{getOccupancy()}}
+{\footnotesize\ttfamily int Mall\+::get\+Occupancy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the occupancy of the mall. 
+
+\begin{DoxyReturn}{Returns}
+The occupancy rate, assumed to be 100\%. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classMall_ab299bf35054bc52e0a51f90688c6deb6}\label{classMall_ab299bf35054bc52e0a51f90688c6deb6}} 
+\index{Mall@{Mall}!getWaterConsumption@{getWaterConsumption}}
+\index{getWaterConsumption@{getWaterConsumption}!Mall@{Mall}}
+\doxysubsubsection{\texorpdfstring{getWaterConsumption()}{getWaterConsumption()}}
+{\footnotesize\ttfamily double Mall\+::get\+Water\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the monthly water consumption of the mall. 
+
+\begin{DoxyReturn}{Returns}
+The water consumption based on the area of the mall. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classMall_a46a86d4ffa1a7afd6aaf914a8e4e3eca}\label{classMall_a46a86d4ffa1a7afd6aaf914a8e4e3eca}} 
+\index{Mall@{Mall}!upgrade@{upgrade}}
+\index{upgrade@{upgrade}!Mall@{Mall}}
+\doxysubsubsection{\texorpdfstring{upgrade()}{upgrade()}}
+{\footnotesize\ttfamily void Mall\+::upgrade (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{building }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Upgrades the mall if sufficient resources are available. 
+
+Requests resources from the government and upgrades the quality if possible.
+
+
+\begin{DoxyParams}{Parameters}
+{\em building} & A shared pointer to the building component being upgraded. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classBuildingComponent}{Building\+Component}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/mall.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/mall.\+cpp\end{DoxyCompactItemize}

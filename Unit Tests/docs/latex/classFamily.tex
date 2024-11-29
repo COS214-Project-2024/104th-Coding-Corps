@@ -1,0 +1,287 @@
+\hypertarget{classFamily}{}\doxysection{Family Class Reference}
+\label{classFamily}\index{Family@{Family}}
+
+
+Inheritance diagram for Family\+:
+% FIG 0
+
+
+Collaboration diagram for Family\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFamily_a17f4271f2b93841f6fed4a4267743d3b}\label{classFamily_a17f4271f2b93841f6fed4a4267743d3b}} 
+\mbox{\hyperlink{classFamily_a17f4271f2b93841f6fed4a4267743d3b}{Family}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCityContext}{City\+Context}} $>$ city\+Context, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGovernment}{Government}} $>$ government, std\+::string district=\char`\"{}-\/\char`\"{})
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classFamily}{Family}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFamily_a673e03c5ef3aa04676bd57136f4a33d5}\label{classFamily_a673e03c5ef3aa04676bd57136f4a33d5}} 
+\mbox{\hyperlink{classFamily_a673e03c5ef3aa04676bd57136f4a33d5}{$\sim$\+Family}} () override
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classFamily}{Family}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFamily_a3a915f7098c3153f9f4c4d3b694d2aa7}{add}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}} $>$ citizen) override
+\begin{DoxyCompactList}\small\item\em Adds a citizen to the family. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFamily_a4aa0c2491e04441172bc2969bf77b791}{remove}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}} $>$ citizen) override
+\begin{DoxyCompactList}\small\item\em Removes a citizen from the family. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classFamily_a17650a798b841f115559ac541490d150}{get\+Satisfaction}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the average satisfaction of the family. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classFamily_affe347c0c99147031399bac0dc26398d}{get\+ESoL}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the expected standard of living for the family. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classFamily_a616dba9fa3e7deaaec62921e73fefd0b}{get\+ASoL}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the actual standard of living for the family. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classFamily_a971fccbd4f276bc0cbc1fd35483f64ea}{get\+Current\+Income}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the total income of the family. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFamily_a485792f020150f735ac8c4c25fa0f1a0}\label{classFamily_a485792f020150f735ac8c4c25fa0f1a0}} 
+void \mbox{\hyperlink{classFamily_a485792f020150f735ac8c4c25fa0f1a0}{go\+On\+Strike}} () override
+\begin{DoxyCompactList}\small\item\em Puts all members of the family on strike. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFamily_a38b42abad59cc84b10f880e3fddce907}\label{classFamily_a38b42abad59cc84b10f880e3fddce907}} 
+void \mbox{\hyperlink{classFamily_a38b42abad59cc84b10f880e3fddce907}{resolve\+Strike}} () override
+\begin{DoxyCompactList}\small\item\em Resolves strike for all members of the family. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFamily_ae55768e65869055292ea3ee6e6ff8f76}{move\+District}} (const std\+::string \&district)
+\begin{DoxyCompactList}\small\item\em Moves the family to a new district. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classFamily_a8a142bc709b020ef15cbca54a9618257}{get\+Monthly\+Expenditure}} () const
+\begin{DoxyCompactList}\small\item\em Calculates the average monthly expenditure of the family. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFamily_af1c9581223b711baad2bb61a7034cac2}\label{classFamily_af1c9581223b711baad2bb61a7034cac2}} 
+void \mbox{\hyperlink{classFamily_af1c9581223b711baad2bb61a7034cac2}{go\+To\+Work}} ()
+\begin{DoxyCompactList}\small\item\em Directs all family members to go to work. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFamily_a22024ba51c52cd87a077dfeddad18c6d}\label{classFamily_a22024ba51c52cd87a077dfeddad18c6d}} 
+void \mbox{\hyperlink{classFamily_a22024ba51c52cd87a077dfeddad18c6d}{go\+To\+Shops}} ()
+\begin{DoxyCompactList}\small\item\em Directs all family members to go shopping. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFamily_a9d06340d9efb9a5a25d8efbfe6b9f40e}\label{classFamily_a9d06340d9efb9a5a25d8efbfe6b9f40e}} 
+void \mbox{\hyperlink{classFamily_a9d06340d9efb9a5a25d8efbfe6b9f40e}{get\+Schooled}} ()
+\begin{DoxyCompactList}\small\item\em Directs all family members to go to school. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFamily_ad5db0e495e3a54fde73a51c38c231904}\label{classFamily_ad5db0e495e3a54fde73a51c38c231904}} 
+void \mbox{\hyperlink{classFamily_ad5db0e495e3a54fde73a51c38c231904}{get\+Educated}} ()
+\begin{DoxyCompactList}\small\item\em Directs all family members to attend an educational institution. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFamily_a9d4eab3b1160f28b88146b08c052cc8f}\label{classFamily_a9d4eab3b1160f28b88146b08c052cc8f}} 
+void \mbox{\hyperlink{classFamily_a9d4eab3b1160f28b88146b08c052cc8f}{get\+Healed}} ()
+\begin{DoxyCompactList}\small\item\em Directs all family members to go to the nearest hospital for healing. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFamily_a479494b7001e1033ea35206c3b1c8b78}\label{classFamily_a479494b7001e1033ea35206c3b1c8b78}} 
+void \mbox{\hyperlink{classFamily_a479494b7001e1033ea35206c3b1c8b78}{update\+Context}} () override
+\begin{DoxyCompactList}\small\item\em Updates the context for all family members. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classFamily_a10c71b2841c17a71e13892bf5b4717ae}{calculate\+Tax}} () override
+\begin{DoxyCompactList}\small\item\em Calculates the total tax for the family. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFamily_a5fdc11782f59a937d7e2bca6c1364d58}{pay\+Tax}} (double amount) override
+\begin{DoxyCompactList}\small\item\em Pays an entire family\textquotesingle{}s tax to government. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFamily_a152db21f201b1d5cfad3b1dcff613869}{update}} (const std\+::string \&resource\+Type, int quantity) override
+\begin{DoxyCompactList}\small\item\em Updates the family based on a specific resource change. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFamily_afef9967622065c6318040a32c11c6820}{accept}} (\mbox{\hyperlink{classTaxCollector}{Tax\+Collector}} \&collector) override
+\begin{DoxyCompactList}\small\item\em Accepts a \mbox{\hyperlink{classTaxCollector}{Tax\+Collector}} visitor to apply tax to all family members. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFamily_afef9967622065c6318040a32c11c6820}\label{classFamily_afef9967622065c6318040a32c11c6820}} 
+\index{Family@{Family}!accept@{accept}}
+\index{accept@{accept}!Family@{Family}}
+\doxysubsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void Family\+::accept (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTaxCollector}{Tax\+Collector}} \&}]{collector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Accepts a \mbox{\hyperlink{classTaxCollector}{Tax\+Collector}} visitor to apply tax to all family members. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em collector} & The \mbox{\hyperlink{classTaxCollector}{Tax\+Collector}} visitor. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}}.
+
+\mbox{\Hypertarget{classFamily_a3a915f7098c3153f9f4c4d3b694d2aa7}\label{classFamily_a3a915f7098c3153f9f4c4d3b694d2aa7}} 
+\index{Family@{Family}!add@{add}}
+\index{add@{add}!Family@{Family}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily void Family\+::add (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}} $>$}]{citizen }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Adds a citizen to the family. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em citizen} & Shared pointer to the citizen to add. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}}.
+
+\mbox{\Hypertarget{classFamily_a10c71b2841c17a71e13892bf5b4717ae}\label{classFamily_a10c71b2841c17a71e13892bf5b4717ae}} 
+\index{Family@{Family}!calculateTax@{calculateTax}}
+\index{calculateTax@{calculateTax}!Family@{Family}}
+\doxysubsubsection{\texorpdfstring{calculateTax()}{calculateTax()}}
+{\footnotesize\ttfamily double Family\+::calculate\+Tax (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the total tax for the family. 
+
+\begin{DoxyReturn}{Returns}
+double Total tax amount. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}}.
+
+\mbox{\Hypertarget{classFamily_a616dba9fa3e7deaaec62921e73fefd0b}\label{classFamily_a616dba9fa3e7deaaec62921e73fefd0b}} 
+\index{Family@{Family}!getASoL@{getASoL}}
+\index{getASoL@{getASoL}!Family@{Family}}
+\doxysubsubsection{\texorpdfstring{getASoL()}{getASoL()}}
+{\footnotesize\ttfamily int Family\+::get\+ASoL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the actual standard of living for the family. 
+
+\begin{DoxyReturn}{Returns}
+int Actual standard of living. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}}.
+
+\mbox{\Hypertarget{classFamily_a971fccbd4f276bc0cbc1fd35483f64ea}\label{classFamily_a971fccbd4f276bc0cbc1fd35483f64ea}} 
+\index{Family@{Family}!getCurrentIncome@{getCurrentIncome}}
+\index{getCurrentIncome@{getCurrentIncome}!Family@{Family}}
+\doxysubsubsection{\texorpdfstring{getCurrentIncome()}{getCurrentIncome()}}
+{\footnotesize\ttfamily double Family\+::get\+Current\+Income (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the total income of the family. 
+
+\begin{DoxyReturn}{Returns}
+double Total income. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}}.
+
+\mbox{\Hypertarget{classFamily_affe347c0c99147031399bac0dc26398d}\label{classFamily_affe347c0c99147031399bac0dc26398d}} 
+\index{Family@{Family}!getESoL@{getESoL}}
+\index{getESoL@{getESoL}!Family@{Family}}
+\doxysubsubsection{\texorpdfstring{getESoL()}{getESoL()}}
+{\footnotesize\ttfamily int Family\+::get\+ESoL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the expected standard of living for the family. 
+
+\begin{DoxyReturn}{Returns}
+int Expected standard of living. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}}.
+
+\mbox{\Hypertarget{classFamily_a8a142bc709b020ef15cbca54a9618257}\label{classFamily_a8a142bc709b020ef15cbca54a9618257}} 
+\index{Family@{Family}!getMonthlyExpenditure@{getMonthlyExpenditure}}
+\index{getMonthlyExpenditure@{getMonthlyExpenditure}!Family@{Family}}
+\doxysubsubsection{\texorpdfstring{getMonthlyExpenditure()}{getMonthlyExpenditure()}}
+{\footnotesize\ttfamily double Family\+::get\+Monthly\+Expenditure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Calculates the average monthly expenditure of the family. 
+
+\begin{DoxyReturn}{Returns}
+double Average monthly expenditure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFamily_a17650a798b841f115559ac541490d150}\label{classFamily_a17650a798b841f115559ac541490d150}} 
+\index{Family@{Family}!getSatisfaction@{getSatisfaction}}
+\index{getSatisfaction@{getSatisfaction}!Family@{Family}}
+\doxysubsubsection{\texorpdfstring{getSatisfaction()}{getSatisfaction()}}
+{\footnotesize\ttfamily int Family\+::get\+Satisfaction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the average satisfaction of the family. 
+
+\begin{DoxyReturn}{Returns}
+int Satisfaction level of the family. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}}.
+
+\mbox{\Hypertarget{classFamily_ae55768e65869055292ea3ee6e6ff8f76}\label{classFamily_ae55768e65869055292ea3ee6e6ff8f76}} 
+\index{Family@{Family}!moveDistrict@{moveDistrict}}
+\index{moveDistrict@{moveDistrict}!Family@{Family}}
+\doxysubsubsection{\texorpdfstring{moveDistrict()}{moveDistrict()}}
+{\footnotesize\ttfamily void Family\+::move\+District (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{district }\end{DoxyParamCaption})}
+
+
+
+Moves the family to a new district. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em district} & Name of the new district. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFamily_a5fdc11782f59a937d7e2bca6c1364d58}\label{classFamily_a5fdc11782f59a937d7e2bca6c1364d58}} 
+\index{Family@{Family}!payTax@{payTax}}
+\index{payTax@{payTax}!Family@{Family}}
+\doxysubsubsection{\texorpdfstring{payTax()}{payTax()}}
+{\footnotesize\ttfamily void Family\+::pay\+Tax (\begin{DoxyParamCaption}\item[{double}]{amount }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Pays an entire family\textquotesingle{}s tax to government. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & Tax amount to be paid. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}}.
+
+\mbox{\Hypertarget{classFamily_a4aa0c2491e04441172bc2969bf77b791}\label{classFamily_a4aa0c2491e04441172bc2969bf77b791}} 
+\index{Family@{Family}!remove@{remove}}
+\index{remove@{remove}!Family@{Family}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily void Family\+::remove (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}} $>$}]{citizen }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Removes a citizen from the family. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em citizen} & Shared pointer to the citizen to remove. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}}.
+
+\mbox{\Hypertarget{classFamily_a152db21f201b1d5cfad3b1dcff613869}\label{classFamily_a152db21f201b1d5cfad3b1dcff613869}} 
+\index{Family@{Family}!update@{update}}
+\index{update@{update}!Family@{Family}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Family\+::update (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{resource\+Type,  }\item[{int}]{quantity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates the family based on a specific resource change. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\+Type} & Type of resource (e.\+g., water, food). \\
+\hline
+{\em quantity} & Quantity of the resource. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classAbstractCitizen}{Abstract\+Citizen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Family.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Family.\+cpp\end{DoxyCompactItemize}

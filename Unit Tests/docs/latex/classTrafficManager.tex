@@ -1,0 +1,95 @@
+\hypertarget{classTrafficManager}{}\doxysection{Traffic\+Manager Class Reference}
+\label{classTrafficManager}\index{TrafficManager@{TrafficManager}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classTrafficManager_ae2ad4843f35d5d124df4cc9df7a08522}{is\+Congested}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ from, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ to)
+\begin{DoxyCompactList}\small\item\em Checks if the route between two buildings is congested based on current traffic levels. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTrafficManager_abd4b3bb46e0eaabacbd3459b42f47910}{update\+Traffic}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ from, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ to, int traffic\+Level)
+\begin{DoxyCompactList}\small\item\em Updates the traffic level for a specified route between two buildings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTrafficManager_aec87db602474accf4f6792a67906ea57}{increment\+Traffic}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ from, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ to)
+\begin{DoxyCompactList}\small\item\em Increases the traffic level by one for the specified route between two buildings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTrafficManager_aada7f7d85375794d4e4ac4c228979b45}{decrease\+Traffic}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ from, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ to)
+\begin{DoxyCompactList}\small\item\em Decreases the traffic level by one for the specified route between two buildings, ensuring it does not fall below zero. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTrafficManager_aada7f7d85375794d4e4ac4c228979b45}\label{classTrafficManager_aada7f7d85375794d4e4ac4c228979b45}} 
+\index{TrafficManager@{TrafficManager}!decreaseTraffic@{decreaseTraffic}}
+\index{decreaseTraffic@{decreaseTraffic}!TrafficManager@{TrafficManager}}
+\doxysubsubsection{\texorpdfstring{decreaseTraffic()}{decreaseTraffic()}}
+{\footnotesize\ttfamily void Traffic\+Manager\+::decrease\+Traffic (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{from,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{to }\end{DoxyParamCaption})}
+
+
+
+Decreases the traffic level by one for the specified route between two buildings, ensuring it does not fall below zero. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & The starting building component. \\
+\hline
+{\em to} & The destination building component. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTrafficManager_aec87db602474accf4f6792a67906ea57}\label{classTrafficManager_aec87db602474accf4f6792a67906ea57}} 
+\index{TrafficManager@{TrafficManager}!incrementTraffic@{incrementTraffic}}
+\index{incrementTraffic@{incrementTraffic}!TrafficManager@{TrafficManager}}
+\doxysubsubsection{\texorpdfstring{incrementTraffic()}{incrementTraffic()}}
+{\footnotesize\ttfamily void Traffic\+Manager\+::increment\+Traffic (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{from,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{to }\end{DoxyParamCaption})}
+
+
+
+Increases the traffic level by one for the specified route between two buildings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & The starting building component. \\
+\hline
+{\em to} & The destination building component. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTrafficManager_ae2ad4843f35d5d124df4cc9df7a08522}\label{classTrafficManager_ae2ad4843f35d5d124df4cc9df7a08522}} 
+\index{TrafficManager@{TrafficManager}!isCongested@{isCongested}}
+\index{isCongested@{isCongested}!TrafficManager@{TrafficManager}}
+\doxysubsubsection{\texorpdfstring{isCongested()}{isCongested()}}
+{\footnotesize\ttfamily bool Traffic\+Manager\+::is\+Congested (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{from,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{to }\end{DoxyParamCaption})}
+
+
+
+Checks if the route between two buildings is congested based on current traffic levels. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & The starting building component. \\
+\hline
+{\em to} & The destination building component. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the route is congested; false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTrafficManager_abd4b3bb46e0eaabacbd3459b42f47910}\label{classTrafficManager_abd4b3bb46e0eaabacbd3459b42f47910}} 
+\index{TrafficManager@{TrafficManager}!updateTraffic@{updateTraffic}}
+\index{updateTraffic@{updateTraffic}!TrafficManager@{TrafficManager}}
+\doxysubsubsection{\texorpdfstring{updateTraffic()}{updateTraffic()}}
+{\footnotesize\ttfamily void Traffic\+Manager\+::update\+Traffic (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{from,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{to,  }\item[{int}]{traffic\+Level }\end{DoxyParamCaption})}
+
+
+
+Updates the traffic level for a specified route between two buildings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & The starting building component. \\
+\hline
+{\em to} & The destination building component. \\
+\hline
+{\em traffic\+Level} & The traffic level to set for the route. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Traffic\+Manager.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Traffic\+Manager.\+cpp\end{DoxyCompactItemize}

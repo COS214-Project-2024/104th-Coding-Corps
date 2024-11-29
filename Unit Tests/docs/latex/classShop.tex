@@ -1,0 +1,213 @@
+\hypertarget{classShop}{}\doxysection{Shop Class Reference}
+\label{classShop}\index{Shop@{Shop}}
+
+
+Inheritance diagram for Shop\+:
+% FIG 0
+
+
+Collaboration diagram for Shop\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classShop_a4a4aca35044f2c12ae44d8c0c8f74967}{Shop}} (int shop\+Size, string business\+Type, int x, int y, const std\+::string \&district, int quality)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classShop}{Shop}} object. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classShop_a1a2228b7c49d9d1c1539f9a36037714c}{get\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Gets the cost of the shop. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classShop_aac81e6ca3809a946cb98eca2bf05c7df}{get\+Building\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Gets the type of building. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classShop_aa90829bc6635f83e9c3746cac2177023}{get\+Maintenance\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Gets the monthly maintenance cost of the shop. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classShop_a85b7d6bb6f739dec6fe798ac37b75f12}{get\+Energy\+Consumption}} ()
+\begin{DoxyCompactList}\small\item\em Gets the monthly energy consumption of the shop. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classShop_afa0ab58ad529426ff4750bdfbad77bfc}{get\+Water\+Consumption}} ()
+\begin{DoxyCompactList}\small\item\em Gets the monthly water consumption of the shop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classShop_ab275b02c78e222d5379dc3747d072596}\label{classShop_ab275b02c78e222d5379dc3747d072596}} 
+void \mbox{\hyperlink{classShop_ab275b02c78e222d5379dc3747d072596}{construct}} ()
+\begin{DoxyCompactList}\small\item\em Constructs the shop and displays a message. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classShop_ac341d2ea915050b81903db35ccc94920}\label{classShop_ac341d2ea915050b81903db35ccc94920}} 
+void \mbox{\hyperlink{classShop_ac341d2ea915050b81903db35ccc94920}{demolish}} ()
+\begin{DoxyCompactList}\small\item\em Demolishes the shop and resets its size. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classShop_a84f23b17859f4a095bc7606583e694d5}{get\+Area}} ()
+\begin{DoxyCompactList}\small\item\em Gets the area of the shop. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classShop_ae1dbc5f2f4fb9f804348716517b58427}{upgrade}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ building)
+\begin{DoxyCompactList}\small\item\em Upgrades the shop if sufficient resources are available. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classShop_a4e53be495b54d95b2254910b64ba2842}{get\+Occupancy}} ()
+\begin{DoxyCompactList}\small\item\em Gets the occupancy of the shop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classShop_a4a4aca35044f2c12ae44d8c0c8f74967}\label{classShop_a4a4aca35044f2c12ae44d8c0c8f74967}} 
+\index{Shop@{Shop}!Shop@{Shop}}
+\index{Shop@{Shop}!Shop@{Shop}}
+\doxysubsubsection{\texorpdfstring{Shop()}{Shop()}}
+{\footnotesize\ttfamily Shop\+::\+Shop (\begin{DoxyParamCaption}\item[{int}]{shop\+Size,  }\item[{string}]{business\+Type,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{district,  }\item[{int}]{quality }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classShop}{Shop}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shop\+Size} & Size of the shop in square meters. \\
+\hline
+{\em business\+Type} & Type of business for the shop. \\
+\hline
+{\em x} & X-\/coordinate of the shop\textquotesingle{}s location. \\
+\hline
+{\em y} & Y-\/coordinate of the shop\textquotesingle{}s location. \\
+\hline
+{\em district} & District where the shop is located. \\
+\hline
+{\em quality} & Quality rating of the shop. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classShop_a84f23b17859f4a095bc7606583e694d5}\label{classShop_a84f23b17859f4a095bc7606583e694d5}} 
+\index{Shop@{Shop}!getArea@{getArea}}
+\index{getArea@{getArea}!Shop@{Shop}}
+\doxysubsubsection{\texorpdfstring{getArea()}{getArea()}}
+{\footnotesize\ttfamily double Shop\+::get\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the area of the shop. 
+
+\begin{DoxyReturn}{Returns}
+The area of the shop based on its size. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classBuildingComponent}{Building\+Component}}.
+
+\mbox{\Hypertarget{classShop_aac81e6ca3809a946cb98eca2bf05c7df}\label{classShop_aac81e6ca3809a946cb98eca2bf05c7df}} 
+\index{Shop@{Shop}!getBuildingType@{getBuildingType}}
+\index{getBuildingType@{getBuildingType}!Shop@{Shop}}
+\doxysubsubsection{\texorpdfstring{getBuildingType()}{getBuildingType()}}
+{\footnotesize\ttfamily std\+::string Shop\+::get\+Building\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the type of building. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the building type, which is \char`\"{}\+Shop\char`\"{}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classShop_a1a2228b7c49d9d1c1539f9a36037714c}\label{classShop_a1a2228b7c49d9d1c1539f9a36037714c}} 
+\index{Shop@{Shop}!getCost@{getCost}}
+\index{getCost@{getCost}!Shop@{Shop}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily double Shop\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the cost of the shop. 
+
+\begin{DoxyReturn}{Returns}
+The base cost of the shop in ZAR. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classShop_a85b7d6bb6f739dec6fe798ac37b75f12}\label{classShop_a85b7d6bb6f739dec6fe798ac37b75f12}} 
+\index{Shop@{Shop}!getEnergyConsumption@{getEnergyConsumption}}
+\index{getEnergyConsumption@{getEnergyConsumption}!Shop@{Shop}}
+\doxysubsubsection{\texorpdfstring{getEnergyConsumption()}{getEnergyConsumption()}}
+{\footnotesize\ttfamily double Shop\+::get\+Energy\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the monthly energy consumption of the shop. 
+
+\begin{DoxyReturn}{Returns}
+The total energy consumption in k\+Wh based on the area of the shop. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classShop_aa90829bc6635f83e9c3746cac2177023}\label{classShop_aa90829bc6635f83e9c3746cac2177023}} 
+\index{Shop@{Shop}!getMaintenanceCost@{getMaintenanceCost}}
+\index{getMaintenanceCost@{getMaintenanceCost}!Shop@{Shop}}
+\doxysubsubsection{\texorpdfstring{getMaintenanceCost()}{getMaintenanceCost()}}
+{\footnotesize\ttfamily double Shop\+::get\+Maintenance\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the monthly maintenance cost of the shop. 
+
+\begin{DoxyReturn}{Returns}
+The maintenance cost, calculated as 2\% of the shop’s cost. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classShop_a4e53be495b54d95b2254910b64ba2842}\label{classShop_a4e53be495b54d95b2254910b64ba2842}} 
+\index{Shop@{Shop}!getOccupancy@{getOccupancy}}
+\index{getOccupancy@{getOccupancy}!Shop@{Shop}}
+\doxysubsubsection{\texorpdfstring{getOccupancy()}{getOccupancy()}}
+{\footnotesize\ttfamily int Shop\+::get\+Occupancy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the occupancy of the shop. 
+
+\begin{DoxyReturn}{Returns}
+The occupancy, which is set to 1 for this implementation. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classShop_afa0ab58ad529426ff4750bdfbad77bfc}\label{classShop_afa0ab58ad529426ff4750bdfbad77bfc}} 
+\index{Shop@{Shop}!getWaterConsumption@{getWaterConsumption}}
+\index{getWaterConsumption@{getWaterConsumption}!Shop@{Shop}}
+\doxysubsubsection{\texorpdfstring{getWaterConsumption()}{getWaterConsumption()}}
+{\footnotesize\ttfamily double Shop\+::get\+Water\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the monthly water consumption of the shop. 
+
+\begin{DoxyReturn}{Returns}
+The total water consumption in liters based on the area of the shop. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCommercialBuildings}{Commercial\+Buildings}}.
+
+\mbox{\Hypertarget{classShop_ae1dbc5f2f4fb9f804348716517b58427}\label{classShop_ae1dbc5f2f4fb9f804348716517b58427}} 
+\index{Shop@{Shop}!upgrade@{upgrade}}
+\index{upgrade@{upgrade}!Shop@{Shop}}
+\doxysubsubsection{\texorpdfstring{upgrade()}{upgrade()}}
+{\footnotesize\ttfamily void Shop\+::upgrade (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{building }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Upgrades the shop if sufficient resources are available. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em building} & A shared pointer to a \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} (not used in this implementation). \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classBuildingComponent}{Building\+Component}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Shop.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Shop.\+cpp\end{DoxyCompactItemize}

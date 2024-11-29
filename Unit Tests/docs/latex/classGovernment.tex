@@ -1,0 +1,166 @@
+\hypertarget{classGovernment}{}\doxysection{Government Class Reference}
+\label{classGovernment}\index{Government@{Government}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGovernment_a9f459fca17e25e56a570766e4c4a5ffc}\label{classGovernment_a9f459fca17e25e56a570766e4c4a5ffc}} 
+{\bfseries Government} (const \mbox{\hyperlink{classGovernment}{Government}} \&)=delete
+\item 
+\mbox{\Hypertarget{classGovernment_a6d6b5c4be195763b4c14f76881785f94}\label{classGovernment_a6d6b5c4be195763b4c14f76881785f94}} 
+void {\bfseries operator=} (const \mbox{\hyperlink{classGovernment}{Government}} \&)=delete
+\item 
+void \mbox{\hyperlink{classGovernment_ab684db6318979181fe27ee64e3cf13a5}{set\+Command}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCommand}{Command}} $>$ \&c)
+\begin{DoxyCompactList}\small\item\em Sets the command to be executed by the government. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGovernment_af4ef271e06ce3e4f8c647fead615a790}\label{classGovernment_af4ef271e06ce3e4f8c647fead615a790}} 
+void \mbox{\hyperlink{classGovernment_af4ef271e06ce3e4f8c647fead615a790}{issue\+Command}} ()
+\begin{DoxyCompactList}\small\item\em Issues the command set in the government, if a command is present. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGovernment_aeef6c4e51fcf21732114c9da7dbb9991}{notify\+Resource\+Change}} (const std\+::string \&resource\+Type, int quantity)
+\begin{DoxyCompactList}\small\item\em Notifies all citizens of a change in a specific resource. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGovernment_a205751f11bd24de0cd640552a0dfb0ab}{add\+Resource\+To\+City}} (const std\+::string \&resource\+Type, int quantity, \mbox{\hyperlink{classResourceFactory}{Resource\+Factory}} \&\mbox{\hyperlink{classfactory}{factory}})
+\begin{DoxyCompactList}\small\item\em Adds a specified quantity of a resource to the city using a resource factory, then notifies citizens. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGovernment_a21b0565c72ce27f43dfe174bc8888038}{use\+Resource}} (const std\+::string \&type, int quantity)
+\begin{DoxyCompactList}\small\item\em Consumes a specified quantity of a resource from the city and notifies citizens of the reduction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGovernment_ab8d34832bd3cad41f7e735f63d6b7775}\label{classGovernment_ab8d34832bd3cad41f7e735f63d6b7775}} 
+void \mbox{\hyperlink{classGovernment_ab8d34832bd3cad41f7e735f63d6b7775}{display\+City\+Resources}} ()
+\begin{DoxyCompactList}\small\item\em Displays the current resources available in the city. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGovernment_a4611d61b14d9ffc28ada14a99d3dd41c}{increase\+Budget}} (double amount)
+\begin{DoxyCompactList}\small\item\em Increases the budget by the specified amount. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGovernment_af993edd93600eedc6804f955c868e3ca}{decrease\+Budget}} (double amount)
+\begin{DoxyCompactList}\small\item\em Decreases the budget by the specified amount. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGovernment_a78319fd4271d2dafb7925cef67ec30eb}\label{classGovernment_a78319fd4271d2dafb7925cef67ec30eb}} 
+double {\bfseries get\+Balance} () const
+\item 
+\mbox{\Hypertarget{classGovernment_a9182dc1df880aceef662d4eb0b1fb288}\label{classGovernment_a9182dc1df880aceef662d4eb0b1fb288}} 
+void {\bfseries set\+Tax\+Rate\+Policy} (const std\+::string \&tax\+Rate\+Policy)
+\item 
+\mbox{\Hypertarget{classGovernment_a0d05f83707a3b069bf762da779e45bef}\label{classGovernment_a0d05f83707a3b069bf762da779e45bef}} 
+std\+::string {\bfseries get\+Tax\+Rate\+Policy} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGovernment}{Government}} $>$ \mbox{\hyperlink{classGovernment_a11e3b80fd1121226b0d4d73a712f6596}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Gets the singleton instance of the \mbox{\hyperlink{classGovernment}{Government}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGovernment_a205751f11bd24de0cd640552a0dfb0ab}\label{classGovernment_a205751f11bd24de0cd640552a0dfb0ab}} 
+\index{Government@{Government}!addResourceToCity@{addResourceToCity}}
+\index{addResourceToCity@{addResourceToCity}!Government@{Government}}
+\doxysubsubsection{\texorpdfstring{addResourceToCity()}{addResourceToCity()}}
+{\footnotesize\ttfamily void Government\+::add\+Resource\+To\+City (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{resource\+Type,  }\item[{int}]{quantity,  }\item[{\mbox{\hyperlink{classResourceFactory}{Resource\+Factory}} \&}]{factory }\end{DoxyParamCaption})}
+
+
+
+Adds a specified quantity of a resource to the city using a resource factory, then notifies citizens. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\+Type} & The type of resource to add. \\
+\hline
+{\em quantity} & The amount of the resource to add. \\
+\hline
+{\em factory} & Reference to the \mbox{\hyperlink{classResourceFactory}{Resource\+Factory}} used to create the resource. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGovernment_af993edd93600eedc6804f955c868e3ca}\label{classGovernment_af993edd93600eedc6804f955c868e3ca}} 
+\index{Government@{Government}!decreaseBudget@{decreaseBudget}}
+\index{decreaseBudget@{decreaseBudget}!Government@{Government}}
+\doxysubsubsection{\texorpdfstring{decreaseBudget()}{decreaseBudget()}}
+{\footnotesize\ttfamily void Government\+::decrease\+Budget (\begin{DoxyParamCaption}\item[{double}]{amount }\end{DoxyParamCaption})}
+
+
+
+Decreases the budget by the specified amount. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & The amount to deduct from the budget. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGovernment_a11e3b80fd1121226b0d4d73a712f6596}\label{classGovernment_a11e3b80fd1121226b0d4d73a712f6596}} 
+\index{Government@{Government}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Government@{Government}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGovernment}{Government}} $>$ Government\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Gets the singleton instance of the \mbox{\hyperlink{classGovernment}{Government}} class. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+Government$>$ The single instance of \mbox{\hyperlink{classGovernment}{Government}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGovernment_a4611d61b14d9ffc28ada14a99d3dd41c}\label{classGovernment_a4611d61b14d9ffc28ada14a99d3dd41c}} 
+\index{Government@{Government}!increaseBudget@{increaseBudget}}
+\index{increaseBudget@{increaseBudget}!Government@{Government}}
+\doxysubsubsection{\texorpdfstring{increaseBudget()}{increaseBudget()}}
+{\footnotesize\ttfamily void Government\+::increase\+Budget (\begin{DoxyParamCaption}\item[{double}]{amount }\end{DoxyParamCaption})}
+
+
+
+Increases the budget by the specified amount. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & The amount to add to the budget. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGovernment_aeef6c4e51fcf21732114c9da7dbb9991}\label{classGovernment_aeef6c4e51fcf21732114c9da7dbb9991}} 
+\index{Government@{Government}!notifyResourceChange@{notifyResourceChange}}
+\index{notifyResourceChange@{notifyResourceChange}!Government@{Government}}
+\doxysubsubsection{\texorpdfstring{notifyResourceChange()}{notifyResourceChange()}}
+{\footnotesize\ttfamily void Government\+::notify\+Resource\+Change (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{resource\+Type,  }\item[{int}]{quantity }\end{DoxyParamCaption})}
+
+
+
+Notifies all citizens of a change in a specific resource. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\+Type} & The type of resource that has changed. \\
+\hline
+{\em quantity} & The amount by which the resource has changed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGovernment_ab684db6318979181fe27ee64e3cf13a5}\label{classGovernment_ab684db6318979181fe27ee64e3cf13a5}} 
+\index{Government@{Government}!setCommand@{setCommand}}
+\index{setCommand@{setCommand}!Government@{Government}}
+\doxysubsubsection{\texorpdfstring{setCommand()}{setCommand()}}
+{\footnotesize\ttfamily void Government\+::set\+Command (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCommand}{Command}} $>$ \&}]{c }\end{DoxyParamCaption})}
+
+
+
+Sets the command to be executed by the government. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Shared pointer to the \mbox{\hyperlink{classCommand}{Command}} object to be executed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGovernment_a21b0565c72ce27f43dfe174bc8888038}\label{classGovernment_a21b0565c72ce27f43dfe174bc8888038}} 
+\index{Government@{Government}!useResource@{useResource}}
+\index{useResource@{useResource}!Government@{Government}}
+\doxysubsubsection{\texorpdfstring{useResource()}{useResource()}}
+{\footnotesize\ttfamily bool Government\+::use\+Resource (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{type,  }\item[{int}]{quantity }\end{DoxyParamCaption})}
+
+
+
+Consumes a specified quantity of a resource from the city and notifies citizens of the reduction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of resource to consume. \\
+\hline
+{\em quantity} & The amount of the resource to consume. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if the resource was successfully consumed, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Government.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Government.\+cpp\end{DoxyCompactItemize}

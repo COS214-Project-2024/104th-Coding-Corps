@@ -1,0 +1,68 @@
+\hypertarget{classRailBased}{}\doxysection{Rail\+Based Class Reference}
+\label{classRailBased}\index{RailBased@{RailBased}}
+
+
+Inheritance diagram for Rail\+Based\+:
+% FIG 0
+
+
+Collaboration diagram for Rail\+Based\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRailBased_a7171464851ed793cc8c1177da2612bac}{Rail\+Based}} (double speed, std\+::string mode)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classRailBased}{Rail\+Based}} transportation strategy with a specified speed and sets the mode to \char`\"{}\+Train.\char`\"{}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classRailBased_a769ad19e00a754dbffeddfd33be69722}{calculate\+Commute\+Time}} (double distance) override
+\begin{DoxyCompactList}\small\item\em Calculates the commute time for rail-\/based transportation, applying a reduction to the base time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRailBased_a7171464851ed793cc8c1177da2612bac}\label{classRailBased_a7171464851ed793cc8c1177da2612bac}} 
+\index{RailBased@{RailBased}!RailBased@{RailBased}}
+\index{RailBased@{RailBased}!RailBased@{RailBased}}
+\doxysubsubsection{\texorpdfstring{RailBased()}{RailBased()}}
+{\footnotesize\ttfamily Rail\+Based\+::\+Rail\+Based (\begin{DoxyParamCaption}\item[{double}]{speed,  }\item[{std\+::string}]{mode }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classRailBased}{Rail\+Based}} transportation strategy with a specified speed and sets the mode to \char`\"{}\+Train.\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & The speed of the rail-\/based transportation mode. \\
+\hline
+{\em mode} & The name of the rail-\/based transportation mode. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRailBased_a769ad19e00a754dbffeddfd33be69722}\label{classRailBased_a769ad19e00a754dbffeddfd33be69722}} 
+\index{RailBased@{RailBased}!calculateCommuteTime@{calculateCommuteTime}}
+\index{calculateCommuteTime@{calculateCommuteTime}!RailBased@{RailBased}}
+\doxysubsubsection{\texorpdfstring{calculateCommuteTime()}{calculateCommuteTime()}}
+{\footnotesize\ttfamily double Rail\+Based\+::calculate\+Commute\+Time (\begin{DoxyParamCaption}\item[{double}]{distance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the commute time for rail-\/based transportation, applying a reduction to the base time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em distance} & The distance to be traveled. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The total commute time, reduced by 10\% for rail-\/based efficiency. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classTransportStrategy_abb6d6be398b5fffba18228c1b6c8c1f2}{Transport\+Strategy}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Rail\+Based.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Rail\+Based.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,114 @@
+\hypertarget{classBudget}{}\doxysection{Budget Class Reference}
+\label{classBudget}\index{Budget@{Budget}}
+
+
+Inheritance diagram for Budget\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBudget_a365d980971fa0fb88298c59d3bf0347b}\label{classBudget_a365d980971fa0fb88298c59d3bf0347b}} 
+{\bfseries Budget} (const \mbox{\hyperlink{classBudget}{Budget}} \&)=delete
+\item 
+\mbox{\Hypertarget{classBudget_ad68348de75233a1aef206c0214806d20}\label{classBudget_ad68348de75233a1aef206c0214806d20}} 
+void {\bfseries operator=} (const \mbox{\hyperlink{classBudget}{Budget}} \&)=delete
+\item 
+void \mbox{\hyperlink{classBudget_ae3730852c3e65226815388bda198f2f8}{add\+Revenue}} (double amount)
+\begin{DoxyCompactList}\small\item\em Adds revenue to the budget and logs the transaction. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBudget_ac9d2e225dfcff5139e71d9afb66a4f01}{deduct\+Expense}} (double amount)
+\begin{DoxyCompactList}\small\item\em Deducts an expense from the budget if sufficient funds are available. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classBudget_a2219843258ba83afd3e846c720e5ac87}{get\+Balance}} () const
+\begin{DoxyCompactList}\small\item\em Gets the current balance of the budget. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBudget_ab747db3d4299f5b538c046581d4bec8b}{log\+Transaction}} (const std\+::string \&transaction)
+\begin{DoxyCompactList}\small\item\em Logs each transaction for auditing purposes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBudget_a5a0af2108c2a585fd55c8b64978ff7a8}\label{classBudget_a5a0af2108c2a585fd55c8b64978ff7a8}} 
+void \mbox{\hyperlink{classBudget_a5a0af2108c2a585fd55c8b64978ff7a8}{print\+Transaction\+History}} () const
+\begin{DoxyCompactList}\small\item\em Prints the transaction history to the console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static shared\+\_\+ptr$<$ \mbox{\hyperlink{classBudget}{Budget}} $>$ \mbox{\hyperlink{classBudget_add6c432e14ec116e489ba48f34342849}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Gets the singleton instance of the \mbox{\hyperlink{classBudget}{Budget}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBudget_ae3730852c3e65226815388bda198f2f8}\label{classBudget_ae3730852c3e65226815388bda198f2f8}} 
+\index{Budget@{Budget}!addRevenue@{addRevenue}}
+\index{addRevenue@{addRevenue}!Budget@{Budget}}
+\doxysubsubsection{\texorpdfstring{addRevenue()}{addRevenue()}}
+{\footnotesize\ttfamily void Budget\+::add\+Revenue (\begin{DoxyParamCaption}\item[{double}]{amount }\end{DoxyParamCaption})}
+
+
+
+Adds revenue to the budget and logs the transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & The amount of revenue to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBudget_ac9d2e225dfcff5139e71d9afb66a4f01}\label{classBudget_ac9d2e225dfcff5139e71d9afb66a4f01}} 
+\index{Budget@{Budget}!deductExpense@{deductExpense}}
+\index{deductExpense@{deductExpense}!Budget@{Budget}}
+\doxysubsubsection{\texorpdfstring{deductExpense()}{deductExpense()}}
+{\footnotesize\ttfamily bool Budget\+::deduct\+Expense (\begin{DoxyParamCaption}\item[{double}]{amount }\end{DoxyParamCaption})}
+
+
+
+Deducts an expense from the budget if sufficient funds are available. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & The amount of expense to deduct. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the expense was deducted successfully, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBudget_a2219843258ba83afd3e846c720e5ac87}\label{classBudget_a2219843258ba83afd3e846c720e5ac87}} 
+\index{Budget@{Budget}!getBalance@{getBalance}}
+\index{getBalance@{getBalance}!Budget@{Budget}}
+\doxysubsubsection{\texorpdfstring{getBalance()}{getBalance()}}
+{\footnotesize\ttfamily double Budget\+::get\+Balance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the current balance of the budget. 
+
+\begin{DoxyReturn}{Returns}
+The current balance. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBudget_add6c432e14ec116e489ba48f34342849}\label{classBudget_add6c432e14ec116e489ba48f34342849}} 
+\index{Budget@{Budget}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Budget@{Budget}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBudget}{Budget}} $>$ Budget\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Gets the singleton instance of the \mbox{\hyperlink{classBudget}{Budget}} class. 
+
+\begin{DoxyReturn}{Returns}
+A shared pointer to the \mbox{\hyperlink{classBudget}{Budget}} instance. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBudget_ab747db3d4299f5b538c046581d4bec8b}\label{classBudget_ab747db3d4299f5b538c046581d4bec8b}} 
+\index{Budget@{Budget}!logTransaction@{logTransaction}}
+\index{logTransaction@{logTransaction}!Budget@{Budget}}
+\doxysubsubsection{\texorpdfstring{logTransaction()}{logTransaction()}}
+{\footnotesize\ttfamily void Budget\+::log\+Transaction (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{transaction }\end{DoxyParamCaption})}
+
+
+
+Logs each transaction for auditing purposes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em transaction} & The transaction details to log. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Budget.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/Budget.\+cpp\end{DoxyCompactItemize}

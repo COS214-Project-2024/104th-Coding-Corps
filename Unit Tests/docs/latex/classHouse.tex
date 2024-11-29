@@ -1,0 +1,204 @@
+\hypertarget{classHouse}{}\doxysection{House Class Reference}
+\label{classHouse}\index{House@{House}}
+
+
+Inheritance diagram for House\+:
+% FIG 0
+
+
+Collaboration diagram for House\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHouse_a31a62e36374789d9db08b34213cb8fe9}\label{classHouse_a31a62e36374789d9db08b34213cb8fe9}} 
+{\bfseries House} (int x, int y, const std\+::string \&district, int quality, int garage\+Size, bool has\+Pool, int residents, int floors, bool has\+Garden)
+\item 
+int \mbox{\hyperlink{classHouse_ab66a065948cfcad8ca33e7ebda50a76b}{get\+Garage\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Gets the quality of care provided by the house. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHouse_a0136027ce00271316a8db29f2f728cd3}\label{classHouse_a0136027ce00271316a8db29f2f728cd3}} 
+bool {\bfseries has\+Swimming\+Pool} () const
+\item 
+std\+::string \mbox{\hyperlink{classHouse_a14defd962b88759b16e70e192bf4e4a0}{get\+Building\+Type}} () override
+\begin{DoxyCompactList}\small\item\em Gets the type of building. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classHouse_a68e8132d2f4bb57108f689c3796b40f6}{get\+Cost}} () override
+\begin{DoxyCompactList}\small\item\em Gets the cost of constructing the house. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classHouse_a6e40e665531ed17a5c6bff6799c335b9}{get\+Maintenance\+Cost}} () override
+\begin{DoxyCompactList}\small\item\em Gets the maintenance cost of the house. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classHouse_a1afccf96eff3421a170fa847318d0779}{get\+Energy\+Consumption}} () override
+\begin{DoxyCompactList}\small\item\em Gets the energy consumption of the house. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classHouse_a6f345fc9be8da915d79b43e4474aec14}{get\+Water\+Consumption}} () override
+\begin{DoxyCompactList}\small\item\em Gets the water consumption of the house. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHouse_aa4c4fd85ef372692c0023f5e0ad11042}\label{classHouse_aa4c4fd85ef372692c0023f5e0ad11042}} 
+int {\bfseries get\+Num\+Residents} ()
+\item 
+\mbox{\Hypertarget{classHouse_a426bfd9cea619384357f007b48d601b9}\label{classHouse_a426bfd9cea619384357f007b48d601b9}} 
+void \mbox{\hyperlink{classHouse_a426bfd9cea619384357f007b48d601b9}{demolish}} () override
+\begin{DoxyCompactList}\small\item\em Demolishes the house building and resets its attributes. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classHouse_ad9eea8b71b5f6b3ba4aea732cf500a0f}{get\+Area}} () override
+\begin{DoxyCompactList}\small\item\em Calculates the area of the house building. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classHouse_a13bd289293e0c569e7009fab7529aa73}{get\+Occupancy}} () override
+\begin{DoxyCompactList}\small\item\em Gets the occupancy of the house. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classHouse_aa029e5addc0ba34d1345d4a9c4861084}{upgrade}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ building) override
+\begin{DoxyCompactList}\small\item\em Upgrades the house building. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHouse_ad9eea8b71b5f6b3ba4aea732cf500a0f}\label{classHouse_ad9eea8b71b5f6b3ba4aea732cf500a0f}} 
+\index{House@{House}!getArea@{getArea}}
+\index{getArea@{getArea}!House@{House}}
+\doxysubsubsection{\texorpdfstring{getArea()}{getArea()}}
+{\footnotesize\ttfamily double House\+::get\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the area of the house building. 
+
+\begin{DoxyReturn}{Returns}
+The area of the building. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classBuildingComponent}{Building\+Component}}.
+
+\mbox{\Hypertarget{classHouse_a14defd962b88759b16e70e192bf4e4a0}\label{classHouse_a14defd962b88759b16e70e192bf4e4a0}} 
+\index{House@{House}!getBuildingType@{getBuildingType}}
+\index{getBuildingType@{getBuildingType}!House@{House}}
+\doxysubsubsection{\texorpdfstring{getBuildingType()}{getBuildingType()}}
+{\footnotesize\ttfamily std\+::string House\+::get\+Building\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the type of building. 
+
+\begin{DoxyReturn}{Returns}
+The string \char`\"{}\+House\char`\"{}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+\mbox{\Hypertarget{classHouse_a68e8132d2f4bb57108f689c3796b40f6}\label{classHouse_a68e8132d2f4bb57108f689c3796b40f6}} 
+\index{House@{House}!getCost@{getCost}}
+\index{getCost@{getCost}!House@{House}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily double House\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the cost of constructing the house. 
+
+\begin{DoxyReturn}{Returns}
+The construction cost in ZAR. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+\mbox{\Hypertarget{classHouse_a1afccf96eff3421a170fa847318d0779}\label{classHouse_a1afccf96eff3421a170fa847318d0779}} 
+\index{House@{House}!getEnergyConsumption@{getEnergyConsumption}}
+\index{getEnergyConsumption@{getEnergyConsumption}!House@{House}}
+\doxysubsubsection{\texorpdfstring{getEnergyConsumption()}{getEnergyConsumption()}}
+{\footnotesize\ttfamily double House\+::get\+Energy\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the energy consumption of the house. 
+
+\begin{DoxyReturn}{Returns}
+The monthly energy consumption in k\+Wh. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+\mbox{\Hypertarget{classHouse_ab66a065948cfcad8ca33e7ebda50a76b}\label{classHouse_ab66a065948cfcad8ca33e7ebda50a76b}} 
+\index{House@{House}!getGarageSize@{getGarageSize}}
+\index{getGarageSize@{getGarageSize}!House@{House}}
+\doxysubsubsection{\texorpdfstring{getGarageSize()}{getGarageSize()}}
+{\footnotesize\ttfamily int House\+::get\+Garage\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the quality of care provided by the house. 
+
+\begin{DoxyReturn}{Returns}
+The quality of care. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHouse_a6e40e665531ed17a5c6bff6799c335b9}\label{classHouse_a6e40e665531ed17a5c6bff6799c335b9}} 
+\index{House@{House}!getMaintenanceCost@{getMaintenanceCost}}
+\index{getMaintenanceCost@{getMaintenanceCost}!House@{House}}
+\doxysubsubsection{\texorpdfstring{getMaintenanceCost()}{getMaintenanceCost()}}
+{\footnotesize\ttfamily double House\+::get\+Maintenance\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the maintenance cost of the house. 
+
+\begin{DoxyReturn}{Returns}
+The maintenance cost as a percentage of the total cost. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+\mbox{\Hypertarget{classHouse_a13bd289293e0c569e7009fab7529aa73}\label{classHouse_a13bd289293e0c569e7009fab7529aa73}} 
+\index{House@{House}!getOccupancy@{getOccupancy}}
+\index{getOccupancy@{getOccupancy}!House@{House}}
+\doxysubsubsection{\texorpdfstring{getOccupancy()}{getOccupancy()}}
+{\footnotesize\ttfamily int House\+::get\+Occupancy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the occupancy of the house. 
+
+\begin{DoxyReturn}{Returns}
+The number of residents the house can accommodate. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+\mbox{\Hypertarget{classHouse_a6f345fc9be8da915d79b43e4474aec14}\label{classHouse_a6f345fc9be8da915d79b43e4474aec14}} 
+\index{House@{House}!getWaterConsumption@{getWaterConsumption}}
+\index{getWaterConsumption@{getWaterConsumption}!House@{House}}
+\doxysubsubsection{\texorpdfstring{getWaterConsumption()}{getWaterConsumption()}}
+{\footnotesize\ttfamily double House\+::get\+Water\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the water consumption of the house. 
+
+\begin{DoxyReturn}{Returns}
+The monthly water consumption in liters. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+\mbox{\Hypertarget{classHouse_aa029e5addc0ba34d1345d4a9c4861084}\label{classHouse_aa029e5addc0ba34d1345d4a9c4861084}} 
+\index{House@{House}!upgrade@{upgrade}}
+\index{upgrade@{upgrade}!House@{House}}
+\doxysubsubsection{\texorpdfstring{upgrade()}{upgrade()}}
+{\footnotesize\ttfamily void House\+::upgrade (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{building }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Upgrades the house building. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em building} & A shared pointer to a \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} (for resource management). \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classResidentialBuildings}{Residential\+Buildings}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/House.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/House.\+cpp\end{DoxyCompactItemize}

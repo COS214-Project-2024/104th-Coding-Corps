@@ -1,0 +1,198 @@
+\hypertarget{classSchool}{}\doxysection{School Class Reference}
+\label{classSchool}\index{School@{School}}
+
+
+Inheritance diagram for School\+:
+% FIG 0
+
+
+Collaboration diagram for School\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSchool_a974733a3204ac78e7fe7b6f4d814f673}\label{classSchool_a974733a3204ac78e7fe7b6f4d814f673}} 
+{\bfseries School} (int x, int y, const std\+::string \&district, int quality, int num\+Workers, int highest\+Qualification)
+\item 
+std\+::string \mbox{\hyperlink{classSchool_a98a34b7647e0deebb25da9abd757ce4d}{get\+Building\+Type}} () override
+\begin{DoxyCompactList}\small\item\em Gets the type of building. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSchool_a376505bfad301d58f70186658d2d04a1}{get\+Occupancy}} () override
+\begin{DoxyCompactList}\small\item\em Gets the occupancy of the school. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classSchool_af579c9e170615a8991f813122f750ac3}{get\+Cost}} () override
+\begin{DoxyCompactList}\small\item\em Gets the cost of constructing the school. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classSchool_a80a49dce6b8c15b4a391f6e8f87276e6}{get\+Maintenance\+Cost}} () override
+\begin{DoxyCompactList}\small\item\em Gets the maintenance cost of the school. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classSchool_a57b27ac8db672e33aff1c2b256c3063a}{get\+Energy\+Consumption}} () override
+\begin{DoxyCompactList}\small\item\em Gets the energy consumption of the school. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classSchool_afa8d0ed006a29a68b47de21547b9fea4}{get\+Water\+Consumption}} () override
+\begin{DoxyCompactList}\small\item\em Gets the water consumption of the school. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSchool_af5e99bb4d659c25ed58df38f27373247}\label{classSchool_af5e99bb4d659c25ed58df38f27373247}} 
+void \mbox{\hyperlink{classSchool_af5e99bb4d659c25ed58df38f27373247}{demolish}} () override
+\begin{DoxyCompactList}\small\item\em Demolishes the school building and resets its attributes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSchool_ac6c0ac9903c03e003336a0dc28f3a524}{upgrade}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$ building) override
+\begin{DoxyCompactList}\small\item\em Upgrades the school building. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classSchool_a27f0e52df078696714fdeb25d1250630}{get\+Area}} () override
+\begin{DoxyCompactList}\small\item\em Calculates the area of the school building. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSchool_a621f36eac9883a25bafc9931d0eff515}{get\+Highest\+Qualification}} ()
+\begin{DoxyCompactList}\small\item\em Gets the highest qualification level. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSchool_a27f0e52df078696714fdeb25d1250630}\label{classSchool_a27f0e52df078696714fdeb25d1250630}} 
+\index{School@{School}!getArea@{getArea}}
+\index{getArea@{getArea}!School@{School}}
+\doxysubsubsection{\texorpdfstring{getArea()}{getArea()}}
+{\footnotesize\ttfamily double School\+::get\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the area of the school building. 
+
+\begin{DoxyReturn}{Returns}
+The area of the building. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classSchool_a98a34b7647e0deebb25da9abd757ce4d}\label{classSchool_a98a34b7647e0deebb25da9abd757ce4d}} 
+\index{School@{School}!getBuildingType@{getBuildingType}}
+\index{getBuildingType@{getBuildingType}!School@{School}}
+\doxysubsubsection{\texorpdfstring{getBuildingType()}{getBuildingType()}}
+{\footnotesize\ttfamily std\+::string School\+::get\+Building\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the type of building. 
+
+\begin{DoxyReturn}{Returns}
+The string \char`\"{}\+School\char`\"{}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classSchool_af579c9e170615a8991f813122f750ac3}\label{classSchool_af579c9e170615a8991f813122f750ac3}} 
+\index{School@{School}!getCost@{getCost}}
+\index{getCost@{getCost}!School@{School}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily double School\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the cost of constructing the school. 
+
+\begin{DoxyReturn}{Returns}
+The construction cost in ZAR. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classSchool_a57b27ac8db672e33aff1c2b256c3063a}\label{classSchool_a57b27ac8db672e33aff1c2b256c3063a}} 
+\index{School@{School}!getEnergyConsumption@{getEnergyConsumption}}
+\index{getEnergyConsumption@{getEnergyConsumption}!School@{School}}
+\doxysubsubsection{\texorpdfstring{getEnergyConsumption()}{getEnergyConsumption()}}
+{\footnotesize\ttfamily double School\+::get\+Energy\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the energy consumption of the school. 
+
+\begin{DoxyReturn}{Returns}
+The monthly energy consumption in k\+Wh. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classSchool_a621f36eac9883a25bafc9931d0eff515}\label{classSchool_a621f36eac9883a25bafc9931d0eff515}} 
+\index{School@{School}!getHighestQualification@{getHighestQualification}}
+\index{getHighestQualification@{getHighestQualification}!School@{School}}
+\doxysubsubsection{\texorpdfstring{getHighestQualification()}{getHighestQualification()}}
+{\footnotesize\ttfamily int School\+::get\+Highest\+Qualification (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the highest qualification level. 
+
+\begin{DoxyReturn}{Returns}
+The highest qualification level. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSchool_a80a49dce6b8c15b4a391f6e8f87276e6}\label{classSchool_a80a49dce6b8c15b4a391f6e8f87276e6}} 
+\index{School@{School}!getMaintenanceCost@{getMaintenanceCost}}
+\index{getMaintenanceCost@{getMaintenanceCost}!School@{School}}
+\doxysubsubsection{\texorpdfstring{getMaintenanceCost()}{getMaintenanceCost()}}
+{\footnotesize\ttfamily double School\+::get\+Maintenance\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the maintenance cost of the school. 
+
+\begin{DoxyReturn}{Returns}
+The maintenance cost as a percentage of the total cost. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classSchool_a376505bfad301d58f70186658d2d04a1}\label{classSchool_a376505bfad301d58f70186658d2d04a1}} 
+\index{School@{School}!getOccupancy@{getOccupancy}}
+\index{getOccupancy@{getOccupancy}!School@{School}}
+\doxysubsubsection{\texorpdfstring{getOccupancy()}{getOccupancy()}}
+{\footnotesize\ttfamily int School\+::get\+Occupancy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the occupancy of the school. 
+
+\begin{DoxyReturn}{Returns}
+The number of students the school can accommodate. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classSchool_afa8d0ed006a29a68b47de21547b9fea4}\label{classSchool_afa8d0ed006a29a68b47de21547b9fea4}} 
+\index{School@{School}!getWaterConsumption@{getWaterConsumption}}
+\index{getWaterConsumption@{getWaterConsumption}!School@{School}}
+\doxysubsubsection{\texorpdfstring{getWaterConsumption()}{getWaterConsumption()}}
+{\footnotesize\ttfamily double School\+::get\+Water\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the water consumption of the school. 
+
+\begin{DoxyReturn}{Returns}
+The monthly water consumption in liters. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+\mbox{\Hypertarget{classSchool_ac6c0ac9903c03e003336a0dc28f3a524}\label{classSchool_ac6c0ac9903c03e003336a0dc28f3a524}} 
+\index{School@{School}!upgrade@{upgrade}}
+\index{upgrade@{upgrade}!School@{School}}
+\doxysubsubsection{\texorpdfstring{upgrade()}{upgrade()}}
+{\footnotesize\ttfamily void School\+::upgrade (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} $>$}]{building }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Upgrades the school building. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em building} & A shared pointer to a \mbox{\hyperlink{classBuildingComponent}{Building\+Component}} (for resource management). \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classServiceBuildings}{Service\+Buildings}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/School.\+h\item 
+/mnt/c/\+Users/\+Capleton/\+Desktop/\+COS214/practical/104th-\/\+Coding-\/\+Corps/School.\+cpp\end{DoxyCompactItemize}
